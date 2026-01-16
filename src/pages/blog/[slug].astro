@@ -1,0 +1,21 @@
+---
+import { Astro } from 'astro';
+import content from "../../../data/site-content.json";
+---
+
+<Layout title="{post.title} - vdesignu Blog" description={post.excerpt} >
+  {(() => {
+    const { slug } = Astro.params;
+    const post = content.blog.posts.find(p => p.slug === slug);
+    if (!post) {
+      return <p class="text-neutral-400">Post not found.</p>;
+    }
+    return (
+      <article class="prose prose-invert max-w-4xl mx-auto py-16 px-6">
+        <h1 class="gradient-text-red">{post.title}</h1>
+        <p class="text-sm text-neutral-500 mb-4">{post.date} • {post.category}</p>
+        <div innerHTML={post.content} />
+      </article>
+    );
+  })()}
+</Layout>

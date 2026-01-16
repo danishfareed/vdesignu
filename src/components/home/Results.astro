@@ -1,0 +1,66 @@
+---
+import content from "../../data/site-content.json";
+const { results } = content.homepage;
+---
+
+<section class="py-24 bg-[var(--bg-secondary)]">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-6xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-4">
+        {results.title}
+      </h2>
+      <p class="text-xl text-[var(--text-secondary)] max-w-2xl mx-auto">
+        {results.subtitle}
+      </p>
+    </div>
+
+    <!-- Case Study Cards -->
+    <div class="grid md:grid-cols-3 gap-8">
+      {results.cases.map((case_study: any) => (
+        <div class="bg-[var(--bg-card)] border-2 border-[var(--border-subtle)] rounded-2xl p-8 hover:border-red-500 transition-all duration-300 group">
+          <!-- Industry Tag -->
+          <div class="flex items-center gap-2 mb-6">
+            <span class="px-3 py-1 rounded-full bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-bold uppercase tracking-wider">
+              {case_study.industry}
+            </span>
+            <span class="text-xs text-[var(--text-muted)]">📍 {case_study.location}</span>
+          </div>
+
+          <!-- Main Metric -->
+          <div class="mb-4">
+            <div class="text-6xl font-black italic tracking-tighter text-red-600 mb-2">
+              {case_study.metric}
+            </div>
+            <div class="text-xl font-bold text-[var(--text-primary)] uppercase tracking-tight">
+              {case_study.label}
+            </div>
+          </div>
+
+          <!-- Description -->
+          <p class="text-[var(--text-secondary)] leading-relaxed mb-4">
+            {case_study.description}
+          </p>
+
+          <!-- Timeline -->
+          <div class="flex items-center gap-2 text-sm text-[var(--text-muted)]">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span>Results in {case_study.timeline}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-12">
+      <a href="/work" class="inline-flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-[var(--text-primary)] text-[var(--text-primary)] font-bold rounded-full hover:bg-[var(--text-primary)] hover:text-[var(--bg-primary)] transition-all uppercase tracking-tight">
+        View All Case Studies
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

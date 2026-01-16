@@ -1,0 +1,172 @@
+---
+import Layout from "../../../../../layouts/Layout.astro";
+import seoData from "../../../../../data/seo-combinations.json";
+
+export async function getStaticPaths() {
+  return seoData.slice(0, 5).map((item: any) => ({
+    params: { 
+      city: item.city, 
+      industry: item.industry, 
+      service: item.service 
+    },
+    props: { data: item },
+  }));
+}
+
+const { data } = Astro.props;
+const { city, cityName, country, industry, industryName, service, serviceName, metaTitle, metaDescription, h1 } = data;
+---
+
+<Layout title={metaTitle} description={metaDescription}>
+  <!-- Hero Section -->
+  <section class="pt-32 pb-20 relative overflow-hidden">
+    <div class="absolute inset-0 grid-pattern opacity-10 dark:opacity-30"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] radial-gradient-red opacity-40 dark:opacity-60"></div>
+    
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+      <nav class="mb-12 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-neutral-400">
+        <a href="/" class="hover:text-red-600 transition-colors">Home</a>
+        <span>/</span>
+        <a href="/solutions" class="hover:text-red-600 transition-colors">Solutions</a>
+        <span>/</span>
+        <span class="text-red-600 uppercase">{cityName}</span>
+      </nav>
+      
+      <div class="max-w-4xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs font-black uppercase tracking-widest mb-8">
+           Strategic {industryName} Solutions &bull; {country}
+        </div>
+        
+        <h1 class="text-4xl md:text-7xl font-black text-neutral-900 dark:text-white uppercase italic tracking-tighter leading-[1.1] mb-10">
+          {serviceName.split('(')[0]} <br /> 
+          <span class="gradient-text-red">for {industryName}</span> <br />
+          <span class="text-neutral-900 dark:text-white">in {cityName}</span>
+        </h1>
+        
+        <p class="text-lg md:text-2xl text-neutral-500 dark:text-neutral-400 leading-relaxed font-medium mb-12 max-w-3xl">
+          {metaDescription} Our specialized growth protocols are engineered to remove friction and accelerate performance in the high-stakes {industryName} sector.
+        </p>
+        
+        <div class="flex flex-wrap gap-4">
+          <a 
+            href="#contact"
+            class="inline-flex items-center gap-4 px-10 py-5 bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 text-lg font-black rounded-2xl hover:bg-red-600 dark:hover:bg-red-500 hover:text-white dark:hover:text-white transition-all duration-300 shadow-2xl uppercase italic tracking-tighter group"
+          >
+            Initiate Consultation
+            <div class="w-8 h-8 rounded-full bg-red-500 text-white flex items-center justify-center group-hover:bg-white group-hover:text-red-600 transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Propositions -->
+  <section class="py-32 relative overflow-hidden border-t border-neutral-100 dark:border-neutral-900">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-12">
+        {[
+          { title: "Industry Precision", desc: `Deep domain expertise in ${industryName} workflows and compliance requirements in ${cityName}.` },
+          { title: "Regional Latency", desc: `Zero-friction digital experiences deployed on ${country}'s premium edge-infrastructure.` },
+          { title: "B2B Automation", desc: "Specialized lead capture and CRM nurturing for high-ticket industrial contracts." }
+        ].map(prop => (
+          <div class="group">
+             <div class="w-16 h-16 rounded-2xl bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center mb-8 group-hover:bg-red-600 group-hover:text-white transition-all">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+             </div>
+             <h3 class="text-2xl font-black text-neutral-900 dark:text-white uppercase italic tracking-tighter mb-4">{prop.title}</h3>
+             <p class="text-sm text-neutral-500 dark:text-neutral-400 font-medium leading-relaxed">{prop.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contextual Content Section -->
+  <section class="py-32 bg-neutral-50 dark:bg-neutral-900/50 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-24 items-center">
+        <div>
+           <h2 class="text-3xl md:text-5xl font-black text-neutral-900 dark:text-white uppercase italic tracking-tighter mb-10 leading-none">
+             Why {cityName} Enterprises Choose <span class="gradient-text-red">vdesignu</span>
+           </h2>
+           <div class="space-y-6">
+              <p class="text-lg text-neutral-500 dark:text-neutral-400 font-medium leading-relaxed">
+                In the competitive {industryName} landscape of {cityName}, digital presence is no longer just a storefront—it is your most specialized sales engineer. 
+              </p>
+              <p class="text-lg text-neutral-500 dark:text-neutral-400 font-medium leading-relaxed">
+                We bridge the gap between complex industrial services and simple, zero-friction lead generation. From {cityName}-specific SEO authority to {country} compliance-ready CRM automation, we build the engines that propel {industryName} leaders forward.
+              </p>
+           </div>
+        </div>
+        <div class="relative">
+           <div class="glass dark:bg-neutral-900 p-12 rounded-[3rem] border-l-8 border-red-600">
+              <div class="text-xs font-black text-red-600 dark:text-red-500 uppercase tracking-[0.2em] mb-4">Strategic Advantage</div>
+              <h4 class="text-2xl font-black text-neutral-900 dark:text-white uppercase italic tracking-tighter mb-6">Localized Market Intelligence</h4>
+              <ul class="space-y-4">
+                 {[
+                   `Optimized for ${cityName} search behavior`,
+                   `${country} Data Residency Compliance`,
+                   `RTL/Arabic-First User Interfaces`,
+                   `B2B Lead Scoring for ${industryName}`
+                 ].map(item => (
+                   <li class="flex items-center gap-3 text-sm font-bold text-neutral-500 dark:text-neutral-400">
+                      <span class="w-1.5 h-1.5 bg-red-600 rounded-full"></span>
+                      {item}
+                   </li>
+                 ))}
+              </ul>
+           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="contact" class="py-32 relative overflow-hidden">
+    <div class="absolute inset-0 radial-gradient-red opacity-10 dark:opacity-30"></div>
+    <div class="max-w-4xl mx-auto px-6 text-center">
+       <h2 class="text-4xl md:text-7xl font-black text-neutral-900 dark:text-white uppercase italic tracking-tighter mb-10 leading-none">
+         Let's Scale <br /> <span class="gradient-text-red">Your Domain.</span>
+       </h2>
+       <p class="text-lg text-neutral-500 dark:text-neutral-400 font-medium mb-12">
+         Ready to discuss specialized {serviceName} strategies for your {industryName} firm in {cityName}?
+       </p>
+       <a 
+          href="mailto:growth@vdesignu.com"
+          class="inline-flex items-center gap-4 px-12 py-6 bg-red-600 text-white text-xl font-black rounded-2xl hover:bg-black transition-all duration-300 shadow-2xl uppercase italic tracking-tighter"
+        >
+          Initiate Discovery
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+    </div>
+  </section>
+
+</Layout>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": `${serviceName} for ${industryName}`,
+  "description": metaDescription,
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "vdesignu",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": cityName,
+      "addressCountry": country
+    }
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": cityName
+  }
+})} />

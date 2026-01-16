@@ -1,0 +1,82 @@
+---
+import content from "../../data/site-content.json";
+const { title, mission, story, values } = content.about;
+---
+
+<section class="py-24 bg-[var(--bg-primary)] overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <!-- Visual Side -->
+      <div class="relative">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="space-y-4">
+            <div class="aspect-square bg-red-600 rounded-2xl flex items-center justify-center p-8 text-white">
+              <div class="text-4xl font-black italic tracking-tighter uppercase leading-none">Why<br/>Us?</div>
+            </div>
+            <div class="aspect-[3/4] rounded-2xl overflow-hidden border-2 border-[var(--border-subtle)] bg-[var(--bg-secondary)] flex items-center justify-center p-6 text-center">
+              <div>
+                <div class="text-4xl font-black italic text-red-600 mb-2">200+</div>
+                <div class="text-xs font-bold uppercase tracking-widest text-[var(--text-muted)]">Clients Helped</div>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-4 pt-12">
+            <div class="aspect-[3/4] rounded-2xl overflow-hidden border-2 border-[var(--border-subtle)] bg-[var(--bg-secondary)] flex items-center justify-center p-6 text-center">
+              <div>
+                <div class="text-4xl font-black italic text-red-600 mb-2">100%</div>
+                <div class="text-xs font-bold uppercase tracking-widest text-[var(--text-muted)]">B2B Focused</div>
+              </div>
+            </div>
+            <div class="aspect-square bg-[var(--text-primary)] rounded-2xl flex items-center justify-center p-8 text-[var(--bg-primary)]">
+               <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-10V4m0 10V4m0 10h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Decorative bits -->
+        <div class="absolute -top-6 -right-6 w-3 2 h-32 bg-red-600/10 rounded-full blur-3xl -z-10"></div>
+      </div>
+
+      <!-- Text Side -->
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-bold uppercase tracking-[0.2em] mb-6">
+          The vdesignu Edge
+        </div>
+        <h2 class="text-4xl md:text-6xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-8 leading-[0.95]">
+          Built for <span class="text-red-600">Industrial</span><br/>Authority.
+        </h2>
+        
+        <p class="text-xl text-[var(--text-secondary)] leading-relaxed mb-8">
+          {mission}
+        </p>
+        
+        <div class="space-y-8">
+          {values.map((value: any) => (
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-6 h-6 rounded-full bg-red-600 mt-1 flex items-center justify-center">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-lg font-bold text-[var(--text-primary)] uppercase tracking-tight mb-1">{value.title}</h4>
+                <p class="text-[var(--text-muted)] text-sm leading-relaxed">{value.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="mt-12 flex gap-4">
+          <a href="/about" class="px-8 py-4 bg-[var(--text-primary)] text-[var(--bg-primary)] font-bold rounded-full hover:bg-red-600 hover:text-white transition-all uppercase tracking-tight">
+            Our Story
+          </a>
+          <a href="/contact" class="px-8 py-4 border-2 border-[var(--border-subtle)] text-[var(--text-primary)] font-bold rounded-full hover:border-red-600 hover:text-red-600 transition-all uppercase tracking-tight">
+            Talk to an Expert
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

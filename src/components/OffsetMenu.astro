@@ -1,0 +1,100 @@
+---
+import { services, industries, cities } from "../config/site-config";
+---
+
+<div
+  id="offset-menu"
+  class="fixed inset-0 z-[100] translate-x-full transition-transform duration-700 ease-[cubic-bezier(0.77,0,0.175,1)] flex"
+>
+  <!-- Backdrop -->
+  <div id="menu-backdrop" class="flex-grow bg-black/40 backdrop-blur-sm opacity-0 transition-opacity duration-700"></div>
+  
+  <!-- Content Panel -->
+  <div class="w-full max-w-xl bg-[var(--bg-primary)] h-full shadow-2xl overflow-y-auto px-8 py-16 flex flex-col border-l border-[var(--border-subtle)]">
+    <!-- Close Button -->
+    <button
+      id="close-menu"
+      class="absolute top-8 right-8 p-3 rounded-full hover:bg-[var(--bg-tertiary)] transition-colors"
+    >
+      <svg class="w-6 h-6 text-[var(--text-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+
+    <!-- Branding -->
+    <div class="mb-12">
+      <h2 class="text-4xl font-black text-red-600 italic uppercase tracking-tighter">vdesignu<span class="text-[var(--text-primary)]">.</span></h2>
+      <p class="text-xs font-bold text-[var(--text-muted)] mt-2 uppercase tracking-[0.3em]">Engineering Revenue</p>
+    </div>
+
+    <!-- Navigation Sections -->
+    <div class="space-y-10 flex-grow">
+      <!-- Services -->
+      <div>
+        <h3 class="text-xs font-bold text-[var(--text-muted)] uppercase tracking-widest mb-6 border-b border-[var(--border-subtle)] pb-2">Expertise</h3>
+        <div class="grid grid-cols-1 gap-4">
+          {services.map(s => (
+            <a href={`/services/${s.slug}`} class="text-xl font-bold text-[var(--text-primary)] hover:text-red-600 transition-colors">
+              {s.name}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Prime Geographies -->
+      <div>
+        <h3 class="text-xs font-bold text-[var(--text-muted)] uppercase tracking-widest mb-6 border-b border-[var(--border-subtle)] pb-2">Core Locations</h3>
+        <div class="flex flex-wrap gap-x-6 gap-y-3">
+          {cities.slice(0, 5).map(c => (
+            <a href={`/locations`} class="text-lg font-medium text-[var(--text-secondary)] hover:text-red-600 transition-colors">
+              {c.name}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Industrial Verticals -->
+      <div>
+        <h3 class="text-xs font-bold text-[var(--text-muted)] uppercase tracking-widest mb-6 border-b border-[var(--border-subtle)] pb-2">Industrial Focus</h3>
+        <div class="flex flex-wrap gap-x-4 gap-y-2">
+          {industries.slice(0, 6).map(i => (
+            <a href={`/industries`} class="px-3 py-1 rounded-full bg-[var(--bg-tertiary)] text-sm font-medium text-[var(--text-secondary)] hover:bg-red-600 hover:text-white transition-all">
+              {i.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="mt-16 pt-8 border-t border-[var(--border-subtle)]">
+      <p class="text-sm text-[var(--text-muted)] mb-2">Inquiry Portal</p>
+      <a href="mailto:hello@vdesignu.com" class="text-lg font-bold text-[var(--text-primary)] hover:text-red-600 transition-colors">
+        hello@vdesignu.com
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const openBtn = document.getElementById('mobile-menu-btn'); // Renaming this for consistency in Layout
+  const closeBtn = document.getElementById('close-menu');
+  const menu = document.getElementById('offset-menu');
+  const backdrop = document.getElementById('menu-backdrop');
+
+  const openMenu = () => {
+    menu?.classList.remove('translate-x-full');
+    backdrop?.classList.remove('opacity-0');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeMenu = () => {
+    menu?.classList.add('translate-x-full');
+    backdrop?.classList.add('opacity-0');
+    document.body.style.overflow = '';
+  };
+
+  openBtn?.addEventListener('click', openMenu);
+  closeBtn?.addEventListener('click', closeMenu);
+  backdrop?.addEventListener('click', closeMenu);
+</script>

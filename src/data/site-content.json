@@ -1,0 +1,73 @@
+{
+  "site": {
+    "name": "vdesignu",
+    "logo": "https://crm.vdesignu.com/uploads/company/logo.png",
+    "tagline": "Revenue-Driven Digital Engineering"
+  },
+  "homepage": {
+    "metaTitle": "vdesignu – Industrial Digital Growth Engineering | Custom Platforms, SEO, AI & Lead Gen",
+    "metaDescription": "We engineer high-performance custom platforms, ecommerce systems, and AI integrations for B2B industrial companies in the Gulf. Dominate your market with vdesignu.",
+    "hero": {
+      "badge": "Trusted by 200+ Industrial Leaders",
+      "headline": "We Don't Just Build Websites. We Engineer Revenue Systems.",
+      "subheadline": "Your competitors are closing multi-million dollar deals while you're managing a static brochure. We build custom digital platforms and automated marketing systems that turn visitors into high-value contracts—24/7.",
+      "cta": [
+        { "label": "Book Strategy Call", "href": "/contact", "primary": true },
+        { "label": "View Our Expertise", "href": "/services", "primary": false }
+      ]
+    },
+    "stats": [
+      { "value": "150", "suffix": "+", "label": "AI Integrations", "description": "Automated Workflows" },
+      { "value": "217", "suffix": "+", "label": "Digital Platforms", "description": "Successfully Launched" },
+      { "value": "4.2", "suffix": "M", "label": "Pipeline Value", "description": "Generated for Clients" }
+    ],
+    "services": {
+      "title": "Comprehensive Digital Engineering",
+      "subtitle": "Specialized solutions for B2B industrial groups who demand precision, performance, and measurable ROI.",
+      "items": [
+        {
+          "title": "Custom Digital Platforms",
+          "description": "Portals, dashboards, and internal systems built to manage complex industrial operations.",
+          "icon": "automation",
+          "slug": "digital-platforms"
+        },
+        {
+          "title": "Web Application Development",
+          "description": "Scalable, high-performance web applications tailored to your specific business logic.",
+          "icon": "code",
+          "slug": "web-app-dev"
+        },
+        {
+          "title": "Ecommerce Engineering",
+          "description": "Complex B2B ecommerce systems for industrial parts and services with multi-vendor support.",
+          "icon": "chart",
+          "slug": "ecommerce-dev"
+        },
+        {
+          "title": "AI & CRM Solutions",
+          "description": "Intelligent lead scoring, automated follow-ups, and AI assistants integrated into your CRM.",
+          "icon": "document",
+          "slug": "ai-solutions"
+        },
+        {
+          "title": "Search Dominance (SEO)",
+          "description": "Advanced technical SEO and AI-Search Engine Optimization (GEO) to own page 1.",
+          "icon": "target",
+          "slug": "seo"
+        },
+        {
+          "title": "Email & CRM Marketing",
+          "description": "HTML developed emails and automation sequences that move leads through long sales cycles.",
+          "icon": "palette",
+          "slug": "email-marketing"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to Stop Guessing and Start Growing?",
+      "subtitle": "Book a 30-minute strategy call. We'll audit your current digital stack and show you exactly where the revenue leaks are.",
+      "button": "Book Free Strategy Call",
+      "note": "Get a custom roadmap in 24 hours."
+    }
+  }
+}

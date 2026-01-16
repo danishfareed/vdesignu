@@ -1,0 +1,62 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { industries } from "../config/site-config";
+---
+
+<Layout title="Industries We Dominate | vdesignu" description="Enterprise digital solutions for oil & gas, marine, manufacturing, construction, and more B2B industrial sectors across the Gulf region.">
+  <!-- Hero -->
+  <section class="pt-40 pb-16 bg-[var(--bg-primary)]">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h1 class="text-5xl md:text-8xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-8 leading-none">
+        Industries<br/><span class="text-red-600">We Dominate</span>.
+      </h1>
+      <p class="text-2xl text-[var(--text-secondary)] max-w-3xl mx-auto leading-relaxed">
+        Deep sector expertise for B2B industrial leaders. We don't just speak your language—we understand your supply chain, your buyers, and your growth triggers.
+      </p>
+    </div>
+  </section>
+  
+  <!-- All Industries -->
+  <section class="py-24 bg-[var(--bg-secondary)]">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {industries.map((industry, i) => (
+          <div class="bg-[var(--bg-card)] p-10 rounded-[2.5rem] border-2 border-[var(--border-subtle)] hover:border-red-500 transition-all group relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-8 text-6xl font-black italic tracking-tighter text-red-600 opacity-5 group-hover:opacity-20 transition-opacity">
+              {String(i + 1).padStart(2, '0')}
+            </div>
+            
+            <h3 class="text-3xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-6 group-hover:text-red-600 transition-colors">
+              {industry.name}
+            </h3>
+            
+            <p class="text-lg text-[var(--text-secondary)] leading-relaxed mb-8 relative z-10">
+              Strategic digital systems engineered specifically for {industry.name.toLowerCase()} firms seeking to capture high-value contracts.
+            </p>
+
+            {industry.keywords && (
+              <div class="flex flex-wrap gap-2 relative z-10">
+                {industry.keywords.map((kw: string) => (
+                  <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 bg-red-50 dark:bg-red-900/10 text-red-600 dark:text-red-400 rounded-full border border-red-100 dark:border-red-900/30">{kw}</span>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA -->
+  <section class="py-24 bg-[var(--bg-primary)] border-t border-[var(--border-subtle)]">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h2 class="text-4xl md:text-7xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-8 leading-none">
+        Don't See Your <span class="text-red-600">Sector</span>?
+      </h2>
+      <p class="text-2xl text-[var(--text-secondary)] mb-12">If you're a B2B company with a complex sales cycle, we have the blueprint for your growth.</p>
+      <a href="/contact" class="inline-flex items-center gap-4 px-12 py-6 bg-red-600 text-white font-black italic uppercase tracking-tighter text-2xl rounded-full hover:bg-black transition-all shadow-xl">
+        Book Strategy Session
+      </a>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,143 @@
+---
+// Interactive Gravity Component using Matter.js
+
+---
+
+<div id="gravity-wrapper" class="gravity-container">
+  <canvas id="gravity-canvas"></canvas>
+</div>
+
+<style>
+  .gravity-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.12;
+  }
+  
+  #gravity-canvas {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<script>
+  const initGravity = async () => {
+    // Dynamic import Matter.js for code splitting
+    const Matter = await import('matter-js');
+    
+    const { Engine, Render, World, Bodies, Runner } = Matter.default;
+    
+    const container = document.getElementById('gravity-wrapper');
+    const canvas = document.getElementById('gravity-canvas') as HTMLCanvasElement;
+    
+    if (!container || !canvas) return;
+    
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    
+    // Create engine
+    const engine = Engine.create({
+      gravity: { x: 0, y: 0.5 }
+    });
+    
+    // Create renderer
+    const render = Render.create({
+      canvas: canvas,
+      engine: engine,
+      options: {
+        width: width,
+        height: height,
+        background: 'transparent',
+        wireframes: false,
+        pixelRatio: Math.min(window.devicePixelRatio, 2)
+      }
+    });
+    
+    // Wall options
+    const wallOptions = { 
+      isStatic: true, 
+      render: { visible: false },
+      friction: 0.8,
+      restitution: 0.3
+    };
+    
+    // Create walls
+    const ground = Bodies.rectangle(width / 2, height + 30, width + 100, 60, wallOptions);
+    const leftWall = Bodies.rectangle(-30, height / 2, 60, height + 100, wallOptions);
+    const rightWall = Bodies.rectangle(width + 30, height / 2, 60, height + 100, wallOptions);
+    
+    // Keywords to fall - Industrial B2B Focus
+    const keywords = [
+      'OIL & GAS', 'MARINE', 'SAFETY', 'HVAC', 'MEP', 'B2B',
+      'SCALING', 'AUTOMATION', 'ELECTRICAL', 'FLEET', 'INDUSTRIAL', 'LOGISTICS'
+    ];
+    
+    // Color palette (Professional B2B Industrial)
+    const colors = [
+      '#dc2626', // Red
+      '#ef4444', // Lighter Red
+      '#0a0a0a', // Dark Neutral
+      '#94a3b8', // Slate
+      '#475569', // Steel
+      '#1e293b', // Slate Dark
+      '#f1f5f9', // Ghost White
+      '#b91c1c'  // Deep Red
+    ];
+    
+    // Create falling bodies
+    const bodies = keywords.map((keyword, i) => {
+      const x = Math.random() * (width - 200) + 100;
+      const y = -100 - (Math.random() * 800);
+      const isLarge = Math.random() > 0.8;
+      const size = isLarge ? 60 : 40;
+      
+      return Bodies.rectangle(x, y, size * 2.5, size, {
+        chamfer: { radius: 12 },
+        friction: 0.1,
+        restitution: 0.6,
+        render: {
+          fillStyle: colors[i % colors.length],
+          lineWidth: 1,
+          strokeStyle: '#dc2626'
+        },
+        label: keyword
+      });
+    });
+    
+    // Add all bodies
+    World.add(engine.world, [ground, leftWall, rightWall, ...bodies]);
+    
+    // Create runner
+    const runner = Runner.create();
+    
+    // Run engine and renderer
+    Runner.run(runner, engine);
+    Render.run(render);
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      render.canvas.width = window.innerWidth;
+      render.canvas.height = window.innerHeight;
+      render.options.width = window.innerWidth;
+      render.options.height = window.innerHeight;
+    });
+  };
+  
+  // Check for reduced motion preference
+  const motionQuery = window.matchMedia('(prefers-reduced-motion: no-preference)');
+  const isDesktop = window.innerWidth >= 1024;
+  
+  if (motionQuery.matches && isDesktop) {
+    // Delay initialization for better initial load performance
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => initGravity());
+    } else {
+      setTimeout(initGravity, 2000);
+    }
+  }
+</script>

@@ -1,0 +1,131 @@
+---
+import Layout from "../layouts/Layout.astro";
+import content from "../data/site-content.json";
+
+const { services } = content;
+---
+
+<Layout title="Strategic Capabilities" description={services.metaDescription}>
+  <!-- Hero -->
+  <section class="pt-32 pb-20 relative overflow-hidden">
+    <div class="absolute inset-0 grid-pattern opacity-10 dark:opacity-30"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] radial-gradient-red opacity-40 dark:opacity-60"></div>
+    
+    <div class="relative z-10 max-w-6xl mx-auto px-6 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs font-black uppercase tracking-widest mb-6">
+        Capabilities Ecosystem
+      </div>
+      <h1 class="text-4xl md:text-7xl font-black text-neutral-900 dark:text-white mb-8 uppercase italic tracking-tighter leading-none">
+        Enterprise-Grade <br /> <span class="gradient-text-red">Growth Infrastructure</span>
+      </h1>
+      <p class="text-lg md:text-xl text-neutral-500 dark:text-neutral-400 max-w-3xl mx-auto leading-relaxed font-medium">
+        {services.hero.subheadline}
+      </p>
+    </div>
+  </section>
+  
+  <!-- Tech Stack -->
+  <section class="py-32 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-24">
+        <h2 class="text-3xl md:text-5xl font-black text-neutral-900 dark:text-white uppercase italic tracking-tighter mb-6">{services.techStack.title}</h2>
+        <p class="text-lg text-neutral-500 dark:text-neutral-400 font-medium">Precision engineering for high-stakes industrial markets.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        {services.techStack.items.map((item : any) => (
+          <div class="glass dark:bg-neutral-900 p-10 rounded-[2.5rem] hover:-translate-y-2 transition-all duration-500 group">
+            <div class="text-red-600 dark:text-red-500 text-xs font-black uppercase tracking-widest mb-4">
+              {item.category}
+            </div>
+            <h3 class="text-2xl font-black text-neutral-900 dark:text-white uppercase italic tracking-tighter mb-4 group-hover:text-red-600 dark:group-hover:text-red-500 transition-colors">
+              {item.name}
+            </h3>
+            <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed font-medium">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Differentiators -->
+  <section class="py-32 bg-neutral-50 dark:bg-neutral-900/50 relative overflow-hidden">
+    <div class="absolute inset-0 radial-gradient-red opacity-10 dark:opacity-20 translate-x-1/2"></div>
+    
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+      <div class="text-center mb-24">
+        <h2 class="text-3xl md:text-5xl font-black text-neutral-900 dark:text-white uppercase italic tracking-tighter mb-6">Strategic Differentiators</h2>
+        <p class="text-lg text-neutral-500 dark:text-neutral-400 font-medium">Why the world's most disciplined industries choose vdesignu.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-12">
+        {services.differentiators.map((diff : any, i : number) => (
+          <div class="text-center group">
+            <div class="w-24 h-24 rounded-3xl bg-white dark:bg-neutral-800 shadow-xl flex items-center justify-center mx-auto mb-8 group-hover:bg-red-600 group-hover:text-white transition-all duration-500 group-hover:scale-110">
+              <span class="text-4xl font-black gradient-text-red group-hover:text-white transition-colors uppercase italic tracking-tighter">0{i + 1}</span>
+            </div>
+            <h3 class="text-xl font-black text-neutral-900 dark:text-white uppercase italic tracking-tighter mb-4">{diff.title}</h3>
+            <p class="text-sm text-neutral-500 dark:text-neutral-400 font-medium leading-relaxed">{diff.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- Services List -->
+  <section class="py-32 relative">
+    <div class="absolute inset-0 grid-pattern opacity-10 dark:opacity-30"></div>
+    
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+      <div class="text-center mb-20">
+        <h2 class="text-3xl md:text-6xl font-black text-neutral-900 dark:text-white uppercase italic tracking-tighter mb-6">Core <br /> <span class="gradient-text-red">Technical Stack</span></h2>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        {services.list.map((service : any) => (
+          <div id={service.slug} class="glass dark:bg-neutral-900 p-12 rounded-[3rem] hover:-translate-y-2 transition-all duration-500 group border-b-4 border-transparent hover:border-red-600">
+            <div class="flex items-start gap-8">
+              <div class="w-20 h-20 rounded-2xl bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center flex-shrink-0 group-hover:bg-red-600 group-hover:text-white transition-all duration-500">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-3xl font-black text-neutral-900 dark:text-white uppercase italic tracking-tighter mb-4 group-hover:text-red-600 dark:group-hover:text-red-500 transition-colors">
+                  {service.title}
+                </h3>
+                <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed font-medium mb-6">
+                  Industrial-grade solutions engineered for performance, precision, and high-stakes scalability. Optimized for the unique demands of the B2B mechanical sector.
+                </p>
+                <div class="flex items-center gap-4">
+                  <span class="text-[10px] font-black uppercase tracking-widest text-red-600 dark:text-red-500 px-2 py-1 bg-red-50 dark:bg-red-900/20 rounded">B2B Optimized</span>
+                  <span class="text-[10px] font-black uppercase tracking-widest text-neutral-400">High Frequency</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA -->
+  <section class="py-32 bg-neutral-900 dark:bg-white relative overflow-hidden">
+     <div class="absolute inset-0 radial-gradient-red opacity-30 dark:opacity-10"></div>
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <h2 class="text-4xl md:text-7xl font-black text-white dark:text-neutral-900 uppercase italic tracking-tighter mb-10 leading-none">
+        Ready to <br /> <span class="gradient-text-red">Dominate?</span>
+      </h2>
+      <p class="text-neutral-400 dark:text-neutral-500 text-lg font-medium mb-12">Contact our strategic advisors to initiate your B2B growth engine.</p>
+      <a 
+        href="mailto:hello@vdesignu.com"
+        class="inline-flex items-center gap-4 px-12 py-6 bg-red-600 text-white text-xl font-black rounded-2xl hover:bg-black dark:hover:bg-red-700 transition-all duration-300 shadow-2xl uppercase italic tracking-tighter"
+      >
+        Initiate Discovery
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </section>
+</Layout>

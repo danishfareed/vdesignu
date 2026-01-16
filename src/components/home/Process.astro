@@ -1,0 +1,63 @@
+---
+import content from "../../data/site-content.json";
+const { title, subtitle, steps } = content.homepage.process;
+---
+
+<section class="py-24 bg-[var(--bg-secondary)] overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-20">
+      <h2 class="text-4xl md:text-6xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-4">
+        {title}
+      </h2>
+      <p class="text-xl text-[var(--text-secondary)] max-w-2xl mx-auto">
+        {subtitle}
+      </p>
+    </div>
+
+    <div class="relative">
+      <!-- Connection Line (Desktop) -->
+      <div class="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-[var(--border-subtle)] -translate-y-1/2 z-0"></div>
+      
+      <div class="grid lg:grid-cols-5 gap-8 relative z-10">
+        {steps.map((step: any, index: number) => (
+          <div class="group relative">
+            <!-- Step Number Circle -->
+            <div class="w-16 h-16 rounded-full bg-[var(--bg-primary)] border-4 border-[var(--border-subtle)] flex items-center justify-center mb-8 mx-auto lg:mx-0 group-hover:border-red-600 group-hover:bg-red-600 transition-all duration-300">
+              <span class="text-2xl font-black italic text-[var(--text-primary)] group-hover:text-white">
+                {step.number}
+              </span>
+            </div>
+
+            <!-- Content Card -->
+            <div class="bg-[var(--bg-primary)] p-8 rounded-2xl border-2 border-[var(--border-subtle)] group-hover:border-red-500/50 transition-all duration-300 shadow-sm hover:shadow-xl">
+              <h3 class="text-xl font-bold text-[var(--text-primary)] uppercase tracking-tight mb-3">
+                {step.title}
+              </h3>
+              <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+                {step.description}
+              </p>
+            </div>
+
+            <!-- Arrow Indicator (between steps) -->
+            {index < steps.length - 1 && (
+              <div class="hidden lg:flex absolute top-1/2 -right-6 -translate-y-1/2 text-red-600 z-20">
+                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 5l7 7-7 7M5 5l7 7-7 7"/>
+                </svg>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-20 text-center">
+      <div class="inline-flex flex-col items-center">
+        <p class="text-[var(--text-muted)] font-bold uppercase tracking-widest text-xs mb-4">Typical Timeline: 4-6 Weeks</p>
+        <a href="/contact" class="px-10 py-5 bg-red-600 text-white font-bold rounded-full hover:bg-black transition-all shadow-lg hover:shadow-red-600/30 uppercase tracking-tight">
+          Start the Process
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

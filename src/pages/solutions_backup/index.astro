@@ -1,0 +1,84 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { cities, industries, services } from "../../config/site-config";
+
+const allIndustries = industries.tier1;
+---
+
+<Layout title="Global Solutions Matrix | vdesignu" description="Explore our specialized digital growth solutions across cities, industries, and strategic services.">
+  <section class="pt-32 pb-20 relative overflow-hidden">
+    <div class="absolute inset-0 grid-pattern opacity-10 dark:opacity-30"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+      <div class="max-w-4xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs font-black uppercase tracking-widest mb-8">
+          The Solutions Ecosystem
+        </div>
+        <h1 class="text-4xl md:text-7xl font-black text-neutral-900 dark:text-white uppercase italic tracking-tighter leading-none mb-8">
+          Global <span class="gradient-text-red">Capabilities Matrix</span>
+        </h1>
+        <p class="text-lg md:text-xl text-neutral-500 dark:text-neutral-400 font-medium max-w-2xl">
+          Browse our highly-specialized digital growth protocols tailored for B2B industrial leaders across 15 global hubs.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation Grid -->
+  <section class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-3 gap-16">
+        
+        <!-- Cities -->
+        <div>
+          <h2 class="text-2xl font-black text-neutral-900 dark:text-white uppercase italic tracking-tighter mb-8 pb-4 border-b border-neutral-100 dark:border-neutral-800">Operational Hubs</h2>
+          <div class="grid grid-cols-2 gap-4">
+            {cities.map(city => (
+              <div class="p-4 rounded-2xl glass dark:bg-neutral-900 hover:border-red-500/50 transition-all cursor-default">
+                <div class="text-xs font-black text-red-600 uppercase mb-1">{city.country}</div>
+                <div class="text-sm font-bold text-neutral-900 dark:text-white">{city.name}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Industries -->
+        <div>
+          <h2 class="text-2xl font-black text-neutral-900 dark:text-white uppercase italic tracking-tighter mb-8 pb-4 border-b border-neutral-100 dark:border-neutral-800">Vertical Expertise</h2>
+          <div class="space-y-4">
+            {allIndustries.map(ind => (
+              <div class="flex items-center gap-4 p-4 rounded-2xl glass dark:bg-neutral-900 hover:border-red-500/50 transition-all cursor-default">
+                <div class="w-2 h-2 rounded-full bg-red-600"></div>
+                <div class="text-sm font-bold text-neutral-900 dark:text-white">{ind.name}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <h2 class="text-2xl font-black text-neutral-900 dark:text-white uppercase italic tracking-tighter mb-8 pb-4 border-b border-neutral-100 dark:border-neutral-800">Growth Protocols</h2>
+          <div class="space-y-4">
+            {services.map(ser => (
+              <div class="p-4 rounded-2xl glass dark:bg-neutral-900 hover:border-red-500/50 transition-all cursor-default">
+                <div class="text-sm font-bold text-neutral-900 dark:text-white mb-2">{ser.name}</div>
+                <div class="w-full bg-neutral-100 dark:bg-neutral-800 h-1.5 rounded-full overflow-hidden">
+                   <div class="bg-red-600 h-full w-[85%]"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-32 bg-neutral-900 text-center">
+     <div class="max-w-4xl mx-auto px-6">
+        <h2 class="text-3xl md:text-5xl font-black text-white uppercase italic tracking-tighter mb-8">Ready to deploy a <span class="text-red-600">Targeted Solution?</span></h2>
+        <p class="text-neutral-400 mb-12">Contact our strategic team to find the exact combination of services for your industry and region.</p>
+        <a href="mailto:growth@vdesignu.com" class="px-12 py-6 bg-red-600 text-white font-black rounded-2xl hover:bg-white hover:text-red-600 transition-all uppercase italic tracking-tighter shadow-2xl">Initiate Protocol</a>
+     </div>
+  </section>
+</Layout>

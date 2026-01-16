@@ -1,1 +1,187 @@
 @import "tailwindcss";
+
+@theme {
+  --color-brand-red: #dc2626;
+  --color-brand-red-light: #ef4444;
+  --color-brand-red-dark: #b91c1c;
+
+  /* Theme Token Aliases for Tailwind config if needed, 
+     but mostly we use CSS vars directly in utilities or classes */
+}
+
+/* =========================================
+   CENTRALIZED THEME MANAGEMENT (TOKENS)
+   ========================================= */
+
+:root {
+  /* BACKGROUNDS */
+  --bg-primary: #ffffff;       /* Main page background */
+  --bg-secondary: #f8fafc;     /* Section/Card background */
+  --bg-tertiary: #f1f5f9;      /* Inputs/Subtle background */
+  --bg-card: #ffffff;          /* Card specific background */
+  --bg-overlay: rgba(255, 255, 255, 0.9); /* Glass effect base */
+
+  /* TEXT */
+  --text-primary: #0f172a;     /* Headings, Main text */
+  --text-secondary: #475569;   /* Body text */
+  --text-muted: #94a3b8;       /* Meta, captios */
+  --text-inverse: #ffffff;     /* Text on dark backgrounds (buttons) */
+
+  /* BORDERS */
+  --border-subtle: #e2e8f0;
+  --border-strong: #cbd5e1;
+
+  /* STATUS */
+  --status-success: #10b981;
+  --status-error: #ef4444;
+}
+
+.dark {
+  /* BACKGROUNDS */
+  --bg-primary: #050505;       /* Main page background */
+  --bg-secondary: #0a0a0a;     /* Section/Card background */
+  --bg-tertiary: #111111;      /* Inputs/Subtle background */
+  --bg-card: #0d0d0d;          /* Card specific background */
+  --bg-overlay: rgba(23, 23, 23, 0.95); /* Glass effect base */
+
+  /* TEXT */
+  --text-primary: #ffffff;     /* Headings, Main text */
+  --text-secondary: #a0a0a0;   /* Body text */
+  --text-muted: #666666;       /* Meta, captios */
+  --text-on-red: #ffffff; /* Contrast fix */
+
+  /* BORDERS */
+  --border-subtle: #1a1a1a;
+  --border-strong: #404040;
+
+  /* ACCENT COLORS */
+  --accent-red: #dc2626;
+  --accent-yellow: #facc15;
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .text-glow-red {
+    text-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+  }
+  .text-glow-yellow {
+    text-shadow: 0 0 20px rgba(250, 204, 21, 0.3);
+  }
+  .glass-yellow {
+    @apply bg-yellow-400/10 backdrop-blur-md border border-yellow-400/20;
+  }
+}
+
+/* Base Styles */
+@layer base {
+  body {
+    @apply antialiased;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+
+  /* Typography utilities for the requested "Bold Italic" style */
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary); /* Force headings to respect theme */
+  }
+}
+
+/* Glass Effect (Tokenized) */
+.glass {
+  background: var(--bg-overlay);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Gradient Text */
+.gradient-text-red {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #b91c1c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* Fallback for print or unsupported */
+  color: #dc2626; 
+}
+
+/* Background Patterns (Subtle) */
+.grid-pattern {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.dark .grid-pattern {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.radial-gradient-red {
+  background: radial-gradient(ellipse at center, rgba(220, 38, 38, 0.1) 0%, transparent 70%);
+}
+
+.dark .radial-gradient-red {
+  background: radial-gradient(ellipse at center, rgba(220, 38, 38, 0.15) 0%, transparent 70%);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a3a3a3;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #404040;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #525252;
+}
+
+/* Selection */
+::selection {
+  background: rgba(220, 38, 38, 0.2);
+  color: inherit;
+}
+
+/* Focus States */
+:focus-visible {
+  outline: 2px solid #dc2626;
+  outline-offset: 2px;
+}
+
+/* Utility to balance text */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* WhatsApp Floating Button Animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+.whatsapp-float {
+  animation: float 3s ease-in-out infinite;
+}
