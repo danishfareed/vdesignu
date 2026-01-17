@@ -8,66 +8,137 @@
     "metaTitle": "vdesignu – Industrial Digital Growth Engineering | Custom Platforms, SEO, AI & Lead Gen",
     "metaDescription": "We engineer high-performance custom platforms, ecommerce systems, and AI integrations for B2B industrial companies in the Gulf. Dominate your market with vdesignu.",
     "hero": {
-      "badge": "Trusted by 200+ Industrial Leaders",
-      "headline": "We Don't Just Build Websites. We Engineer Revenue Systems.",
-      "subheadline": "Your competitors are closing multi-million dollar deals while you're managing a static brochure. We build custom digital platforms and automated marketing systems that turn visitors into high-value contracts—24/7.",
+      "badge": "Digital Growth Partner",
+      "headline": "We Build Websites. That Grow Your Business.",
+      "subheadline": "Expert digital engineering and AI SEO systems for B2B and B2C companies in the Gulf and beyond. Simple, fast, and built for results.",
       "cta": [
-        { "label": "Book Strategy Call", "href": "/contact", "primary": true },
-        { "label": "View Our Expertise", "href": "/services", "primary": false }
+        { "label": "Get Free Audit", "href": "/contact", "primary": true },
+        { "label": "See Our Work", "href": "/work", "primary": false }
       ]
     },
     "stats": [
-      { "value": "150", "suffix": "+", "label": "AI Integrations", "description": "Automated Workflows" },
-      { "value": "217", "suffix": "+", "label": "Digital Platforms", "description": "Successfully Launched" },
-      { "value": "4.2", "suffix": "M", "label": "Pipeline Value", "description": "Generated for Clients" }
+      { "value": "250", "suffix": "+", "label": "Growth Systems", "description": "Global Deployments" },
+      { "value": "15", "suffix": "M+", "label": "AI Keywords Owned", "description": "Search Authority" },
+      { "value": "$12M", "suffix": "+", "label": "Revenue Generated", "description": "B2B & B2C Pipeline" }
     ],
+    "results": {
+      "title": "Evidence of Growth",
+      "subtitle": "Success isn't about design awards; it's about building systems that convert. Whether B2C or B2B, here is the proof.",
+      "cases": [
+        {
+          "industry": "Oil & Gas",
+          "location": "Abu Dhabi",
+          "metric": "142%",
+          "label": "Pipeline Velocity",
+          "description": "Engineered a custom vendor portal that automated procurement for a top-tier energy supplier.",
+          "timeline": "6 Months"
+        },
+        {
+          "industry": "Manufacturing",
+          "location": "Jeddah",
+          "metric": "$4.1M",
+          "label": "Organic Revenue",
+          "description": "Deployed an AI SEO (GEO) strategy that dominated page 1 for high-intent heavy machinery keywords.",
+          "timeline": "8 Months"
+        },
+        {
+          "industry": "Construction",
+          "location": "Dubai",
+          "metric": "85%",
+          "label": "CAC Reduction",
+          "description": "Integrated omnichannel CRM automation (WhatsApp/Email) to nurture high-value property investors.",
+          "timeline": "4 Months"
+        }
+      ]
+    },
     "services": {
-      "title": "Comprehensive Digital Engineering",
-      "subtitle": "Specialized solutions for B2B industrial groups who demand precision, performance, and measurable ROI.",
+      "title": "Industrial Growth Infrastructure",
+      "subtitle": "We don't build brochures. We engineer the technical infrastructure required to dominate hyper-competitive B2B markets.",
       "items": [
         {
-          "title": "Custom Digital Platforms",
-          "description": "Portals, dashboards, and internal systems built to manage complex industrial operations.",
+          "title": "AI SEO & Authority (GEO)",
+          "description": "Generative Engine Optimization to own the answers in AI searches and legacy Google results.",
+          "icon": "target",
+          "slug": "ai-seo"
+        },
+        {
+          "title": "Omnichannel CRM Systems",
+          "description": "Integrated Email, WhatsApp, SMS, and Push automation engineered into a custom CRM ecosystem.",
           "icon": "automation",
+          "slug": "crm-systems"
+        },
+        {
+          "title": "Website Development",
+          "description": "High-performance websites built for speed, security, and growth in B2B and B2C markets.",
+          "icon": "code",
+          "slug": "website-development"
+        },
+        {
+          "title": "Custom Digital Platforms",
+          "description": "Smart portals and internal tools built to help your business scale effortlessly.",
+          "icon": "chart",
           "slug": "digital-platforms"
         },
         {
-          "title": "Web Application Development",
-          "description": "Scalable, high-performance web applications tailored to your specific business logic.",
-          "icon": "code",
-          "slug": "web-app-dev"
-        },
-        {
-          "title": "Ecommerce Engineering",
-          "description": "Complex B2B ecommerce systems for industrial parts and services with multi-vendor support.",
-          "icon": "chart",
-          "slug": "ecommerce-dev"
-        },
-        {
-          "title": "AI & CRM Solutions",
-          "description": "Intelligent lead scoring, automated follow-ups, and AI assistants integrated into your CRM.",
+          "title": "Performance Media & PPC",
+          "description": "Data-led ads targeting the right buyers on Google, LinkedIn, and social media.",
           "icon": "document",
-          "slug": "ai-solutions"
+          "slug": "performance-media"
         },
         {
-          "title": "Search Dominance (SEO)",
-          "description": "Advanced technical SEO and AI-Search Engine Optimization (GEO) to own page 1.",
-          "icon": "target",
-          "slug": "seo"
-        },
-        {
-          "title": "Email & CRM Marketing",
-          "description": "HTML developed emails and automation sequences that move leads through long sales cycles.",
+          "title": "Branding & Strategy",
+          "description": "Professional identity and positioning for brands ready to lead their market.",
           "icon": "palette",
-          "slug": "email-marketing"
+          "slug": "branding-strategy"
         }
       ]
     },
     "cta": {
-      "title": "Ready to Stop Guessing and Start Growing?",
-      "subtitle": "Book a 30-minute strategy call. We'll audit your current digital stack and show you exactly where the revenue leaks are.",
-      "button": "Book Free Strategy Call",
-      "note": "Get a custom roadmap in 24 hours."
+      "title": "Ready to Grow Your Business?",
+      "subtitle": "Stop guessing and start winning. We'll audit your digital setup and show you exactly how to find more customers.",
+      "button": "Get Started",
+      "note": "Custom roadmap delivered in 24 hours."
     }
+  },
+  "about": {
+    "title": "Digital Excellence for Growth-Ready Brands",
+    "metaTitle": "About vdesignu – Your B2B & B2C Digital Partner",
+    "metaDescription": "We are a technical growth agency helping B2B and B2C brands in the Gulf and beyond scale with precision-engineered websites and systems.",
+    "mission": "We build the digital systems that find customers and close deals. Whether you are B2B or B2C, we give you the tools to dominate your market.",
+    "story": "Founded with a mission to solve the 'slow website' problem, vdesignu has evolved into a full-scale digital engineering firm. We help companies move from outdated legacy systems to high-performance platforms that work for them.",
+    "values": [
+      {
+        "title": "Precision Work",
+        "description": "We treat every pixel and line of code with the same focus on performance and reliability."
+      },
+      {
+        "title": "Growth Focus",
+        "description": "If it doesn't lead to more leads or revenue, we don't build it. We are obsessed with results."
+      },
+      {
+        "title": "Global Expertise",
+        "description": "Deep understanding of the Gulf's business landscape and the global economy."
+      }
+    ],
+    "cta": "Ready to Grow Your Business?"
+  },
+  "work": {
+    "title": "Our Success Stories",
+    "subtitle": "Success isn't about design awards; it's about building systems that grow businesses. Here is the evidence.",
+    "metaTitle": "Case Studies & Success Stories | vdesignu",
+    "metaDescription": "See how we've helped B2B and B2C companies grow their revenue through smart digital engineering.",
+    "cta_title": "Want Your Story Here?",
+    "cta_button": "Get Started"
+  },
+  "contact": {
+    "metaTitle": "Get Started Today | vdesignu",
+    "metaDescription": "Connect with our growth experts. No sales fluff. Just data, technology, and your roadmap to growth.",
+    "subtitle": "We partner with leaders who are ready to invest in serious digital growth. If that's you, let's talk.",
+    "email": "hello@vdesignu.com",
+    "phone": "+971 54 717 0855",
+    "locations": [
+      { "city": "Dubai", "address": "Business Bay, UAE" },
+      { "city": "Jeddah", "address": "Al Ashri Street, KSA" }
+    ]
   }
 }

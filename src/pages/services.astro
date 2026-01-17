@@ -1,106 +1,67 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import content from "../data/site-content.json";
+import { services } from "../config/site-config";
+import servicesContent from "../data/services-content.json";
 
-const { services } = content;
+const displayServices = services.map(s => ({
+  ...s,
+  content: servicesContent[s.slug as keyof typeof servicesContent]
+}));
+
 ---
 
-<Layout title="Strategic Capabilities" description={services.metaDescription}>
+<Layout title="Strategic Digital Capabilities | vdesignu" description="Expert digital engineering, custom platforms, and AI solutions for B2B and B2C brands. Precision-engineered for Gulf and global markets.">
   <!-- Hero -->
-  <section class="pt-32 pb-20 relative overflow-hidden">
-    <div class="absolute inset-0 grid-pattern opacity-10 dark:opacity-30"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] radial-gradient-red opacity-40 dark:opacity-60"></div>
+  <section class="pt-40 pb-20 bg-[var(--bg-primary)] overflow-hidden relative">
+    <div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[var(--border-subtle)] to-transparent"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-600/5 rounded-full blur-[120px]"></div>
     
     <div class="relative z-10 max-w-6xl mx-auto px-6 text-center">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-xs font-black uppercase tracking-widest mb-6">
-        Capabilities Ecosystem
-      </div>
-      <h1 class="text-4xl md:text-7xl font-black text-neutral-900 dark:text-white mb-8 uppercase italic tracking-tighter leading-none">
-        Enterprise-Grade <br /> <span class="gradient-text-red">Growth Infrastructure</span>
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-8 leading-none">
+        Skills to <span class="text-[var(--accent-red)]">Grow</span> your<br/> business<span class="text-[var(--accent-yellow)]">.</span>
       </h1>
-      <p class="text-lg md:text-xl text-neutral-500 dark:text-neutral-400 max-w-3xl mx-auto leading-relaxed font-medium">
-        {services.hero.subheadline}
+      <p class="text-2xl text-[var(--text-secondary)] max-w-3xl mx-auto leading-relaxed font-medium">
+        We build websites and AI systems that help B2B and B2C companies find more customers and close more deals.
       </p>
     </div>
   </section>
   
-  <!-- Tech Stack -->
-  <section class="py-32 relative">
+  <!-- Services Hub -->
+  <section class="py-24 bg-[var(--bg-secondary)]">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-24">
-        <h2 class="text-3xl md:text-5xl font-black text-neutral-900 dark:text-white uppercase italic tracking-tighter mb-6">{services.techStack.title}</h2>
-        <p class="text-lg text-neutral-500 dark:text-neutral-400 font-medium">Precision engineering for high-stakes industrial markets.</p>
-      </div>
-      
-      <div class="grid md:grid-cols-3 gap-8">
-        {services.techStack.items.map((item : any) => (
-          <div class="glass dark:bg-neutral-900 p-10 rounded-[2.5rem] hover:-translate-y-2 transition-all duration-500 group">
-            <div class="text-red-600 dark:text-red-500 text-xs font-black uppercase tracking-widest mb-4">
-              {item.category}
-            </div>
-            <h3 class="text-2xl font-black text-neutral-900 dark:text-white uppercase italic tracking-tighter mb-4 group-hover:text-red-600 dark:group-hover:text-red-500 transition-colors">
-              {item.name}
-            </h3>
-            <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed font-medium">{item.description}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-  
-  <!-- Differentiators -->
-  <section class="py-32 bg-neutral-50 dark:bg-neutral-900/50 relative overflow-hidden">
-    <div class="absolute inset-0 radial-gradient-red opacity-10 dark:opacity-20 translate-x-1/2"></div>
-    
-    <div class="relative z-10 max-w-7xl mx-auto px-6">
-      <div class="text-center mb-24">
-        <h2 class="text-3xl md:text-5xl font-black text-neutral-900 dark:text-white uppercase italic tracking-tighter mb-6">Strategic Differentiators</h2>
-        <p class="text-lg text-neutral-500 dark:text-neutral-400 font-medium">Why the world's most disciplined industries choose vdesignu.</p>
-      </div>
-      
-      <div class="grid md:grid-cols-3 gap-12">
-        {services.differentiators.map((diff : any, i : number) => (
-          <div class="text-center group">
-            <div class="w-24 h-24 rounded-3xl bg-white dark:bg-neutral-800 shadow-xl flex items-center justify-center mx-auto mb-8 group-hover:bg-red-600 group-hover:text-white transition-all duration-500 group-hover:scale-110">
-              <span class="text-4xl font-black gradient-text-red group-hover:text-white transition-colors uppercase italic tracking-tighter">0{i + 1}</span>
-            </div>
-            <h3 class="text-xl font-black text-neutral-900 dark:text-white uppercase italic tracking-tighter mb-4">{diff.title}</h3>
-            <p class="text-sm text-neutral-500 dark:text-neutral-400 font-medium leading-relaxed">{diff.description}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-  
-  <!-- Services List -->
-  <section class="py-32 relative">
-    <div class="absolute inset-0 grid-pattern opacity-10 dark:opacity-30"></div>
-    
-    <div class="relative z-10 max-w-7xl mx-auto px-6">
-      <div class="text-center mb-20">
-        <h2 class="text-3xl md:text-6xl font-black text-neutral-900 dark:text-white uppercase italic tracking-tighter mb-6">Core <br /> <span class="gradient-text-red">Technical Stack</span></h2>
-      </div>
-      
       <div class="grid md:grid-cols-2 gap-8">
-        {services.list.map((service : any) => (
-          <div id={service.slug} class="glass dark:bg-neutral-900 p-12 rounded-[3rem] hover:-translate-y-2 transition-all duration-500 group border-b-4 border-transparent hover:border-red-600">
-            <div class="flex items-start gap-8">
-              <div class="w-20 h-20 rounded-2xl bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center flex-shrink-0 group-hover:bg-red-600 group-hover:text-white transition-all duration-500">
-                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+        {displayServices.map((service, i) => (
+          <div id={service.slug} class="bg-[var(--bg-card)] p-12 rounded-[3.5rem] border-2 border-[var(--border-subtle)] hover:border-[var(--accent-red)] transition-all duration-500 group relative overflow-hidden">
+            <!-- Numbering -->
+            <div class="absolute top-0 right-0 p-10 text-8xl font-black italic tracking-tighter text-[var(--accent-red)] opacity-5 group-hover:opacity-10 transition-opacity">
+              {String(i + 1).padStart(2, '0')}
+            </div>
+
+            <div class="relative z-10">
+              <h3 class="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-6 group-hover:text-[var(--accent-red)] transition-colors leading-none">
+                {service.name.split('(')[0]}
+              </h3>
+              
+              <p class="text-lg text-[var(--text-secondary)] leading-relaxed mb-10 max-w-xl">
+                {service.content?.heroDescription?.split('.')[0]}. Simple, effective, and built for your business.
+              </p>
+
+              <!-- Capability Tags -->
+              <div class="flex flex-wrap gap-3 mb-12">
+                 {service.content?.sections.whatWeOffer.items.slice(0, 3).map((item: any) => (
+                   <span class="text-[10px] font-black uppercase tracking-widest px-4 py-2 bg-red-50 dark:bg-red-900/10 text-red-600 dark:text-red-400 rounded-full border border-red-100 dark:border-red-900/30">
+                     {item.title}
+                   </span>
+                 ))}
               </div>
-              <div>
-                <h3 class="text-3xl font-black text-neutral-900 dark:text-white uppercase italic tracking-tighter mb-4 group-hover:text-red-600 dark:group-hover:text-red-500 transition-colors">
-                  {service.title}
-                </h3>
-                <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed font-medium mb-6">
-                  Industrial-grade solutions engineered for performance, precision, and high-stakes scalability. Optimized for the unique demands of the B2B mechanical sector.
-                </p>
-                <div class="flex items-center gap-4">
-                  <span class="text-[10px] font-black uppercase tracking-widest text-red-600 dark:text-red-500 px-2 py-1 bg-red-50 dark:bg-red-900/20 rounded">B2B Optimized</span>
-                  <span class="text-[10px] font-black uppercase tracking-widest text-neutral-400">High Frequency</span>
-                </div>
+
+              <div class="flex items-center gap-6">
+                 <a href={`/services/${service.slug}`} class="px-8 py-4 bg-[var(--text-primary)] text-[var(--bg-primary)] font-black italic uppercase tracking-tighter text-xl rounded-xl hover:bg-[var(--accent-red)] hover:text-white transition-all scale-100 hover:scale-105 active:scale-95 shadow-lg">
+                    Learn More
+                 </a>
+                 <a href="/contact" class="text-sm font-black uppercase tracking-[0.2em] text-[var(--text-muted)] hover:text-[var(--accent-red)] transition-colors">
+                    Get Quote &rarr;
+                 </a>
               </div>
             </div>
           </div>
@@ -108,23 +69,18 @@ const { services } = content;
       </div>
     </div>
   </section>
-  
+
   <!-- CTA -->
-  <section class="py-32 bg-neutral-900 dark:bg-white relative overflow-hidden">
-     <div class="absolute inset-0 radial-gradient-red opacity-30 dark:opacity-10"></div>
-    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-      <h2 class="text-4xl md:text-7xl font-black text-white dark:text-neutral-900 uppercase italic tracking-tighter mb-10 leading-none">
-        Ready to <br /> <span class="gradient-text-red">Dominate?</span>
+  <section class="py-24 bg-[#0a0a0a] text-white text-center rounded-t-[5rem]">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-4xl md:text-8xl font-black italic uppercase tracking-tighter mb-10 leading-[0.9]">
+        Ready to <span class="text-[var(--accent-red)]">Grow</span> your<br/> business<span class="text-[var(--accent-yellow)]">?</span>
       </h2>
-      <p class="text-neutral-400 dark:text-neutral-500 text-lg font-medium mb-12">Contact our strategic advisors to initiate your B2B growth engine.</p>
-      <a 
-        href="mailto:hello@vdesignu.com"
-        class="inline-flex items-center gap-4 px-12 py-6 bg-red-600 text-white text-xl font-black rounded-2xl hover:bg-black dark:hover:bg-red-700 transition-all duration-300 shadow-2xl uppercase italic tracking-tighter"
-      >
-        Initiate Discovery
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-        </svg>
+      <p class="text-xl opacity-90 mb-12 max-w-2xl mx-auto font-medium">
+        Our experts are ready to audit your business and show you how to find more customers.
+      </p>
+      <a href="/contact" class="inline-block px-12 py-6 bg-[var(--accent-red)] text-white font-black italic uppercase tracking-tighter text-2xl rounded-xl hover:bg-white hover:text-black transition-all shadow-2xl active:scale-95">
+        Get Free Audit
       </a>
     </div>
   </section>

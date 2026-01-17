@@ -1,63 +1,56 @@
 ---
 import content from "../../data/site-content.json";
-const { title, subtitle, steps } = content.homepage.process;
+const { title, subtitle, items } = content.homepage.services; // Reusing service items for process logic or default
 ---
 
-<section class="py-24 bg-[var(--bg-secondary)] overflow-hidden">
+<section class="py-24 bg-[var(--bg-primary)] overflow-hidden border-t border-[var(--border-subtle)]">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-20">
-      <h2 class="text-4xl md:text-6xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-4">
-        {title}
-      </h2>
-      <p class="text-xl text-[var(--text-secondary)] max-w-2xl mx-auto">
-        {subtitle}
-      </p>
+    <div class="mb-20">
+      <h2 class="text-xs font-black uppercase tracking-[0.4em] text-red-600 mb-6">Our Blueprint</h2>
+      <h3 class="text-4xl md:text-7xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] leading-[0.9] mb-8">
+        Precision <span class="text-[var(--accent-red)]">Engineered</span> Execution<span class="text-[var(--accent-yellow)]">.</span>
+      </h3>
     </div>
 
-    <div class="relative">
-      <!-- Connection Line (Desktop) -->
-      <div class="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-[var(--border-subtle)] -translate-y-1/2 z-0"></div>
-      
-      <div class="grid lg:grid-cols-5 gap-8 relative z-10">
-        {steps.map((step: any, index: number) => (
-          <div class="group relative">
-            <!-- Step Number Circle -->
-            <div class="w-16 h-16 rounded-full bg-[var(--bg-primary)] border-4 border-[var(--border-subtle)] flex items-center justify-center mb-8 mx-auto lg:mx-0 group-hover:border-red-600 group-hover:bg-red-600 transition-all duration-300">
-              <span class="text-2xl font-black italic text-[var(--text-primary)] group-hover:text-white">
-                {step.number}
-              </span>
-            </div>
+    <div class="grid lg:grid-cols-4 gap-8">
+      {[
+        { step: "01", title: "Business Audit", desc: "We look at your website, your tools, and where you are losing customers." },
+        { step: "02", title: "Growth Design", desc: "We build a plan to grow your B2B or B2C brand with smart digital tools." },
+        { step: "03", title: "Fast Development", desc: "We build your system quickly with constant updates and testing." },
+        { step: "04", title: "Launch & Scale", desc: "We go live and help you find new customers with AI SEO and automation." }
+      ].map((item: any, i: number) => (
+        <div class="group relative">
+           <div class="text-8xl font-black italic tracking-tighter text-[var(--accent-red)] opacity-10 mb-6 group-hover:text-[var(--accent-yellow)] group-hover:opacity-30 transition-all">
+             {item.step}
+           </div>
+           
+           <h4 class="text-2xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-4">
+             {item.title}
+           </h4>
+           
+           <p class="text-[var(--text-secondary)] font-medium leading-relaxed mb-8">
+             {item.desc}
+           </p>
 
-            <!-- Content Card -->
-            <div class="bg-[var(--bg-primary)] p-8 rounded-2xl border-2 border-[var(--border-subtle)] group-hover:border-red-500/50 transition-all duration-300 shadow-sm hover:shadow-xl">
-              <h3 class="text-xl font-bold text-[var(--text-primary)] uppercase tracking-tight mb-3">
-                {step.title}
-              </h3>
-              <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
-                {step.description}
-              </p>
-            </div>
+           {i < 3 && (
+             <div class="hidden lg:block absolute top-[20%] -right-4 w-8 h-px bg-gradient-to-r from-[var(--border-subtle)] to-transparent"></div>
+           )}
+        </div>
+      ))}
+    </div>
 
-            <!-- Arrow Indicator (between steps) -->
-            {index < steps.length - 1 && (
-              <div class="hidden lg:flex absolute top-1/2 -right-6 -translate-y-1/2 text-red-600 z-20">
-                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 5l7 7-7 7M5 5l7 7-7 7"/>
-                </svg>
-              </div>
-            )}
+    <div class="mt-20 pt-12 border-t border-[var(--border-subtle)] flex flex-col md:flex-row items-center justify-between gap-8">
+       <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full bg-[var(--accent-yellow)]/20 flex items-center justify-center text-[var(--accent-yellow)]">
+             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+               <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+             </svg>
           </div>
-        ))}
-      </div>
-    </div>
-
-    <div class="mt-20 text-center">
-      <div class="inline-flex flex-col items-center">
-        <p class="text-[var(--text-muted)] font-bold uppercase tracking-widest text-xs mb-4">Typical Timeline: 4-6 Weeks</p>
-        <a href="/contact" class="px-10 py-5 bg-red-600 text-white font-bold rounded-full hover:bg-black transition-all shadow-lg hover:shadow-red-600/30 uppercase tracking-tight">
-          Start the Process
-        </a>
-      </div>
+          <p class="text-sm font-bold text-[var(--text-secondary)] uppercase tracking-widest">Enterprise Delivery in 4-8 Weeks</p>
+       </div>
+       <a href="/contact" class="px-10 py-5 bg-[var(--text-primary)] text-[var(--bg-primary)] font-black italic rounded-xl hover:bg-[var(--accent-red)] hover:text-white transition-all uppercase tracking-tighter text-xl active:scale-95 shadow-xl">
+          Start Your Audit
+       </a>
     </div>
   </div>
 </section>

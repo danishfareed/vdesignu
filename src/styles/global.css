@@ -26,6 +26,7 @@
   --text-secondary: #475569;   /* Body text */
   --text-muted: #94a3b8;       /* Meta, captios */
   --text-inverse: #ffffff;     /* Text on dark backgrounds (buttons) */
+  --text-on-red: #ffffff;
 
   /* BORDERS */
   --border-subtle: #e2e8f0;
@@ -34,6 +35,10 @@
   /* STATUS */
   --status-success: #10b981;
   --status-error: #ef4444;
+
+  /* ACCENT COLORS */
+  --accent-red: #dc2626;
+  --accent-yellow: #facc15;
 }
 
 .dark {
@@ -53,10 +58,6 @@
   /* BORDERS */
   --border-subtle: #1a1a1a;
   --border-strong: #404040;
-
-  /* ACCENT COLORS */
-  --accent-red: #dc2626;
-  --accent-yellow: #facc15;
 }
 
 /* Custom Utilities */

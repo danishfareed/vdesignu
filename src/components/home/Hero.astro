@@ -23,13 +23,13 @@ const { hero, stats } = content.homepage;
     </div>
     
     <!-- Main Headline -->
-    <h1 class="text-6xl md:text-8xl lg:text-9xl font-black italic uppercase tracking-tighter leading-[0.9] text-[var(--text-primary)] mb-10 translate-y-[-5%]">
-      Engineering<br/>
-      <span class="text-[var(--accent-red)] drop-shadow-[0_10px_30px_rgba(220,38,38,0.2)]">Revenue</span><br/>
-      <span class="relative inline-block">
-        Systems<span class="text-[var(--accent-yellow)]">.</span>
-        <div class="absolute -bottom-2 left-0 w-full h-2 bg-[var(--accent-yellow)]/30 rounded-full blur-sm"></div>
-      </span>
+    <h1 class="text-4xl md:text-6xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-[var(--text-primary)] mb-10 translate-y-[-2%]">
+      {hero.headline.split('.').filter(Boolean).map((part: string, i: number) => (
+        <span class={i === 1 ? "text-[var(--accent-red)] drop-shadow-[0_10px_30px_rgba(220,38,38,0.2)]" : ""}>
+          {part.trim()}{(i === 0 || i === 1) ? "." : ""}
+          {i === 0 && <br/>}
+        </span>
+      ))}
     </h1>
     
     <!-- Subheadline -->

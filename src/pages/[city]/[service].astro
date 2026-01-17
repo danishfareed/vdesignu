@@ -23,6 +23,7 @@ export function getStaticPaths() {
 
 const { city, service } = Astro.props;
 const content = servicesContent[service.slug as keyof typeof servicesContent];
+const canonicalURL = new URL(Astro.url.pathname, "https://vdesignu.com");
 
 // Localize content helper
 const localize = (text: string) => {
@@ -33,86 +34,70 @@ const localize = (text: string) => {
     .replace(/Dubai/g, city.name)
     .replace(/Saudi Arabia/g, city.country);
 };
-
 ---
 
-<Layout title={`${service.name} Agency in ${city.name} | ${city.country} Growth`} description={`The leading ${service.name} agency in ${city.name}. We help B2B industrial companies in ${city.country} dominate their markets.`}>
+<Layout 
+  title={`${service.name} Agency in ${city.name} | Trusted ${city.country} Growth Partner`} 
+  description={`Looking for ${service.name.toLowerCase()} in ${city.name}? We help B2B and B2C brands grow with high-performance digital systems. Available now in ${city.name}, ${city.country}.`}
+  canonical={canonicalURL.toString()}
+>
   <!-- Localized Hero -->
   <section class="pt-40 pb-24 bg-[var(--bg-primary)] overflow-hidden relative">
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-bold uppercase tracking-widest mb-8">
-        Local Expertise: {city.name}
+    <div class="absolute inset-0 bg-[var(--accent-red)]/5 opacity-20"></div>
+    <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[var(--accent-yellow)]/5 rounded-full blur-[120px]"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 relative z-10 text-center lg:text-left">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-black uppercase tracking-widest mb-8 border border-red-100 dark:border-red-900/30">
+        Localized Expertise: {city.name}
       </div>
-      <h1 class="text-5xl md:text-8xl font-black italic uppercase tracking-tighter leading-[0.95] text-[var(--text-primary)] mb-8">
+      <h1 class="text-5xl md:text-8xl font-black italic uppercase tracking-tighter leading-[0.9] text-[var(--text-primary)] mb-8">
         The Premier<br/>
-        <span class="text-red-600">{service.name}</span><br/>
-        Agency in {city.name}.
+        <span class="text-[var(--accent-red)]">{service.name}</span><br/>
+        Agency in <span class="relative">{city.name}<span class="text-[var(--accent-yellow)]">.</span><div class="absolute -bottom-2 left-0 w-full h-2 bg-[var(--accent-yellow)]/30 rounded-full blur-sm"></div></span>
       </h1>
-      <p class="text-2xl text-[var(--text-secondary)] max-w-3xl mb-12 leading-relaxed">
-        We specialize in {service.name.toLowerCase()} solutions for B2B leaders in the {city.name} industrial sector. Our systems capture more leads and close more deals.
+      <p class="text-2xl font-medium text-[var(--text-secondary)] max-w-3xl mb-12 leading-relaxed">
+        {localize(content?.heroDescription?.split('.')[0]) || `Premium ${service.name.toLowerCase()} solutions for B2B and B2C brands in ${city.name}. We help you find more customers and grow your revenue.`}
       </p>
       
-      <div class="flex gap-4">
-        <a href="/contact" class="px-10 py-5 bg-red-600 text-white font-bold rounded-full hover:bg-black transition-all shadow-xl uppercase tracking-tight">
-          Request Strategy Call
+      <div class="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
+        <a href="/contact" class="px-10 py-5 bg-[var(--accent-red)] text-white font-black italic rounded-xl hover:bg-black transition-all shadow-xl uppercase tracking-tighter text-2xl active:scale-95">
+          Get Started
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Value Section -->
-  <section class="py-24 bg-[var(--bg-secondary)]">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <div>
-          <h2 class="text-4xl md:text-6xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-8 leading-[0.95]">
-            Why {city.name}'s Best<br/>Firms Trust Our<br/><span class="text-red-600">{service.name}</span> Systems.
-          </h2>
-          <p class="text-[var(--text-secondary)] text-xl leading-relaxed mb-8">
-            Industrial companies in {city.name} face unique challenges. We provide more than a service—we provide a competitive advantage.
-          </p>
-          <div class="space-y-4">
-             {["Result-Based Approach", "Local Market Insights", "Industrial B2B Specialist"].map(item => (
-               <div class="flex items-center gap-3">
-                 <div class="w-5 h-5 rounded-full bg-red-600"></div>
-                 <span class="font-bold text-[var(--text-primary)] uppercase tracking-tight">{item}</span>
+  <!-- Service Details -->
+  {content && (
+    <section class="py-24 bg-[var(--bg-secondary)] border-y border-[var(--border-subtle)]">
+      <div class="max-w-4xl mx-auto px-6">
+        <h2 class="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-8">
+           Growth Engineering for <span class="text-[var(--accent-red)]">{city.name}</span> Firms.
+        </h2>
+        <div class="prose prose-xl dark:prose-invert text-[var(--text-secondary)]">
+          <p class="mb-8 font-medium">{localize(content.sections.overview.content)}</p>
+          
+          <div class="grid md:grid-cols-2 gap-8 not-prose mt-12">
+             {content.sections.whatWeOffer.items.slice(0, 4).map((item: any) => (
+               <div class="p-8 rounded-3xl bg-[var(--bg-primary)] border-2 border-[var(--border-subtle)] group hover:border-[var(--accent-yellow)] transition-all">
+                  <h4 class="text-lg font-black uppercase tracking-tight text-[var(--text-primary)] mb-2 group-hover:text-[var(--accent-red)] transition-colors">{item.title}</h4>
+                  <p class="text-sm text-[var(--text-muted)] leading-relaxed">{localize(item.description)}</p>
                </div>
              ))}
           </div>
-        </div>
-        
-        <div class="bg-[var(--bg-card)] p-12 rounded-3xl border-2 border-[var(--border-subtle)]">
-           <div class="text-red-600 text-6xl font-black italic tracking-tighter mb-4">40%</div>
-           <div class="text-xl font-bold text-[var(--text-primary)] uppercase tracking-tight mb-4">Increase in Qualified Leads</div>
-           <p class="text-[var(--text-muted)] text-sm">Industrial buyers in {city.name} respond to authority. Our {service.name.toLowerCase()} strategy positions you as the market leader.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  {content && (
-    <section class="py-24 bg-[var(--bg-primary)] border-t border-[var(--border-subtle)]">
-      <div class="max-w-4xl mx-auto px-6">
-        <h2 class="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-8">
-          A Strategy Built for <span class="text-red-600">Growth</span>.
-        </h2>
-        <div class="prose prose-xl dark:prose-invert text-[var(--text-secondary)]">
-          <p class="mb-8">{localize(content.heroDescription)}</p>
-          <h3 class="text-2xl font-bold text-[var(--text-primary)] mb-4">{content.sections.overview.title}</h3>
-          <p>{localize(content.sections.overview.content)}</p>
         </div>
       </div>
     </section>
   )}
 
-  <!-- CTA -->
-  <section class="py-24 bg-[var(--text-primary)] text-[var(--bg-primary)] text-center">
+  <!-- Final CTA -->
+  <section class="py-24 bg-[var(--accent-red)] text-white text-center">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-4xl md:text-6xl font-black italic uppercase tracking-tighter mb-8 bg-black">
-        Scale Your {city.name}<br/>Operations Today.
+      <h2 class="text-4xl md:text-8xl font-black italic uppercase tracking-tighter mb-10 leading-[0.95]">
+        Ready to Lead the<br/> <span class="text-[var(--accent-yellow)]">{city.name}</span> Market?
       </h2>
-      <a href="/contact" class="inline-block px-12 py-6 bg-red-600 text-white font-black italic uppercase tracking-tighter text-2xl rounded-full hover:bg-[var(--bg-primary)] hover:text-[var(--text-primary)] transition-all">
-        Book Strategy Consultation
+      <a href="/contact" class="inline-block px-12 py-6 bg-white text-[var(--accent-red)] font-black italic uppercase tracking-tighter text-2xl rounded-xl hover:bg-black hover:text-white transition-all shadow-2xl active:scale-95">
+        Get Started
       </a>
     </div>
   </section>

@@ -1,130 +1,227 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
-import seoData from "../../../data/seo-combinations.json";
+import { services, industries, cities } from "../../../config/site-config";
 import servicesContent from "../../../data/services-content.json";
 
 export function getStaticPaths() {
-  // We only generate for valid combinations in the JSON
-  return seoData.map(entry => ({
-    params: { 
-      city: entry.city.toLowerCase(), 
-      industry: entry.industry.toLowerCase(), 
-      service: entry.service.toLowerCase() 
-    },
-    props: { entry }
-  }));
+  const paths = [];
+  
+  // Generating programmatic combinations for all cities, industries, and services
+  for (const city of cities) {
+    for (const industry of industries) {
+      for (const service of services) {
+        paths.push({
+          params: { 
+            city: city.slug, 
+            industry: industry.slug, 
+            service: service.slug 
+          },
+          props: { city, industry, service },
+        });
+      }
+    }
+  }
+  
+  return paths;
 }
 
-const { entry } = Astro.props;
-const content = servicesContent[entry.service as keyof typeof servicesContent];
+const { city, industry, service } = Astro.props;
+const content = servicesContent[service.slug as keyof typeof servicesContent];
+const canonicalURL = new URL(Astro.url.pathname, "https://vdesignu.com");
 
 // Localize content helper
 const localize = (text: string) => {
   if (!text) return "";
   return text
-    .replace(/Gulf region/g, entry.cityName)
-    .replace(/UAE/g, entry.country)
-    .replace(/Dubai/g, entry.cityName)
-    .replace(/Saudi Arabia/g, entry.country)
-    .replace(/B2B industrial/g, `${entry.industryName} B2B`);
+    .replace(/Gulf region/g, city.name)
+    .replace(/UAE/g, city.country)
+    .replace(/Dubai/g, city.name)
+    .replace(/Saudi Arabia/g, city.country)
+    .replace(/B2B and B2C/g, `${industry.name} B2B & B2C`)
+    .replace(/B2B industrial/g, `${industry.name} B2B`)
+    .replace(/industrial/g, industry.name.toLowerCase());
 };
 
+// JSON-LD for AI SEO (GEO)
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": `${service.name} for ${industry.name} in ${city.name}`,
+  "description": `Leading ${service.name.toLowerCase()} solutions for the ${industry.name.toLowerCase()} sector in ${city.name}, ${city.country}.`,
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "vdesignu",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": city.name,
+      "addressCountry": city.country
+    }
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": city.name
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": `${industry.name} Digital Growth Services`,
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": service.name
+        }
+      }
+    ]
+  }
+};
 ---
 
-<Layout title={entry.metaTitle} description={entry.metaDescription}>
+<Layout 
+  title={`${service.name} for ${industry.name} Firms in ${city.name} | Reliable ${city.country} Agency`} 
+  description={`Looking for ${service.name.toLowerCase()} in ${city.name}? We help ${industry.name.toLowerCase()} companies grow with high-performance digital systems. Trusted by ${city.country} business leaders.`}
+  canonical={canonicalURL.toString()}
+>
+  <!-- Schema.org for AI SEO (GEO) -->
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
   <!-- SEO Hero -->
   <section class="pt-40 pb-24 bg-[var(--bg-primary)] overflow-hidden relative">
-    <div class="absolute inset-0 bg-red-600/5 opacity-30"></div>
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-bold uppercase tracking-widest mb-8">
-        Local Expertise: {entry.cityName} &bull; {entry.industryName}
+    <div class="absolute inset-0 bg-[var(--accent-red)]/5 opacity-30"></div>
+    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-[var(--accent-yellow)]/5 rounded-full blur-[120px]"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 relative z-10 text-center lg:text-left">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-black uppercase tracking-widest mb-8 border border-red-100 dark:border-red-900/30">
+        Local Leader: {city.name} &bull; {industry.name} Specialist
       </div>
-      <h1 class="text-4xl md:text-7xl lg:text-8xl font-black italic uppercase tracking-tighter leading-[0.95] text-[var(--text-primary)] mb-8">
-        {entry.serviceName} for<br/>
-        <span class="text-red-600">{entry.industryName}</span> in<br/>
-        {entry.cityName}.
+      
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-[var(--text-primary)] mb-10 translate-y-[-5%]">
+        {service.name}<br/>
+        For <span class="text-[var(--accent-red)]">{industry.name}</span><br/>
+        In <span class="relative">
+          {city.name}<span class="text-[var(--accent-yellow)]">.</span>
+          <div class="absolute -bottom-2 left-0 w-full h-2 bg-[var(--accent-yellow)]/30 rounded-full blur-sm"></div>
+        </span>
       </h1>
-      <p class="text-xl md:text-2xl font-medium text-[var(--text-secondary)] max-w-3xl mb-12 leading-relaxed">
-        We help {entry.industryName} leaders in {entry.cityName} dominate their local market through high-performance {entry.serviceName.toLowerCase()}. Engineering growth since 2020.
+      
+      <p class="text-xl md:text-2xl font-medium text-[var(--text-secondary)] max-w-4xl mb-12 leading-relaxed">
+        {localize(content?.heroDescription || `We help ${industry.name.toLowerCase()} firms in ${city.name} grow their business with expert ${service.name.toLowerCase()}.`)}
       </p>
       
-      <div class="flex gap-4">
-        <a href="/contact" class="px-10 py-5 bg-red-600 text-white font-bold rounded-full hover:bg-black transition-all shadow-xl uppercase tracking-tight">
-          Get Strategy in {entry.cityName}
+      <div class="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
+        <a href="/contact" class="px-10 py-5 bg-[var(--accent-red)] text-white font-black italic rounded-xl hover:bg-black transition-all shadow-xl uppercase tracking-tighter text-2xl active:scale-95">
+          Get Free Audit
         </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Content Section -->
-  <section class="py-24 bg-[var(--bg-secondary)]">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-8">
-        Dominating the <span class="text-red-600">{entry.industryName}</span> Sector.
-      </h2>
-      <div class="prose prose-xl dark:prose-invert text-[var(--text-secondary)]">
-        <p>The {entry.industryName} market in {entry.cityName} is highly competitive. To stand out, you need more than a generic digital presence. You need a dedicated {entry.serviceName.toLowerCase()} partner who understands the local buyers in {entry.country}.</p>
-        
-        {content && (
-           <p class="mt-8">{localize(content.heroDescription)}</p>
-        )}
-      </div>
-    </div>
-  </section>
-
-  <!-- Localized Proof -->
-  <section class="py-24 bg-[var(--bg-primary)] border-t border-[var(--border-subtle)]">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="bg-[var(--bg-card)] p-12 md:p-20 rounded-[3rem] border-2 border-[var(--border-subtle)]">
-        <div class="grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <h2 class="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-6">
-              Why {entry.cityName} Firms Trust Us.
-            </h2>
-            <ul class="space-y-6">
-              <li class="flex gap-4">
-                <div class="w-6 h-6 rounded-full bg-red-600 flex-shrink-0 mt-1"></div>
-                <div>
-                  <span class="font-bold text-[var(--text-primary)] uppercase tracking-tight">Local Market Knowledge</span>
-                  <p class="text-sm text-[var(--text-muted)]">We understand the specific B2B buyer behavior in {entry.cityName}.</p>
-                </div>
-              </li>
-              <li class="flex gap-4">
-                <div class="w-6 h-6 rounded-full bg-red-600 flex-shrink-0 mt-1"></div>
-                <div>
-                  <span class="font-bold text-[var(--text-primary)] uppercase tracking-tight">{entry.industryName} Expertise</span>
-                  <p class="text-sm text-[var(--text-muted)]">We speak the language of {entry.industryName.toLowerCase()} and understand the sales cycle.</p>
-                </div>
-              </li>
-              <li class="flex gap-4">
-                <div class="w-6 h-6 rounded-full bg-red-600 flex-shrink-0 mt-1"></div>
-                <div>
-                  <span class="font-bold text-[var(--text-primary)] uppercase tracking-tight Proven Results</span>
-                  <p class="text-sm text-[var(--text-muted)]">Specific case studies from the {entry.country} region verify our impact.</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-          
-          <div class="aspect-video bg-[var(--text-primary)] rounded-3xl flex items-center justify-center p-12 text-center">
-             <div class="text-[var(--bg-primary)]">
-                <div class="text-6xl font-black italic tracking-tighter mb-2">127%</div>
-                <div class="text-sm font-bold uppercase tracking-widest opacity-60">Avg. Growth in {entry.cityName}</div>
-             </div>
-          </div>
+        <div class="flex items-center gap-4 text-[var(--text-muted)] font-bold uppercase tracking-widest text-xs px-6 py-4 bg-[var(--bg-secondary)] rounded-xl border border-[var(--border-subtle)]">
+           <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+           Active in {city.name}
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Intent CTA -->
-  <section class="py-24 bg-red-600 text-white text-center">
+  <!-- Local Insight Section -->
+  <section class="py-24 bg-[var(--bg-secondary)] border-y border-[var(--border-subtle)]">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-4xl md:text-6xl font-black italic uppercase tracking-tighter mb-8 leading-tight">
-        Ready to Lead the {entry.industryName} Market in {entry.cityName}?
+      <h2 class="text-4xl md:text-6xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-8 leading-[0.95]">
+        Solving <span class="text-[var(--accent-red)]">{industry.name}</span> Challenges In <span class="text-[var(--accent-yellow)]">{city.name}</span>.
       </h2>
-      <a href="/contact" class="inline-block px-12 py-6 bg-white text-red-600 font-black italic uppercase tracking-tighter text-2xl rounded-full hover:bg-black hover:text-white transition-all">
-        Book Your Strategy Session
+      <div class="prose prose-xl dark:prose-invert text-[var(--text-secondary)]">
+        <p class="mb-8 font-medium">{localize(content?.sections.overview.content || "")}</p>
+        
+        <p class="mb-8">
+           In {city.name}, {industry.name.toLowerCase()} companies face a unique set of digital hurdles. From managing multi-lingual procurement to staying ahead in a hyper-competitive {city.country} market, traditional out-of-the-box software often fails to deliver the precision required for business excellence. Our {service.name.toLowerCase()} are engineered specifically to bridge this gap. We combine international standards with an intimate understanding of how business is done in {city.name}, ensuring your technical infrastructure is an asset, not a bottleneck.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-8 not-prose mt-12">
+           <div class="p-8 rounded-3xl bg-[var(--bg-primary)] border-2 border-[var(--border-subtle)] group hover:border-[var(--accent-yellow)] transition-all">
+              <div class="text-[var(--accent-yellow)] font-black text-4xl mb-2">127%</div>
+              <div class="text-xs font-black uppercase tracking-widest text-[var(--text-primary)]">Average Pipeline Boost</div>
+              <p class="text-[10px] text-[var(--text-muted)] mt-2 uppercase tracking-tighter">Observed in {industry.name} sectors across {city.name}.</p>
+           </div>
+           <div class="p-8 rounded-3xl bg-[var(--bg-primary)] border-2 border-[var(--border-subtle)] group hover:border-[var(--accent-red)] transition-all">
+              <div class="text-[var(--accent-red)] font-black text-4xl mb-2">0.8s</div>
+              <div class="text-xs font-black uppercase tracking-widest text-[var(--text-primary)]">Site Response Latency</div>
+              <p class="text-[10px] text-[var(--text-muted)] mt-2 uppercase tracking-tighter">Optimized for {city.country} network infrastructure.</p>
+           </div>
+        </div>
+
+        <p class="mt-12 text-lg">
+           By focusing on the specific intent of {city.name}-based buyers, we ensure your {service.name.toLowerCase()} is more than just a presence—it's a lead generation machine. Whether you're operating in {city.name}'s business zones or serving global clients from your {city.country} headquarters, our systems are built to give you a clear advantage.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Strategic Capabilities -->
+  {content && (
+    <section class="py-24 bg-[var(--bg-primary)]">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+           <h3 class="text-xs font-bold uppercase tracking-[0.4em] text-red-600 mb-4">Core Capabilities</h3>
+           <h2 class="text-4xl md:text-6xl font-black italic uppercase tracking-tighter text-[var(--text-primary)]">
+              Tailored For <span class="text-[var(--accent-yellow)]">{industry.name}</span>.
+           </h2>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+           {content.sections.whatWeOffer.items.map((item: any) => (
+             <div class="bg-[var(--bg-card)] p-10 rounded-[2.5rem] border-2 border-[var(--border-subtle)] group hover:border-[var(--accent-red)] transition-all relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-6 text-6xl font-black italic tracking-tighter text-[var(--accent-red)] opacity-5 group-hover:opacity-10 transition-opacity">
+                  0{content.sections.whatWeOffer.items.indexOf(item) + 1}
+                </div>
+                <h4 class="text-2xl font-bold text-[var(--text-primary)] uppercase tracking-tight mb-4 group-hover:text-[var(--accent-red)] transition-colors">
+                  {item.title}
+                </h4>
+                <p class="text-[var(--text-secondary)] leading-relaxed">
+                  {localize(item.description)}
+                </p>
+             </div>
+           ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Cross-Linking (SEO Integrity) -->
+  <section class="py-24 bg-[var(--bg-secondary)] border-t border-[var(--border-subtle)]">
+    <div class="max-w-7xl mx-auto px-6">
+       <div class="grid md:grid-cols-2 gap-16">
+         <!-- Related Sectors in this City -->
+         <div>
+           <h4 class="text-xs font-black uppercase tracking-[0.4em] text-[var(--text-primary)] mb-8 border-l-4 border-[var(--accent-red)] pl-4">Sector Hubs in {city.name}</h4>
+           <div class="grid grid-cols-2 gap-3">
+             {industries.slice(0, 10).map((otherIndustry) => (
+               <a href={`/${city.slug}/${otherIndustry.slug}/${service.slug}`} class="px-4 py-3 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-primary)] text-[10px] font-bold uppercase tracking-widest hover:border-[var(--accent-red)] hover:text-[var(--accent-red)] transition-all">
+                 {otherIndustry.name} {service.name.split(' ')[0]}
+               </a>
+             ))}
+           </div>
+         </div>
+
+         <!-- This Service in other Cities -->
+         <div>
+           <h4 class="text-xs font-black uppercase tracking-[0.4em] text-[var(--text-primary)] mb-8 border-l-4 border-[var(--accent-yellow)] pl-4">{service.name} Regional Reach</h4>
+           <div class="grid grid-cols-2 gap-3">
+             {cities.slice(0, 10).map((otherCity) => (
+               <a href={`/${otherCity.slug}/${industry.slug}/${service.slug}`} class="px-4 py-3 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-primary)] text-[10px] font-bold uppercase tracking-widest hover:border-[var(--accent-yellow)] hover:text-[var(--accent-yellow)] transition-all">
+                 {service.name.split(' ')[0]} in {otherCity.name}
+               </a>
+             ))}
+           </div>
+         </div>
+       </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 bg-[var(--accent-red)] text-white text-center">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-4xl md:text-7xl font-black italic uppercase tracking-tighter mb-8 leading-[0.95]">
+        Dominate the <span class="text-[var(--accent-yellow)]">{industry.name}</span> Sector in {city.name} Toda<span class="text-[var(--accent-yellow)]">y.</span>
+      </h2>
+      <a href="/contact" class="inline-block px-12 py-6 bg-white text-[var(--accent-red)] font-black italic uppercase tracking-tighter text-2xl rounded-xl hover:bg-black hover:text-white transition-all shadow-2xl active:scale-95">
+        Get Free Audit
       </a>
     </div>
   </section>

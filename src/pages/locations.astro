@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { cities } from "../config/site-config";
+import { cities, services } from "../config/site-config";
 
 const uaeCities = cities.filter(c => c.country === 'UAE');
 const ksaCities = cities.filter(c => c.country === 'KSA');
@@ -31,21 +31,28 @@ const otherCities = cities.filter(c => !['UAE', 'KSA'].includes(c.country));
       
       <div class="grid md:grid-cols-3 gap-8">
         {uaeCities.map((city) => (
-          <a href={`/${city.slug}/web-development`} class="bg-[var(--bg-card)] p-10 rounded-[2.5rem] border-2 border-[var(--border-subtle)] hover:border-red-600 transition-all group overflow-hidden relative">
-            <div class="absolute -top-4 -right-4 w-24 h-24 bg-red-600/5 rounded-full blur-2xl"></div>
-            <h3 class="text-3xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-4 group-hover:text-red-600 transition-colors">
+          <div class="bg-[var(--bg-card)] p-10 rounded-[2.5rem] border-2 border-[var(--border-subtle)] hover:border-[var(--accent-red)] transition-all group overflow-hidden relative">
+            <div class="absolute -top-4 -right-4 w-24 h-24 bg-[var(--accent-red)]/5 rounded-full blur-2xl"></div>
+            <h3 class="text-3xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-6 group-hover:text-[var(--accent-red)] transition-colors">
               {city.name}
             </h3>
-            <p class="text-[var(--text-secondary)] leading-relaxed mb-6">
-              Full-service digital growth solutions for enterprises in {city.name}.
-            </p>
-            <div class="flex items-center gap-2 text-red-600 font-bold uppercase tracking-widest text-xs">
-              View Local Hub
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
+            
+            <div class="space-y-3 mb-8">
+              {['ai-seo', 'crm-systems', 'website-development', 'digital-platforms'].map(sSlug => {
+                const service = services.find(s => s.slug === sSlug);
+                return (
+                  <a href={`/${city.slug}/${sSlug}`} class="block text-sm font-bold uppercase tracking-tight text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-colors flex items-center gap-2">
+                    <span class="w-1 h-1 rounded-full bg-[var(--accent-yellow)]"></span>
+                    {service?.name || sSlug.replace('-', ' ')}
+                  </a>
+                );
+              })}
             </div>
-          </a>
+
+            <a href={`/${city.slug}/website-development`} class="inline-flex items-center gap-2 text-[var(--accent-red)] font-black uppercase tracking-widest text-[10px] group-hover:gap-4 transition-all">
+              Hub Performance &rarr;
+            </a>
+          </div>
         ))}
       </div>
     </div>
@@ -62,33 +69,41 @@ const otherCities = cities.filter(c => !['UAE', 'KSA'].includes(c.country));
       
       <div class="grid md:grid-cols-3 gap-8">
         {ksaCities.map((city) => (
-          <a href={`/${city.slug}/web-development`} class="bg-[var(--bg-card)] p-10 rounded-[2.5rem] border-2 border-[var(--border-subtle)] hover:border-red-600 transition-all group overflow-hidden relative">
-            <h3 class="text-3xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-4 group-hover:text-red-600 transition-colors">
+          <div class="bg-[var(--bg-card)] p-10 rounded-[2.5rem] border-2 border-[var(--border-subtle)] hover:border-[var(--accent-red)] transition-all group overflow-hidden relative">
+             <div class="absolute -top-4 -right-4 w-24 h-24 bg-[var(--accent-red)]/5 rounded-full blur-2xl"></div>
+             <h3 class="text-3xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-6 group-hover:text-[var(--accent-red)] transition-colors">
               {city.name}
             </h3>
-            <p class="text-[var(--text-secondary)] leading-relaxed mb-6">
-              Arabic-first, enterprise-grade solutions for {city.name} businesses.
-            </p>
-            <div class="flex items-center gap-2 text-red-600 font-bold uppercase tracking-widest text-xs">
-              View Local Hub
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
+
+            <div class="space-y-3 mb-8">
+              {['ai-seo', 'crm-systems', 'website-development', 'digital-platforms'].map(sSlug => {
+                const service = services.find(s => s.slug === sSlug);
+                return (
+                  <a href={`/${city.slug}/${sSlug}`} class="block text-sm font-bold uppercase tracking-tight text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-colors flex items-center gap-2">
+                    <span class="w-1 h-1 rounded-full bg-[var(--accent-yellow)]"></span>
+                    {service?.name || sSlug.replace('-', ' ')}
+                  </a>
+                );
+              })}
             </div>
-          </a>
+
+            <a href={`/${city.slug}/website-development`} class="inline-flex items-center gap-2 text-[var(--accent-red)] font-black uppercase tracking-widest text-[10px] group-hover:gap-4 transition-all">
+              Hub Performance &rarr;
+            </a>
+          </div>
         ))}
       </div>
     </div>
   </section>
   
   <!-- Final CTA -->
-  <section class="py-24 bg-red-600 text-white text-center">
+  <section class="py-32 bg-[#0a0a0a] text-white text-center">
     <div class="max-w-4xl mx-auto px-6">
       <h2 class="text-4xl md:text-7xl font-black italic uppercase tracking-tighter mb-8 leading-tight">
-        Global Standards.<br/>Local Expertise.
+        Ready to <span class="text-[var(--accent-red)]">Grow</span> Your<br/> Region<span class="text-[var(--accent-yellow)]">?</span>
       </h2>
-      <a href="/contact" class="inline-block px-12 py-6 bg-white text-red-600 font-black italic uppercase tracking-tighter text-2xl rounded-full hover:bg-black hover:text-white transition-all shadow-2xl">
-        Book Your Region
+      <a href="/contact" class="inline-block px-12 py-6 bg-[var(--accent-red)] text-white font-black italic uppercase tracking-tighter text-2xl rounded-xl hover:bg-white hover:text-black transition-all shadow-2xl">
+        Get Free Audit
       </a>
     </div>
   </section>

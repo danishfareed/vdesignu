@@ -5,48 +5,52 @@ const { contact } = content;
 ---
 
 <Layout title={contact.metaTitle} description={contact.metaDescription}>
-  <section class="pt-40 pb-24 bg-[var(--bg-primary)] overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid lg:grid-cols-2 gap-16 items-start">
+  <section class="pt-40 pb-24 bg-[var(--bg-primary)] overflow-hidden relative">
+    <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-red-600/5 rounded-full blur-[150px]"></div>
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-20 items-start">
         <!-- Text Content -->
         <div>
-          <h1 class="text-5xl md:text-7xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-8 leading-[0.95]">
-            Talk to an<br/><span class="text-red-600">Expert</span>, Not a Salesperson.
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-black uppercase tracking-[0.3em] mb-8 border border-red-100 dark:border-red-900/30">
+            Strategic Discovery
+          </div>
+          <h1 class="text-6xl md:text-9xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-10 leading-[0.8] translate-y-[-5%]">
+            Talk to an <br/><span class="text-[var(--accent-red)]">Engineer</span><br/> Not Sales<span class="text-[var(--accent-yellow)]">.</span>
           </h1>
-          <p class="text-xl text-[var(--text-secondary)] mb-12 max-w-xl">
+          <p class="text-2xl text-[var(--text-secondary)] mb-16 max-w-xl font-medium leading-relaxed">
             {contact.subtitle}
           </p>
 
-          <div class="space-y-10">
-             <div>
-              <h4 class="text-xs font-bold uppercase tracking-widest text-[var(--text-muted)] mb-4">Direct Contact</h4>
-              <div class="space-y-4">
-                <a href={`mailto:${contact.email}`} class="flex items-center gap-4 group">
-                  <div class="w-12 h-12 rounded-xl bg-red-50 dark:bg-red-900/20 flex items-center justify-center text-red-600 group-hover:bg-red-600 group-hover:text-white transition-all">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="grid gap-12">
+             <div class="group">
+              <h4 class="text-xs font-black uppercase tracking-[0.3em] text-[var(--text-muted)] mb-6">Direct Channels</h4>
+              <div class="space-y-6">
+                <a href={`mailto:${contact.email}`} class="flex items-center gap-6 group">
+                  <div class="w-16 h-16 rounded-2xl bg-[var(--bg-secondary)] border-2 border-[var(--border-subtle)] flex items-center justify-center text-[var(--accent-red)] group-hover:bg-[var(--accent-red)] group-hover:text-white transition-all shadow-lg group-hover:rotate-3">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                     </svg>
                   </div>
-                  <span class="text-lg font-bold text-[var(--text-primary)]">{contact.email}</span>
+                  <span class="text-2xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] group-hover:text-[var(--accent-red)] transition-colors">{contact.email}</span>
                 </a>
-                <a href={`tel:${contact.phone.replace(/\s/g, '')}`} class="flex items-center gap-4 group">
-                  <div class="w-12 h-12 rounded-xl bg-red-50 dark:bg-red-900/20 flex items-center justify-center text-red-600 group-hover:bg-red-600 group-hover:text-white transition-all">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <a href={`tel:${contact.phone.replace(/\s/g, '')}`} class="flex items-center gap-6 group">
+                  <div class="w-16 h-16 rounded-2xl bg-[var(--bg-secondary)] border-2 border-[var(--border-subtle)] flex items-center justify-center text-[var(--accent-red)] group-hover:bg-[var(--accent-red)] group-hover:text-white transition-all shadow-lg group-hover:rotate-[-3deg]">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                     </svg>
                   </div>
-                  <span class="text-lg font-bold text-[var(--text-primary)]">{contact.phone}</span>
+                  <span class="text-2xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] group-hover:text-[var(--accent-red)] transition-colors">{contact.phone}</span>
                 </a>
               </div>
             </div>
 
             <div>
-              <h4 class="text-xs font-bold uppercase tracking-widest text-[var(--text-muted)] mb-4">Our Presence</h4>
-              <div class="grid grid-cols-2 gap-4">
+              <h4 class="text-xs font-black uppercase tracking-[0.3em] text-[var(--text-muted)] mb-6">Regional Presence</h4>
+              <div class="grid sm:grid-cols-2 gap-6">
                 {contact.locations.map((loc: any) => (
-                  <div class="p-4 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-secondary)]">
-                    <div class="font-bold text-[var(--text-primary)] text-sm mb-1 uppercase tracking-tight">{loc.city}</div>
-                    <div class="text-[var(--text-muted)] text-xs">{loc.address}</div>
+                  <div class="p-8 rounded-[2rem] border-2 border-[var(--border-subtle)] bg-[var(--bg-secondary)] hover:border-[var(--accent-yellow)] transition-all group">
+                    <div class="font-black italic text-[var(--text-primary)] text-xl mb-2 uppercase tracking-tighter group-hover:text-[var(--accent-red)] transition-colors">{loc.city}</div>
+                    <div class="text-[var(--text-muted)] text-sm font-medium">{loc.address}</div>
                   </div>
                 ))}
               </div>
@@ -55,51 +59,49 @@ const { contact } = content;
         </div>
 
         <!-- Contact Form Card -->
-        <div class="bg-[var(--bg-card)] p-8 md:p-12 rounded-[2.5rem] border-2 border-[var(--border-subtle)] shadow-2xl relative">
-          <div class="absolute -top-4 -left-4 bg-red-600 text-white px-6 py-2 rounded-full font-black italic uppercase tracking-tighter text-sm">
-            Free Strategy Call
+        <div class="bg-[var(--bg-card)] p-10 md:p-16 rounded-[4rem] border-2 border-[var(--border-subtle)] shadow-2xl relative order-1 lg:order-2">
+          <div class="absolute -top-6 -left-6 bg-[var(--accent-red)] text-white px-8 py-3 rounded-xl font-black italic uppercase tracking-tighter text-lg shadow-xl shadow-red-600/20 rotate-[-2deg]">
+             Start Your Journey
           </div>
           
-          <form class="space-y-6">
-            <div class="grid md:grid-cols-2 gap-6">
-              <div class="space-y-2">
-                <label class="text-xs font-bold uppercase tracking-widest text-[var(--text-muted)] px-1">Full Name</label>
-                <input type="text" placeholder="John Doe" class="w-full px-6 py-4 rounded-2xl bg-[var(--bg-primary)] border-2 border-[var(--border-subtle)] focus:border-red-600 outline-none transition-all text-[var(--text-primary)]" required />
+          <form class="space-y-8">
+            <div class="grid md:grid-cols-2 gap-8">
+              <div class="space-y-3">
+                <label class="text-xs font-black uppercase tracking-[0.3em] text-[var(--text-muted)] px-1">Identity</label>
+                <input type="text" placeholder="Full Name" class="w-full px-8 py-5 rounded-2xl bg-[var(--bg-primary)] border-2 border-[var(--border-subtle)] focus:border-[var(--accent-red)] outline-none transition-all text-[var(--text-primary)] text-lg font-medium" required />
               </div>
-              <div class="space-y-2">
-                <label class="text-xs font-bold uppercase tracking-widest text-[var(--text-muted)] px-1">Email Address</label>
-                <input type="email" placeholder="john@company.com" class="w-full px-6 py-4 rounded-2xl bg-[var(--bg-primary)] border-2 border-[var(--border-subtle)] focus:border-red-600 outline-none transition-all text-[var(--text-primary)]" required />
-              </div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6">
-              <div class="space-y-2">
-                <label class="text-xs font-bold uppercase tracking-widest text-[var(--text-muted)] px-1">Company Name</label>
-                <input type="text" placeholder="Industrial Corp" class="w-full px-6 py-4 rounded-2xl bg-[var(--bg-primary)] border-2 border-[var(--border-subtle)] focus:border-red-600 outline-none transition-all text-[var(--text-primary)]" required />
-              </div>
-              <div class="space-y-2">
-                <label class="text-xs font-bold uppercase tracking-widest text-[var(--text-muted)] px-1">Industry</label>
-                <select class="w-full px-6 py-4 rounded-2xl bg-[var(--bg-primary)] border-2 border-[var(--border-subtle)] focus:border-red-600 outline-none transition-all text-[var(--text-primary)] appearance-none">
-                  <option>Oil & Gas</option>
-                  <option>Manufacturing</option>
-                  <option>Marine</option>
-                  <option>Construction</option>
-                  <option>Other B2B</option>
-                </select>
+              <div class="space-y-3">
+                <label class="text-xs font-black uppercase tracking-[0.3em] text-[var(--text-muted)] px-1">Portal</label>
+                <input type="email" placeholder="Email Address" class="w-full px-8 py-5 rounded-2xl bg-[var(--bg-primary)] border-2 border-[var(--border-subtle)] focus:border-[var(--accent-red)] outline-none transition-all text-[var(--text-primary)] text-lg font-medium" required />
               </div>
             </div>
 
-            <div class="space-y-2">
-              <label class="text-xs font-bold uppercase tracking-widest text-[var(--text-muted)] px-1">How can we help?</label>
-              <textarea rows="4" placeholder="Tell us about your project or growth goals..." class="w-full px-6 py-4 rounded-2xl bg-[var(--bg-primary)] border-2 border-[var(--border-subtle)] focus:border-red-600 outline-none transition-all text-[var(--text-primary)] resize-none" required></textarea>
+            <div class="grid md:grid-cols-2 gap-8">
+              <div class="space-y-3">
+                <label class="text-xs font-black uppercase tracking-[0.3em] text-[var(--text-muted)] px-1">Industry</label>
+                <input type="text" placeholder="e.g. Real Estate, Tech" class="w-full px-8 py-5 rounded-2xl bg-[var(--bg-primary)] border-2 border-[var(--border-subtle)] focus:border-[var(--accent-red)] outline-none transition-all text-[var(--text-primary)] text-lg font-medium" required />
+              </div>
+              <div class="space-y-3">
+                <label class="text-xs font-black uppercase tracking-[0.3em] text-[var(--text-muted)] px-1">Phone</label>
+                <input type="tel" placeholder="+971 -- --- ----" class="w-full px-8 py-5 rounded-2xl bg-[var(--bg-primary)] border-2 border-[var(--border-subtle)] focus:border-[var(--accent-red)] outline-none transition-all text-[var(--text-primary)] text-lg font-medium" required />
+              </div>
             </div>
 
-            <button type="submit" class="w-full py-5 bg-red-600 text-white font-black italic uppercase tracking-tighter text-2xl rounded-2xl hover:bg-black transition-all shadow-xl shadow-red-600/20 active:scale-[0.98]">
-              Send Message
+            <div class="space-y-3">
+              <label class="text-xs font-black uppercase tracking-[0.3em] text-[var(--text-muted)] px-1">The Objective</label>
+              <textarea rows="4" placeholder="Tell us about your technical roadmap or growth bottlenecks..." class="w-full px-8 py-6 rounded-2xl bg-[var(--bg-primary)] border-2 border-[var(--border-subtle)] focus:border-[var(--accent-red)] outline-none transition-all text-[var(--text-primary)] resize-none text-lg font-medium" required></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-6 bg-[var(--accent-red)] text-white font-black italic uppercase tracking-tighter text-3xl rounded-2xl hover:bg-black transition-all shadow-2xl shadow-red-600/30 active:scale-[0.98] group flex items-center justify-center gap-4">
+              Start Now
+              <svg class="w-8 h-8 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
             </button>
-            <p class="text-center text-[var(--text-muted)] text-xs mt-4">
-              Average response time: 2 hours.
-            </p>
+            <div class="flex items-center justify-center gap-4 pt-4">
+               <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+               <p class="text-[10px] font-black uppercase tracking-widest text-[var(--text-muted)]">Strategy Engineers Active &bull; Avg response: 2 hrs</p>
+            </div>
           </form>
         </div>
       </div>

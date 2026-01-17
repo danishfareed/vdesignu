@@ -4,10 +4,8 @@ import { cities, industries, services } from '../config/site-config';
 
 const generateData = () => {
   const combinations = [];
-  const tier1Industries = industries.tier1;
-
   for (const city of cities) {
-    for (const industry of tier1Industries) {
+    for (const industry of industries) {
       for (const service of services) {
         combinations.push({
           city: city.slug,
@@ -20,8 +18,8 @@ const generateData = () => {
           slug: `${city.slug}/${industry.slug}/${service.slug}`,
           // Initial metadata for content injection
           metaTitle: `${service.name} for ${industry.name} in ${city.name} | vdesignu`,
-          metaDescription: `Premium ${service.name} solutions tailored for the ${industry.name} sector in ${city.name}. Engineering growth for B2B industrial leaders in ${city.country}.`,
-          h1: `${service.name} Specialists for ${industry.name} & Mechanical Sectors in ${city.name}`
+          metaDescription: `Premium ${service.name} solutions tailored for the ${industry.name} sector in ${city.name}. Engineering growth for B2B and B2C brands in ${city.country}.`,
+          h1: `${service.name} Specialists for ${industry.name} Sectors in ${city.name}`
         });
       }
     }
