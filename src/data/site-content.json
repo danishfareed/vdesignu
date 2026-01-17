@@ -140,5 +140,47 @@
       { "city": "Dubai", "address": "Business Bay, UAE" },
       { "city": "Jeddah", "address": "Al Ashri Street, KSA" }
     ]
+  },
+  "locations": {
+    "dubai": {
+      "hero": {
+        "headline": "Engineering Digital Dominance in Dubai",
+        "subheadline": "Precision-engineered websites and AI-search strategies for Dubai's most ambitious B2B and B2C brands."
+      },
+      "marketReality": {
+        "title": "The Dubai Digital Frontier",
+        "content": "In Dubai's hyper-competitive market, your digital presence isn't just a website; it's your primary growth engine. We specialize in B2B industrial leaders and high-velocity B2C brands ready to lead."
+      },
+      "caseStudy": {
+        "title": "B2B Supply Chain Optimization",
+        "content": "Automated procurement portals for Dubai's industrial giants, resulting in massive efficiency gains and lead velocity.",
+        "metric": "85%",
+        "metricLabel": "Efficiency Gain"
+      },
+      "faq": [
+        { "question": "Why vdesignu in Dubai?", "answer": "We combine local market intelligence with global engineering standards." },
+        { "question": "How do you handle B2B vs B2C?", "answer": "Our systems are built to handle both the long cycles of B2B and the high speed of B2C." }
+      ]
+    },
+    "jeddah": {
+      "hero": {
+        "headline": "Digital Transformation in Jeddah",
+        "subheadline": "Aligning your Saudi enterprise with Vision 2030 through advanced digital engineering and CRM automation."
+      },
+      "marketReality": {
+        "title": "Scaling in the Kingdom",
+        "content": "Jeddah's industrial and consumer sectors demand precision. We build ZATCA-compliant, high-performance systems for Saudi's growth leaders."
+      },
+      "caseStudy": {
+        "title": "Industrial Manufacturing Growth",
+        "content": "Deployment of AI SEO strategies that captured the most valuable search intent for heavy industry in KSA.",
+        "metric": "120%",
+        "metricLabel": "Lead Increase"
+      },
+      "faq": [
+        { "question": "Are you ZATCA compliant?", "answer": "Yes, all our financial and CRM integrations for KSA meet ZATCA requirements." },
+        { "question": "How do you support Saudi businesses?", "answer": "We specialize in Arabic-first UX and regional compliance." }
+      ]
+    }
   }
 }

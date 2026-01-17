@@ -58,8 +58,15 @@ const {
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Outfit:wght@900&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Outfit:wght@900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Outfit:wght@900&display=swap" rel="stylesheet" /></noscript>
     
+    <!-- Critical Preloads -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/outfit/v11/Q_k790C9kjt3uFd-V-E87_2kZCHG.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrX2iL9mwHIy7mrc54.woff2" as="font" type="font/woff2" crossorigin />
+
     <title>{title} | {siteConfig.name}</title>
   </head>
   <body class="bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans antialiased overflow-x-hidden selection:bg-[var(--accent-red)] selection:text-white">
@@ -119,26 +126,35 @@ const {
       <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-red-600/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2"></div>
       
       <div class="max-w-7xl mx-auto px-6 py-24 relative z-10">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-24 mb-24">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 lg:gap-20 mb-24">
           <div class="lg:col-span-1">
             <h2 class="text-4xl font-black text-[var(--accent-red)] mb-8 uppercase italic tracking-tighter">vdesignu<span class="text-[var(--accent-yellow)]">.</span></h2>
             <p class="text-base text-[var(--text-secondary)] leading-relaxed mb-10 font-medium">
               {navigation.footer.about.text}
             </p>
           </div>
-
           <div>
             <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-[var(--accent-red)] mb-10">Capabilities</h4>
-            <ul class="space-y-6">
+            <ul class="space-y-4">
               {navigation.footer.services.map((item) => (
                 <li>
-                  <a href={item.href} class="text-sm font-black italic uppercase tracking-tight text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-all flex items-center gap-2 group">
+                  <a href={item.href} class="text-xs font-black italic uppercase tracking-tight text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-all flex items-center gap-2 group">
                     <span class="w-1.5 h-1.5 rounded-full bg-[var(--accent-yellow)] opacity-0 group-hover:opacity-100 transition-opacity"></span>
                     {item.label}
                   </a>
                 </li>
               ))}
             </ul>
+          </div>
+
+          <div>
+             <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-[var(--text-muted)] mb-10">Company</h4>
+             <ul class="space-y-4">
+               <li><a href="/about" class="text-xs font-black italic uppercase tracking-tight text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-all">About Us</a></li>
+               <li><a href="/contact" class="text-xs font-black italic uppercase tracking-tight text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-all">Contact</a></li>
+               <li><a href="/faq" class="text-xs font-black italic uppercase tracking-tight text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-all">FAQ</a></li>
+               <li><a href="/blog" class="text-xs font-black italic uppercase tracking-tight text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-all">Blog</a></li>
+             </ul>
           </div>
 
           <div>
@@ -169,7 +185,7 @@ const {
             <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-[var(--text-muted)] mb-10">Direct Contact</h4>
             <div class="relative z-10 flex flex-col gap-4">
               <p class="text-[10px] font-black uppercase tracking-[0.3em] text-[var(--accent-red)]">Inquiry</p>
-              <a href="mailto:hello@vdesignu.com" class="text-xl md:text-2xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] hover:text-[var(--accent-red)] transition-colors break-words">
+              <a href="mailto:hello@vdesignu.com" class="text-lg md:text-xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] hover:text-[var(--accent-red)] transition-colors break-words">
                 hello@vdesignu.com
               </a>
             </div>

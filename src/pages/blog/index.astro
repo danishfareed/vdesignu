@@ -1,20 +1,59 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import content from "../../data/site-content.json";
+
+const posts = [
+  {
+    title: "Generating High-Value B2B Leads in the Saudi Energy Sector",
+    excerpt: "Generic ads fail in the Gulf's industrial markets. Learn how specialized SEO corridors and custom portals capture $1M+ contracts.",
+    date: "Jan 12, 2026",
+    category: "Lead Gen",
+    slug: "b2b-leads-saudi-energy",
+    readTime: "8 min"
+  },
+  {
+    title: "The 0.8s Rule: Why Speed is the Core of Industrial Credibility",
+    excerpt: "Industrial buyers are high-velocity. If your site takes 3 seconds to load, you're signaling a lack of precision to your most valuable clients.",
+    date: "Jan 05, 2026",
+    category: "Performance",
+    slug: "0-8s-rule-industrial-credibility",
+    readTime: "6 min"
+  },
+  {
+    title: "Technical SEO for Industry Giants: Owning Intent",
+    excerpt: "Stop ranking for 'web design' and start ranking for 'industrial valves supplier'. How targeted SEO routes deliver massive revenue.",
+    date: "Dec 18, 2025",
+    category: "Search Strategy",
+    slug: "technical-seo-industry-giants",
+    readTime: "10 min"
+  }
+];
 ---
 
-<Layout title="Blog - vdesignu" description="Insights & Resources from vdesignu" >
-  <section class="max-w-4xl mx-auto py-16 px-6">
-    <h1 class="text-4xl md:text-5xl font-bold text-white mb-8 gradient-text-red">Insights & Resources</h1>
-    <p class="text-lg text-neutral-300 mb-12">Expert perspectives on digital growth, performance engineering, and market trends.</p>
-    <div class="grid md:grid-cols-2 gap-8">
-      {content.blog.posts.map((post) => (
-        <article class="bg-neutral-900/50 glass rounded-xl p-6 hover:bg-neutral-800 transition-colors">
-          <h2 class="text-2xl font-semibold text-white mb-2 gradient-text-red">{post.title}</h2>
-          <p class="text-neutral-400 mb-4">{post.excerpt}</p>
-          <a href={`/blog/${post.slug}`} class="inline-flex items-center text-red-400 hover:underline">
-            Read article
-            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+<Layout title="Insights & Strategic Growth | vdesignu" description="Data-driven insights and strategic guides on B2B and B2C growth, specialized SEO, and high-performance engineering in the Gulf.">
+  <section class="max-w-7xl mx-auto py-32 px-6">
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-black uppercase tracking-[0.3em] mb-8 border border-red-100 dark:border-red-900/30">
+      Strategic Insights
+    </div>
+    <h1 class="text-6xl md:text-9xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-8 leading-[0.8] translate-y-[-5%]">
+      The Growth <br/><span class="text-[var(--accent-red)]">Evidence</span><span class="text-[var(--accent-yellow)]">.</span>
+    </h1>
+    <p class="text-2xl text-[var(--text-secondary)] font-medium leading-relaxed mb-20 max-w-2xl">
+      Data, hard truths, and strategic blueprints for high-growth B2B and B2C brands.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-12">
+      {posts.map((post) => (
+        <article class="bg-[var(--bg-card)] border-2 border-[var(--border-subtle)] rounded-[3rem] p-12 hover:border-[var(--accent-red)] transition-all group">
+          <div class="flex items-center gap-4 mb-6">
+             <span class="text-[10px] font-black italic uppercase tracking-widest text-[var(--accent-red)]">{post.category}</span>
+             <span class="text-[10px] font-black uppercase tracking-widest text-[var(--text-muted)]">{post.date}</span>
+          </div>
+          <h2 class="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-6 leading-none group-hover:text-[var(--accent-red)] transition-colors">
+            {post.title}
+          </h2>
+          <p class="text-[var(--text-secondary)] mb-8 text-lg leading-relaxed">{post.excerpt}</p>
+          <a href="/contact" class="inline-flex items-center text-[var(--accent-red)] font-black uppercase tracking-widest text-sm hover:underline">
+            Read article &xrarr;
           </a>
         </article>
       ))}

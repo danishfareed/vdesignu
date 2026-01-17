@@ -11,7 +11,7 @@ export function getStaticPaths() {
 }
 
 const { service } = Astro.props;
-const content = servicesContent[service.slug as keyof typeof servicesContent];
+const content = servicesContent[service.slug as keyof typeof servicesContent] as any;
 
 // FAQ Schema
 const faqSchema = content?.faqs ? {
@@ -41,11 +41,11 @@ const faqSchema = content?.faqs ? {
     
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <div>
+        <div class="relative z-20">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-black uppercase tracking-[0.3em] mb-8 border border-red-100 dark:border-red-900/30">
             Precision Engineering
           </div>
-          <h1 class="text-5xl md:text-8xl font-black italic uppercase tracking-tighter leading-[0.9] text-[var(--text-primary)] mb-8">
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.85] text-[var(--text-primary)] mb-8">
             {content?.title?.split('&')[0] || service.name}
             <span class="text-[var(--accent-red)]">{content?.title?.split('&')[1] ? `& ${content.title.split('&')[1]}` : ''}</span>
           </h1>
@@ -106,7 +106,7 @@ const faqSchema = content?.faqs ? {
              </div>
              
              <div class="lg:col-span-2 grid md:grid-cols-2 gap-6">
-                {content.sections.whatWeOffer.items.map((item: any) => (
+                {(content as any).sections?.whatWeOffer?.items?.map((item: any) => (
                   <div class="bg-[var(--bg-card)] p-10 rounded-[3rem] border-2 border-[var(--border-subtle)] hover:border-[var(--accent-red)] transition-all group">
                      <div class="w-12 h-12 rounded-xl bg-[var(--accent-yellow)]/10 flex items-center justify-center mb-6 group-hover:bg-[var(--accent-red)] group-hover:text-white transition-colors">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -133,10 +133,10 @@ const faqSchema = content?.faqs ? {
             <div class="grid lg:grid-cols-2 gap-20 items-center">
               <div>
                 <h2 class="text-4xl md:text-6xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-8 leading-none">
-                   {content.sections.marketRelevance.title}
+                   {content.sections?.marketRelevance?.title}
                 </h2>
                 <div class="prose prose-xl dark:prose-invert text-[var(--text-secondary)]">
-                   <p class="font-medium leading-relaxed">{content.sections.marketRelevance.content}</p>
+                   <p class="font-medium leading-relaxed">{content.sections?.marketRelevance?.content}</p>
                 </div>
               </div>
               <div class="aspect-video bg-[var(--bg-secondary)] rounded-[3rem] border-2 border-[var(--border-subtle)] flex items-center justify-center relative overflow-hidden group">
@@ -157,10 +157,10 @@ const faqSchema = content?.faqs ? {
           <div class="max-w-4xl mx-auto px-6">
              <div class="inline-block px-4 py-2 bg-[var(--accent-yellow)] text-black text-[10px] font-black uppercase tracking-[0.4em] rounded-lg rotate-[-1deg] mb-12 shadow-lg">Our Deep Dive</div>
              <h2 class="text-5xl md:text-8xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-12 leading-none">
-                {content.sections.detailedApproach.title}
+                {content.sections?.detailedApproach?.title}
              </h2>
              <div class="prose prose-2xl dark:prose-invert text-[var(--text-secondary)]">
-                <p class="font-medium leading-relaxed italic">{content.sections.detailedApproach.content}</p>
+                <p class="font-medium leading-relaxed italic">{content.sections?.detailedApproach?.content}</p>
              </div>
           </div>
         </section>
@@ -174,7 +174,7 @@ const faqSchema = content?.faqs ? {
             </h2>
             
             <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-12">
-               {content.sections.process.steps.map((step: string, idx: number) => (
+               {content.sections?.process?.steps?.map((step: string, idx: number) => (
                  <div class="text-left relative group">
                     <div class="text-8xl font-black italic tracking-tighter text-[var(--accent-red)] opacity-10 mb-6 group-hover:opacity-30 transition-opacity">0{idx+1}</div>
                     <div class="absolute top-8 left-0">
@@ -194,7 +194,7 @@ const faqSchema = content?.faqs ? {
               Strategy <span class="text-[var(--accent-yellow)]">FAQ</span>
            </h2>
            <div class="space-y-6">
-             {content.faqs.map((faq: any) => (
+             {content.faqs?.map((faq: any) => (
                <details class="group bg-[var(--bg-primary)] border-2 border-[var(--border-subtle)] rounded-[2.5rem] overflow-hidden">
                  <summary class="flex items-center justify-between p-8 md:p-10 cursor-pointer list-none">
                     <span class="text-xl md:text-2xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] pr-12">{faq.question}</span>
@@ -218,7 +218,7 @@ const faqSchema = content?.faqs ? {
   <!-- Final CTA -->
   <section class="py-24 bg-[var(--accent-red)] text-white text-center rounded-t-[5rem]">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-4xl md:text-8xl font-black italic uppercase tracking-tighter mb-10 leading-[0.9]">
+      <h2 class="text-4xl md:text-8xl font-black italic uppercase tracking-tighter text-white mb-10 leading-[0.9]">
         Ready to Dominate <br/><span class="text-[var(--accent-yellow)]">Your Market?</span>
       </h2>
       <a href="/contact" class="inline-block px-12 py-6 bg-white text-[var(--accent-red)] font-black italic uppercase tracking-tighter text-2xl rounded-xl hover:bg-[var(--accent-yellow)] hover:text-black transition-all shadow-2xl active:scale-95">

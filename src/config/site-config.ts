@@ -35,7 +35,19 @@ export const industries = [
   { id: "logistics", name: "Logistics & Supply Chain", slug: "logistics", keywords: ["freight", "warehousing"] },
   { id: "real-estate", name: "Real Estate Development", slug: "real-estate", keywords: ["property", "development"] },
   { id: "healthcare", name: "Healthcare & Life Sciences", slug: "healthcare", keywords: ["medical", "clinics"] },
+  { id: "hospitals", name: "Hospitals", slug: "hospitals", keywords: ["medical center", "surgical"] },
+  { id: "clinics", name: "Specialized Clinics", slug: "clinics", keywords: ["dental", "derma", "health"] },
+  { id: "restaurants", name: "Restaurants", slug: "restaurants", keywords: ["f&b", "dining", "food service"] },
+  { id: "fine-dining", name: "Fine Dining", slug: "fine-dining", keywords: ["luxury dining", "michelin", "premium"] },
+  { id: "retail", name: "Retail & E-commerce", slug: "retail", keywords: ["shopping", "boutique", "fashion"] },
+  { id: "hospitality", name: "Hospitality & Hotels", slug: "hospitality", keywords: ["luxury hotels", "resorts"] },
+  { id: "education", name: "Education & Schools", slug: "education", keywords: ["nurseries", "private schools", "universities"] },
+  { id: "legal", name: "Legal & Law Firms", slug: "legal", keywords: ["lawyers", "corporate law"] },
   { id: "finance", name: "Finance & Fintech", slug: "finance", keywords: ["banking", "investment"] },
+  { id: "fitness", name: "Fitness & Gyms", slug: "fitness", keywords: ["wellnesscenter", "crossfit"] },
+  { id: "beauty", name: "Beauty & Wellness", slug: "beauty", keywords: ["salons", "spas"] },
+  { id: "automotive", name: "Automotive", slug: "automotive", keywords: ["dealerships", "car service"] },
+  { id: "aviation", name: "Aviation", slug: "aviation", keywords: ["private jets", "logistics"] },
 ];
 
 export const cities = [

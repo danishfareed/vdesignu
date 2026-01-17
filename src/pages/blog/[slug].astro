@@ -1,21 +1,40 @@
 ---
-import { Astro } from 'astro';
-import content from "../../../data/site-content.json";
+import Layout from "../../layouts/Layout.astro";
+
+export function getStaticPaths() {
+  const posts = [
+    { slug: "b2b-leads-saudi-energy" },
+    { slug: "0-8s-rule-industrial-credibility" },
+    { slug: "technical-seo-industry-giants" }
+  ];
+  return posts.map(post => ({
+    params: { slug: post.slug }
+  }));
+}
+
+const { slug } = Astro.params;
 ---
 
-<Layout title="{post.title} - vdesignu Blog" description={post.excerpt} >
-  {(() => {
-    const { slug } = Astro.params;
-    const post = content.blog.posts.find(p => p.slug === slug);
-    if (!post) {
-      return <p class="text-neutral-400">Post not found.</p>;
-    }
-    return (
-      <article class="prose prose-invert max-w-4xl mx-auto py-16 px-6">
-        <h1 class="gradient-text-red">{post.title}</h1>
-        <p class="text-sm text-neutral-500 mb-4">{post.date} • {post.category}</p>
-        <div innerHTML={post.content} />
-      </article>
-    );
-  })()}
+<Layout title="Strategic Blueprint | vdesignu" description="In-depth analysis and growth strategies for B2B and B2C brands.">
+  <section class="max-w-4xl mx-auto py-40 px-6">
+    <div class="mb-12">
+      <a href="/blog" class="text-[var(--accent-red)] font-black uppercase tracking-widest text-xs hover:gap-4 transition-all flex items-center gap-2">
+        &lslarr; Back to Evidence
+      </a>
+    </div>
+    
+    <article class="prose prose-2xl dark:prose-invert">
+      <h1 class="text-5xl md:text-7xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-8 leading-none">
+        Blueprint: <span class="text-[var(--accent-red)]">{slug.replace(/-/g, ' ')}</span>
+      </h1>
+      <div class="bg-[var(--bg-secondary)] p-12 rounded-[3rem] border-2 border-[var(--border-subtle)] mb-12">
+        <p class="text-xl text-[var(--text-secondary)] leading-relaxed italic">
+          This strategic blueprint is currently detailed in our offline portal. For a full technical audit or the complete growth evidence for this category, please contact our engineering team.
+        </p>
+      </div>
+      <a href="/contact" class="inline-block px-10 py-5 bg-[var(--accent-red)] text-white font-black italic rounded-xl hover:bg-black transition-all shadow-xl uppercase tracking-tighter text-2xl active:scale-95">
+        Request Full Audit
+      </a>
+    </article>
+  </section>
 </Layout>
