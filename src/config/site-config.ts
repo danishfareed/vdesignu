@@ -47,7 +47,6 @@ export const industries = [
   { id: "fitness", name: "Fitness & Gyms", slug: "fitness", keywords: ["wellnesscenter", "crossfit"] },
   { id: "beauty", name: "Beauty & Wellness", slug: "beauty", keywords: ["salons", "spas"] },
   { id: "automotive", name: "Automotive", slug: "automotive", keywords: ["dealerships", "car service"] },
-  { id: "aviation", name: "Aviation", slug: "aviation", keywords: ["private jets", "logistics"] },
 ];
 
 export const cities = [

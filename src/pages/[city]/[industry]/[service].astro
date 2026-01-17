@@ -2,6 +2,7 @@
 import Layout from "../../../layouts/Layout.astro";
 import { services, industries, cities } from "../../../config/site-config";
 import servicesContent from "../../../data/services-content.json";
+import industryContent from "../../../data/industry-content.json";
 
 export function getStaticPaths() {
   const paths = [];
@@ -27,12 +28,17 @@ export function getStaticPaths() {
 
 const { city, industry, service } = Astro.props;
 const content = servicesContent[service.slug as keyof typeof servicesContent];
+const industryData = industryContent.industries[industry.slug as keyof typeof industryContent.industries] || industryContent.industries.default;
+
 const canonicalURL = new URL(Astro.url.pathname, "https://vdesignu.com");
 
 // Localize content helper
 const localize = (text: string) => {
   if (!text) return "";
   return text
+    .replace(/{city}/g, city.name)
+    .replace(/{service}/g, service.name)
+    .replace(/{industry}/g, industry.name)
     .replace(/Gulf region/g, city.name)
     .replace(/UAE/g, city.country)
     .replace(/Dubai/g, city.name)
@@ -42,39 +48,44 @@ const localize = (text: string) => {
     .replace(/industrial/g, industry.name.toLowerCase());
 };
 
-// JSON-LD for AI SEO (GEO)
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": `${service.name} for ${industry.name} in ${city.name}`,
-  "description": `Leading ${service.name.toLowerCase()} solutions for the ${industry.name.toLowerCase()} sector in ${city.name}, ${city.country}.`,
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "vdesignu",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": city.name,
-      "addressCountry": city.country
+// Combine FAQs: Global service FAQs + Industry-specific FAQs
+const industryFaqs = industryData.faqs || [];
+const allFaqs = [...industryFaqs];
+
+// JSON-LD for AI SEO (GEO) & FAQ Schema
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": `${service.name} for ${industry.name} in ${city.name}`,
+    "description": `Leading ${service.name.toLowerCase()} solutions for the ${industry.name.toLowerCase()} sector in ${city.name}, ${city.country}.`,
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "vdesignu",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": city.name,
+        "addressCountry": city.country
+      }
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": city.name
     }
   },
-  "areaServed": {
-    "@type": "City",
-    "name": city.name
-  },
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": `${industry.name} Digital Growth Services`,
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": service.name
-        }
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": allFaqs.map(faq => ({
+      "@type": "Question",
+      "name": localize(faq.question),
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": localize(faq.answer)
       }
-    ]
+    }))
   }
-};
+];
 ---
 
 <Layout 
@@ -127,10 +138,10 @@ const jsonLd = {
         Solving <span class="text-[var(--accent-red)]">{industry.name}</span> Challenges In <span class="text-[var(--accent-yellow)]">{city.name}</span>.
       </h2>
       <div class="prose prose-xl dark:prose-invert text-[var(--text-secondary)]">
-        <p class="mb-8 font-medium">{localize(content?.sections.overview.content || "")}</p>
+        <p class="mb-8 font-medium">{localize((industryData as any).painPoints || content?.sections.overview.content || "")}</p>
         
         <p class="mb-8">
-           In {city.name}, {industry.name.toLowerCase()} companies face a unique set of digital hurdles. From managing multi-lingual procurement to staying ahead in a hyper-competitive {city.country} market, traditional out-of-the-box software often fails to deliver the precision required for business excellence. Our {service.name.toLowerCase()} are engineered specifically to bridge this gap. We combine international standards with an intimate understanding of how business is done in {city.name}, ensuring your technical infrastructure is an asset, not a bottleneck.
+           {localize((industryData as any).solution || `In ${city.name}, ${industry.name.toLowerCase()} companies face a unique set of digital hurdles. From managing multi-lingual procurement to staying ahead in a hyper-competitive ${city.country} market, traditional out-of-the-box software often fails to deliver the precision required for business excellence.`)} Our {service.name.toLowerCase()} are engineered specifically to bridge this gap. We combine international standards with an intimate understanding of how business is done in {city.name}, ensuring your technical infrastructure is an asset, not a bottleneck.
         </p>
 
         <div class="grid md:grid-cols-2 gap-8 not-prose mt-12">
@@ -170,7 +181,7 @@ const jsonLd = {
                 <div class="absolute top-0 right-0 p-6 text-6xl font-black italic tracking-tighter text-[var(--accent-red)] opacity-5 group-hover:opacity-10 transition-opacity">
                   0{content.sections.whatWeOffer.items.indexOf(item) + 1}
                 </div>
-                <h4 class="text-2xl font-bold text-[var(--text-primary)] uppercase tracking-tight mb-4 group-hover:text-[var(--accent-red)] transition-colors">
+                <h4 class="text-2xl font-bold text-[var(--text-primary)] uppercase tracking-tight mb-4 group-hover:text-[var(--accent-red)] transition-colors leading-tight">
                   {item.title}
                 </h4>
                 <p class="text-[var(--text-secondary)] leading-relaxed">
@@ -182,6 +193,56 @@ const jsonLd = {
       </div>
     </section>
   )}
+
+  <!-- Strategic FAQs (Search Intent Optimized) -->
+  <section class="py-24 bg-[var(--bg-secondary)] overflow-hidden relative">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--accent-yellow)]/5 rounded-full blur-[100px] -translate-y-1/2"></div>
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+        <div class="max-w-2xl">
+          <h3 class="text-xs font-bold uppercase tracking-[0.4em] text-red-600 mb-4">Strategic Intelligence</h3>
+          <h2 class="text-4xl md:text-6xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] leading-[0.9]">
+            Search Intent & <span class="text-[var(--accent-red)]">Growth Insights</span>.
+          </h2>
+        </div>
+        <div class="text-right">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-green-500/10 border border-green-500/20 text-green-600 text-[10px] font-black uppercase tracking-widest">
+            <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+            Updated for {city.name} {new Date().getFullYear()}
+          </div>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8">
+        {allFaqs.map((faq) => (
+          <div class="bg-[var(--bg-primary)] p-8 md:p-10 rounded-[2rem] border-2 border-[var(--border-subtle)] hover:border-[var(--accent-yellow)] transition-all group">
+            <div class="flex gap-6">
+              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-[var(--accent-red)]/10 flex items-center justify-center text-[var(--accent-red)] font-black italic">
+                ?
+              </div>
+              <div>
+                <h4 class="text-xl md:text-2xl font-black text-[var(--text-primary)] uppercase tracking-tight mb-6 group-hover:text-[var(--accent-red)] transition-colors leading-tight">
+                  {localize(faq.question)}
+                </h4>
+                <div class="h-px w-12 bg-[var(--accent-yellow)] mb-6"></div>
+                <p class="text-[var(--text-secondary)] leading-relaxed font-medium">
+                  {localize(faq.answer)}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      {allFaqs.length > 8 && (
+        <div class="mt-12 text-center">
+          <p class="text-xs font-bold uppercase tracking-widest text-[var(--text-muted)]">
+            + More context-specific answers engineered for {industry.name} leaders in {city.name}.
+          </p>
+        </div>
+      )}
+    </div>
+  </section>
 
   <!-- Cross-Linking (SEO Integrity) -->
   <section class="py-24 bg-[var(--bg-secondary)] border-t border-[var(--border-subtle)]">
