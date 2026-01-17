@@ -1,0 +1,44 @@
+{
+  "restaurants": {
+    "painPoints": "F&B businesses in {city} struggle with high delivery app commissions and low direct booking rates. Traditional marketing often fails to capture local diners at the moment of 'hunger intent'.",
+    "solution": "We engineer hyper-local search funnels that bypass aggregate apps. By optimizing for 'near me' intent and building high-performance booking systems, we help restaurants in {city} own their customer lifecycle.",
+    "faqs": [
+      { "question": "How can my restaurant in {city} get more direct bookings instead of using delivery apps?", "answer": "By implementing local SEO and a high-performance direct booking system, we help you capture customers directly on Google, saving you up to 30% in commission fees." },
+      { "question": "Does SEO actually work for restaurants?", "answer": "Yes. Most diners search for 'best restaurants in {city}' or specific cuisines. Ranking for these high-intent terms is the most cost-effective way to drive foot traffic." },
+      { "question": "What is the ROI of digital marketing for F&B?", "answer": "Our clients typically see a 3-5x return on ad spend by focusing on local search intent and automated CRM follow-ups for repeat customers." },
+      { "question": "How do you handle multi-location restaurant groups?", "answer": "We build centralized digital hubs that manage SEO and data for all your locations in {city} and beyond, ensuring consistent brand authority." },
+      { "question": "How long until we see an increase in diners?", "answer": "Local SEO optimizations and performance media can show results in as little as 2-4 weeks for the F&B sector." },
+      { "question": "Can you integrate with our existing POS system?", "answer": "Yes, our custom digital platforms are built to bridge the gap between your website and your internal POS or inventory tools." },
+      { "question": "How do we rank for 'best fine dining in {city}'?", "answer": "We use a combination of authority citation engineering and semantic content that proves your restaurant's premium status to both Google and diners." },
+      { "question": "Do you manage social media for restaurants?", "answer": "We focus on the high-intent side: Search and Performance Media. We ensure that when someone searches for a place to eat in {city}, they find you first." }
+    ]
+  },
+  "hospitals": {
+    "painPoints": "Healthcare providers in {city} face intense competition and complex regulatory requirements. Patient trust is often lost due to slow, outdated digital interfaces and poor search visibility.",
+    "solution": "We build medical-grade digital platforms that prioritize patient trust and sub-second performance. Our specialized healthcare SEO ensures your facility is the first choice for patients seeking expert care in {city}.",
+    "faqs": [
+      { "question": "Is your digital strategy for hospitals compliant with local {city} regulations?", "answer": "Yes, we build all healthcare platforms to meet local data privacy and medical advertising standards in {city} and the wider region." },
+      { "question": "How do you improve patient acquisition for specialized departments?", "answer": "We create targeted SEO corridors for specific treatments (e.g., Cardiology, Orthopedics) ensuring high-intent patients find the right specialist in {city} instantly." },
+      { "question": "Can patients book appointments directly through the website?", "answer": "Absolutely. We build secure, real-time appointment portals that integrate with your hospital management system (HMS)." },
+      { "question": "How do we compete with larger hospital groups in {city} for search rankings?", "answer": "We use semantic SEO to win on 'Specific Intent'—targeting long-tail medical queries where we can establish your doctors as the absolute authorities." },
+      { "question": "Does AI SEO/GEO help medical facilities?", "answer": "Crucially. When patients ask AI tools like ChatGPT for 'best surgeon in {city}', our GEO strategies ensure your doctors are the recommended experts." },
+      { "question": "How do you handle patient data security?", "answer": "We use enterprise-grade encryption and secure HIPAA-aligned cloud infrastructure to ensure all patient data in {city} remains private and protected." },
+      { "question": "How long does it take to see an increase in patient inquiries?", "answer": "Medical SEO typically shows significant gains in 3-6 months, while performance media can drive immediate patient volume for specific clinics." },
+      { "question": "Do you optimize for international medical tourism in {city}?", "answer": "Yes, we build multi-lingual, global-reach SEO systems to attract patients from outside {city} who are looking for premium healthcare in the region." }
+    ]
+  },
+  "real-estate": {
+    "painPoints": "Real estate developers in {city} often rely on outdated lead-gen methods that produce low-quality inquiries. In a crowded market, generic listings fail to communicate the premium value of new developments.",
+    "solution": "We engineer high-converting digital showrooms and AI-driven CRM systems. By capturing investor intent early and automating the nurturing process, we help developers in {city} close high-value deals faster.",
+    "faqs": [
+      { "question": "How do you find high-net-worth investors for {city} real estate?", "answer": "We use a combination of predictive AI targeting and 'Investor Intent' SEO to put your developments in front of global capital at the right moment." },
+      { "question": "Can you build custom property portals for multi-project developers?", "answer": "Yes, we specialize in building complex digital platforms that manage hundreds of listings with sub-second performance and real-time availability." },
+      { "question": "How do we reduce the cost per lead in the {city} market?", "answer": "By optimizing your website for Core Web Vitals and using high-precision PPC, we increase your quality score, lowering your ad spend while increasing lead volume." },
+      { "question": "Do you integrate with real estate CRMs like Salesforce or Propertyware?", "answer": "Yes, our systems are built to bridge the gap between your marketing site and your backend sales and inventory tools." },
+      { "question": "What is the best way to market luxury properties in {city}?", "answer": "Authority-driven branding combined with AI-SEO ensures that when wealthy buyers search for premium assets, your projects appear as the primary recommendation." },
+      { "question": "How do you handle international buyers who don't speak the local language?", "answer": "We build multi-lingual, culture-specific digital corridors that establish trust with investors from across the globe looking at {city}." },
+      { "question": "Can you create virtual tour integrations for our projects?", "answer": "We build the high-performance infrastructure needed to host and deliver immersive 3D/VR tours without slowing down your site's SEO performance." },
+      { "question": "How long until we see a return on our digital investment?", "answer": "While SEO is a long-term asset, our performance media campaigns for {city} real estate typically start delivering qualified leads within the first 14 days." }
+    ]
+  }
+}
