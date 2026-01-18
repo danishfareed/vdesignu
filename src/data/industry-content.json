@@ -209,20 +209,7 @@
         { "question": "Can you help our {city} firm automate lead nurturing for long sales cycles?", "answer": "Yes, our CRM systems are built for B2B, keeping your {city} firm top-of-the-mind during the 6-12 month sales cycles common in the energy sector." },
         { "question": "How does AI-SEO help {city} oil & gas companies?", "answer": "GEO ensures that when global firms ask AI for 'best drilling specialists in {city}', your company's technical whitepapers are the source of the answer." }
       ]
-    },
-    "marine": {
-      "painPoints": "Maritime firms in {city} operate in a hyper-competitive global market where trust and reliability are the only currencies. Many struggle to look as large and capable as they truly are online.",
-      "solution": "We engineer 'Maritime Trust' platforms. By building high-authority digital corridors and optimizing for global shipping intent, we help {city} maritime brands dominate their niche.",
-      "faqs": [
-        { "question": "How can our {city} ship supply company reach more vessel managers globally?", "answer": "By using 'Maritime-Intent' SEO, we place your {city} services at the top of the search results used by port captains and fleet managers worldwide." },
-        { "question": "Do you build custom portals for {city} maritime logistics and tracking?", "answer": "Yes, we build high-performance platforms that integrate with real-time AIS data to show your {city} fleet's status and logistics progress." },
-        { "question": "How do we rank for 'marine engineering services in {city}'?", "answer": "We create deep-dive technical content that proves your engineering prowess to both search engines and the technical experts in the {city} maritime sector." },
-        { "question": "How important is a multi-lingual site for a {city} shipping firm?", "answer": "Maritime is a global industry. Having a fast, SEO-optimized site in major seafaring languages ensures your {city} hub is accessible to the world." },
-        { "question": "Can you help our {city} maritime firm with employer branding for recruitment?", "answer": "Yes, we build specialized SEO funnels that attract top maritime talent to your {city} firm by showcasing your history, safety, and scale." },
-        { "question": "What is the role of digital authority in the {city} port services sector?", "answer": "Authority branding allows you to secure more government and large-scale industrial contracts by proving your {city} firm's stability and technical lead." },
-        { "question": "Does mobile speed matter for {city} maritime professionals on vessels?", "answer": "Yes. Seafarers and managers often have limited bandwidth. A sub-second site ensures your {city} data is always accessible on the water." },
-        { "question": "How does AI-SEO help {city} maritime companies stand out?", "answer": "When logistics planners ask AI for 'best maritime agents in {city}', our GEO strategies ensure your firm is cited as the primary recommendation." }
-      ]
     }
+
   }
 }

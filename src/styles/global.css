@@ -186,3 +186,19 @@
 .whatsapp-float {
   animation: float 3s ease-in-out infinite;
 }
+
+/* Logo Entry Animation */
+@keyframes logoEntry {
+  0% {
+    opacity: 0;
+    transform: skewX(-10deg) translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: skewX(0deg) translateX(0);
+  }
+}
+
+.logo-animate {
+  animation: logoEntry 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}

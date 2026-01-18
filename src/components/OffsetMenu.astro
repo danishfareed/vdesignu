@@ -10,7 +10,7 @@ import { services, industries, cities } from "../config/site-config";
   <div id="menu-backdrop" class="flex-grow bg-black/60 backdrop-blur-xl opacity-0 transition-opacity duration-700"></div>
   
   <!-- Content Panel -->
-  <div class="w-full max-w-2xl bg-[var(--bg-primary)] h-full shadow-2xl overflow-y-auto px-12 md:px-20 py-24 flex flex-col border-l border-[var(--border-subtle)] relative">
+  <div class="w-full max-w-2xl bg-[var(--bg-primary)] h-full shadow-2xl overflow-y-auto px-8 md:px-20 py-24 flex flex-col border-l border-[var(--border-subtle)] relative">
     <!-- Decorative Brand Blobs (Creative Animation) -->
     <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-20 dark:opacity-40">
       <div class="absolute -top-20 -right-20 w-80 h-80 bg-[var(--accent-red)] rounded-full blur-[100px] animate-pulse"></div>
@@ -21,23 +21,23 @@ import { services, industries, cities } from "../config/site-config";
     <div class="sticky top-0 z-50 flex justify-end -mt-16 mb-12 py-6 pointer-events-none">
       <button
         id="close-menu"
-        class="pointer-events-auto p-5 rounded-2xl bg-[var(--bg-secondary)] border-2 border-[var(--border-subtle)] hover:border-[var(--accent-red)] hover:bg-[var(--accent-red)] hover:text-white transition-all duration-500 group active:scale-90 shadow-xl relative overflow-hidden"
+        class="pointer-events-auto p-4 md:p-5 rounded-2xl bg-[var(--bg-secondary)] border-2 border-[var(--border-subtle)] hover:border-[var(--accent-red)] hover:bg-[var(--accent-red)] hover:text-white transition-all duration-500 group active:scale-90 shadow-xl relative overflow-hidden"
         aria-label="Close Menu"
       >
         <div class="absolute inset-0 bg-gradient-to-tr from-[var(--accent-red)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-        <svg class="w-8 h-8 relative z-10 transform group-hover:rotate-180 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-6 h-6 md:w-8 md:h-8 relative z-10 transform group-hover:rotate-180 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
       </button>
     </div>
 
-    <div class="flex flex-col gap-20">
+    <div class="flex flex-col gap-12 md:gap-20">
       <!-- Section: Services -->
       <div>
-        <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-[var(--accent-red)] mb-10">Our Expertise</h4>
-        <div class="grid grid-cols-1 gap-6">
+        <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-[var(--accent-red)] mb-8 md:mb-10">Our Expertise</h4>
+        <div class="grid grid-cols-1 gap-4 md:gap-6">
           {services.map(service => (
-            <a href={`/services/${service.slug}`} class="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] hover:text-[var(--accent-red)] transition-all hover:translate-x-4">
+            <a href={`/services/${service.slug}`} class="text-2xl sm:text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] hover:text-[var(--accent-red)] transition-all hover:translate-x-4 leading-tight">
               {service.name.split('(')[0]}
             </a>
           ))}

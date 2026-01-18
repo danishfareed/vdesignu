@@ -76,7 +76,7 @@ const {
     <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-transparent bg-transparent" id="main-header">
       <nav class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between transition-all duration-500" id="header-nav">
         <a href="/" class="flex items-center gap-2 group relative z-10 transition-transform active:scale-95">
-          <span class="text-4xl font-black text-[var(--accent-red)] tracking-tighter uppercase italic drop-shadow-sm">vdesignu<span class="text-[var(--accent-yellow)]">.</span></span>
+          <span class="text-4xl font-black text-[var(--accent-red)] tracking-tighter uppercase italic drop-shadow-sm logo-animate">vdesignu<span class="text-[var(--accent-yellow)]">.</span></span>
         </a>
 
 
@@ -126,7 +126,7 @@ const {
       <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-red-600/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2"></div>
       
       <div class="max-w-7xl mx-auto px-6 py-24 relative z-10">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 lg:gap-20 mb-24">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-20 mb-20">
           <div class="lg:col-span-1">
             <h2 class="text-4xl font-black text-[var(--accent-red)] mb-8 uppercase italic tracking-tighter">vdesignu<span class="text-[var(--accent-yellow)]">.</span></h2>
             <p class="text-base text-[var(--text-secondary)] leading-relaxed mb-10 font-medium">
@@ -154,31 +154,9 @@ const {
                <li><a href="/contact" class="text-xs font-black italic uppercase tracking-tight text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-all">Contact</a></li>
                <li><a href="/faq" class="text-xs font-black italic uppercase tracking-tight text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-all">FAQ</a></li>
                <li><a href="/blog" class="text-xs font-black italic uppercase tracking-tight text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-all">Blog</a></li>
-             </ul>
-          </div>
-
-          <div>
-            <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-[var(--text-muted)] mb-10">Regional Performance</h4>
-            <div class="space-y-8">
-              {navigation.footer.locations.map((loc) => (
-                <div>
-                  <h5 class="text-[10px] font-black text-[var(--accent-red)] mb-4 uppercase tracking-[0.2em] flex items-center gap-2">
-                     <span class="w-4 h-px bg-[var(--accent-red)]"></span>
-                     {loc.country}
-                  </h5>
-                  <div class="flex flex-wrap gap-x-4 gap-y-2">
-                    {loc.cities.map((city) => {
-                      const citySlug = city.toLowerCase().replace(/\s+/g, '-');
-                      return (
-                        <a href={`/${citySlug}/website-development`} class="text-xs font-bold text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-colors uppercase tracking-tight">
-                          {city}
-                        </a>
-                      );
-                    })}
-                  </div>
-                </div>
-              ))}
-            </div>
+                <li><a href="/tools" class="text-xs font-black italic uppercase tracking-tight text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-all">Free Tools</a></li>
+                <li><a href="/resources" class="text-xs font-black italic uppercase tracking-tight text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-all">Resource Hub</a></li>
+              </ul>
           </div>
 
           <div>
@@ -189,6 +167,32 @@ const {
                 hello@vdesignu.com
               </a>
             </div>
+          </div>
+        </div>
+
+        <!-- Regional Performance Section - New Row -->
+        <div class="border-t border-[var(--border-subtle)] pt-16 mb-16">
+          <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-[var(--text-muted)] mb-12 text-center">Regional Performance</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            {navigation.footer.locations.map((loc) => (
+              <div class="text-center">
+                <h5 class="text-xs font-black text-[var(--accent-red)] mb-6 uppercase tracking-[0.2em] flex items-center justify-center gap-2">
+                   <span class="w-4 h-px bg-[var(--accent-red)]"></span>
+                   {loc.country}
+                   <span class="w-4 h-px bg-[var(--accent-red)]"></span>
+                </h5>
+                <div class="flex flex-wrap gap-x-3 gap-y-3 justify-center">
+                  {loc.cities.map((city) => {
+                    const citySlug = city.toLowerCase().replace(/\s+/g, '-');
+                    return (
+                      <a href={`/${citySlug}/website-development`} class="text-xs font-bold text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-colors uppercase tracking-tight px-3 py-1.5 rounded-lg hover:bg-[var(--bg-card)] border border-transparent hover:border-[var(--border-subtle)]">
+                        {city}
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -210,12 +214,12 @@ const {
       
       window.addEventListener('scroll', () => {
         if (window.scrollY > 100) {
-          header?.classList.add('bg-[var(--bg-primary)]/90', 'backdrop-blur-xl', 'border-[var(--border-subtle)]', 'py-1', 'shadow-2xl');
+          header?.classList.add('bg-[var(--bg-primary)]', 'border-[var(--border-subtle)]', 'py-1', 'shadow-2xl');
           header?.classList.remove('bg-transparent', 'border-transparent');
           nav?.classList.remove('py-6');
           nav?.classList.add('py-3');
         } else {
-          header?.classList.remove('bg-[var(--bg-primary)]/90', 'backdrop-blur-xl', 'border-[var(--border-subtle)]', 'py-1', 'shadow-2xl');
+          header?.classList.remove('bg-[var(--bg-primary)]', 'border-[var(--border-subtle)]', 'py-1', 'shadow-2xl');
           header?.classList.add('bg-transparent', 'border-transparent');
           nav?.classList.add('py-6');
           nav?.classList.remove('py-3');

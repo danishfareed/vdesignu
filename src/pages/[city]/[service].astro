@@ -53,7 +53,7 @@ const localize = (text: string) => {
       <h1 class="text-5xl md:text-8xl font-black italic uppercase tracking-tighter leading-[0.9] text-[var(--text-primary)] mb-8">
         The Premier<br/>
         <span class="text-[var(--accent-red)]">{service.name}</span><br/>
-        Agency in <span class="relative">{city.name}<span class="text-[var(--accent-yellow)]">.</span><div class="absolute -bottom-2 left-0 w-full h-2 bg-[var(--accent-yellow)]/30 rounded-full blur-sm"></div></span>
+        Agency in <span class="relative">{city.name}</span>
       </h1>
       <p class="text-2xl font-medium text-[var(--text-secondary)] max-w-3xl mb-12 leading-relaxed">
         {localize(content?.heroDescription?.split('.')[0]) || `Premium ${service.name.toLowerCase()} solutions for B2B and B2C brands in ${city.name}. We help you find more customers and grow your revenue.`}

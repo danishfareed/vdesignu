@@ -2,48 +2,54 @@
 ---
 <button
   id="theme-toggle"
-  class="relative p-2 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors duration-300 group overflow-hidden"
+  class="relative p-3 rounded-xl bg-[var(--bg-secondary)] border-2 border-[var(--border-subtle)] hover:bg-[var(--bg-card)] transition-all duration-300 group overflow-hidden active:scale-90 cursor-pointer"
   aria-label="Toggle Theme"
 >
-  <!-- Sun Icon -->
-  <svg
-    class="w-6 h-6 text-yellow-500 transition-transform duration-500 dark:translate-y-[150%] dark:opacity-0"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-  >
-    <path
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-      d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l.707.707M6.343 6.343l.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-    ></path>
-  </svg>
+  <!-- Sun Icon (Light Mode) -->
+  <div class="sun-icon transition-all duration-500">
+    <svg class="w-5 h-5 text-[var(--accent-yellow)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+      <circle cx="12" cy="12" r="4"></circle>
+      <path d="M12 2v2"></path>
+      <path d="M12 20v2"></path>
+      <path d="m4.93 4.93 1.41 1.41"></path>
+      <path d="m17.66 17.66 1.41 1.41"></path>
+      <path d="M2 12h2"></path>
+      <path d="M20 12h2"></path>
+      <path d="m6.34 17.66-1.41 1.41"></path>
+      <path d="m19.07 4.93-1.41 1.41"></path>
+    </svg>
+  </div>
   
-  <!-- Moon Icon -->
-  <svg
-    class="w-6 h-6 text-blue-400 absolute top-2 left-2 transition-transform duration-500 -translate-y-[150%] opacity-0 dark:translate-y-0 dark:opacity-100"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-  >
-    <path
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-      d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-    ></path>
-  </svg>
+  <!-- Moon Icon (Dark Mode) -->
+  <div class="moon-icon absolute top-3 left-3 transition-all duration-500 -translate-y-[150%] opacity-0">
+    <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+    </svg>
+  </div>
 </button>
 
 <script>
   const themeToggle = document.getElementById('theme-toggle');
+  const sunIcon = themeToggle?.querySelector('.sun-icon');
+  const moonIcon = themeToggle?.querySelector('.moon-icon');
   
   const getTheme = () => {
     if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
       return localStorage.getItem('theme');
     }
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  };
+
+  const updateIcons = (theme: string) => {
+    if (theme === 'dark') {
+      sunIcon?.classList.add('translate-y-[150%]', 'opacity-0');
+      moonIcon?.classList.remove('-translate-y-[150%]', 'opacity-0');
+      moonIcon?.classList.add('translate-y-0', 'opacity-100');
+    } else {
+      sunIcon?.classList.remove('translate-y-[150%]', 'opacity-0');
+      moonIcon?.classList.add('-translate-y-[150%]', 'opacity-0');
+      moonIcon?.classList.remove('translate-y-0', 'opacity-100');
+    }
   };
 
   const setTheme = (theme: string) => {
@@ -53,6 +59,7 @@
       document.documentElement.classList.remove('dark');
     }
     localStorage.setItem('theme', theme);
+    updateIcons(theme);
   };
 
   themeToggle?.addEventListener('click', () => {
@@ -61,5 +68,13 @@
   });
 
   // Initial set
-  setTheme(getTheme()!);
+  const currentTheme = getTheme();
+  setTheme(currentTheme!);
 </script>
+
+<style>
+  .sun-icon,
+  .moon-icon {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+</style>

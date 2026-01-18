@@ -1,0 +1,182 @@
+---
+/**
+ * Tools Landing Page
+ * Displays all tool categories with counts and featured tools
+ */
+import Layout from '../../layouts/Layout.astro';
+import CategoryCard from '../../components/tools/CategoryCard.astro';
+import ToolCard from '../../components/tools/ToolCard.astro';
+import { toolCategories, getFeaturedTools, tools } from '../../data/tools-data';
+
+const featuredTools = getFeaturedTools();
+const totalTools = tools.length;
+---
+
+<Layout 
+  title="Free SEO Tools - Schema Generators, Meta Tags, UTM Builders & More" 
+  description="100+ free SEO tools for structured data, sitemaps, meta tags, UTM tracking, redirects, security headers, Arabic SEO, and GCC compliance. No signup required."
+>
+  <!-- Hero Section -->
+  <section class="pt-40 pb-24 bg-[var(--bg-primary)] overflow-hidden relative">
+    <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-red-600/5 rounded-full blur-[150px]"></div>
+    <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-yellow-500/5 rounded-full blur-[150px]"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-black uppercase tracking-[0.3em] mb-10 border border-red-100 dark:border-red-900/30">
+        <span class="w-2 h-2 rounded-full bg-[var(--accent-red)] animate-pulse"></span>
+        {totalTools}+ Free Tools
+      </div>
+      
+      <h1 class="text-5xl md:text-8xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-10 leading-[0.85]">
+        Free <span class="text-[var(--accent-red)]">SEO</span> Tools
+      </h1>
+      
+      <p class="text-xl md:text-2xl text-[var(--text-secondary)] leading-relaxed max-w-3xl mx-auto mb-12">
+        Professional-grade tools for schema markup, meta tags, sitemaps, analytics tracking, and more. 
+        <span class="text-[var(--accent-red)] font-bold">No signup required.</span>
+      </p>
+      
+      <!-- Quick stats -->
+      <div class="flex flex-wrap justify-center gap-8 md:gap-16">
+        <div class="text-center">
+          <div class="text-4xl md:text-5xl font-black italic text-[var(--accent-red)]">{totalTools}</div>
+          <div class="text-xs font-black uppercase tracking-widest text-[var(--text-muted)] mt-1">Tools</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl md:text-5xl font-black italic text-[var(--accent-red)]">{toolCategories.length}</div>
+          <div class="text-xs font-black uppercase tracking-widest text-[var(--text-muted)] mt-1">Categories</div>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl md:text-5xl font-black italic text-[var(--accent-yellow)]">Free</div>
+          <div class="text-xs font-black uppercase tracking-widest text-[var(--text-muted)] mt-1">Forever</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Grid -->
+  <section class="py-24 bg-[var(--bg-secondary)]">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-6xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-6">
+          Browse by <span class="text-[var(--accent-red)]">Category</span>
+        </h2>
+        <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          Explore our comprehensive collection of SEO and digital marketing tools organized by category.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {toolCategories.map((category) => (
+          <CategoryCard category={category} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Tools -->
+  <section class="py-24 bg-[var(--bg-primary)]">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <div class="inline-block px-4 py-2 bg-[var(--accent-yellow)] text-black text-[10px] font-black uppercase tracking-[0.4em] rounded-lg rotate-[-1deg] mb-8 shadow-lg">
+          Most Popular
+        </div>
+        <h2 class="text-3xl md:text-6xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-6">
+          Featured <span class="text-[var(--accent-red)]">Tools</span>
+        </h2>
+        <p class="text-lg text-[var(--text-secondary)] max-w-2xl mx-auto">
+          Our most used tools by SEO professionals, marketers, and developers.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {featuredTools.map((tool) => {
+          const category = toolCategories.find(c => c.id === tool.categoryId);
+          return (
+            <ToolCard tool={tool} categorySlug={category?.slug || ''} />
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases Section -->
+  <section class="py-24 bg-[var(--bg-secondary)] border-t border-[var(--border-subtle)]">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 class="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-8 leading-tight">
+            Built for <span class="text-[var(--accent-red)]">Professionals</span>
+          </h2>
+          <p class="text-lg text-[var(--text-secondary)] mb-8 leading-relaxed">
+            Whether you're an SEO specialist, web developer, or digital marketer, our tools help you work faster and smarter.
+          </p>
+          
+          <div class="space-y-4">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-[var(--accent-red)] flex items-center justify-center text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-black text-[var(--text-primary)] uppercase tracking-tight">Schema Markup</h4>
+                <p class="text-sm text-[var(--text-secondary)]">Generate rich snippets for better SERP visibility</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-[var(--accent-red)] flex items-center justify-center text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-black text-[var(--text-primary)] uppercase tracking-tight">Analytics Tracking</h4>
+                <p class="text-sm text-[var(--text-secondary)]">UTM builders and GA4 event generators</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-[var(--accent-red)] flex items-center justify-center text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-black text-[var(--text-primary)] uppercase tracking-tight">Arabic & GCC Focus</h4>
+                <p class="text-sm text-[var(--text-secondary)]">Specialized tools for MENA region optimization</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-[var(--bg-card)] border-2 border-[var(--border-subtle)] rounded-[3rem] p-12 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-64 h-64 bg-[var(--accent-red)]/5 rounded-full blur-3xl"></div>
+          <div class="relative z-10">
+            <div class="text-8xl font-black italic text-[var(--accent-red)] mb-4">100+</div>
+            <div class="text-2xl font-black uppercase tracking-tight text-[var(--text-primary)] mb-4">
+              Free Tools
+            </div>
+            <p class="text-[var(--text-secondary)] leading-relaxed">
+              No signup, no credit card, no limits. Just professional tools built for real work.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-24 bg-[var(--accent-red)] text-white text-center rounded-t-[5rem]">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl md:text-6xl font-black italic uppercase tracking-tighter text-white mb-8 leading-tight">
+        Start Using Free Tools
+      </h2>
+      <p class="text-xl text-white/80 mb-10">
+        No signup required. Just pick a tool and start generating code.
+      </p>
+      <a href="#categories" class="inline-block px-12 py-6 bg-white text-[var(--accent-red)] font-black italic uppercase tracking-tighter text-xl rounded-xl hover:bg-black hover:text-white transition-all shadow-2xl active:scale-95">
+        Browse All Categories
+      </a>
+    </div>
+  </section>
+</Layout>

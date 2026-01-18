@@ -1,0 +1,49 @@
+---
+/**
+ * ToolCard Component
+ * Displays a tool preview card for listings
+ */
+import type { Tool } from '../../data/tools-data';
+import * as LucideIcons from 'lucide-react';
+
+interface Props {
+  tool: Tool;
+  categorySlug: string;
+}
+
+const { tool, categorySlug } = Astro.props;
+
+// Get the icon component dynamically
+const IconComponent = (LucideIcons as any)[tool.icon] || LucideIcons.Wrench;
+---
+
+<a 
+  href={`/tools/${categorySlug}/${tool.slug}`}
+  class="group block bg-[var(--bg-card)] border-2 border-[var(--border-subtle)] rounded-3xl p-8 hover:border-[var(--accent-red)] transition-all duration-300 hover:shadow-xl hover:shadow-red-600/5"
+>
+  <div class="flex items-start gap-4 mb-6">
+    <div class="w-12 h-12 rounded-xl bg-[var(--accent-red)]/10 flex items-center justify-center text-[var(--accent-red)] group-hover:bg-[var(--accent-red)] group-hover:text-white transition-all">
+      <IconComponent className="w-6 h-6" />
+    </div>
+    {tool.featured && (
+      <span class="px-2 py-1 bg-[var(--accent-yellow)] text-black text-[9px] font-black uppercase tracking-wider rounded-md">
+        Popular
+      </span>
+    )}
+  </div>
+  
+  <h3 class="text-lg font-black text-[var(--text-primary)] uppercase tracking-tight mb-3 group-hover:text-[var(--accent-red)] transition-colors leading-tight">
+    {tool.name}
+  </h3>
+  
+  <p class="text-sm text-[var(--text-secondary)] leading-relaxed line-clamp-2">
+    {tool.shortDescription}
+  </p>
+  
+  <div class="mt-6 flex items-center gap-2 text-[var(--accent-red)] text-xs font-black uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
+    <span>Use Tool</span>
+    <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+    </svg>
+  </div>
+</a>

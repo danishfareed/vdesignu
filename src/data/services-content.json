@@ -113,7 +113,14 @@
           "Team Training & Post-Launch Tuning"
         ]
       }
-    }
+    },
+    "faqs": [
+      { "question": "How long does CRM implementation take?", "answer": "Most CRM implementations take 4-8 weeks depending on complexity. We handle data migration, channel integration, and team training to ensure a smooth transition." },
+      { "question": "Can you integrate WhatsApp Business API?", "answer": "Yes, we are official WhatsApp Business API partners. We handle the entire setup, verification, and integration process for your business." },
+      { "question": "Do you support both B2B and B2C workflows?", "answer": "Absolutely. Our CRM systems are designed to handle long B2B sales cycles with lead scoring and nurturing, as well as high-velocity B2C transactions with instant automation." },
+      { "question": "Which CRM platforms do you work with?", "answer": "We work with leading platforms and can also build custom CRM solutions tailored to your specific business needs in the Gulf region." },
+      { "question": "Is the CRM ZATCA compliant for Saudi Arabia?", "answer": "Yes, all our CRM integrations for KSA businesses meet ZATCA requirements for invoicing and financial compliance." }
+    ]
   },
   "website-development": {
     "title": "Website Development",
@@ -149,7 +156,14 @@
           "Global Deployment & 24/7 Monitoring"
         ]
       }
-    }
+    },
+    "faqs": [
+      { "question": "How fast will my website load?", "answer": "Our websites typically load in under 1 second. We use modern headless technology, global CDN hosting, and advanced optimization to ensure lightning-fast performance." },
+      { "question": "Do you build both B2B and B2C websites?", "answer": "Yes, we specialize in both. B2B sites focus on lead generation and authority, while B2C sites prioritize conversion and user experience." },
+      { "question": "Can you rebuild our existing website?", "answer": "Absolutely. We can migrate your existing content and improve your site's performance, security, and SEO without losing your current rankings." },
+      { "question": "What CMS do you use?", "answer": "We work with modern headless CMS platforms like Sanity, Contentful, or custom solutions tailored to your workflow and business needs." },
+      { "question": "Do you provide ongoing maintenance?", "answer": "Yes, we offer 24/7 monitoring, security updates, performance optimization, and content updates as part of our maintenance packages." }
+    ]
   },
   "digital-platforms": {
     "title": "Custom Digital Platforms & Portals",
@@ -176,7 +190,14 @@
         "title": "Building Your Advantage",
         "content": "Building a custom platform is a strategic investment in your company's future. We work closely with your stakeholders to identify the 'Pain Points' that are slowing you down. We then design a solution that solves these problems while remaining easy for your team to use. \n\nWe don't just build and leave. We provide ongoing support as your platform evolves. As you find new ways to improve your business, we help you add new features and integrations, ensuring your software advantage only grows over time."
       }
-    }
+    },
+    "faqs": [
+      { "question": "What types of platforms do you build?", "answer": "We build vendor portals, client dashboards, internal operations tools, bidding platforms, and custom software solutions tailored to your specific business processes." },
+      { "question": "Can you integrate with our existing systems?", "answer": "Yes, we specialize in API integrations with ERP systems like SAP, Oracle, Microsoft Dynamics, and custom databases to ensure seamless data flow." },
+      { "question": "How long does custom platform development take?", "answer": "Depending on complexity, most platforms take 3-6 months from discovery to deployment. We use agile methodology for faster iterations and feedback." },
+      { "question": "Do you provide training for our team?", "answer": "Absolutely. We provide comprehensive training, documentation, and ongoing support to ensure your team can use the platform effectively." },
+      { "question": "Is the platform scalable as we grow?", "answer": "Yes, we build on cloud infrastructure that scales automatically with your business growth, handling increased users and data without performance issues." }
+    ]
   },
   "performance-media": {
     "title": "Performance Media & PPC",
@@ -203,7 +224,14 @@
         "title": "The Performance Cycle",
         "content": "Our media strategy follows a cycle of 'Test, Adapt, Scale'. We start with small, focused tests to see which messages and audiences respond best. Once we find a winner, we gradually increase the budget while monitoring the return on ad spend (ROAS). \n\nWe provide real-time dashboards where you can see exactly how your campaigns are performing. No hidden fees, no vanity metrics—just honest data about how your ad spend is contributing to your business growth. We act as an extension of your team, constantly looking for new opportunities to lower your acquisition costs and scale your revenue."
       }
-    }
+    },
+    "faqs": [
+      { "question": "What's the minimum ad budget you recommend?", "answer": "For B2B campaigns, we recommend starting with $3,000-5,000/month. For B2C, $2,000-3,000/month allows for meaningful testing and optimization." },
+      { "question": "How do you measure campaign success?", "answer": "We track ROI, cost per acquisition (CPA), conversion rates, and revenue attribution. You'll have access to real-time dashboards showing exactly how your ad spend performs." },
+      { "question": "Do you handle both Google and LinkedIn ads?", "answer": "Yes, we manage Google Search, Display, LinkedIn ABM campaigns, Meta ads, and other platforms based on where your target audience is most active." },
+      { "question": "Can you target specific companies in B2B?", "answer": "Absolutely. We use LinkedIn's Account-Based Marketing (ABM) features to target specific companies, job titles, and decision-makers in your industry." },
+      { "question": "How long before we see results?", "answer": "Most campaigns show initial data within 2-4 weeks. Meaningful optimization and ROI improvement typically occur within 2-3 months of continuous testing." }
+    ]
   },
   "branding-strategy": {
     "title": "Corporate Strategy & Branding",
@@ -239,6 +267,13 @@
           "Global Rollout & Implementation"
         ]
       }
-    }
+    },
+    "faqs": [
+      { "question": "Do we need a full rebrand or just a refresh?", "answer": "We start with a brand audit to assess your current identity. Sometimes a refresh is enough; other times a complete rebrand is needed to match your market position." },
+      { "question": "How long does the branding process take?", "answer": "A complete brand identity project typically takes 6-10 weeks, including discovery, strategy, design iterations, and final delivery of all brand assets." },
+      { "question": "What deliverables do we receive?", "answer": "You'll receive logo files, color palettes, typography guidelines, brand messaging framework, visual identity system, and comprehensive brand guidelines." },
+      { "question": "Can you help with Arabic branding for the Gulf market?", "answer": "Yes, we specialize in bilingual branding for the Gulf region, ensuring your brand works seamlessly in both English and Arabic across all touchpoints." },
+      { "question": "Do you handle both B2B and B2C branding?", "answer": "Absolutely. B2B branding focuses on authority and trust, while B2C emphasizes emotional connection and consumer appeal. We tailor our approach to your market." }
+    ]
   }
 }

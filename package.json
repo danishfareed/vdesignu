@@ -3,8 +3,10 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
+    "sync:resources": "node scripts/sync-resources.mjs",
+    "sync:resources:force": "node -e \"const fs=require('fs'); fs.rmSync('.cache', {recursive: true, force: true})\" && node scripts/sync-resources.mjs",
+    "dev": "pnpm run sync:resources && astro dev",
+    "build": "pnpm run sync:resources && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -16,10 +18,15 @@
     "@types/react": "^19.2.8",
     "@types/react-dom": "^19.2.3",
     "astro": "^5.16.11",
+    "gray-matter": "^4.0.3",
+    "lucide-react": "^0.562.0",
     "matter-js": "^0.20.0",
+    "node-fetch": "^3.3.2",
+    "qrcode.react": "^4.2.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "tailwindcss": "^4.1.18",
+    "tar": "^7.5.3",
     "typescript": "^5.9.3"
   },
   "devDependencies": {

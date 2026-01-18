@@ -1,0 +1,29 @@
+---
+/**
+ * ToolSteps Component
+ * Displays how-to-use steps for each tool
+ */
+
+interface Props {
+  steps: string[];
+}
+
+const { steps } = Astro.props;
+---
+
+<div class="bg-[var(--bg-secondary)] border border-[var(--border-subtle)] rounded-3xl p-8 mb-12">
+
+  
+  <div class="grid gap-4">
+    {steps.map((step, index) => (
+      <div class="flex items-start gap-4 group">
+        <div class="w-8 h-8 rounded-full bg-[var(--accent-red)] flex items-center justify-center text-white text-sm font-black flex-shrink-0">
+          {index + 1}
+        </div>
+        <div class="pt-1">
+          <p class="text-[var(--text-primary)] font-medium">{step}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>

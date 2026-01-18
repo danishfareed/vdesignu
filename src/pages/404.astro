@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Game404 from '../components/game/Game404';
+---
+
+<Layout title="404 - Page Not Found">
+  <main class="flex items-center justify-center min-h-[80vh]">
+    <div class="text-center px-6">
+      <div class="flex flex-col items-center gap-6 w-full max-w-4xl mx-auto pt-10">
+        <h2 class="text-xl font-black text-[var(--accent-red)] uppercase tracking-widest animate-pulse">
+           404 // Mission: Not Found
+        </h2>
+
+        <Game404 client:only="react" />
+
+        <p class="text-[var(--text-muted)] text-center text-sm max-w-md mx-auto italic">
+           The page is gone. <br/>
+           But you can still run.
+        </p>
+
+      </div>
+    </div>
+  </main>
+</Layout>

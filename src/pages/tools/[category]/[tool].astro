@@ -1,0 +1,1204 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+import ToolSteps from '../../../components/tools/ToolSteps.astro';
+import ToolCard from '../../../components/tools/ToolCard.astro';
+import { toolCategories, tools, getRelatedTools } from '../../../data/tools-data';
+import { toolsSEOContent } from '../../../data/tools-content';
+import * as LucideIcons from 'lucide-react';
+
+// Import tool components
+import LocalBusinessSchema from '../../../components/tools/structured-data/LocalBusinessSchema';
+import FAQSchema from '../../../components/tools/structured-data/FAQSchema';
+import UTMBuilder from '../../../components/tools/tracking-analytics/UTMBuilder';
+import UAEVATCalculator from '../../../components/tools/gcc-compliance/UAEVATCalculator';
+import SitemapGenerator from '../../../components/tools/sitemaps-robots/SitemapGenerator';
+import MetaTagGenerator from '../../../components/tools/meta-tags/MetaTagGenerator';
+import RobotsGenerator from '../../../components/tools/sitemaps-robots/RobotsGenerator';
+import WordCounter from '../../../components/tools/content-copywriting/WordCounter';
+import ProductSchema from '../../../components/tools/structured-data/ProductSchema';
+import ArticleSchema from '../../../components/tools/structured-data/ArticleSchema';
+import OrganizationSchema from '../../../components/tools/structured-data/OrganizationSchema';
+import HowToSchema from '../../../components/tools/structured-data/HowToSchema';
+import EventSchema from '../../../components/tools/structured-data/EventSchema';
+import RedirectGenerator from '../../../components/tools/redirects-migrations/RedirectGenerator';
+import SecurityHeaders from '../../../components/tools/security-headers/SecurityHeaders';
+import CanonicalGenerator from '../../../components/tools/sitemaps-robots/CanonicalGenerator';
+import SocialMetaGenerator from '../../../components/tools/meta-tags-social/SocialMetaGenerator';
+import GA4EventGenerator from '../../../components/tools/tracking-analytics/GA4EventGenerator';
+import BreadcrumbSchema from '../../../components/tools/structured-data/BreadcrumbSchema';
+import ReviewSchema from '../../../components/tools/structured-data/ReviewSchema';
+import VideoSchema from '../../../components/tools/structured-data/VideoSchema';
+import MetaTagOptimizer from '../../../components/tools/meta-tags/MetaTagOptimizer';
+import MetaRobotsBuilder from '../../../components/tools/meta-tags-social/MetaRobotsBuilder';
+import ArabicMetaGenerator from '../../../components/tools/arabic-seo/ArabicMetaGenerator';
+import FaviconGenerator from '../../../components/tools/meta-tags-social/FaviconGenerator';
+import PWAManifest from '../../../components/tools/meta-tags-social/PWAManifest';
+import BulkUrlMapper from '../../../components/tools/redirects-migrations/BulkUrlMapper';
+import UTMValidator from '../../../components/tools/tracking-analytics/UTMValidator';
+import CSPGenerator from '../../../components/tools/security-headers/CSPGenerator';
+import GA4Ecommerce from '../../../components/tools/tracking-analytics/GA4Ecommerce';
+import RTLAuditor from '../../../components/tools/arabic-seo/RTLAuditor';
+import KSAVATCalculator from '../../../components/tools/gcc-compliance/KSAVATCalculator';
+import BusinessNameChecker from '../../../components/tools/gcc-compliance/BusinessNameChecker';
+import LicenseFeeEstimator from '../../../components/tools/gcc-compliance/LicenseFeeEstimator';
+import HreflangGenerator from '../../../components/tools/arabic-seo/HreflangGenerator';
+import SchemaValidator from '../../../components/tools/structured-data/SchemaValidator';
+import RobotsPowerPack from '../../../components/tools/sitemaps-robots/RobotsPowerPack';
+import JamstackRedirects from '../../../components/tools/redirects-migrations/JamstackRedirects';
+import AdvancedSocialMeta from '../../../components/tools/meta-tags-social/AdvancedSocialMeta';
+import ContentOptimizer from '../../../components/tools/content-copy/ContentOptimizer';
+import AdvancedSecuritySuite from '../../../components/tools/security-headers/AdvancedSecuritySuite';
+import AnalyticsPowerSuite from '../../../components/tools/tracking-analytics/AnalyticsPowerSuite';
+import MigrationMastery from '../../../components/tools/redirects-migrations/MigrationMastery';
+import AnalyticsStrategySuite from '../../../components/tools/tracking-analytics/AnalyticsStrategySuite';
+import LocalBusinessAudit from '../../../components/tools/structured-data/LocalBusinessAudit';
+import ArchitectureSuite from '../../../components/tools/content-copy/ArchitectureSuite';
+import CrawlIntelligence from '../../../components/tools/sitemaps-robots/CrawlIntelligence';
+import ContentStrategySuite from '../../../components/tools/content-copy/ContentStrategySuite';
+import GCCComplianceSuite from '../../../components/tools/gcc-compliance/GCCComplianceSuite';
+import ContentAnalysisSuite from '../../../components/tools/content-copy/ContentAnalysisSuite';
+import EmailAuthoritySuite from '../../../components/tools/security-headers/EmailAuthoritySuite';
+import ContentEditingSuite from '../../../components/tools/content-copy/ContentEditingSuite';
+import AdvancedAssetSuite from '../../../components/tools/structured-data/AdvancedAssetSuite';
+import PerformanceSuite from '../../../components/tools/performance/PerformanceSuite';
+import ArabicPowerPack from '../../../components/tools/arabic-seo/ArabicPowerPack';
+// New dedicated components
+import VATInvoiceGenerator from '../../../components/tools/gcc-compliance/VATInvoiceGenerator';
+import GCCMultiVATCalculator from '../../../components/tools/gcc-compliance/GCCMultiVATCalculator';
+import TitleGenerator from '../../../components/tools/content-copy/TitleGenerator';
+import DescriptionGenerator from '../../../components/tools/content-copy/DescriptionGenerator';
+import BlogOutlineGenerator from '../../../components/tools/content-copy/BlogOutlineGenerator';
+import ArabicTransliterator from '../../../components/tools/arabic-seo/ArabicTransliterator';
+import DataLayerEcommerce from '../../../components/tools/tracking-analytics/DataLayerEcommerce';
+import SPFGenerator from '../../../components/tools/security-headers/SPFGenerator';
+import CTAGenerator from '../../../components/tools/content-copy/CTAGenerator';
+import HeadingGenerator from '../../../components/tools/content-copy/HeadingGenerator';
+import DMARCGenerator from '../../../components/tools/security-headers/DMARCGenerator';
+// Local SEO Tools
+import SERPChecker from '../../../components/tools/local-seo/SERPChecker';
+import ReviewLinkGenerator from '../../../components/tools/local-seo/ReviewLinkGenerator';
+import LocalSchemaGenerator from '../../../components/tools/local-seo/LocalSchemaGenerator';
+
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const paths: any[] = [];
+  
+  // 1. Add Legacy Paths
+  toolCategories.forEach(category => {
+    const categoryTools = tools.filter(t => t.categoryId === category.id);
+    categoryTools.forEach(tool => {
+      paths.push({
+        params: { 
+          category: category.slug,
+          tool: tool.slug 
+        },
+        props: { 
+          tool,
+          category,
+          entry: null // Default legacy
+        }
+      });
+    });
+  });
+
+  // 2. Merge Content Collection Paths
+  const collectionTools = await getCollection('tools');
+  collectionTools.forEach(entry => {
+    // Expect slug format: "category/tool-slug"
+    // e.g. "local-seo/review-link-generator"
+    const parts = entry.slug.split('/');
+    if (parts.length === 2) {
+      const [catSlug, toolSlug] = parts;
+      
+      // Check if we need to override an existing legacy path
+      const existingPath = paths.find(p => p.params.category === catSlug && p.params.tool === toolSlug);
+      
+      if (existingPath) {
+        // Attach the collection entry to the existing props
+        existingPath.props.entry = entry;
+      } else {
+        // Construct basic tool/category props for new tools to satisfy Typescript/Layout
+        // In a full migration, we'd refactor Layout to accept 'entry' directly.
+        const mockCategory = toolCategories.find(c => c.slug === catSlug) || { 
+          id: catSlug, 
+          name: 'Tools', 
+          slug: catSlug, 
+          description: '', 
+          icon: 'Box', 
+          tier: 1 
+        };
+        
+        const mockTool = {
+          id: entry.id || toolSlug,
+          name: entry.data.name,
+          slug: toolSlug,
+          description: entry.data.description,
+          shortDescription: entry.data.shortDescription || entry.data.description,
+          categoryId: mockCategory.id || catSlug,
+          tier: entry.data.tier,
+          icon: entry.data.icon,
+          keywords: entry.data.keywords,
+          featured: entry.data.featured,
+          instructions: entry.data.instructions
+        };
+
+        paths.push({
+          params: { category: catSlug, tool: toolSlug },
+          props: { tool: mockTool, category: mockCategory, entry }
+        });
+      }
+    }
+  });
+
+  return paths;
+}
+
+const { tool, category, entry } = Astro.props;
+const { Content } = entry ? await entry.render() : { Content: null };
+const relatedTools = getRelatedTools(tool, 3);
+const IconComponent = (LucideIcons as any)[tool.icon] || LucideIcons.Wrench;
+
+// Tool-specific SEO content
+const seoContent = toolsSEOContent[tool.slug];
+
+// Tool-specific steps
+const toolSteps: Record<string, string[]> = {
+  'localbusiness-schema': [
+    'Enter your business name and select the appropriate business type from the dropdown.',
+    'Fill in your complete address including street, city, region, postal code, and country.',
+    'Add your contact information: phone number, email, and website URL.',
+    'Configure your opening hours for each day of the week.',
+    'Click "Generate Schema" to create your JSON-LD code.',
+    'Copy the generated code and paste it into your website\'s <head> section or use Google Tag Manager.'
+  ],
+  'faq-schema': [
+    'Add your first FAQ question and its corresponding answer.',
+    'Click "Add Question" to add more FAQ items to your schema.',
+    'Review all questions and answers for accuracy.',
+    'Click "Generate Schema" to create the JSON-LD code.',
+    'Copy and paste the code into your page\'s HTML.'
+  ],
+  'product-schema': [
+    'Enter the product name, brand, and description.',
+    'Set the price, currency, and availability status.',
+    'Optionally add star ratings and review counts.',
+    'Click "Generate JSON-LD" to create the product schema.',
+    'Copy the code into your product page\'s <head> section.'
+  ],
+  'article-schema': [
+    'Enter the article headline and featured image URL.',
+    'Add the author name and specify their type (Person/Org).',
+    'Set the publication and modification dates.',
+    'Click "Generate Article Schema" to create the markup.',
+    'Add the JSON-LD to your blog post or news page.'
+  ],
+  'sitemap-generator': [
+    'Enter your website URLs, one per line.',
+    'Set priority and change frequency for each URL.',
+    'Add lastmod dates if you want to specify last modification times.',
+    'Click "Generate Sitemap" to create the XML.',
+    'Download the sitemap.xml file and upload to your website root.'
+  ],
+  'meta-tags-generator': [
+    'Enter your page title and description.',
+    'Add your canonical URL and site author.',
+    'Optionally specify an Open Graph image URL.',
+    'Preview how your page will look on Google, Facebook, and Twitter.',
+    'Click "Generate HTML" and copy the resulting tags into your <head>.'
+  ],
+  'robots-txt-generator': [
+    'Add user-agent groups for different crawlers.',
+    'Specify Allow and Disallow paths for each user-agent.',
+    'Optionally add a crawl-delay for slower bots.',
+    'Include the absolute URL to your sitemap.',
+    'Generate and download the robots.txt file to upload to your root.'
+  ],
+  'word-counter': [
+    'Paste your text into the analyzer area.',
+    'View real-time updates for word, character, and sentence counts.',
+    'Check reading and speaking time estimates.',
+    'Review keyword density to ensure topical relevance.',
+    'Copy or clear your text as needed.'
+  ],
+  'utm-builder': [
+    'Enter the destination URL for your campaign.',
+    'Fill in the source (e.g., google, newsletter, facebook).',
+    'Add the medium (e.g., cpc, email, social).',
+    'Enter your campaign name.',
+    'Optionally add term and content for more detailed tracking.',
+    'Copy the generated UTM URL for use in your campaigns.'
+  ],
+  'organization-schema': [
+    'Enter your official organization or brand name.',
+    'Provide your website URL and a link to your high-res logo.',
+    'Add your social media profile URLs (LinkedIn, Facebook, etc.).',
+    'Include contact details like phone and email for the Knowledge Panel.',
+    'Generate and copy the JSON-LD into your site head.'
+  ],
+  'howto-schema': [
+    'Enter the name and description of your tutorial.',
+    'Specify the total time and estimated cost (if any).',
+    'Add step-by-step instructions with titles and descriptions.',
+    'Include image URLs for each step for better mobile visibility.',
+    'Generate the markup and validate it using GSC.'
+  ],
+  'event-schema': [
+    'Enter the event name, start date, and end date.',
+    'Select if the event is online, offline, or hybrid.',
+    'Add the venue name for physical events or the link for online ones.',
+    'Optionally specify special offers or ticket prices.',
+    'Generate the schema and monitor the Google Search Console for rich results.'
+  ],
+  'redirect-301': [
+    'Select your hosting platform (Apache, Nginx, or Netlify).',
+    'Enter the old path (source) and the new destination URL.',
+    'Specify if it is a permanent (301) or temporary (302) redirect.',
+    'Click "Add Rule" to batch multiple redirects together.',
+    'Copy the resulting configuration into your server config file.'
+  ],
+  'security-headers': [
+    'Choose between Apache or Nginx configuration format.',
+    'Configure X-Frame-Options to prevent clickjacking.',
+    'Enable HSTS for strictly enforced HTTPS connections.',
+    'Set your preferred Referrer and XSS protection policies.',
+    'Copy the code into your site config and restart the server.'
+  ],
+  'canonical-tool': [
+    'Enter your list of URLs, one per line.',
+    'Click "Generate Canonical Tags" to create the code snippets.',
+    'Copy the <link> tags into the <head> of the respective pages.',
+    'Ensure you are using absolute URLs for maximum precision.'
+  ],
+  'opengraph-generator': [
+    'Enter the page title, description, and canonical URL.',
+    'Provide an image URL optimized for social sharing (1200x630).',
+    'Specify your Twitter/X handle and card type.',
+    'Preview how your post will look on Facebook and Twitter.',
+    'Copy the meta tags into your page head.'
+  ],
+  'ga4-event-naming': [
+    'Choose from recommended GA4 events or enter a custom name.',
+    'Add event parameters like value, currency, or page_location.',
+    'Review the generated gtag.js code snippet.',
+    'Copy and paste the code into your site\'s tracking logic.'
+  ],
+  'breadcrumb-schema': [
+    'Add your navigation levels from top to bottom (Home > Category > Page).',
+    'Enter the display name and absolute URL for each level.',
+    'Generate the JSON-LD and place it in your page head.',
+    'Verify appearance in GSC search results.'
+  ],
+  'review-schema': [
+    'Enter the item name and type (Product/Business/Service).',
+    'Set the aggregate rating and total review count.',
+    'Optionally add specific review testimonials.',
+    'Copy the generated markup to earn gold stars in SERPs.'
+  ],
+  'video-schema': [
+    'Enter video title, description, and upload date.',
+    'Provide thumbnail and content URLs.',
+    'Specify duration and publisher information.',
+    'Use the generated schema to qualify for video carousels.'
+  ],
+  'meta-tag-optimizer': [
+    'Enter your page title and meta description.',
+    'Monitor the real-time pixel-width counters.',
+    'Adjust text if the status turns red (indicating truncation).',
+    'Preview how your listing will appear on Google Desktop.',
+    'Copy the optimized HTML tags into your source code.'
+  ],
+  'meta-robots-builder': [
+    'Toggle indexing and following directives for the page.',
+    'Configure snippet and archive settings.',
+    'Set max-image-preview for large card visibility.',
+    'Generate the <meta name="robots"> tag for your head.'
+  ],
+  'arabic-meta-generator': [
+    'Enter your Arabic page title and description.',
+    'Select the target MENA region for geo-signals.',
+    'Verify the Hreflang and RTL attributes in the output.',
+    'Place the resulting code in the head of your Arabic pages.'
+  ],
+  'favicon-generator': [
+    'Specify the base URL where your icons will be hosted.',
+    'Set your mobile app name and preferred theme color.',
+    'Generate the standard set of 10+ icon meta tags.',
+    'Upload your favicon files to the site root directory.'
+  ],
+  'pwa-manifest': [
+    'Enter your Web App name and short name.',
+    'Configure display mode (Standalone is recommended).',
+    'Set brand colors and background colors.',
+    'Save the generated JSON as site.webmanifest in your root.'
+  ],
+  'bulk-url-mapper': [
+    'Enter your old paths and their new absolute destinations.',
+    'Add rows for each mapped URL during migration.',
+    'Generate and download the CSV for bulk import.',
+    'Ensure all new URLs lead to 200 OK status pages.'
+  ],
+  'utm-validator': [
+    'Paste your full tracking URL into the validator.',
+    'Click validate to scan for missing or inconsistent parameters.',
+    'Fix any warnings regarding capitalization or spaces.',
+    'Verify that your data will be unified in GA4.'
+  ],
+  'csp-generator': [
+    'Add your trusted domains for scripts, styles, and images.',
+    'Use "self" to restrict loading to your own domain by default.',
+    'Review the generated Content-Security-Policy header.',
+    'Implement this in your server configuration or meta tags.'
+  ],
+  'ga4-ecommerce': [
+    'Select the ecommerce event (Purchase, Add to Cart, etc.).',
+    'Enter currency and total transaction value.',
+    'Add items including name, SKU, price, and quantity.',
+    'Generate the dataLayer.push snippet for your site.'
+  ],
+  'rtl-auditor': [
+    'Paste your Arabic page HTML snippet into the auditor.',
+    'Check for dir="rtl" and lang="ar" compliance.',
+    'Review findings for font optimization and UX signals.',
+    'Fix any errors to confirm MENA search friendliness.'
+  ],
+  'ksa-vat-calculator': [
+    'Enter the principle amount in SAR.',
+    'Select whether the price is VAT inclusive or exclusive.',
+    'Review the 15% VAT breakdown and total payable.',
+    'Ensure your Saudi tax reporting remains compliant.'
+  ],
+  'business-name-checker': [
+    'Enter your proposed GCC business name.',
+    'Click check to validate against naming conventions.',
+    'Review findings for restricted terms and characters.',
+    'Use a compliant name for easier license registration.'
+  ],
+  'license-fee-estimator': [
+    'Select your target GCC region and jurisdiction.',
+    'Choose your license type and required visa quota.',
+    'Review the estimated initial setup costs.',
+    'Plan your capitalization strategy with professional figures.'
+  ],
+  'hreflang-generator': [
+    'Enter your site domain URL.',
+    'Define mappings for each language and region.',
+    'Generate the <link rel="alternate"> tags for your head.',
+    'Ensure local users see the correct regional content.'
+  ],
+  'schema-validator': [
+    'Paste your JSON-LD schema markup into the editor.',
+    'Click audit to scan for syntax and logical errors.',
+    'Review findings for missing required properties.',
+    'Correct the code before deploying to your production site.'
+  ],
+  'robots-validator': [
+    'Paste your robots.txt or select a template.',
+    'Review validation findings for blocking errors.',
+    'Ensure your sitemap is properly referenced.',
+    'Download and upload to your domain root.'
+  ],
+  'netlify-redirects': [
+    'Choose your target platform (Netlify or Vercel).',
+    'Enter source paths and destination URLs.',
+    'Select the redirect status code (301 or 302).',
+    'Copy the generated config to your project.'
+  ],
+  'linkedin-meta': [
+    'Enter your professional page details.',
+    'Review the generated Open Graph tags.',
+    'Test your URL in the LinkedIn Post Inspector.',
+    'Deploy to ensures professional link previews.'
+  ],
+  'seo-title-generator': [
+    'Enter your primary focus keyword.',
+    'Choose between Title Tags or Meta Descriptions.',
+    'Review AI-optimized variations for high CTR.',
+    'Copy the best-performing copy for your page.'
+  ],
+  'cors-generator': [
+    'Select the security header (CORS, HSTS, or SSL).',
+    'Configure allowed origins and methods.',
+    'Generate the server-side configuration.',
+    'Implement in your .htaccess or Nginx config.'
+  ],
+  'datalayer-forms': [
+    'Enter your HTML Form ID.',
+    'Review the generated dataLayer.push snippet.',
+    'Implement this in your form submission handler.',
+    'Verify that events are captured in GA4 DebugView.'
+  ],
+  'migration-checklist': [
+    'Follow the interactive pre-flight checklist.',
+    'Complete each stage of the migration process.',
+    'Generate specialized server-side redirect rules.',
+    'Ensure zero ranking loss during your relaunch.'
+  ],
+  'ga4-conversions': [
+    'Select the conversion goal type (Leads, Events, etc.).',
+    'Configure the event name and key parameters.',
+    'Review the GA4 setup JSON configuration.',
+    'Implement in your GA4 Admin interface.'
+  ],
+  'localbusiness-audit': [
+    'Enter your business NAP (Name, Address, Phone).',
+    'Click audit to scan for regional consistency.',
+    'Review findings for GCC-specific signals.',
+    'Fix errors to dominate local search results.'
+  ],
+  'heading-optimizer': [
+    'Paste your page headings (H1-H6).',
+    'Click validate to check semantic hierarchy.',
+    'Review warnings for missing H1 or skipped levels.',
+    'Optimize for a clean E-E-A-T structure.'
+  ],
+  'dynamic-sitemap': [
+    'Select the sitemap type (Static or Dynamic).',
+    'Generate the XML structure with metadata.',
+    'Review priority and changefrequency settings.',
+    'Implement on your server for real-time indexing.'
+  ],
+  'lsi-keyword-finder': [
+    'Enter your primary seed keyword.',
+    'Click "Find LSI" to explore semantic clusters.',
+    'Review related terms for regional relevance.',
+    'Incorporate keywords into your content naturally.'
+  ],
+  'content-brief-generator': [
+    'Enter your target topic or keyword.',
+    'Generate a structured SEO writing brief.',
+    'Review H1-H3 suggestions and audience intent.',
+    'Share with your content team for E-E-A-T success.'
+  ],
+  'ksa-cr-number-validator': [
+    'Enter the 10-digit KSA CR number.',
+    'Verify against Ministry of Commerce standards.',
+    'Check for validity and professional trust signals.',
+    'Use verified data in your schema and footer.'
+  ],
+  'arabic-keyword-transliteration': [
+    'Enter the Arabic or English keyword.',
+    'Generate the phonetic transliteration.',
+    'Use for URL slugs and technical mapping.',
+    'Ensure consistency across localized versions.'
+  ],
+  'keyword-density': [
+    'Paste your article or page content.',
+    'Analyze the frequency of primary keywords.',
+    'Check for keyword stuffing or under-optimization.',
+    'Optimize for a natural linguistic profile.'
+  ],
+  'readability-checker': [
+    'Enter the text you wish to analyze.',
+    'Click "Analyze" to run the readability check.',
+    'Review grade level and conversion impact.',
+    'Simplify content for better user engagement.'
+  ],
+  'spf-dkim-dmarc-generator': [
+    'Enter your company domain.',
+    'Select the record type (SPF, DKIM, or DMARC).',
+    'Generate the specialized DNS record.',
+    'Implement in your domain DNS manager.'
+  ],
+  'article-summarizer': [
+    'Paste your long-form article.',
+    'Click "Enhance" to generate a summary.',
+    'Review key takeaways and high-level brief.',
+    'Use for meta descriptions or TL;DR sections.'
+  ],
+  'content-rewriter': [
+    'Enter the text you wish to repurpose.',
+    'Choose the "Rewrite" option for a fresh version.',
+    'Review for semantic variety and unique phrasing.',
+    'Deploy to avoid duplication filters in search.'
+  ],
+  'uae-business-license-renewal-checker': [
+    'Enter your UAE Trade License number.',
+    'Check for renewal status and regional compliance.',
+    'Review upcoming milestones and potential fees.',
+    'Plan your business administration for the year.'
+  ],
+  'video-schema': [
+    'Enter your video title and description.',
+    'Provide the thumbnail URL and upload date.',
+    'Generate the JSON-LD VideoObject code.',
+    'Embed in your page to qualify for video carousels.'
+  ],
+  'breadcrumb-schema': [
+    'Add your site hierarchy levels.',
+    'Generate the BreadcrumbList JSON-LD.',
+    'Ensure clean pathing in search snippets.',
+    'Improve user navigation from the SERP.'
+  ],
+  'pwa-manifest': [
+    'Enter your web app name and theme colors.',
+    'Specify the icons and start URL.',
+    'Generate the manifest.json file.',
+    'Enable app-like features for your mobile users.'
+  ],
+  'arabic-content-sentiment-analyzer': [
+    'Enter your Arabic content or social post.',
+    'Analyze linguistic sentiment and dialect.',
+    'Optimize for a positive professional tone.',
+    'Improve user trust signals in regional search.'
+  ],
+  'arabic-local-citation-builder': [
+    'Select your target GCC market (KSA, UAE, etc).',
+    'Generate a list of high-authority directories.',
+    'Check NAP consistency across listings.',
+    'Build local SEO authority in your city.'
+  ],
+  'dnssec-checker': [
+    'Enter your professional domain.',
+    'Check for DNSSEC signature validity.',
+    'Review security status and protocol logs.',
+    'Ensure maximum crawl trust for bots.'
+  ],
+  'uae-vat-calculator': [
+    'Enter the amount to calculate VAT for.',
+    'Select whether the amount is inclusive or exclusive of VAT.',
+    'Calculate the breakdown showing net amount, VAT, and total.',
+    'Download the professional calculation receipt for your records.',
+    'Review the official FTA guidelines linked below.'
+  ]
+};
+
+const steps = tool.instructions || toolSteps[tool.slug] || [
+  'Enter your data in the form fields.',
+  'Configure any additional options.',
+  'Click the generate button.',
+  'Copy or download the generated output.'
+];
+
+// List of implemented tool slugs
+const implementedTools = [
+  'localbusiness-schema', 
+  'faq-schema', 
+  'utm-builder', 
+  'uae-vat-calculator', 
+  'sitemap-generator', 
+  'meta-tags-generator', 
+  'robots-txt-generator', 
+  'word-counter',
+  'product-schema',
+  'article-schema',
+  'organization-schema',
+  'howto-schema',
+  'event-schema',
+  'redirect-301',
+  'security-headers',
+  'canonical-tool',
+  'opengraph-generator',
+  'twitter-card',
+  'ga4-event-naming',
+  'breadcrumb-schema',
+  'review-schema',
+  'video-schema',
+  'meta-tag-optimizer',
+  'meta-robots-builder',
+  'arabic-meta-generator',
+  'favicon-generator',
+  'pwa-manifest',
+  'bulk-url-mapper',
+  'utm-validator',
+  'csp-generator',
+  'ga4-ecommerce',
+  'rtl-auditor',
+  'ksa-vat-calculator',
+  'business-name-checker',
+  'license-fee-estimator',
+  'hreflang-generator',
+  'schema-validator',
+  'robots-validator',
+  'robots-templates',
+  'netlify-redirects',
+  'vercel-redirects',
+  'linkedin-meta',
+  'pinterest-pins',
+  'instagram-meta',
+  'seo-title-generator',
+  'meta-description-generator',
+  'cors-generator',
+  'hsts-generator',
+  'ssl-checker',
+  'datalayer-forms',
+  'conversion-pixel',
+  'gtm-cheatsheet',
+  'htaccess-generator',
+  'nginx-rewrite',
+  'migration-checklist',
+  'ga4-conversions',
+  'ga3-to-ga4',
+  'campaign-naming',
+  'localbusiness-audit',
+  'heading-optimizer',
+  'dashboard-wizard',
+  'dynamic-sitemap',
+  'robots-breakage',
+  'lsi-keyword-finder',
+  'content-brief-generator',
+  'ksa-cr-number-validator',
+  'arabic-keyword-transliteration',
+  'gcc-data-protection-law-checker',
+  'keyword-density',
+  'readability-checker',
+  'sentiment-analyzer',
+  'spf-dkim-dmarc-generator',
+  'article-summarizer',
+  'content-rewriter',
+  'content-tone-adjuster',
+  'uae-business-license-renewal-checker',
+  'gcc-trademark-search',
+  'arabic-content-sentiment-analyzer',
+  'arabic-local-citation-builder',
+  'arabic-google-my-business-post-generator',
+  'http3-checker',
+  'dnssec-checker',
+  'ssl-comparison',
+  // === NEW ADDITIONS ===
+  'anchor-text',
+  'arabic-benchmarking',
+  'arabic-brand-checker',
+  'arabic-intent',
+  'arabic-intent-patterns',
+  'arabic-keyword-planner',
+  'arabic-seo-checklist',
+  'arabic-stopwords',
+  'arabic-transliteration',
+  'blog-outline',
+  'compliance-timeline',
+  'content-brief',
+  'content-gap',
+  'content-parity',
+  'crawl-simulator',
+  'csp-validator',
+  'cta-generator',
+  'datalayer-ecommerce',
+  'description-generator',
+  'dialect-selector',
+  'dmarc-generator',
+  'email-auth-analyzer',
+  'freezone-mainland',
+  'ga4-event-mapper',
+  'gcc-registration-checklist',
+  'gcc-vat-calculator',
+  'heading-generator',
+  'hreflang-arabic',
+  'meta-generator',
+  'meta-width',
+  'msa-dialect-advisor',
+  'pillar-content',
+  'pricing-mapper',
+  'product-description',
+  'punycode-converter',
+  'redirect-tester',
+  'robots-generator',
+  'rtl-meta-generator',
+  'snippet-optimizer',
+  'spf-generator',
+  'title-checker',
+  'title-generator',
+  'uae-activity-selector',
+  'utm-best-practices',
+  'vat-invoice-template',
+  'vat-return-calculator',
+  'vat-threshold',
+  // Local SEO Tools
+  'serp-checker',
+  'review-link-generator',
+  'local-schema-generator'
+];
+---
+
+<Layout 
+  title={`${tool.name} - Free Online Tool - VDesignU`}
+  description={tool.description}
+>
+  <!-- Breadcrumb -->
+  <section class="pt-32 pb-4 bg-[var(--bg-primary)]">
+    <div class="max-w-7xl mx-auto px-6">
+      <nav class="flex items-center gap-2 text-sm text-[var(--text-muted)] flex-wrap">
+        <a href="/tools" class="hover:text-[var(--accent-red)] transition-colors font-medium">Tools</a>
+        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+        <a href={`/tools/${category.slug}`} class="hover:text-[var(--accent-red)] transition-colors font-medium">{category.name}</a>
+        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+        <span class="text-[var(--text-primary)] font-bold truncate">{tool.name}</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Tool Header -->
+  <section class="pb-12 bg-[var(--bg-primary)]">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex items-start gap-8 mb-8">
+        <div class="w-20 h-20 rounded-3xl bg-[var(--accent-red)] flex items-center justify-center text-white shadow-2xl shadow-red-600/20 flex-shrink-0">
+          <IconComponent className="w-10 h-10" />
+        </div>
+        <div>
+          <div class="inline-block px-3 py-1 bg-[var(--accent-red)]/5 text-[var(--accent-red)] text-[10px] font-black uppercase tracking-widest rounded-lg mb-4">
+            Professional Tool
+          </div>
+          <h1 class="text-3xl md:text-5xl lg:text-6xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] leading-[0.9] mb-4">
+            {tool.name}
+          </h1>
+          <p class="text-xl text-[var(--text-secondary)] max-w-3xl leading-relaxed">
+            {tool.description}
+          </p>
+        </div>
+      </div>
+      
+      <!-- Keywords -->
+      <div class="flex flex-wrap gap-2">
+        {tool.keywords.map((keyword: string) => (
+          <span class="px-4 py-1.5 bg-[var(--bg-card)] border border-[var(--border-subtle)] text-[var(--text-muted)] text-xs font-bold uppercase tracking-tight rounded-xl">
+            #{keyword.replace(/\s+/g, '')}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Tool Interface -->
+  <section class="py-24 bg-[var(--bg-secondary)] relative">
+    <div class="absolute inset-0 grid-pattern opacity-5 pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+      {Content ? (
+        <div class="content-collection-component">
+           <Content />
+        </div>
+      ) : (
+      <>
+      {tool.slug === 'localbusiness-schema' && (
+        <LocalBusinessSchema client:load />
+      )}
+      {tool.slug === 'faq-schema' && (
+        <FAQSchema client:load />
+      )}
+      {tool.slug === 'utm-builder' && (
+        <UTMBuilder client:load />
+      )}
+      {tool.slug === 'uae-vat-calculator' && (
+        <UAEVATCalculator client:load />
+      )}
+      {tool.slug === 'sitemap-generator' && (
+        <SitemapGenerator client:load />
+      )}
+      {tool.slug === 'meta-tags-generator' && (
+        <MetaTagGenerator client:load />
+      )}
+      {tool.slug === 'robots-txt-generator' && (
+        <RobotsGenerator client:load />
+      )}
+      {tool.slug === 'word-counter' && (
+        <WordCounter client:load />
+      )}
+      {tool.slug === 'product-schema' && (
+        <ProductSchema client:load />
+      )}
+      {tool.slug === 'article-schema' && (
+        <ArticleSchema client:load />
+      )}
+      {tool.slug === 'organization-schema' && (
+        <OrganizationSchema client:load />
+      )}
+      {tool.slug === 'howto-schema' && (
+        <HowToSchema client:load />
+      )}
+      {tool.slug === 'event-schema' && (
+        <EventSchema client:load />
+      )}
+      {tool.slug === 'redirect-301' && (
+        <RedirectGenerator client:load />
+      )}
+      {tool.slug === 'security-headers' && (
+        <SecurityHeaders client:load />
+      )}
+      {tool.slug === 'canonical-tool' && (
+        <CanonicalGenerator client:load />
+      )}
+      {(tool.slug === 'opengraph-generator' || tool.slug === 'twitter-card') && (
+        <SocialMetaGenerator client:load />
+      )}
+      {(tool.slug === 'ga4-event-naming' || tool.slug === 'ga4-event-mapper') && (
+        <GA4EventGenerator client:load />
+      )}
+      {tool.slug === 'breadcrumb-schema' && (
+        <BreadcrumbSchema client:load />
+      )}
+      {tool.slug === 'review-schema' && (
+        <ReviewSchema client:load />
+      )}
+      {tool.slug === 'video-schema' && (
+        <VideoSchema client:load />
+      )}
+      {(tool.slug === 'meta-tag-optimizer' || tool.slug === 'meta-width-calculator' || tool.slug === 'title-length-checker') && (
+        <MetaTagOptimizer client:load />
+      )}
+      {tool.slug === 'meta-robots-builder' && (
+        <MetaRobotsBuilder client:load />
+      )}
+      {tool.slug === 'arabic-meta-generator' && (
+        <ArabicMetaGenerator client:load />
+      )}
+      {tool.slug === 'favicon-generator' && (
+        <FaviconGenerator client:load />
+      )}
+      {tool.slug === 'pwa-manifest' && (
+        <PWAManifest client:load />
+      )}
+      {tool.slug === 'bulk-url-mapper' && (
+        <BulkUrlMapper client:load />
+      )}
+      {tool.slug === 'utm-validator' && (
+        <UTMValidator client:load />
+      )}
+      {tool.slug === 'csp-generator' && (
+        <CSPGenerator client:load />
+      )}
+      {(tool.slug === 'ga4-ecommerce' || tool.slug === 'ecommerce-schema') && (
+        <GA4Ecommerce client:load />
+      )}
+      {tool.slug === 'rtl-auditor' && (
+        <RTLAuditor client:load />
+      )}
+      {tool.slug === 'ksa-vat-calculator' && (
+        <KSAVATCalculator client:load />
+      )}
+      {tool.slug === 'business-name-checker' && (
+        <BusinessNameChecker client:load />
+      )}
+      {tool.slug === 'license-fee-estimator' && (
+        <LicenseFeeEstimator client:load />
+      )}
+      {tool.slug === 'hreflang-generator' && (
+        <HreflangGenerator client:load />
+      )}
+      {(tool.slug === 'schema-validator' || tool.slug === 'structured-data-validator') && (
+        <SchemaValidator client:load />
+      )}
+      {(tool.slug === 'robots-validator' || tool.slug === 'robots-templates') && (
+        <RobotsPowerPack client:load />
+      )}
+      {(tool.slug === 'netlify-redirects' || tool.slug === 'vercel-redirects') && (
+        <JamstackRedirects client:load />
+      )}
+      {(tool.slug === 'linkedin-meta' || tool.slug === 'pinterest-pins' || tool.slug === 'instagram-meta') && (
+        <AdvancedSocialMeta client:load />
+      )}
+      {(tool.slug === 'seo-title-generator' || tool.slug === 'meta-description-generator') && (
+        <ContentOptimizer client:load />
+      )}
+      {(tool.slug === 'cors-generator' || tool.slug === 'hsts-generator' || tool.slug === 'ssl-checker') && (
+        <AdvancedSecuritySuite client:load />
+      )}
+      {(tool.slug === 'datalayer-forms' || tool.slug === 'conversion-pixel' || tool.slug === 'gtm-cheatsheet') && (
+        <AnalyticsPowerSuite client:load />
+      )}
+      {(tool.slug === 'htaccess-generator' || tool.slug === 'nginx-rewrite' || tool.slug === 'migration-checklist') && (
+        <MigrationMastery client:load />
+      )}
+      {(tool.slug === 'ga4-conversions' || tool.slug === 'ga3-to-ga4' || tool.slug === 'campaign-naming') && (
+        <AnalyticsStrategySuite client:load />
+      )}
+      {tool.slug === 'localbusiness-audit' && (
+        <LocalBusinessAudit client:load />
+      )}
+      {(tool.slug === 'heading-optimizer' || tool.slug === 'dashboard-wizard') && (
+        <ArchitectureSuite client:load />
+      )}
+      {(tool.slug === 'dynamic-sitemap' || tool.slug === 'robots-breakage') && (
+        <CrawlIntelligence client:load />
+      )}
+      {(tool.slug === 'lsi-keyword-finder' || tool.slug === 'content-brief-generator') && (
+        <ContentStrategySuite client:load />
+      )}
+      {(tool.slug === 'ksa-cr-number-validator' || tool.slug === 'arabic-keyword-transliteration' || tool.slug === 'gcc-data-protection-law-checker') && (
+        <GCCComplianceSuite client:load />
+      )}
+      {(tool.slug === 'keyword-density' || tool.slug === 'readability-checker' || tool.slug === 'sentiment-analyzer') && (
+        <ContentAnalysisSuite client:load />
+      )}
+      {tool.slug === 'spf-dkim-dmarc-generator' && (
+        <EmailAuthoritySuite client:load />
+      )}
+      {(tool.slug === 'article-summarizer' || tool.slug === 'content-rewriter' || tool.slug === 'content-tone-adjuster') && (
+        <ContentEditingSuite client:load />
+      )}
+      {(tool.slug === 'uae-business-license-renewal-checker' || tool.slug === 'gcc-trademark-search') && (
+        <GCCComplianceSuite client:load />
+      )}
+      {(tool.slug === 'video-schema' || tool.slug === 'review-schema' || tool.slug === 'breadcrumb-schema' || tool.slug === 'favicon-generator' || tool.slug === 'pwa-manifest') && (
+        <AdvancedAssetSuite client:load />
+      )}
+      {(tool.slug === 'http3-checker' || tool.slug === 'dnssec-checker' || tool.slug === 'ssl-comparison') && (
+        <PerformanceSuite client:load />
+      )}
+      {(tool.slug === 'arabic-content-sentiment-analyzer' || tool.slug === 'arabic-local-citation-builder' || tool.slug === 'arabic-google-my-business-post-generator') && (
+        <ArabicPowerPack client:load />
+      )}
+      {/* === NEW MAPPINGS === */}
+      {(tool.slug === 'anchor-text' || tool.slug === 'snippet-optimizer' || tool.slug === 'pillar-content' || tool.slug === 'content-gap') && (
+        <ContentStrategySuite client:load />
+      )}
+      {tool.slug === 'cta-generator' && (
+        <CTAGenerator client:load />
+      )}
+      {tool.slug === 'heading-generator' && (
+        <HeadingGenerator client:load />
+      )}
+      {tool.slug === 'blog-outline' && (
+        <BlogOutlineGenerator client:load />
+      )}
+      {(tool.slug === 'content-brief' || tool.slug === 'product-description') && (
+        <ContentStrategySuite client:load />
+      )}
+      {(tool.slug === 'arabic-benchmarking' || tool.slug === 'arabic-brand-checker' || tool.slug === 'arabic-intent' || tool.slug === 'arabic-intent-patterns' || tool.slug === 'arabic-keyword-planner' || tool.slug === 'arabic-seo-checklist' || tool.slug === 'arabic-stopwords' || tool.slug === 'dialect-selector' || tool.slug === 'msa-dialect-advisor' || tool.slug === 'content-parity' || tool.slug === 'punycode-converter' || tool.slug === 'rtl-meta-generator' || tool.slug === 'hreflang-arabic' || tool.slug === 'pricing-mapper') && (
+        <ArabicPowerPack client:load />
+      )}
+      {tool.slug === 'arabic-transliteration' && (
+        <ArabicTransliterator client:load />
+      )}
+      {(tool.slug === 'compliance-timeline' || tool.slug === 'freezone-mainland' || tool.slug === 'gcc-registration-checklist' || tool.slug === 'uae-activity-selector' || tool.slug === 'vat-return-calculator' || tool.slug === 'vat-threshold') && (
+        <GCCComplianceSuite client:load />
+      )}
+      {tool.slug === 'vat-invoice-template' && (
+        <VATInvoiceGenerator client:load />
+      )}
+      {tool.slug === 'gcc-vat-calculator' && (
+        <GCCMultiVATCalculator client:load />
+      )}
+      {(tool.slug === 'crawl-simulator' || tool.slug === 'robots-generator') && (
+        <CrawlIntelligence client:load />
+      )}
+      {(tool.slug === 'csp-validator' || tool.slug === 'email-auth-analyzer') && (
+        <EmailAuthoritySuite client:load />
+      )}
+      {tool.slug === 'dmarc-generator' && (
+        <DMARCGenerator client:load />
+      )}
+      {tool.slug === 'spf-generator' && (
+        <SPFGenerator client:load />
+      )}
+      {tool.slug === 'datalayer-ecommerce' && (
+        <DataLayerEcommerce client:load />
+      )}
+      {(tool.slug === 'utm-best-practices' || tool.slug === 'ga4-event-mapper') && (
+        <AnalyticsPowerSuite client:load />
+      )}
+      {tool.slug === 'title-generator' && (
+        <TitleGenerator client:load />
+      )}
+      {tool.slug === 'description-generator' && (
+        <DescriptionGenerator client:load />
+      )}
+      {(tool.slug === 'title-checker' || tool.slug === 'meta-generator' || tool.slug === 'meta-width') && (
+        <ContentOptimizer client:load />
+      )}
+      {tool.slug === 'redirect-tester' && (
+        <MigrationMastery client:load />
+      )}
+      {/* Local SEO Tools */}
+      {tool.slug === 'serp-checker' && (
+        <SERPChecker client:load />
+      )}
+      {tool.slug === 'review-link-generator' && (
+        <ReviewLinkGenerator client:load />
+      )}
+      {tool.slug === 'local-schema-generator' && (
+        <LocalSchemaGenerator client:load />
+      )}
+      {!implementedTools.includes(tool.slug) && (
+        <div class="bg-[var(--bg-card)] border-2 border-dashed border-[var(--border-subtle)] rounded-[3rem] p-24 text-center">
+          <div class="w-24 h-24 rounded-3xl bg-[var(--accent-red)]/10 flex items-center justify-center text-[var(--accent-red)] mx-auto mb-8">
+            <IconComponent className="w-12 h-12" />
+          </div>
+          <h3 class="text-3xl font-black uppercase tracking-tight text-[var(--text-primary)] mb-4">
+            Under Engineering
+          </h3>
+          <p class="text-xl text-[var(--text-secondary)] max-w-md mx-auto">
+            We are currently building this tool for maximum precision. Check back in a few hours.
+          </p>
+        </div>
+      )}
+      </>
+      )}
+    </div>
+  </section>
+
+  <!-- How to Use -->
+  <section class="py-24 bg-[var(--bg-primary)] border-t border-[var(--border-subtle)]">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="mb-10 text-center">
+        <h2 class="text-3xl font-black uppercase tracking-tighter text-[var(--text-primary)] mb-4">
+          How to Use This Tool
+        </h2>
+        <p class="text-[var(--text-secondary)] max-w-2xl mx-auto">
+          Follow these simple steps to get the most out of the {tool.name}.
+        </p>
+      </div>
+      <ToolSteps steps={steps} />
+    </div>
+  </section>
+
+  <!-- Unique SEO Content Section -->
+  {seoContent && (
+    <section class="py-32 bg-[var(--bg-primary)]">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="space-y-20">
+          {seoContent.sections.map((section) => (
+            <div class="relative">
+              {section.type === 'citation' ? (
+                <div class="bg-[var(--bg-card)] border-l-4 border-[var(--accent-red)] p-10 rounded-[2rem] shadow-xl">
+                  <h2 class="text-2xl font-black uppercase tracking-tight text-[var(--text-primary)] mb-6 flex items-center gap-3">
+                    <LucideIcons.SearchSlash className="w-6 h-6 text-[var(--accent-red)]" />
+                    {section.title}
+                  </h2>
+                  <p class="text-[var(--text-secondary)] text-lg leading-relaxed mb-6 italic">
+                    {section.content}
+                  </p>
+                  {section.source && (
+                    <a 
+                      href={section.source.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-2 text-[var(--accent-red)] font-black uppercase tracking-widest text-xs hover:gap-4 transition-all"
+                    >
+                      Source: {section.source.name}
+                      <LucideIcons.ExternalLink className="w-4 h-4" />
+                    </a>
+                  )}
+                </div>
+              ) : section.type === 'warning' ? (
+                <div class="bg-red-50 dark:bg-red-950/50 border-2 border-red-300 dark:border-red-700 p-10 rounded-[3rem]">
+                   <h2 class="text-2xl font-black uppercase tracking-tight text-gray-900 dark:text-red-300 mb-6 flex items-center gap-3">
+                    <LucideIcons.AlertOctagon className="w-6 h-6 text-red-600 dark:text-red-400" />
+                    {section.title}
+                  </h2>
+                  <p class="text-gray-700 dark:text-red-200 text-lg leading-relaxed">
+                    {section.content}
+                  </p>
+                </div>
+              ) : section.type === 'list' ? (
+                <div>
+                  <h2 class="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-10 leading-none">
+                    {section.title}
+                  </h2>
+                  <ul class="grid gap-6">
+                    {section.items?.map((item) => (
+                      <li class="flex items-start gap-4 p-6 bg-[var(--bg-secondary)] rounded-2xl border border-[var(--border-subtle)]">
+                        <div class="w-2 h-2 rounded-full bg-[var(--accent-red)] mt-2 flex-shrink-0"></div>
+                        <p class="text-[var(--text-secondary)] text-lg font-medium">{item}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : section.type === 'info' ? (
+                <div class="bg-amber-50 dark:bg-amber-950/50 border-2 border-amber-300 dark:border-amber-700 p-10 rounded-[3rem]">
+                   <h2 class="text-2xl font-black uppercase tracking-tight text-gray-900 dark:text-amber-300 mb-6 flex items-center gap-3">
+                    <LucideIcons.Lightbulb className="w-6 h-6 text-amber-600 dark:text-amber-400" />
+                    {section.title}
+                  </h2>
+                  <p class="text-gray-700 dark:text-amber-200 text-lg leading-relaxed">
+                    {section.content}
+                  </p>
+                </div>
+              ) : (
+                <div>
+                  <h2 class="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-10 leading-none">
+                    {section.title}
+                  </h2>
+                  <p class="text-[var(--text-secondary)] text-xl leading-relaxed font-medium">
+                    {section.content}
+                  </p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Related Tools -->
+  {relatedTools.length > 0 && (
+    <section class="py-24 bg-[var(--bg-secondary)] border-t border-[var(--border-subtle)]">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-16">
+          Related <span class="text-[var(--accent-red)]">Tools</span>
+        </h2>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          {relatedTools.map((relatedTool) => (
+            <ToolCard tool={relatedTool} categorySlug={category.slug} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Legal & Disclaimer -->
+  {category.id === 'gcc-compliance' && (
+    <section class="py-16 bg-[var(--bg-primary)] border-t border-[var(--border-subtle)]">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="bg-[var(--bg-card)] rounded-[2.5rem] p-10 lg:p-16 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-64 h-64 bg-[var(--accent-red)]/5 rounded-full blur-3xl -mr-32 -mt-32"></div>
+          <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 class="text-2xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-6">
+                Legal & <span class="text-[var(--accent-red)]">Usage</span> Terms.
+              </h2>
+              <p class="text-[var(--text-secondary)] text-sm leading-relaxed mb-6">
+                The tools within this SEO suite are provided by <strong>VDESIGNU</strong> for professional and informational purposes. While we strive for 100% accuracy, we are not liable for any ranking fluctuations or financial decisions made based on these outputs.
+              </p>
+              <div class="flex flex-wrap gap-6 text-[10px] font-black uppercase tracking-widest text-[var(--text-muted)]">
+                <span class="flex items-center gap-2">
+                  <div class="w-1 h-1 rounded-full bg-[var(--accent-red)]"></div>
+                  © {new Date().getFullYear()} VDESIGNU Engineering
+                </span>
+                <span class="flex items-center gap-2">
+                  <div class="w-1 h-1 rounded-full bg-[var(--accent-red)]"></div>
+                  Maintained in Riyadh, KSA
+                </span>
+                <span class="flex items-center gap-2">
+                  <div class="w-1 h-1 rounded-full bg-[var(--accent-red)]"></div>
+                  GCC Compliance Verified
+                </span>
+              </div>
+            </div>
+            <div class="p-8 bg-[var(--bg-primary)] rounded-2xl border-2 border-dashed border-[var(--border-subtle)]">
+              <h4 class="text-xs font-black uppercase tracking-widest text-[var(--text-primary)] mb-4">Intellectual Property</h4>
+              <p class="text-[10px] text-[var(--text-muted)] leading-relaxed italic">
+                All tool logic, visual design components, and unique SEO content displayed on this page are protected by international copyright laws. Unauthorized replication of this tool's codebase or redistributing its output for commercial gain is strictly prohibited without express written consent from VDESIGNU.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA -->
+  <section class="py-24 bg-[var(--accent-red)] text-center rounded-t-[5rem]">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-4xl md:text-7xl font-black italic uppercase tracking-tighter text-white mb-10 leading-none">
+        Explore More <span class="text-[var(--accent-yellow)]">Precision</span> Tools
+      </h2>
+      <div class="flex flex-wrap justify-center gap-6">
+        <a href={`/tools/${category.slug}`} class="px-12 py-6 bg-white text-[var(--accent-red)] font-black italic uppercase tracking-tighter text-xl rounded-2xl hover:bg-black hover:text-white transition-all active:scale-95 shadow-2xl">
+          More {category.name} Tools
+        </a>
+        <a href="/tools" class="px-12 py-6 bg-transparent border-2 border-white text-white font-black italic uppercase tracking-tighter text-xl rounded-2xl hover:bg-white hover:text-[var(--accent-red)] transition-all active:scale-95">
+          All Categories
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+

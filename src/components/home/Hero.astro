@@ -23,7 +23,7 @@ const { hero, stats } = content.homepage;
     </div>
     
     <!-- Main Headline -->
-    <h1 class="text-4xl md:text-6xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-[var(--text-primary)] mb-10 translate-y-[-2%]">
+    <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-[var(--text-primary)] mb-10 translate-y-[-2%]">
       {hero.headline.split('.').filter(Boolean).map((part: string, i: number) => (
         <span class={i === 1 ? "text-[var(--accent-red)] drop-shadow-[0_10px_30px_rgba(220,38,38,0.2)]" : ""}>
           {part.trim()}{(i === 0 || i === 1) ? "." : ""}

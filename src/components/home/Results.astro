@@ -11,10 +11,10 @@ const { results } = content.homepage;
     <!-- Section Header -->
     <div class="mb-20">
       <h2 class="text-xs font-black uppercase tracking-[0.4em] text-red-600 mb-6">Our Results</h2>
-      <h3 class="text-4xl md:text-7xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] leading-[0.9] mb-8">
-        Proven <span class="text-[var(--accent-red)]">Growth</span> Results<span class="text-[var(--accent-yellow)]">.</span>
+      <h3 class="text-3xl sm:text-4xl md:text-7xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] leading-[0.9] mb-8">
+        Proven <span class="text-[var(--accent-red)]">Growth</span> Results
       </h3>
-      <p class="text-xl text-[var(--text-secondary)] max-w-2xl font-medium">
+      <p class="text-lg md:text-xl text-[var(--text-secondary)] max-w-2xl font-medium">
         {results.subtitle}
       </p>
     </div>
@@ -22,7 +22,7 @@ const { results } = content.homepage;
     <!-- Case Study Cards -->
     <div class="grid md:grid-cols-3 gap-8">
       {results.cases.map((case_study: any) => (
-        <div class="bg-[var(--bg-card)] border-2 border-[var(--border-subtle)] rounded-[3rem] p-10 hover:border-[var(--accent-red)] transition-all duration-500 group relative overflow-hidden">
+        <div class="bg-[var(--bg-card)] border-2 border-[var(--border-subtle)] rounded-[2rem] md:rounded-[3rem] p-8 md:p-10 hover:border-[var(--accent-red)] transition-all duration-500 group relative overflow-hidden">
           <div class="absolute -top-10 -right-10 w-32 h-32 bg-[var(--accent-red)]/5 rounded-full blur-2xl group-hover:bg-[var(--accent-red)]/10 transition-colors"></div>
           
           <!-- Industry Tag -->
@@ -40,7 +40,7 @@ const { results } = content.homepage;
 
           <!-- Main Metric -->
           <div class="mb-8">
-            <div class="text-7xl font-black italic tracking-tighter text-[var(--text-primary)] mb-2 group-hover:text-[var(--accent-red)] transition-colors">
+            <div class="text-5xl md:text-7xl font-black italic tracking-tighter text-[var(--text-primary)] mb-2 group-hover:text-[var(--accent-red)] transition-colors">
               {case_study.metric}<span class="text-[var(--accent-yellow)]">+</span>
             </div>
             <div class="text-xs font-black text-[var(--text-primary)] uppercase tracking-[0.3em]">

@@ -29,7 +29,7 @@ export const services = [
 
 export const industries = [
   { id: "oil-gas", name: "Oil & Gas", slug: "oil-gas", keywords: ["drilling", "field services", "petroleum"] },
-  { id: "marine", name: "Marine & Maritime", slug: "marine", keywords: ["ports", "ship supplies", "vessels"] },
+
   { id: "manufacturing", name: "Manufacturing", slug: "manufacturing", keywords: ["production", "factory"] },
   { id: "construction", name: "Construction & MEP", slug: "construction", keywords: ["building materials", "machinery"] },
   { id: "logistics", name: "Logistics & Supply Chain", slug: "logistics", keywords: ["freight", "warehousing"] },
@@ -88,9 +88,8 @@ export const navigation = {
     locations: [
       { country: "UAE", cities: ["Dubai", "Abu Dhabi", "Sharjah", "RAK"] },
       { country: "KSA", cities: ["Riyadh", "Jeddah", "Dammam", "Khobar"] },
-      { country: "Qatar", cities: ["Doha"] },
-      { country: "USA", cities: ["Chicago"] },
-      { country: "Australia", cities: ["Melbourne"] }
+      { country: "Other GCC", cities: ["Doha", "Manama", "Kuwait City", "Muscat"] },
+      { country: "Worldwide", cities: ["Chicago", "Melbourne"] }
     ],
   }
 };
