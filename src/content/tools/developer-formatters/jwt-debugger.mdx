@@ -1,0 +1,20 @@
+---
+name: "JWT Debugger"
+description: "Decode and inspect JSON Web Tokens (JWT) to view headers and payloads."
+shortDescription: "Decode JWT"
+categoryId: "developer-formatters"
+tier: 1
+icon: "Lock"
+keywords: ["jwt debugger", "decode jwt", "token inspector", "jwt decoder"]
+instructions: [
+  "Paste your JWT string.",
+  "See the decoded Header and Payload.",
+  "Verify token structure."
+]
+---
+import JWTDebugger from '../../../../components/tools/formatters/JWTDebugger';
+
+<JWTDebugger client:load />
+
+## Inspect Your Tokens
+Paste a JWT (JSON Web Token) here to see its decoded contents. Note: We only decode the token parts (base64 decode), we do not verify the signature secret client-side for security reasons.

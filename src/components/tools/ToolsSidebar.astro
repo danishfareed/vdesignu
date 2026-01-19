@@ -1,0 +1,190 @@
+---
+import { toolCategories, tools, type ToolCategory, type Tool } from '../../data/tools-data';
+import * as LucideIcons from 'lucide-react';
+
+import SearchBar from './SearchBar';
+
+interface Props {
+  activeCategory?: string;
+  activeTool?: string;
+}
+
+const { activeCategory, activeTool } = Astro.props;
+
+// Group tools by category
+const toolsByCategory: Record<string, Tool[]> = {};
+toolCategories.forEach(cat => {
+  toolsByCategory[cat.id] = tools.filter(t => t.categoryId === cat.id);
+});
+
+// Sort categories by hierarchy/order defined in toolCategories array
+// (They are already sorted in the array)
+
+function getIcon(name: string) {
+  return (LucideIcons as any)[name] || LucideIcons.Box;
+}
+---
+
+<!-- Desktop Sidebar -->
+<aside class="hidden lg:flex flex-col w-72 shrink-0 h-[calc(100vh-8rem)] sticky top-32 overflow-y-auto custom-scrollbar pr-4 border-r border-[var(--border-subtle)]">
+  
+  <div class="mb-6">
+    <h3 class="text-[10px] font-black uppercase tracking-[0.4em] text-[var(--accent-red)] mb-4">ToolBox</h3>
+    <a href="/tools" class="flex items-center gap-2 text-sm font-bold text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors mb-6">
+      <LucideIcons.LayoutGrid size={16} />
+      All Categories
+    </a>
+    <SearchBar client:load />
+  </div>
+
+  <nav class="space-y-8">
+    {toolCategories.map(category => {
+      const CategoryIcon = getIcon(category.icon);
+      const categoryTools = toolsByCategory[category.id] || [];
+      const isActiveCat = activeCategory === category.slug;
+      
+      // Skip categories with no tools if desired, or keep them as "Coming Soon"
+      // For now, we show all defined categories
+      
+      return (
+        <div class="group">
+          <div class={`flex items-center gap-2 mb-3 text-xs font-black uppercase tracking-wider ${isActiveCat ? 'text-[var(--accent-red)]' : 'text-[var(--text-muted)] group-hover:text-[var(--text-primary)] transition-colors'}`}>
+            <CategoryIcon size={14} />
+            {category.name}
+          </div>
+          
+          <ul class="space-y-1 pl-3 border-l-2 border-[var(--border-subtle)]">
+            {categoryTools.map(tool => {
+              const isActive = activeTool === tool.slug;
+              return (
+                <li>
+                  <a 
+                    href={`/tools/${category.slug}/${tool.slug}`}
+                    class={`
+                      block py-1.5 px-3 rounded-lg text-sm font-medium transition-all
+                      ${isActive 
+                        ? 'bg-[var(--accent-red)]/10 text-[var(--accent-red)] font-bold translate-x-1' 
+                        : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)] hover:translate-x-1'}
+                    `}
+                  >
+                    {tool.name}
+                  </a>
+                </li>
+              );
+            })}
+            {categoryTools.length === 0 && (
+               <li class="py-1 px-3 text-[10px] uppercase text-[var(--text-muted)] italic">Coming Soon</li>
+            )}
+          </ul>
+        </div>
+      );
+    })}
+  </nav>
+</aside>
+
+<!-- Mobile Floating Toggle -->
+<button 
+  id="toolsMobileToggle"
+  class="fixed bottom-24 right-8 lg:hidden z-40 bg-[var(--accent-red)] text-white p-4 rounded-full shadow-2xl shadow-red-600/30 active:scale-95 transition-transform flex items-center justify-center"
+  aria-label="Open Tools Menu"
+>
+  <LucideIcons.Menu size={24} />
+</button>
+
+<!-- Mobile Drawer -->
+<div id="toolsMobileDrawer" class="fixed inset-0 z-50 lg:hidden pointer-events-none">
+  <!-- Backdrop -->
+  <div id="toolsBackdrop" class="absolute inset-0 bg-black/60 opacity-0 transition-opacity duration-300"></div>
+  
+  <!-- Panel -->
+  <div id="toolsPanel" class="absolute right-0 top-0 bottom-0 w-[85vw] max-w-sm bg-[var(--bg-card)] transform translate-x-full transition-transform duration-300 shadow-2xl flex flex-col pointer-events-auto">
+    
+    <div class="p-6 border-b border-[var(--border-subtle)] flex items-center justify-between">
+      <h3 class="text-lg font-black italic uppercase tracking-tighter text-[var(--text-primary)]">
+        Tools <span class="text-[var(--accent-red)]">Menu</span>
+      </h3>
+      <button id="toolsCloseBtn" class="p-2 text-[var(--text-muted)] hover:text-[var(--accent-red)] transition-colors">
+        <LucideIcons.X size={24} />
+      </button>
+    </div>
+
+    <div class="overflow-y-auto p-6 flex-1 custom-scrollbar">
+      <a href="/tools" class="flex items-center gap-3 text-base font-bold text-[var(--text-primary)] mb-8 p-3 rounded-xl bg-[var(--bg-primary)] border border-[var(--border-subtle)]">
+        <LucideIcons.LayoutGrid size={20} />
+        View All Categories
+      </a>
+
+      <div class="space-y-8">
+        {toolCategories.map(category => {
+          const CategoryIcon = getIcon(category.icon);
+          const categoryTools = toolsByCategory[category.id] || [];
+          
+          return (
+            <div>
+              <div class="flex items-center gap-2 mb-4 text-xs font-black uppercase tracking-wider text-[var(--text-muted)]">
+                <CategoryIcon size={16} />
+                {category.name}
+              </div>
+              
+              <ul class="space-y-2 pl-2">
+                {categoryTools.map(tool => {
+                  const isActive = activeTool === tool.slug;
+                   return (
+                    <li>
+                      <a 
+                        href={`/tools/${category.slug}/${tool.slug}`}
+                        class={`
+                          block py-3 px-4 rounded-xl text-sm font-medium transition-all border
+                          ${isActive 
+                            ? 'bg-[var(--accent-red)]/10 border-[var(--accent-red)]/20 text-[var(--accent-red)] font-bold' 
+                            : 'bg-[var(--bg-primary)] border-transparent text-[var(--text-secondary)]'}
+                        `}
+                      >
+                        {tool.name}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+  .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+  .custom-scrollbar::-webkit-scrollbar-thumb { background: var(--border-subtle); border-radius: 4px; }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+</style>
+
+<script>
+  const toggle = document.getElementById('toolsMobileToggle');
+  const closeBtn = document.getElementById('toolsCloseBtn');
+  const drawer = document.getElementById('toolsMobileDrawer');
+  const backdrop = document.getElementById('toolsBackdrop');
+  const panel = document.getElementById('toolsPanel');
+
+  function openDrawer() {
+    drawer?.classList.remove('pointer-events-none');
+    backdrop?.classList.remove('opacity-0');
+    panel?.classList.remove('translate-x-full');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    backdrop?.classList.add('opacity-0');
+    panel?.classList.add('translate-x-full');
+    setTimeout(() => {
+      drawer?.classList.add('pointer-events-none');
+      document.body.style.overflow = '';
+    }, 300);
+  }
+
+  toggle?.addEventListener('click', openDrawer);
+  closeBtn?.addEventListener('click', closeDrawer);
+  backdrop?.addEventListener('click', closeDrawer);
+</script>

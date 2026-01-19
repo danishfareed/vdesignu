@@ -1,0 +1,20 @@
+---
+name: "Remove Duplicate Lines"
+description: "Cleanup lists, emails, or data by removing duplicate lines instantly."
+shortDescription: "Deduplicate Lines"
+categoryId: "string-text"
+tier: 1
+icon: "ListX"
+keywords: ["remove duplicates", "unique lines", "deduper", "list cleaner"]
+instructions: [
+  "Paste your list into the input box.",
+  "Click 'Remove Duplicates'.",
+  "Copy the unique list."
+]
+---
+import RemoveDuplicateLines from '../../../../components/tools/string/RemoveDuplicateLines';
+
+<RemoveDuplicateLines client:load />
+
+## How it works
+This tool scans your text line by line and keeps only the first occurrence of each unique line. It is case-sensitive (e.g., "Apple" and "apple" are considered different).

@@ -1,0 +1,40 @@
+---
+name: "SQL Formatter"
+description: "Format complex SQL queries for better readability. Supports Standard SQL, PostgreSQL, MySQL, and T-SQL. Highlights syntax."
+shortDescription: "Format SQL Queries"
+categoryId: "developer-formatters"
+tier: 1
+icon: "Database"
+keywords: ["sql formatter", "sql beautifier", "pretty print sql", "sql syntax", "query formatter"]
+instructions: [
+  "Select your SQL dialect (default is Standard SQL).",
+  "Paste your raw query into the input box.",
+  "Click 'Format' to uppercase keywords and indent clauses.",
+  "Copy the clean query for your database client."
+]
+---
+import SqlFormatter from '../../../../components/tools/developer-formatters/SqlFormatter';
+
+<SqlFormatter client:load />
+
+## Why Format SQL?
+Reading a 10-line SQL query that is squashed into a single line is a nightmare. Consistent formatting improves debugging and collaboration.
+
+### Features
+- **Keyword Capitalization**: Automatically converts `select` to `SELECT`.
+- **Indentation**: Visualizes the structure of `JOIN`s and `WHERE` clauses.
+- **Dialect Support**: Handles specific syntax for PostgreSQL, MySQL, and SQL Server.
+
+### Example
+**Before:**
+`select * from users where id=1`
+
+**After:**
+```sql
+SELECT
+  *
+FROM
+  users
+WHERE
+  id = 1
+```

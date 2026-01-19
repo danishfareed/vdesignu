@@ -1,0 +1,29 @@
+---
+name: "MD5 Hash Generator"
+description: "Generate MD5 hash fingerprints for your text. Useful for checksums and data integrity verification."
+shortDescription: "Generate MD5"
+categoryId: "security-crypto"
+tier: 1
+icon: "Hash"
+keywords: ["md5 generator", "md5 hash", "checksum", "hash calculator"]
+instructions: [
+  "Enter the text you want to hash.",
+  "The 32-character hexadecimal MD5 hash generates instantly.",
+  "Check the algorithm switcher if you need other formats.",
+  "Copy the result."
+]
+---
+import HashGenerator from '../../../../components/tools/security-crypto/HashGenerator';
+
+<HashGenerator client:load defaultAlgo="MD5" />
+
+## About MD5
+The **MD5 (Message-Digest Algorithm 5)** produces a 128-bit hash value.
+
+### Is it Secure?
+**No.** MD5 is cryptographically broken and vulnerable to collision attacks (where two different inputs produce the same hash).
+
+### When to use it?
+- **Checksums**: Verifying that a file hasn't been corrupted during download.
+- **Non-critical IDs**: Generating unique identifiers where security isn't paramount.
+- **Legacy Systems**: Interacting with older databases.

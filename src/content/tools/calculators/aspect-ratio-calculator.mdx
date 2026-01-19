@@ -1,0 +1,32 @@
+---
+name: "Aspect Ratio Calculator"
+description: "Calculate dimensions for images and video based on standard aspect ratios (16:9, 4:3) or find the ratio of any object."
+shortDescription: "Calculate Aspect Ratio"
+categoryId: "calculators"
+tier: 1
+icon: "Maximize"
+keywords: ["aspect ratio", "screen resolution", "image resize", "16:9 calculator", "video dimensions"]
+featured: true
+instructions: [
+  "Choose a mode: 'Calculate Dimensions' or 'Find Ratio'.",
+  "Select a preset (e.g., 16:9 for modern video) or enter custom values.",
+  "Enter one dimension (Width or Height).",
+  "The tool automatically fills in the matching dimension to maintain the ratio."
+]
+---
+import AspectRatioCalculator from '../../../../components/tools/calculators/AspectRatioCalculator';
+
+<AspectRatioCalculator client:load />
+
+## Understanding Aspect Ratios
+An aspect ratio describes the proportional relationship between an image's width and its height. It is commonly expressed as two numbers separated by a colon, like **16:9**.
+
+### Common Standards
+- **16:9 (Widescreen)**: The standard for HDTV, YouTube videos, and most modern screens.
+- **4:3 (Standard)**: Old CRT monitors, iPad screens, and standard photography.
+- **1:1 (Square)**: Classic Instagram posts and profile pictures.
+- **9:16 (Vertical)**: Instagram Stories, TikTok, and mobile video.
+- **21:9 (Ultrawide)**: Cinematic movie format.
+
+### Why it Matters
+Maintaining the correct aspect ratio is crucial to prevent images from looking stretched or squashed. When resizing content for the web, getting the math right ensures your layout looks professional on all devices.

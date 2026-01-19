@@ -1,12 +1,12 @@
 {
   "site": {
-    "name": "vdesignu",
+    "name": "VDESIGNU",
     "logo": "https://crm.vdesignu.com/uploads/company/logo.png",
     "tagline": "Revenue-Driven Digital Engineering"
   },
   "homepage": {
-    "metaTitle": "vdesignu – Industrial Digital Growth Engineering | Custom Platforms, SEO, AI & Lead Gen",
-    "metaDescription": "We engineer high-performance custom platforms, ecommerce systems, and AI integrations for B2B industrial companies in the Gulf. Dominate your market with vdesignu.",
+    "metaTitle": "VDESIGNU – Industrial Digital Growth Engineering | Custom Platforms, SEO, AI & Lead Gen",
+    "metaDescription": "We engineer high-performance custom platforms, ecommerce systems, and AI integrations for B2B industrial companies in the Gulf. Dominate your market with VDESIGNU.",
     "hero": {
       "badge": "Digital Growth Partner",
       "headline": "We Build Websites. That Grow Your Business.",
@@ -102,10 +102,10 @@
   },
   "about": {
     "title": "Digital Excellence for Growth-Ready Brands",
-    "metaTitle": "About vdesignu – Your B2B & B2C Digital Partner",
+    "metaTitle": "About VDESIGNU – Your B2B & B2C Digital Partner",
     "metaDescription": "We are a technical growth agency helping B2B and B2C brands in the Gulf and beyond scale with precision-engineered websites and systems.",
     "mission": "We build the digital systems that find customers and close deals. Whether you are B2B or B2C, we give you the tools to dominate your market.",
-    "story": "Founded with a mission to solve the 'slow website' problem, vdesignu has evolved into a full-scale digital engineering firm. We help companies move from outdated legacy systems to high-performance platforms that work for them.",
+    "story": "Founded with a mission to solve the 'slow website' problem, VDESIGNU has evolved into a full-scale digital engineering firm. We help companies move from outdated legacy systems to high-performance platforms that work for them.",
     "values": [
       {
         "title": "Precision Work",
@@ -125,13 +125,13 @@
   "work": {
     "title": "Our Success Stories",
     "subtitle": "Success isn't about design awards; it's about building systems that grow businesses. Here is the evidence.",
-    "metaTitle": "Case Studies & Success Stories | vdesignu",
+    "metaTitle": "Case Studies & Success Stories | VDESIGNU",
     "metaDescription": "See how we've helped B2B and B2C companies grow their revenue through smart digital engineering.",
     "cta_title": "Want Your Story Here?",
     "cta_button": "Get Started"
   },
   "contact": {
-    "metaTitle": "Get Started Today | vdesignu",
+    "metaTitle": "Get Started Today | VDESIGNU",
     "metaDescription": "Connect with our growth experts. No sales fluff. Just data, technology, and your roadmap to growth.",
     "subtitle": "We partner with leaders who are ready to invest in serious digital growth. If that's you, let's talk.",
     "email": "hello@vdesignu.com",
@@ -158,7 +158,7 @@
         "metricLabel": "Efficiency Gain"
       },
       "faq": [
-        { "question": "Why vdesignu in Dubai?", "answer": "We combine local market intelligence with global engineering standards." },
+        { "question": "Why VDESIGNU in Dubai?", "answer": "We combine local market intelligence with global engineering standards." },
         { "question": "How do you handle B2B vs B2C?", "answer": "Our systems are built to handle both the long cycles of B2B and the high speed of B2C." }
       ]
     },

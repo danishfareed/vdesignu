@@ -1,0 +1,31 @@
+---
+name: "Glassmorphism Generator"
+description: "Generate the trendy 'frosted glass' effect using CSS backdrop-filter. Perfect for modern UI cards and overlays."
+shortDescription: "Generate Frosted Glass CSS"
+categoryId: "css-ui"
+tier: 1
+icon: "Droplet"
+keywords: ["glassmorphism", "backdrop filter", "css glass", "frosted glass", "ui trend"]
+featured: true
+instructions: [
+  "Adjust the 'Blur' to controls how frosted the glass looks.",
+  "Tweak the 'Opacity' to control transparency.",
+  "Use 'Saturation' to make background colors pop through vividly.",
+  "Pick a base color (usually white or black).",
+  "Copy the standardized CSS code."
+]
+---
+import GlassmorphismGenerator from '../../../../components/tools/css-ui/GlassmorphismGenerator';
+
+<GlassmorphismGenerator client:load />
+
+## The Frosted Glass Effect
+Glassmorphism is a popular UI trend that creates a sense of hierarchy by mimicking translucent materials. It relies heavily on the `backdrop-filter` CSS property.
+
+### Key Characteristics
+1.  **Translucency**: Using background blur (`backdrop-filter: blur()`) to allow background elements to be visible but distinct.
+2.  **Vivid Colors**: Often paired with colorful, floating shapes in the background to emphasize the transparency.
+3.  **Light Borders**: A subtle semi-transparent white border mimics a glass edge.
+
+### Browser Support
+This effect works in all modern browsers. We include the `-webkit-` prefix in the generated code to ensure maximum compatibility with Safari and iOS devices.

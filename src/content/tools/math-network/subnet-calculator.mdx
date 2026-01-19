@@ -1,0 +1,17 @@
+---
+name: "Subnet Calculator"
+description: "Calculate network range, netmask, and broadcast address from an IP and CIDR."
+shortDescription: "CIDR Calculator"
+categoryId: "math-network"
+tier: 1
+icon: "Network"
+keywords: ["subnet calculator", "cidr calc", "network mask", "ip calculator", "broadcast address"]
+instructions: [
+  "Enter an IP Address.",
+  "Adjust the slider to set the Subnet Mask (CIDR).",
+  "Instantly view the Network, Broadcast, and Host range."
+]
+---
+import SubnetCalculator from '../../../../components/tools/math-network/SubnetCalculator';
+
+<SubnetCalculator client:load />

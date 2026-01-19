@@ -1,0 +1,21 @@
+---
+name: "Slug Generator"
+description: "Turn titles into SEO-friendly URL slugs. Removes special characters and creates hyphens."
+shortDescription: "URL Slug Creator"
+categoryId: "string-text"
+tier: 1
+icon: "Link"
+keywords: ["slug generator", "url slug", "clean url", "hyphenate title"]
+instructions: [
+  "Type your post title or string.",
+  "The tool converts it to lowercase, removes specials, and adds hyphens.",
+  "Copy the valid URL slug."
+]
+---
+import SlugGenerator from '../../../../components/tools/string/SlugGenerator';
+
+<SlugGenerator client:load />
+
+## What is a Slug?
+A slug is the part of a URL that identifies a particular page on a website in a form readable by users.
+Example: `My Blog Post!` -> `my-blog-post`

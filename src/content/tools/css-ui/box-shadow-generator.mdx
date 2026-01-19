@@ -1,0 +1,33 @@
+---
+name: "Box Shadow Generator"
+description: "Visually design CSS box shadows. Adjust blur, spread, and opacity to create depth and elevation in your UI."
+shortDescription: "Generate CSS Box Shadows"
+categoryId: "css-ui"
+tier: 1
+icon: "Layers"
+keywords: ["box shadow", "css shadow", "material design shadow", "elevation", "drop shadow"]
+featured: true
+instructions: [
+  "Use the sliders to control the shadow's position (Offsets), size (Spread) and softness (Blur).",
+  "Adjust the shadow color and transparency (Alpha) using the picker.",
+  "Toggle 'Inset' for inner shadows.",
+  "Preview the result against different background colors.",
+  "Copy the property to your clipboard."
+]
+---
+import BoxShadowGenerator from '../../../../components/tools/css-ui/BoxShadowGenerator';
+
+<BoxShadowGenerator client:load />
+
+## Mastering Shadows
+Shadows are a critical element in modern web design, adding depth, hierarchy, and affordance to your interface.
+
+### The Properties
+- **Horizontal/Vertical Offset**: Moves the shadow relative to the element. Positive values move right/down, negative moves left/up.
+- **Blur Radius**: Controls how sharp or soft the shadow edge is. Higher = softer.
+- **Spread Radius**: Expands or shrinks the shadow size relative to the element size.
+- **Color/Alpha**: The key to realistic shadows is transparency. Avoid pure black; use a dark shade of your background or brand color with low opacity (e.g., 10-20%).
+
+### Design Trends
+- **Soft Shadows**: Large blur + low opacity creates a modern, floating effect common in SaaS dashboards.
+- **Neumorphism**: Uses two shadows (one light, one dark) to make elements appear extruded from the background.

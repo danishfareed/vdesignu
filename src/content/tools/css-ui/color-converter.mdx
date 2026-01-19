@@ -1,0 +1,22 @@
+---
+name: "Color Converter"
+description: "Convert colors between HEX, RGB, and HSL formats instantly. View live previews."
+shortDescription: "HEX / RGB / HSL"
+categoryId: "css-ui"
+tier: 1
+icon: "Palette"
+keywords: ["color converter", "hex to rgb", "rgb to hex", "hsl converter", "color code"]
+instructions: [
+  "Enter a HEX code (e.g., #FF5733).",
+  "Instantly see the RGB and HSL equivalents.",
+  "Copy the format you need for your CSS."
+]
+---
+import ColorConverter from '../../../../components/tools/css-ui/ColorConverter';
+
+<ColorConverter client:load />
+
+## Supported Formats
+- **HEX**: Standard 6-digit hexadecimal codes (e.g., #FFFFFF).
+- **RGB**: Red, Green, Blue integer values (0-255).
+- **HSL**: Hue, Saturation, Lightness format for easier color manipulation.

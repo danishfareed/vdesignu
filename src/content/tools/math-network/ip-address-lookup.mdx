@@ -1,0 +1,20 @@
+---
+name: "IP Address Lookup"
+description: "Find the geolocation, ISP, and organization details of any public IP address."
+shortDescription: "IP Geo Lookup"
+categoryId: "math-network"
+tier: 1
+icon: "Globe"
+keywords: ["ip lookup", "ip geolocation", "find my ip", "whois ip", "ip address details"]
+instructions: [
+  "Leave blank to search your own IP.",
+  "Enter an IPv4 or IPv6 address to lookup.",
+  "View location, map coordinates, and ISP info."
+]
+---
+import IpAddressLookup from '../../../../components/tools/math-network/IpAddressLookup';
+
+<IpAddressLookup client:load />
+
+## Data Source
+This tool uses public APIs to resolve IP addresses to their physical location (approximate) and network owner (ASN).

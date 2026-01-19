@@ -1,0 +1,29 @@
+---
+name: "Base64 Encoder/Decoder"
+description: "Securely encode text to Base64 format or decode Base64 strings back to plain text entirely in your browser."
+shortDescription: "Base64 Encode/Decode"
+categoryId: "security-crypto"
+tier: 1
+icon: "Lock"
+keywords: ["base64 encode", "base64 decode", "base64 converter", "string to base64"]
+instructions: [
+  "Choose 'Encode' to convert text to Base64, or 'Decode' for the reverse.",
+  "Enter your text in the input box.",
+  "Click the button to process.",
+  "Copy the result."
+]
+---
+import Base64Encoder from '../../../../components/tools/security-crypto/Base64Encoder';
+
+<Base64Encoder client:load />
+
+## What is Base64?
+Base64 represents binary data in an ASCII string format by translating it into a radix-64 representation.
+
+### Common Uses
+- **Data URIs**: Embedding small images directly into CSS or HTML to reduce HTTP requests.
+- **Email Attachments**: MIME uses Base64 to transmit non-text attachments.
+- **APIs**: Sending binary data (like files) over JSON APIs.
+
+### Security Warning
+Base64 is **encoding**, not encryption. Someone with a decoder can easily read the original message. Do not use it to hide passwords or sensitive keys.

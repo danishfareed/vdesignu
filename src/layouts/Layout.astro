@@ -76,7 +76,7 @@ const {
     <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-transparent bg-transparent" id="main-header">
       <nav class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between transition-all duration-500" id="header-nav">
         <a href="/" class="flex items-center gap-2 group relative z-10 transition-transform active:scale-95">
-          <span class="text-4xl font-black text-[var(--accent-red)] tracking-tighter uppercase italic drop-shadow-sm logo-animate">vdesignu<span class="text-[var(--accent-yellow)]">.</span></span>
+          <span class="text-4xl font-black text-[var(--accent-red)] tracking-tighter uppercase italic drop-shadow-sm logo-animate">vdesignu</span>
         </a>
 
 
@@ -95,7 +95,7 @@ const {
           >
             <div class="w-6 h-4 flex flex-col justify-between">
               <span class="w-full h-0.5 bg-[var(--accent-red)] rounded-full transition-all group-hover:w-1/2"></span>
-              <span class="w-full h-0.5 bg-[var(--accent-yellow)] rounded-full"></span>
+              <span class="w-full h-0.5 bg-[var(--text-primary)] rounded-full"></span>
               <span class="w-full h-0.5 bg-[var(--accent-red)] rounded-full transition-all group-hover:w-2/3 ml-auto"></span>
             </div>
           </button>
@@ -128,18 +128,18 @@ const {
       <div class="max-w-7xl mx-auto px-6 py-24 relative z-10">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-20 mb-20">
           <div class="lg:col-span-1">
-            <h2 class="text-4xl font-black text-[var(--accent-red)] mb-8 uppercase italic tracking-tighter">vdesignu<span class="text-[var(--accent-yellow)]">.</span></h2>
+            <h2 class="text-4xl font-black text-[var(--accent-red)] mb-8 uppercase italic tracking-tighter">vdesignu</h2>
             <p class="text-base text-[var(--text-secondary)] leading-relaxed mb-10 font-medium">
               {navigation.footer.about.text}
             </p>
           </div>
           <div>
-            <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-[var(--accent-red)] mb-10">Capabilities</h4>
+            <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-[var(--text-muted)] mb-10">Capabilities</h4>
             <ul class="space-y-4">
               {navigation.footer.services.map((item) => (
                 <li>
                   <a href={item.href} class="text-xs font-black italic uppercase tracking-tight text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-all flex items-center gap-2 group">
-                    <span class="w-1.5 h-1.5 rounded-full bg-[var(--accent-yellow)] opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[var(--accent-red)] opacity-0 group-hover:opacity-100 transition-opacity"></span>
                     {item.label}
                   </a>
                 </li>
@@ -150,12 +150,21 @@ const {
           <div>
              <h4 class="text-[10px] font-black uppercase tracking-[0.4em] text-[var(--text-muted)] mb-10">Company</h4>
              <ul class="space-y-4">
-               <li><a href="/about" class="text-xs font-black italic uppercase tracking-tight text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-all">About Us</a></li>
-               <li><a href="/contact" class="text-xs font-black italic uppercase tracking-tight text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-all">Contact</a></li>
-               <li><a href="/faq" class="text-xs font-black italic uppercase tracking-tight text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-all">FAQ</a></li>
-               <li><a href="/blog" class="text-xs font-black italic uppercase tracking-tight text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-all">Blog</a></li>
-                <li><a href="/tools" class="text-xs font-black italic uppercase tracking-tight text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-all">Free Tools</a></li>
-                <li><a href="/resources" class="text-xs font-black italic uppercase tracking-tight text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-all">Resource Hub</a></li>
+               {[
+                 { label: 'About Us', href: '/about' },
+                 { label: 'Contact', href: '/contact' },
+                 { label: 'FAQ', href: '/faq' },
+                 { label: 'Blog', href: '/blog' },
+                 { label: 'Free Tools', href: '/tools' },
+                 { label: 'Resource Hub', href: '/resources' }
+               ].map(link => (
+                 <li>
+                   <a href={link.href} class="text-xs font-black italic uppercase tracking-tight text-[var(--text-secondary)] hover:text-[var(--accent-red)] transition-all flex items-center gap-2 group">
+                     <span class="w-1.5 h-1.5 rounded-full bg-[var(--accent-red)] opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                     {link.label}
+                   </a>
+                 </li>
+               ))}
               </ul>
           </div>
 

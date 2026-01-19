@@ -4,7 +4,7 @@
  */
 
 export const siteConfig = {
-  name: "vdesignu",
+  name: "VDESIGNU",
   baseUrl: "https://vdesignu.com",
   analytics: {
     ga4Id: "G-XXXXXXXXXX", // Placeholder for actual GA4 ID

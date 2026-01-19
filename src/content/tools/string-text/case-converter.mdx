@@ -1,0 +1,32 @@
+---
+name: "Case Converter"
+description: "Instantly convert text between Uppercase, Lowercase, Title Case, CamelCase, Snake_Case, and more. Perfect for coding and formatting."
+shortDescription: "Convert text case styles"
+categoryId: "string-text"
+tier: 1
+icon: "Baseline"
+keywords: ["case converter", "uppercase", "lowercase", "capitalization tool", "camelcase generator"]
+instructions: [
+  "Enter the text you want to convert.",
+  "Select the desired format (e.g., UPPER CASE, Title Case).",
+  "The text will transform instantly.",
+  "Copy the result to your clipboard."
+]
+---
+import CaseConverter from '../../../../components/tools/string/CaseConverter';
+
+<CaseConverter client:load />
+
+## Available Transformations
+This tool supports a wide variety of text cases used in programming, writing, and data entry.
+
+### Standard Formats
+- **UPPER CASE**: Converts all letters to capitals. Useful for headers or emphasis.
+- **lower case**: Converts all letters to small caps.
+- **Title Case**: Capitalizes the first letter of major words. Standard for headlines.
+- **Sentence case**: Capitalizes only the very first letter of the input.
+
+### Developer Formats
+- **camelCase**: Removes spaces and capitalizes each new word (except the first). Standard for JavaScript/Java variables.
+- **snake_case**: Replaces spaces with underscores. Common in Python and database field names.
+- **kebab-case**: Replaces spaces with dashes. Essential for URL slugs and CSS classes.

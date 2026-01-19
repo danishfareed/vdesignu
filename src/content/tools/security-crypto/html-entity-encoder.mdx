@@ -1,0 +1,29 @@
+---
+name: "HTML Entity Encoder"
+description: "Convert special characters to their corresponding HTML entities to prevent XSS and ensure proper display."
+shortDescription: "HTML Entities"
+categoryId: "security-crypto"
+tier: 1
+icon: "Code2"
+keywords: ["html entities", "escape html", "xss prevention", "character codes"]
+instructions: [
+  "Select the 'HTML Entities' tab.",
+  "Type text with special chars (<, >, &, \").",
+  "Click 'Encode' to generate safe HTML entities.",
+  "Click 'Decode' to revert entities back to text."
+]
+---
+import UrlEntityEncoder from '../../../../components/tools/security-crypto/UrlEntityEncoder';
+
+<UrlEntityEncoder client:load />
+
+## Why Escape HTML?
+If you display user input directly on a webpage without encoding, you risk **Cross-Site Scripting (XSS)** attacks. Browsers might interpret `<script>` tags as actual code.
+
+Encoding converts:
+- `<` to `&lt;`
+- `>` to `&gt;`
+- `&` to `&amp;`
+- `"` to `&quot;`
+
+This ensures the browser treats the data as text, not code.

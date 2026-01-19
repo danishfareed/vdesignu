@@ -1,0 +1,39 @@
+---
+name: "Pixel to REM Converter"
+description: "Instantly convert pixels (px) to REM units for responsive and accessible web design. Includes a quick reference table."
+shortDescription: "PX to REM Converter"
+categoryId: "calculators"
+tier: 1
+icon: "ArrowRightLeft"
+keywords: ["px to rem", "rem calculator", "css units", "responsive design", "accessibility"]
+featured: true
+instructions: [
+  "Set your project's Base Font Size (default is usually 16px).",
+  "Type your value in the Pixels (px) input.",
+  "The Tool automatically calculates the REM equivalent.",
+  "Alternatively, type in REM to convert back to pixels."
+]
+---
+import PixelRemConverter from '../../../../components/tools/calculators/PixelRemConverter';
+
+<PixelRemConverter client:load />
+
+## Pixels vs. REM: Which should you use?
+
+In modern web development, **REM (Root EM)** is generally preferred over pixels for font sizes, spacing, and layout elements.
+
+### The Accessibility Argument
+When you define sizes in pixels (e.g., `font-size: 16px`), you are hard-coding that value. If a user with visual impairments sets their browser's base font size to 24px, your website will ignore their preference and force 16px, making text hard to read.
+
+Using REM (e.g., `font-size: 1rem`), your layout scales relatively. `1rem` equals "100% of the root font size". If the user wants bigger text, your entire site scales up proportionally.
+
+### The Math
+The formula is simple:
+```math
+REM = Pixels / Base Size
+Pixels = REM * Base Size
+```
+Most browsers have a default base size of 16px.
+- 16px = 1rem
+- 24px = 1.5rem
+- 32px = 2rem

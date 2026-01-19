@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import fs from 'node:fs';
+import path from 'node:path';
+
+const tools = await getCollection('tools');
+const contentDir = path.resolve('./src/content/tools');
+let files: string[] = [];
+
+try {
+  files = fs.readdirSync(contentDir, { recursive: true }).map(f => f.toString());
+} catch (e) {
+  files = [`Error reading dir: ${e.message}`];
+}
+
+const allTools = await getCollection('tools');
+---
+
+<html>
+<body>
+<h1>Debug Content Collection</h1>
+
+<h2>1. File System Check (src/content/tools)</h2>
+<pre>{JSON.stringify(files, null, 2)}</pre>
+
+<h2>2. Astro getCollection('tools')</h2>
+<p>Count: {allTools.length}</p>
+<pre>{JSON.stringify(allTools, null, 2)}</pre>
+
+</body>
+</html>

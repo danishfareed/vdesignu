@@ -1,0 +1,30 @@
+---
+name: "JSON Formatter & Validator"
+description: "Format, beautify, and validate JSON data. Minify JSON for production use and fix syntax errors."
+shortDescription: "Format & Validate JSON"
+categoryId: "developer-formatters"
+tier: 1
+icon: "Braces"
+keywords: ["json formatter", "json lint", "beautify json", "json validator", "minify json"]
+featured: true
+instructions: [
+  "Paste your JSON data into the 'Input JSON' box.",
+  "Click the 'Format' button (Maximize icon) to beautify.",
+  "Click 'Minify' to compress the JSON to a single line.",
+  "If there are errors, they will be displayed in the output area."
+]
+---
+import JsonFormatter from '../../../../components/tools/developer-formatters/JsonFormatter';
+
+<JsonFormatter client:load />
+
+## What is JSON Formatting?
+JSON (JavaScript Object Notation) is standard for data exchange, but raw JSON from APIs is often minified (all one line) to save bandwidth. This tools helps you:
+- **Beautify**: Add indentation and newlines to make it readable.
+- **Minify**: Remove whitespace to reduce file size for production.
+- **Validate**: Check for syntax errors like missing quotes or trailing commas.
+
+### Common JSON Errors
+- **Trailing Commas**: `{"a": 1,}` is invalid in standard JSON.
+- **Single Quotes**: JSON strings must use double quotes `"key": "value"`, not `'key': 'value'`.
+- **Undefined/Functions**: JSON cannot store JS functions or `undefined`.

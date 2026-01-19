@@ -1,0 +1,17 @@
+---
+name: "Unicode Character Detector"
+description: "Inspect text to reveal Unicode code points, hex values, and invisible characters."
+shortDescription: "Unicode Inspector"
+categoryId: "string-text"
+tier: 1
+icon: "Info"
+keywords: ["unicode inspector", "character code", "ascii value", "emoji breakdown"]
+instructions: [
+  "Paste text to inspect.",
+  "The tool breaks it down character by character.",
+  "See the implementation code (U+XXXX) for each symbol."
+]
+---
+import UnicodeDetector from '../../../../components/tools/string/UnicodeDetector';
+
+<UnicodeDetector client:load />

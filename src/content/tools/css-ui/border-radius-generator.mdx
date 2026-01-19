@@ -1,0 +1,38 @@
+---
+name: "Border Radius Generator"
+description: "Create standard rounded corners or organic, fluid blob shapes using CSS border-radius."
+shortDescription: "Generate Rounded Corners & Blobs"
+categoryId: "css-ui"
+tier: 1
+icon: "Square"
+keywords: ["border radius", "css blobs", "rounded corners", "organic shapes", "css3"]
+featured: true
+instructions: [
+  "Adjust the simple slider for standard rounded corners.",
+  "Check 'Advanced (Blobs)' to unlock full 8-point control.",
+  "Create unique organic shapes by tweaking horizontal and vertical radii independently.",
+  "Click 'Random Blob' for instant inspiration.",
+  "Copy the CSS code."
+]
+---
+import BorderRadiusGenerator from '../../../../components/tools/css-ui/BorderRadiusGenerator';
+
+<BorderRadiusGenerator client:load />
+
+## Beyond Simple Circles
+CSS `border-radius` is more powerful than just rounding corners. By specifying different values for horizontal and vertical radii on each corner (using the `/` separator), you can create complex, organic shapes known as **Blobs**.
+
+### Syntax Deconstructed
+```css
+/* Simple */
+border-radius: 10px; 
+
+/* Complex */
+border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+```
+The complex values represent: top-left, top-right, bottom-right, bottom-left (horizontal) / top-left, top-right, bottom-right, bottom-left (vertical).
+
+### Use Cases
+- **Avatars**: Soft, organic profile picture frames.
+- **Backgrounds**: Abstract, floating shapes behind your content.
+- **Buttons**: Fully pill-shaped or slightly softened interactive elements.

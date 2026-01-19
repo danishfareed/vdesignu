@@ -1,0 +1,36 @@
+---
+name: "CSS Gradient Generator"
+description: "Design stunning linear and radial CSS gradients visually. Export cross-browser CSS code instantly."
+shortDescription: "Generate CSS Gradients"
+categoryId: "css-ui"
+tier: 1
+icon: "Palette"
+keywords: ["css gradient", "gradient generator", "background generator", "css3 gradient", "web design"]
+featured: true
+instructions: [
+  "Use the slider to add, remove, and position color stops.",
+  "Click any stop to change its color using the picker.",
+  "Switch between Linear and Radial types.",
+  "Adjust the angle (for linear) to direct the flow.",
+  "Copy the generated CSS to your stylesheet."
+]
+---
+import GradientGenerator from '../../../../components/tools/css-ui/GradientGenerator';
+
+<GradientGenerator client:load />
+
+## Create Beautiful Gradients
+Gradients add depth and dimension to your web designs. Our generator makes it easy to experiment with complex color transitions without writing a single line of code manually.
+
+### Tips for Better Gradients
+- **Subtlety is Key**: The best gradients often use two colors that are close to each other on the color wheel.
+- **Direction**: Use a slight angle (e.g., 135deg) rather than straight up/down for a more modern look.
+- **Accessibility**: Verify that your white text is readable over the darkest part of your gradient.
+
+### CSS Syntax Explained
+The tool generates standard CSS3 syntax:
+```css
+background: linear-gradient(90deg, #ff00cc 0%, #333399 100%);
+```
+- **Angle**: The direction of the gradient line.
+- **Stops**: The specific colors and their percentage positions along the line.

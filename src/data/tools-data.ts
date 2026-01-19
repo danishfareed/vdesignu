@@ -120,6 +120,69 @@ export const toolCategories: ToolCategory[] = [
     icon: "MapPin",
     tier: 1,
     toolCount: 3
+  },
+  {
+    id: "developer-formatters",
+    name: "Developer & Formatters",
+    slug: "developer-formatters",
+    description: "Essential tools for developers: JSON/XML/SQL formatters, minifiers, and data converters.",
+    icon: "Braces",
+    tier: 1,
+    toolCount: 12
+  },
+  {
+    id: "security-crypto",
+    name: "Security & Crypto",
+    slug: "security-crypto",
+    description: "Protect your data with encryption tools, hash generators, password creators, and security headers.",
+    icon: "ShieldCheck",
+    tier: 1,
+    toolCount: 22
+  },
+  {
+    id: "string-text",
+    name: "String & Text Manipulation",
+    slug: "string-text",
+    description: "Tools for text processing: word counters, case converters, lorem ipsum generators, and diff checkers.",
+    icon: "Type",
+    tier: 1,
+    toolCount: 11
+  },
+  {
+    id: "image-tools",
+    name: "Image Tools",
+    slug: "image-tools",
+    description: "Optimize, compress, convert, and manipulate images directly in your browser without uploading to any server.",
+    icon: "Image",
+    tier: 1,
+    toolCount: 8
+  },
+  {
+    id: "math-network",
+    name: "Math & Network",
+    slug: "math-network",
+    description: "Calculators for developers and network utilities like IP lookup and subnet calculators.",
+    icon: "Calculator",
+    tier: 1,
+    toolCount: 6
+  },
+  {
+    id: "css-ui",
+    name: "CSS & UI Tools",
+    slug: "css-ui",
+    description: "Generators for CSS gradients, shadows, borders, and UI component styling.",
+    icon: "Palette",
+    tier: 1,
+    toolCount: 10
+  },
+  {
+    id: "domain-tools",
+    name: "Domain Tools",
+    slug: "domain-tools",
+    description: "Domain reconnaissance, subdomain discovery, vulnerability scanning, and visual network mapping tools for security professionals.",
+    icon: "Network",
+    tier: 1,
+    toolCount: 1
   }
 ];
 
@@ -1489,8 +1552,646 @@ export const tools: Tool[] = [
   },
 
   // ==========================================
-  // CATEGORY 10: LOCAL SEO TOOLS (101-103)
+  // CATEGORY 5: DEVELOPER & FORMATTERS (NEW)
   // ==========================================
+  {
+    id: "json-formatter",
+    name: "JSON Formatter & Beautifier",
+    slug: "json-formatter",
+    description: "Format, validate, and minify your JSON data. Fix common errors and make your JSON readable.",
+    shortDescription: "Format & Validate JSON",
+    categoryId: "developer-formatters",
+    tier: 1,
+    icon: "Braces",
+    keywords: ["json formatter", "json beautifier", "json validator", "minify json"],
+    featured: true,
+    instructions: [
+      "Paste your raw JSON string into the input editor.",
+      "If the JSON is invalid, review the error message to fix it.",
+      "Click 'Beautify' to indent and format the code.",
+      "Click 'Minify' to compress it for production use.",
+      "Use 'Copy' to grab the result."
+    ]
+  },
+  {
+    id: "xml-formatter",
+    name: "XML Formatter",
+    slug: "xml-formatter",
+    description: "Beautify and minify XML code. Standardize your XML structure for better readability.",
+    shortDescription: "Format XML Data",
+    categoryId: "developer-formatters",
+    tier: 1,
+    icon: "Code",
+    keywords: ["xml formatter", "xml beautifier", "xml pretty print"],
+    instructions: [
+      "Paste your XML code into the input area.",
+      "Click 'Beautify' to add proper indentation and line breaks.",
+      "Click 'Minify' to remove all unnecessary whitespace.",
+      "Copy the processed XML for your project."
+    ]
+  },
+  {
+    id: "sql-formatter",
+    name: "SQL Formatter",
+    slug: "sql-formatter",
+    description: "Format complex SQL queries. support for various dialects (Standard, PostgreSQL, MySQL).",
+    shortDescription: "Format SQL Queries",
+    categoryId: "developer-formatters",
+    tier: 1,
+    icon: "Database",
+    keywords: ["sql formatter", "sql beautifier", "sql pretty print", "query formatter"],
+    instructions: [
+      "Enter your raw SQL query into the editor.",
+      "The tool will automatically detect keywords and clauses.",
+      "Click 'Beautify' to organize the query with proper indentation.",
+      "Review the formatted SQL for readability and correctness."
+    ]
+  },
+  {
+    id: "yaml-formatter",
+    name: "YAML Validator & Formatter",
+    slug: "yaml-formatter",
+    description: "Validate and format YAML files. Convert between YAML and JSON.",
+    shortDescription: "Format & Validate YAML",
+    categoryId: "developer-formatters",
+    tier: 1,
+    icon: "FileJson",
+    keywords: ["yaml formatter", "yaml validator", "yaml lint"],
+    instructions: [
+      "Paste your YAML content into the editor.",
+      "The tool validates the syntax in real-time.",
+      "Click 'Beautify' to fix indentation levels.",
+      "Use the controls to convert to JSON if needed."
+    ]
+  },
+  {
+    id: "json-to-csv",
+    name: "JSON to CSV Converter",
+    slug: "json-to-csv",
+    description: "Convert nested JSON data into a flat CSV format for Excel/Sheets analysis.",
+    shortDescription: "Convert JSON to CSV",
+    categoryId: "developer-formatters",
+    tier: 1,
+    icon: "Table",
+    keywords: ["json to csv", "convert json", "data converter"],
+    instructions: [
+      "Paste your JSON array or object into the input field.",
+      "The tool will flatten nested objects automatically.",
+      "View the generated CSV in the output panel.",
+      "Download the .csv file or copy the text to your clipboard."
+    ]
+  },
+  {
+    id: "csv-to-json",
+    name: "CSV to JSON Converter",
+    slug: "csv-to-json",
+    description: "Convert CSV data into structured JSON arrays. Supports custom delimiters.",
+    shortDescription: "Convert CSV to JSON",
+    categoryId: "developer-formatters",
+    tier: 1,
+    icon: "FileSpreadsheet",
+    keywords: ["csv to json", "convert csv", "csv parser"],
+    instructions: [
+      "Paste your CSV data (headers in first row recommended).",
+      "The tool parses the data into a JSON array of objects.",
+      "Review the JSON output structure.",
+      "Copy the result for use in your API or application."
+    ]
+  },
+  {
+    id: "curl-to-code",
+    name: "cURL to Code",
+    slug: "curl-to-code",
+    description: "Convert cURL commands into Python, JavaScript (Fetch), Node.js, Go, and PHP code.",
+    shortDescription: "Convert cURL to Code",
+    categoryId: "developer-formatters",
+    tier: 1,
+    icon: "Terminal",
+    keywords: ["curl converter", "curl to python", "curl to node", "api tool"],
+    instructions: [
+      "Paste a standard cURL command into the input box.",
+      "Select your target language (Python, JS, Go, etc.).",
+      "The tool generates the equivalent code snippet.",
+      "Copy the code to integrate into your application."
+    ]
+  },
+  {
+    id: "html-minifier",
+    name: "HTML Minifier",
+    slug: "html-minifier",
+    description: "Compress HTML code by removing whitespace, comments, and newlines.",
+    shortDescription: "Minify HTML Code",
+    categoryId: "developer-formatters",
+    tier: 1,
+    icon: "FileCode",
+    keywords: ["html minifier", "compress html", "web optimization"],
+    instructions: [
+      "Paste your HTML source code.",
+      "Click 'Minify' to strip comments and whitespace.",
+      "Check the compression ratio stats.",
+      "Copy the optimized HTML for your deployment."
+    ]
+  },
+  {
+    id: "css-minifier",
+    name: "CSS Minifier",
+    slug: "css-minifier",
+    description: "Minify CSS code to reduce file size and improve page load speed.",
+    shortDescription: "Minify CSS Code",
+    categoryId: "developer-formatters",
+    tier: 1,
+    icon: "Palette",
+    keywords: ["css minifier", "compress css", "css optimizer"],
+    instructions: [
+      "Enter your CSS stylesheets into the editor.",
+      "Click 'Minify' to remove spaces and unnecessary characters.",
+      "Ensure functionality remains intact.",
+      "Copy the minified CSS to your .min.css file."
+    ]
+  },
+  {
+    id: "js-minifier",
+    name: "JavaScript Minifier",
+    slug: "js-minifier",
+    description: "Compress JavaScript code. Reduce bundle size and bandwidth usage.",
+    shortDescription: "Minify JS Code",
+    categoryId: "developer-formatters",
+    tier: 1,
+    icon: "FileJson",
+    keywords: ["js minifier", "javascript compressor", "uglify js"],
+    instructions: [
+      "Paste your JavaScript code (ES6+ supported).",
+      "Click 'Minify' to compress the script.",
+      "Review the output for any syntax errors.",
+      "Copy the optimized code for production."
+    ]
+  },
+  {
+    id: "jwt-debugger",
+    name: "JWT Debugger",
+    slug: "jwt-debugger",
+    description: "Decode and verify JSON Web Tokens (JWT). View header and payload data.",
+    shortDescription: "Decode JWTs",
+    categoryId: "developer-formatters",
+    tier: 1,
+    icon: "ShieldCheck",
+    keywords: ["jwt debugger", "decode jwt", "jwt viewer", "token decoder"],
+    instructions: [
+      "Paste your JWT string (header.payload.signature).",
+      "The tool implicitly decodes the Header and Payload.",
+      "Inspect the claims (exp, iat, sub, etc.).",
+      "Verify the signature status if a secret is provided."
+    ]
+  },
+  {
+    id: "regex-tester",
+    name: "Regex Tester",
+    slug: "regex-tester",
+    description: "Test and debug Regular Expressions against test strings in real-time.",
+    shortDescription: "Test Regex Patterns",
+    categoryId: "developer-formatters",
+    tier: 1,
+    icon: "Regex",
+    keywords: ["regex tester", "regex debugger", "regular expression", "pattern match"],
+    instructions: [
+      "Enter your Regular Expression pattern.",
+      "Add flags if needed (g, i, m).",
+      "Type a test string to see matches highlighted.",
+      "Review capture groups and match details."
+    ]
+  },
+  // ==========================================
+  // CATEGORY 6: SECURITY & CRYPTO (NEW)
+  // ==========================================
+  {
+    id: "base64-encoder",
+    name: "Base64 Encoder/Decoder",
+    slug: "base64-encoder",
+    description: "Encode and decode text to Base64 format securely in your browser.",
+    shortDescription: "Base64 Encode/Decode",
+    categoryId: "security-crypto",
+    tier: 1,
+    icon: "Lock",
+    keywords: ["base64 encoder", "base64 decoder", "b64 converter", "string to base64"],
+    instructions: [
+      "Paste your text into the input field.",
+      "The tool converts it to a standard ASCII Base64 string.",
+      "Use 'Decode' to convert Base64 back to plain text.",
+      "Copy the result."
+    ]
+  },
+  {
+    id: "base64url-encoder",
+    name: "Base64URL Encoder/Decoder",
+    slug: "base64url-encoder",
+    description: "Base64 encoding with URL-safe characters. Useful for JWT and URL parameters.",
+    shortDescription: "URL-Safe Base64",
+    categoryId: "security-crypto",
+    tier: 1,
+    icon: "Link",
+    keywords: ["base64url", "base64 url safe", "jwt encoding"],
+    instructions: [
+      "Enter your raw text string.",
+      "The tool encodes it using the URL-safe Base64 alphabet.",
+      "Different from standard Base64: + becomes -, / becomes _.",
+      "Use this for ensuring safe data transmission in URLs."
+    ]
+  },
+  {
+    id: "hex-encoder",
+    name: "Hex Converter",
+    slug: "hex-converter",
+    description: "Convert text or numbers to Hexadecimal strings and vice versa.",
+    shortDescription: "Text to Hex",
+    categoryId: "security-crypto",
+    tier: 1,
+    icon: "Binary",
+    keywords: ["hex converter", "text to hex", "hex decoder"],
+    instructions: [
+      "Type your normal text string.",
+      "View the Hexadecimal representation immediately.",
+      "Switch mode to convert Hex codes back to text.",
+      "Useful for debugging binary data protocols."
+    ]
+  },
+  {
+    id: "url-encoder",
+    name: "URL Encoder / Decoder",
+    slug: "url-encoder",
+    description: "Encode special characters in URLs to valid format (percent-encoding).",
+    shortDescription: "URL Encode/Decode",
+    categoryId: "security-crypto",
+    tier: 1,
+    icon: "Globe",
+    keywords: ["url encoder", "percent encoding", "uri encoder"],
+    instructions: [
+      "Paste a URL or string with special characters.",
+      "Click 'Encode' to apply standard percent-encoding.",
+      "Characters like spaces become %20, etc.",
+      "Click 'Decode' to revert encoded URLs to human-readable format."
+    ]
+  },
+  {
+    id: "html-entity-encoder",
+    name: "HTML Entity Encoder",
+    slug: "html-entity-encoder",
+    description: "Convert reserved characters (<, >, &, \") to HTML entities to prevent XSS.",
+    shortDescription: "HTML Entities",
+    categoryId: "security-crypto",
+    tier: 1,
+    icon: "Code2",
+    keywords: ["html entities", "escape html", "xss prevention"],
+    instructions: [
+      "Enter any text containing HTML special characters.",
+      "The tool converts <, >, &, etc., into Safe Entities (&lt;).",
+      "Use the encoded output to safely display code on web pages.",
+      "You can also decode entities back to raw characters."
+    ]
+  },
+  {
+    id: "hash-generator-md5",
+    name: "MD5 Hash Generator",
+    slug: "hash-generator-md5",
+    description: "Generate MD5 fingerprints. Note: MD5 is not crypotgraphically secure.",
+    shortDescription: "Generate MD5",
+    categoryId: "security-crypto",
+    tier: 1,
+    icon: "Hash",
+    keywords: ["md5 generator", "md5 hash", "checksum"],
+    instructions: [
+      "Type your input string.",
+      "The 32-character MD5 hash is generated instantly.",
+      "Use this for file integrity checks (checksums).",
+      "Do not use MD5 for password storage."
+    ]
+  },
+  {
+    id: "hash-generator-sha256",
+    name: "SHA-256 Hash Generator",
+    slug: "hash-generator-sha256",
+    description: "Generate secure SHA-256 hashes. Standard for modern security.",
+    shortDescription: "Generate SHA-256",
+    categoryId: "security-crypto",
+    tier: 1,
+    icon: "ShieldCheck",
+    keywords: ["sha256 generator", "secure hash", "crypto hash"],
+    instructions: [
+      "Enter sensitive data or text.",
+      "A unique 64-character SHA-256 hash is created.",
+      "This is a one-way process; the original text cannot be recovered.",
+      "Commonly used for digital signatures and blockchain."
+    ]
+  },
+  {
+    id: "hash-generator-sha512",
+    name: "SHA-512 Hash Generator",
+    slug: "hash-generator-sha512",
+    description: "Generate ultra-secure SHA-512 hashes. 128 characters long.",
+    shortDescription: "Generate SHA-512",
+    categoryId: "security-crypto",
+    tier: 1,
+    icon: "ShieldAlert",
+    keywords: ["sha512 generator", "high security hash", "crypto"],
+    instructions: [
+      "Input your text string.",
+      "Obtain the SHA-512 hash digest.",
+      "This mechanism offers higher collision resistance than SHA-256.",
+      "Suitable for high-security cryptographic applications."
+    ]
+  },
+  {
+    id: "hmac-generator",
+    name: "HMAC Generator",
+    slug: "hmac-generator",
+    description: "Create Hash-based Message Authentication Codes using a secret key.",
+    shortDescription: "Generate HMAC",
+    categoryId: "security-crypto",
+    tier: 1,
+    icon: "Key",
+    keywords: ["hmac generator", "signed hash", "hmac sha256", "hmac calculator"],
+    instructions: [
+      "Enter the message payload you wish to sign.",
+      "Provide a Secret Key (passphrase).",
+      "Select the hashing algorithm (SHA-256, SHA-512, MD5).",
+      "The tool verifies the integrity and authenticity of the message."
+    ]
+  },
+  {
+    id: "password-generator",
+    name: "Strong Password Generator",
+    slug: "password-generator",
+    description: "Create secure, random passwords with customizable length and character sets.",
+    shortDescription: "Generate Passwords",
+    categoryId: "security-crypto",
+    tier: 1,
+    icon: "Unlock",
+    keywords: ["password generator", "secure password", "random password", "password creator"],
+    instructions: [
+      "Select your desired password length (8-64 characters).",
+      "Toggle options for Symbols, Numbers, and Capital Letters.",
+      "Click 'Generate' to create a cryptographically strong password.",
+      "Copy it to your clipboard (we do not store any generated data)."
+    ]
+  },
+  {
+    id: "uuid-generator",
+    name: "UUID / GUID Generator",
+    slug: "uuid-generator",
+    description: "Generate Version 4 UUIDs (Universally Unique Identifiers) instantly.",
+    shortDescription: "Generate UUIDs",
+    categoryId: "security-crypto",
+    tier: 1,
+    icon: "Fingerprint",
+    keywords: ["uuid generator", "guid generator", "v4 uuid", "unique id"],
+    instructions: [
+      "Select the quantity of UUIDs you need (1 to 100).",
+      "Click 'Generate' to create valid Version 4 UUIDs.",
+      "Use the 'Copy All' button for bulk operations.",
+      "Ideal for database keys and unique session identifiers."
+    ]
+  },
+  {
+    id: "hash-generator-sha1",
+    name: "SHA-1 Hash Generator",
+    slug: "hash-generator-sha1",
+    description: "Generate SHA-1 hashes used in legacy systems and git commit IDs.",
+    shortDescription: "Generate SHA-1",
+    categoryId: "security-crypto",
+    tier: 1,
+    icon: "Hash",
+    keywords: ["sha1 generator", "sha1 hash", "git hash", "checksum"],
+    instructions: [
+      "Input the text string you need to hash.",
+      "The tool outputs the 40-character SHA-1 checksum.",
+      "Verify legacy file integrity or Git object IDs.",
+      "Note: SHA-1 is considered collision-vulnerable."
+    ]
+  },
+  {
+    id: "hash-generator-sha224",
+    name: "SHA-224 Hash Generator",
+    slug: "hash-generator-sha224",
+    description: "Generate SHA-224 hashes. A truncated version of SHA-256.",
+    shortDescription: "Generate SHA-224",
+    categoryId: "security-crypto",
+    tier: 1,
+    icon: "Shield",
+    keywords: ["sha224 generator", "sha224 hash", "crypto224"],
+    instructions: [
+      "Enter your input text.",
+      "Generate a 56-character SHA-224 hash.",
+      "Use this for 3DES equivalent security strength requirements.",
+      "Result is a truncated version of the SHA-256 algorithm."
+    ]
+  },
+  {
+    id: "hash-generator-sha384",
+    name: "SHA-384 Hash Generator",
+    slug: "hash-generator-sha384",
+    description: "Generate SHA-384 hashes. A truncated version of SHA-512.",
+    shortDescription: "Generate SHA-384",
+    categoryId: "security-crypto",
+    tier: 1,
+    icon: "Shield",
+    keywords: ["sha384 generator", "sha384 hash", "crypto384"],
+    instructions: [
+      "Type your string to be hashed.",
+      "Get the 96-character SHA-384 output.",
+      "Commonly used in NSA Suite B Cryptography.",
+      "Provides a balance between SHA-256 and SHA-512 size."
+    ]
+  },
+  // ==========================================
+  // CATEGORY 7: STRING & TEXT MANIPULATION (NEW)
+  // ==========================================
+  {
+    id: "word-counter",
+    name: "Word & Character Counter",
+    slug: "word-counter",
+    description: "Count words, characters, sentences, and paragraphs in real-time. Estimate reading time.",
+    shortDescription: "Count words & chars",
+    categoryId: "string-text",
+    tier: 1,
+    icon: "Type",
+    keywords: ["word counter", "character count", "text stats", "reading time"],
+    instructions: [
+      "Paste your article or text draft into the main area.",
+      "View instant counts for words, characters, and sentences.",
+      "Check the 'Reading Time' estimate for your audience.",
+      "Ensure your content meets specific length requirements."
+    ]
+  },
+  {
+    id: "case-converter",
+    name: "Case Converter",
+    slug: "case-converter",
+    description: "Convert text between Uppercase, Lowercase, Title Case, CamelCase, Snake_Case, and more.",
+    shortDescription: "Text Case Converter",
+    categoryId: "string-text",
+    tier: 1,
+    icon: "Baseline",
+    keywords: ["case converter", "uppercase", "lowercase", "camelcase", "snakecase"],
+    instructions: [
+      "Type or paste your text.",
+      "Choose a transformation button (e.g., 'UPPER CASE').",
+      "Convert code variables to CamelCase or Snake_Case.",
+      "Fix accidental Caps Lock typing instantly."
+    ]
+  },
+  {
+    id: "lorem-ipsum-generator",
+    name: "Lorem Ipsum Generator",
+    slug: "lorem-ipsum-generator",
+    description: "Generate placeholder text (Lorem Ipsum) for your designs. Customize paragraphs, words, or lists.",
+    shortDescription: "Generate Lorem Ipsum",
+    categoryId: "string-text",
+    tier: 1,
+    icon: "FileText",
+    keywords: ["lorem ipsum", "dummy text", "placeholder text", "generator"],
+    instructions: [
+      "Select 'Paragraphs', 'Sentences', or 'Words'.",
+      "Choose the quantity you need (e.g., 5 paragraphs).",
+      "Click 'Generate' to create the placeholder text.",
+      "Copy it into your design mockups or wireframes."
+    ]
+  },
+  {
+    id: "remove-duplicate-lines",
+    name: "Remove Duplicate Lines",
+    slug: "remove-duplicate-lines",
+    description: "Instantly remove duplicate lines from a text list. Sort and clean up your data.",
+    shortDescription: "Remove Duplicates",
+    categoryId: "string-text",
+    tier: 1,
+    icon: "ListX",
+    keywords: ["remove duplicates", "deduplicate", "unique lines", "list cleaner"],
+    instructions: [
+      "Paste your list (emails, names, URLs, etc.).",
+      "The tool identifies and removes identical lines.",
+      "View the count of removed duplicates.",
+      "Copy the cleaned unique list."
+    ]
+  },
+  {
+    id: "string-reverser",
+    name: "String Reverser",
+    slug: "string-reverser",
+    description: "Reverse text, words, or letters. Check for palindromes.",
+    shortDescription: "Reverse Text",
+    categoryId: "string-text",
+    tier: 1,
+    icon: "RefreshCw",
+    keywords: ["reverse text", "flip text", "palindrome checker", "backwards text"],
+    instructions: [
+      "Enter your text string.",
+      "Choose 'Reverse Characters' to flip the entire string.",
+      "Choose 'Reverse Words' to keep words intact but change order.",
+      "Check if your text is a Palindrome (reads same backwards)."
+    ]
+  },
+  {
+    id: "text-diff",
+    name: "Text Diff Checker",
+    slug: "text-diff",
+    description: "Compare two text files or strings and highlight the differences (additions and removals).",
+    shortDescription: "Compare Text Differences",
+    categoryId: "string-text",
+    tier: 1,
+    icon: "Diff",
+    keywords: ["diff checker", "text compare", "version compare", "difference"],
+    instructions: [
+      "Paste the 'Original' text in the left panel.",
+      "Paste the 'Modified' text in the right panel.",
+      "Click 'Compare Differences'.",
+      "View additions (Green) and removals (Red) inline."
+    ]
+  },
+  {
+    id: "slug-generator",
+    name: "URL Slug Generator",
+    slug: "slug-generator",
+    description: "Convert headlines or text into SEO-friendly URL slugs. Removes special characters and spaces.",
+    shortDescription: "Generate URL Slugs",
+    categoryId: "string-text",
+    tier: 1,
+    icon: "Link2",
+    keywords: ["slug generator", "url cleaner", "seo slug", "permalink"],
+    instructions: [
+      "Type your article title or product name.",
+      "The tool removes special characters and replaces spaces with dashes.",
+      "Output is lowercase and URL-safe.",
+      "Copy the slug for your permalink structure."
+    ]
+  },
+  {
+    id: "ascii-art",
+    name: "ASCII Art Generator",
+    slug: "ascii-art",
+    description: "Convert text into decorative ASCII art using various fonts/styles.",
+    shortDescription: "Generate ASCII Art",
+    categoryId: "string-text",
+    tier: 1,
+    icon: "Image",
+    keywords: ["ascii art", "text art", "figlet", "banner"],
+    instructions: [
+      "Enter the text you want to stylize.",
+      "The tool converts standard text into large ASCII banner art.",
+      "Perfect for code comments, README files, or social posts.",
+      "Copy the block of text characters."
+    ]
+  },
+  {
+    id: "markdown-to-html",
+    name: "Markdown to HTML",
+    slug: "markdown-to-html",
+    description: "Convert Markdown syntax to raw HTML. Preview the result in real-time.",
+    shortDescription: "Convert MD to HTML",
+    categoryId: "string-text",
+    tier: 1,
+    icon: "FileCode",
+    keywords: ["markdown converter", "md to html", "markdown preview", "parse markdown"],
+    instructions: [
+      "Write or paste Markdown in the left editor (# Heading, **bold**).",
+      "See the live HTML preview on the right.",
+      "View the raw HTML source code below.",
+      "Copy snippets for your web pages or blog."
+    ]
+  },
+  {
+    id: "text-replacement",
+    name: "Text Replacement Tool",
+    slug: "text-replacement",
+    description: "Find and replace text / strings. Supports Regular Expressions.",
+    shortDescription: "Find & Replace",
+    categoryId: "string-text",
+    tier: 1,
+    icon: "Replace",
+    keywords: ["find replace", "text sub", "string replace", "regex replace"],
+    instructions: [
+      "Paste your source text.",
+      "Enter the text to 'Find' and the text to 'Replace With'.",
+      "Enable 'Use Regex' for advanced pattern matching.",
+      "Click 'Replace All' to process the entire text."
+    ]
+  },
+  {
+    id: "unicode-detector",
+    name: "Unicode Character Detector",
+    slug: "unicode-detector",
+    description: "Identify Unicode characters, code points, and HTML entities in your text.",
+    shortDescription: "Detect Unicode Info",
+    categoryId: "string-text",
+    tier: 1,
+    icon: "Info",
+    keywords: ["unicode info", "char code", "codepoint", "what character"],
+    instructions: [
+      "Paste unknown symbols or emojis.",
+      "The tool breaks down each character.",
+      "View the Decimal code, Hex code (U+XXXX), and HTML Entity.",
+      "Useful for debugging encoding issues."
+    ]
+  },
+
   {
     id: "serp-checker",
     name: "Local SERP Checker",
@@ -1546,7 +2247,717 @@ export const tools: Tool[] = [
       "Set your operating hours using the visual scheduler.",
       "Copy the generated JSON-LD script to your website's <head> tag."
     ]
-  }
+  },
+  // ==========================================
+  // CATEGORY 8: IMAGE TOOLS (NEW)
+  // ==========================================
+  {
+    id: "image-compressor",
+    name: "Image Compressor",
+    slug: "image-compressor",
+    description: "Compress JPG, PNG, and WebP images directly in your browser. Reduce file size without losing quality.",
+    shortDescription: "Compress Images",
+    categoryId: "image-tools",
+    tier: 1,
+    icon: "ImageDown",
+    keywords: ["image compressor", "compress png", "compress jpg", "optimize images", "reduce image size"],
+    instructions: [
+      "Drag and drop your images (JPG, PNG, WebP).",
+      "Adjust the compression quality slider.",
+      "Wait for the compression to finish.",
+      "Download the compressed images individually or as a ZIP."
+    ]
+  },
+  {
+    id: "image-converter",
+    name: "Image Converter",
+    slug: "image-converter",
+    description: "Convert images between formats (JPG, PNG, WebP). Bulk conversion supported.",
+    shortDescription: "Convert Image Formats",
+    categoryId: "image-tools",
+    tier: 1,
+    icon: "FileOutput",
+    keywords: ["image converter", "png to jpg", "webp converter", "change image format"],
+    instructions: [
+      "Upload your image files.",
+      "Select the target output format (JPG, PNG, WebP).",
+      "Click 'Convert' to process the files.",
+      "Download your converted images."
+    ]
+  },
+  {
+    id: "image-cropper",
+    name: "Image Cropper & Resizer",
+    slug: "image-cropper",
+    description: "Crop and resize images to exact dimensions. Pre-set aspect ratios for social media.",
+    shortDescription: "Crop & Resize Images",
+    categoryId: "image-tools",
+    tier: 1,
+    icon: "Crop",
+    keywords: ["image cropper", "resize image", "photo editor", "aspect ratio"],
+    instructions: [
+      "Upload an image to the editor.",
+      "Drag the corners to crop or enter specific dimensions.",
+      "Choose an aspect ratio (e.g., 1:1, 16:9).",
+      "Download the cropped version."
+    ]
+  },
+  {
+    id: "color-picker",
+    name: "Color Picker & Palette",
+    slug: "color-picker",
+    description: "Extract colors from images or generate harmonious color palettes.",
+    shortDescription: "Pick Colors & Palettes",
+    categoryId: "image-tools",
+    tier: 1,
+    icon: "Palette",
+    keywords: ["color picker", "hex code finder", "image color extract", "palette generator"],
+    instructions: [
+      "Upload an image to extract its dominant colors.",
+      "Or use the color wheel to generate palettes.",
+      "Copy HEX, RGB, and HSL codes instantly.",
+      "Save your favorite palettes."
+    ]
+  },
+  {
+    id: "svg-to-png-converter",
+    name: "SVG to PNG Converter",
+    slug: "svg-to-png-converter",
+    description: "Convert Scalable Vector Graphics (SVG) code or files into high-resolution PNG images. Transparent background preserved.",
+    shortDescription: "SVG to PNG",
+    categoryId: "image-tools",
+    tier: 1,
+    icon: "Image",
+    keywords: ["svg to png", "convert svg", "rasterize svg", "svg converter", "vector to png"],
+    instructions: [
+      "Paste your SVG code or upload an .svg file.",
+      "Check the live preview to ensure it renders correctly.",
+      "Set the desired output width (height is auto-calculated).",
+      "Click 'Download PNG' to save the image."
+    ]
+  },
+  {
+    id: "base64-image-decoder",
+    name: "Base64 Image Decoder",
+    slug: "base64-image-decoder",
+    description: "Decode Base64 strings back into images. Preview and download the original file instantly.",
+    shortDescription: "Base64 to Image",
+    categoryId: "image-tools",
+    tier: 1,
+    icon: "Image",
+    keywords: ["base64 to image", "decode image", "base64 converter", "view base64", "image decoder"],
+    instructions: [
+      "Paste the Base64 string into the text box.",
+      "The tool will automatically attempt to render the image.",
+      "Check the preview and image dimensions.",
+      "Click 'Save Image' to download."
+    ]
+  },
+  // ==========================================
+  // CATEGORY 9: CSS & UI TOOLS (NEW)
+  // ==========================================
+  {
+    id: "css-gradient-generator",
+    name: "CSS Gradient Generator",
+    slug: "css-gradient-generator",
+    description: "Create beautiful linear and radial CSS gradients. Customize colors, direction, and opacity.",
+    shortDescription: "Gradient Generator",
+    categoryId: "css-ui",
+    tier: 1,
+    icon: "Palette",
+    keywords: ["css gradient", "gradient generator", "background generator", "css background"],
+    instructions: [
+      "Choose Linear or Radial type.",
+      "Add and move color stops.",
+      "Adjust angle and copy the CSS."
+    ]
+  },
+  {
+    id: "box-shadow-generator",
+    name: "Box Shadow Generator",
+    slug: "box-shadow-generator",
+    description: "Generate CSS box-shadows visually. Adjust offset, blur, spread, and color.",
+    shortDescription: "Box Shadow Maker",
+    categoryId: "css-ui",
+    tier: 1,
+    icon: "Layers",
+    keywords: ["box shadow", "css shadow", "shadow generator", "drop shadow"],
+    instructions: [
+      "Use sliders to adjust X/Y offset.",
+      "Set blur radius and spread.",
+      "Pick a shadow color and opacity.",
+      "Copy the CSS."
+    ]
+  },
+  {
+    id: "border-radius-generator",
+    name: "Border Radius Generator",
+    slug: "border-radius-generator",
+    description: "Create advanced border-radius shapes and organic blobs using 8-point values.",
+    shortDescription: "Border Radius & Blobs",
+    categoryId: "css-ui",
+    tier: 1,
+    icon: "Square",
+    keywords: ["border radius", "css radius", "blob generator", "organic shapes", "css shapes"],
+    instructions: [
+      "Drag corners to change individual radii.",
+      "Enable 'Blob Mode' for organic shapes.",
+      "Copy the `border-radius` CSS."
+    ]
+  },
+  {
+    id: "glassmorphism-generator",
+    name: "Glassmorphism Generator",
+    slug: "glassmorphism-generator",
+    description: "Generate the popular frosted glass effect using backdrop-filter and transparency.",
+    shortDescription: "Glass Effect Maker",
+    categoryId: "css-ui",
+    tier: 1,
+    icon: "Maximize",
+    keywords: ["glassmorphism", "glass effect", "frosted glass", "backdrop filter"],
+    instructions: [
+      "Adjust blur and transparency.",
+      "Change background color.",
+      "Copy the glass effect CSS."
+    ]
+  },
+  {
+    id: "clip-path-generator",
+    name: "Clip Path Generator",
+    slug: "clip-path-generator",
+    description: "Create custom shapes using CSS clip-path polygons. Drag points to edit.",
+    shortDescription: "Clip Path Maker",
+    categoryId: "css-ui",
+    tier: 1,
+    icon: "Scissors",
+    keywords: ["clip path", "css shapes", "polygon generator", "masking"],
+    instructions: [
+      "Select a preset shape or create custom.",
+      "Drag usage handles to manipulate vertices.",
+      "Copy the `clip-path` code."
+    ]
+  },
+  {
+    id: "color-converter",
+    name: "Color Converter",
+    slug: "color-converter",
+    description: "Convert colors between HEX, RGB, and HSL formats instantly. View live previews.",
+    shortDescription: "HEX / RGB / HSL",
+    categoryId: "css-ui",
+    tier: 1,
+    icon: "Palette",
+    keywords: ["color converter", "hex to rgb", "rgb to hex", "hsl converter", "color code"],
+    instructions: [
+      "Enter a HEX code.",
+      "Instantly see the RGB and HSL equivalents.",
+      "Copy the format you need for your CSS."
+    ]
+  },
+
+  // ==========================================
+  // CATEGORY 10: CALCULATORS & CONVERTERS (NEW)
+  // ==========================================
+  {
+    id: "pixel-rem-converter",
+    name: "Pixel to REM Converter",
+    slug: "pixel-rem-converter",
+    description: "Convert pixels to REM/EM units and vice versa. Essential for responsive and accessible web development.",
+    shortDescription: "PX to REM Converter",
+    categoryId: "calculators",
+    tier: 1,
+    icon: "ArrowRightLeft",
+    keywords: ["px to rem", "rem converter", "css units", "pixel converter", "responsive typography"],
+    instructions: [
+      "Enter the base font size (default is 16px).",
+      "Type a value in pixels to see the REM equivalent.",
+      "Or type in REM to see the pixel value.",
+      "Copy the result to your CSS."
+    ]
+  },
+  {
+    id: "aspect-ratio-calculator",
+    name: "Aspect Ratio Calculator",
+    slug: "aspect-ratio-calculator",
+    description: "Calculate dimensions based on aspect ratios (16:9, 4:3, etc.). Perfect for images and video containers.",
+    shortDescription: "Calculate Aspect Ratio",
+    categoryId: "calculators",
+    tier: 1,
+    icon: "Maximize",
+    keywords: ["aspect ratio", "image dimensions", "video ratio", "screen resolution", "calculate height"],
+    instructions: [
+      "Enter a known width or height.",
+      "Select a common aspect ratio or enter a custom one.",
+      "The missing dimension will be calculated automatically.",
+      "Use the 'Ratio Finder' to find the aspect ratio of two numbers."
+    ]
+  },
+  {
+    id: "social-media-size-guide",
+    name: "Social Media Size Guide",
+    slug: "social-media-size-guide",
+    description: "Always up-to-date guide for image sizes across social platforms (Instagram, LinkedIn, Twitter, etc.).",
+    shortDescription: "Social Media Dimensions",
+    categoryId: "calculators",
+    tier: 1,
+    icon: "Smartphone",
+    keywords: ["social media sizes", "instagram post size", "linkedin banner size", "twitter header", "facebook cover"],
+    instructions: [
+      "Select a social media platform.",
+      "View the recommended dimensions for posts, stories, and covers.",
+      "See safe zones and aspect ratio tips.",
+      "Use these values in your design tool or our Image Cropper."
+    ]
+  },
+  {
+    id: "epoch-converter",
+    name: "Epoch Timestamp Converter",
+    slug: "epoch-converter",
+    description: "Convert Unix Epoch timestamps to human-readable dates and vice versa. Supports local and UTC time.",
+    shortDescription: "Unix Epoch Converter",
+    categoryId: "math-network",
+    tier: 1,
+    icon: "Clock",
+    keywords: ["epoch converter", "unix timestamp", "date to epoch", "epoch to date", "time converter"],
+    instructions: [
+      "Enter a timestamp to see the human-readable date.",
+      "Or select a date to get the epoch timestamp.",
+      "Copy the result instantly."
+    ]
+  },
+  {
+    id: "unit-converter",
+    name: "Unit Converter",
+    slug: "unit-converter",
+    description: "Convert between various units of Length, Weight, and Temperature instantly.",
+    shortDescription: "Convert Units",
+    categoryId: "math-network",
+    tier: 1,
+    icon: "Scale",
+    keywords: ["unit converter", "metric imperial", "length converter", "weight converter", "temp converter"],
+    instructions: [
+      "Select a category (Length, Weight, Temp).",
+      "Enter the value.",
+      "Choose 'From' and 'To' units.",
+      "See the result instantly."
+    ]
+  },
+  {
+    id: "ip-address-lookup",
+    name: "IP Address Lookup",
+    slug: "ip-address-lookup",
+    description: "Find the geolocation, ISP, and organization details of any public IP address.",
+    shortDescription: "IP Geo Lookup",
+    categoryId: "math-network",
+    tier: 1,
+    icon: "Globe",
+    keywords: ["ip lookup", "ip geolocation", "find my ip", "whois ip", "ip address details"],
+    instructions: [
+      "Leave blank to search your own IP.",
+      "Enter an IPv4 or IPv6 address to lookup.",
+      "View location, map coordinates, and ISP info."
+    ]
+  },
+  {
+    id: "subnet-calculator",
+    name: "Subnet Calculator",
+    slug: "subnet-calculator",
+    description: "Calculate network range, netmask, and broadcast address from an IP and CIDR.",
+    shortDescription: "CIDR Calculator",
+    categoryId: "math-network",
+    tier: 1,
+    icon: "Network",
+    keywords: ["subnet calculator", "cidr calc", "network mask", "ip calculator", "broadcast address"],
+    instructions: [
+      "Enter an IP Address.",
+      "Adjust the slider to set the Subnet Mask (CIDR).",
+      "Instantly view the Network, Broadcast, and Host range."
+    ]
+  },
+  // ==========================================
+  // CATEGORY 11: STRING & TEXT MANIPULATION (BATCH 9)
+  // ==========================================
+  {
+    id: "word-counter",
+    name: "Word & Character Counter",
+    slug: "word-counter",
+    description: "Count words, characters, sentences, and paragraphs in your text. Estimates reading time.",
+    shortDescription: "Count Words & Chars",
+    categoryId: "string-text",
+    tier: 1,
+    icon: "Type",
+    keywords: ["word counter", "character count", "text statistics", "reading time"],
+    instructions: [
+      "Paste or type your text into the input area.",
+      "Instantly see the count of words, characters, and sentences.",
+      "Check the estimated reading and speaking time."
+    ]
+  },
+  {
+    id: "lorem-ipsum-generator",
+    name: "Lorem Ipsum Generator",
+    slug: "lorem-ipsum-generator",
+    description: "Generate placeholder text for specific needs (paragraphs, sentences, words).",
+    shortDescription: "Generate Lorem Ipsum",
+    categoryId: "string-text",
+    tier: 1,
+    icon: "FileText",
+    keywords: ["lorem ipsum", "dummy text", "generator", "placeholder"],
+    instructions: [
+      "Select type (Paragraphs, Sentences, Words).",
+      "Set the count (length).",
+      "Click Generate.",
+      "Copy the text."
+    ]
+  },
+  {
+    id: "text-diff-checker",
+    name: "Text Diff Checker",
+    slug: "text-diff-checker",
+    description: "Compare two blocks of text and highlight the differences (additions and removals).",
+    shortDescription: "Compare Text Differences",
+    categoryId: "string-text",
+    tier: 1,
+    icon: "Diff",
+    keywords: ["diff checker", "compare text", "text difference", "find changes"],
+    instructions: [
+      "Paste the original text on the left.",
+      "Paste the modified text on the right.",
+      "Click Compare.",
+      "View valid changes highlighted in Green and Red."
+    ]
+  },
+  {
+    id: "case-converter",
+    name: "Case Converter",
+    slug: "case-converter",
+    description: "Convert text between Uppercase, lowercase, Title Case, camelCase, snake_case, and more.",
+    shortDescription: "Change Text Case",
+    categoryId: "string-text",
+    tier: 1,
+    icon: "WholeWord",
+    keywords: ["case converter", "uppercase", "lowercase", "title case", "camelcase"],
+    instructions: [
+      "Enter your text.",
+      "Click the button for the desired case (e.g., UPPERCASE).",
+      "Copy the converted text."
+    ]
+  },
+  {
+    id: "remove-duplicate-lines",
+    name: "Remove Duplicate Lines",
+    slug: "remove-duplicate-lines",
+    description: "Clean up your lists by automatically removing duplicate entries.",
+    shortDescription: "Deduplicate Lists",
+    categoryId: "string-text",
+    tier: 1,
+    icon: "ListX",
+    keywords: ["remove duplicates", "deduplicate", "unique lines", "clean list"],
+    instructions: [
+      "Paste your list of items.",
+      "Click 'Remove Duplicates'.",
+      "Copy the clean list."
+    ]
+  },
+  {
+    id: "string-reverser",
+    name: "String Reverser",
+    slug: "string-reverser",
+    description: "Reverse text character by character or word by word.",
+    shortDescription: "Reverse Text",
+    categoryId: "string-text",
+    tier: 1,
+    icon: "Rewind",
+    keywords: ["reverse string", "reverse text", "flip text", "backward text"],
+    instructions: [
+      "Type your text.",
+      "Choose to reverse by Character or Word.",
+      "Copy the reversed result."
+    ]
+  },
+  {
+    id: "slug-generator",
+    name: "Slug Generator",
+    slug: "slug-generator",
+    description: "Convert titles into SEO-friendly URL slugs (e.g., 'Hello World' -> 'hello-world').",
+    shortDescription: "Create URL Slugs",
+    categoryId: "string-text",
+    tier: 1,
+    icon: "Link",
+    keywords: ["slug generator", "url slug", "seo friendly url", "clean url"],
+    instructions: [
+      "Enter a title or phrase.",
+      "The tool automatically generates a hyphenated URL slug.",
+      "Copy the valid path."
+    ]
+  },
+  {
+    id: "ascii-art-generator",
+    name: "ASCII Art Generator",
+    slug: "ascii-art-generator",
+    description: "Convert text into large ASCII art banners using figlet fonts.",
+    shortDescription: "Text to ASCII Art",
+    categoryId: "string-text",
+    tier: 1,
+    icon: "Image",
+    keywords: ["ascii art", "text banner", "figlet", "ascii generator"],
+    instructions: [
+      "Type your text.",
+      "Select a font style.",
+      "Copy the ASCII art block."
+    ]
+  },
+  {
+    id: "markdown-to-html",
+    name: "Markdown to HTML",
+    slug: "markdown-to-html",
+    description: "Convert Markdown syntax (# Heading) into raw HTML code (<h1>Heading</h1>).",
+    shortDescription: "Markdown -> HTML",
+    categoryId: "string-text",
+    tier: 1,
+    icon: "FileCode",
+    keywords: ["markdown to html", "md converter", "html generator", "parse markdown"],
+    instructions: [
+      "Write Markdown in the input area.",
+      "See the HTML preview and code instantly.",
+      "Copy the HTML code."
+    ]
+  },
+  {
+    id: "text-replacement-tool",
+    name: "Text Replacement Tool",
+    slug: "text-replacement-tool",
+    description: "Find and replace text occurrences, supporting simple strings or Regular Expressions.",
+    shortDescription: "Find & Replace",
+    categoryId: "string-text",
+    tier: 1,
+    icon: "Replace",
+    keywords: ["find replace", "regex replace", "substitute text", "search replace"],
+    instructions: [
+      "Enter your main text.",
+      "Specify what to Find and what to Replace With.",
+      "Use Regex checkbox for advanced patterns.",
+      "Click Replace."
+    ]
+  },
+  {
+    id: "unicode-detector",
+    name: "Unicode Character Detector",
+    slug: "unicode-detector",
+    description: "Analyze text to identify special Unicode characters, emojis, and hidden symbols.",
+    shortDescription: "Detect Unicode Infos",
+    categoryId: "string-text",
+    tier: 1,
+    icon: "Info",
+    keywords: ["unicode detector", "character code", "ascii value", "emoji info"],
+    instructions: [
+      "Paste text containing special characters.",
+      "Hover or click on characters to see their Unicode code point (U+XXXX).",
+      "Identify invisible characters."
+    ]
+  },
+  {
+    id: "html-minifier",
+    name: "HTML Minifier",
+    slug: "html-minifier",
+    description: "Minify your HTML code by removing unnecessary whitespace, comments, and attributes.",
+    shortDescription: "Minify HTML",
+    categoryId: "developer-formatters",
+    tier: 1,
+    icon: "FileCode",
+    keywords: ["html minifier", "compress html", "minify code", "web optimization"],
+    instructions: [
+      "Paste your HTML code.",
+      "Click Minify.",
+      "Copy the optimized code."
+    ]
+  },
+  {
+    id: "css-minifier",
+    name: "CSS Minifier",
+    slug: "css-minifier",
+    description: "Compress CSS code to reduce file size and improve page load speed.",
+    shortDescription: "Minify CSS",
+    categoryId: "developer-formatters",
+    tier: 1,
+    icon: "FileCode",
+    keywords: ["css minifier", "compress css", "minify styles"],
+    instructions: [
+      "Paste your CSS code.",
+      "Click Minify.",
+      "Copy the compressed CSS."
+    ]
+  },
+  {
+    id: "js-minifier",
+    name: "JavaScript Minifier",
+    slug: "js-minifier",
+    description: "Minify JavaScript code/files to optimize performance and reduce bandwidth.",
+    shortDescription: "Minify JS",
+    categoryId: "developer-formatters",
+    tier: 1,
+    icon: "FileCode",
+    keywords: ["js minifier", "javascript compressor", "minify js"],
+    instructions: [
+      "Paste your JS code.",
+      "Click Minify.",
+      "Copy the minified script."
+    ]
+  },
+  {
+    id: "regex-tester",
+    name: "Regex Tester",
+    slug: "regex-tester",
+    description: "Test and debug Regular Expressions with real-time matching and highlighting.",
+    shortDescription: "Test Regex",
+    categoryId: "developer-formatters",
+    tier: 1,
+    icon: "Search",
+    keywords: ["regex tester", "regular expression", "debug regex", "regex match"],
+    instructions: [
+      "Enter your Regular Expression.",
+      "Enter the test string.",
+      "View matches instantly."
+    ]
+  },
+  {
+    id: "jwt-debugger",
+    name: "JWT Debugger",
+    slug: "jwt-debugger",
+    description: "Decode and inspect JSON Web Tokens (JWT) to view headers and payloads.",
+    shortDescription: "Decode JWT",
+    categoryId: "developer-formatters",
+    tier: 1,
+    icon: "Lock",
+    keywords: ["jwt debugger", "decode jwt", "token inspector", "jwt decoder"],
+    instructions: [
+      "Paste your JWT string.",
+      "See the decoded Header and Payload.",
+      "Verify token structure."
+    ]
+  },
+  {
+    id: "csv-to-json",
+    name: "CSV to JSON",
+    slug: "csv-to-json",
+    description: "Convert CSV data to JSON format. Supports custom delimiters.",
+    shortDescription: "CSV -> JSON",
+    categoryId: "developer-formatters",
+    tier: 1,
+    icon: "FileText",
+    keywords: ["csv to json", "csv converter", "convert data"],
+    instructions: [
+      "Paste CSV data.",
+      "Click Convert.",
+      "Copy the JSON output."
+    ]
+  },
+  {
+    id: "json-to-csv",
+    name: "JSON to CSV",
+    slug: "json-to-csv",
+    description: "Convert JSON array data into CSV format for spreadsheets.",
+    shortDescription: "JSON -> CSV",
+    categoryId: "developer-formatters",
+    tier: 1,
+    icon: "FileText",
+    keywords: ["json to csv", "json converter", "export csv"],
+    instructions: [
+      "Paste JSON data.",
+      "Click Convert.",
+      "Copy the CSV output."
+    ]
+  },
+  {
+    id: "curl-to-code",
+    name: "cURL to Code",
+    slug: "curl-to-code",
+    description: "Convert cURL commands into code snippets for Python, JS, PHP, and more.",
+    shortDescription: "cURL -> Code",
+    categoryId: "developer-formatters",
+    tier: 1,
+    icon: "Terminal",
+    keywords: ["curl convert", "curl to python", "curl to node", "api request"],
+    instructions: [
+      "Paste a cURL command.",
+      "Select target language.",
+      "Copy the generated code."
+    ]
+  },
+  {
+    id: "scientific-calculator",
+    name: "Scientific Calculator",
+    slug: "scientific-calculator",
+    description: "Advanced scientific calculator with trigonometric, logarithmic, and exponential functions.",
+    shortDescription: "Advanced Calculator",
+    categoryId: "math-network",
+    tier: 1,
+    icon: "Calculator",
+    keywords: ["scientific calculator", "math calculator", "trigonometry", "logarithm", "online calculator"],
+    instructions: [
+      "Enter your mathematical expression or use the keypad.",
+      "Use advanced functions like sin, cos, tan, log.",
+      "View history of past calculations.",
+      "Press '=' to solve."
+    ]
+  },
+  {
+    id: "discount-calculator",
+    name: "Discount Calculator",
+    slug: "discount-calculator",
+    description: "Calculate final price after discount and tax. See exact savings instantly.",
+    shortDescription: "Calculate Discount & Tax",
+    categoryId: "math-network",
+    tier: 1,
+    icon: "Percent",
+    keywords: ["discount calculator", "sale calculator", "percentage off", "tax calculator", "price calculator"],
+    instructions: [
+      "Enter the original price.",
+      "Set the discount percentage.",
+      "Optionally add a sales tax rate.",
+      "See the final price and total savings."
+    ]
+  },
+  {
+    id: "ip-converter",
+    name: "IP to Binary Converter",
+    slug: "ip-converter",
+    description: "Convert IPv4 addresses to their binary representation and vice versa.",
+    shortDescription: "IP <-> Binary",
+    categoryId: "math-network",
+    tier: 1,
+    icon: "Binary",
+    keywords: ["ip to binary", "binary to ip", "ipv4 converter", "network mask", "binary notation"],
+    instructions: [
+      "Type an IP address to see binary.",
+      "Or type binary to see the IP.",
+      "Copy the result."
+    ]
+  },
+
+  // ==========================================
+  // CATEGORY: DOMAIN TOOLS
+  // ==========================================
+  {
+    id: "domain-recon-scanner",
+    name: "Visual Domain Intelligence Scanner",
+    slug: "domain-recon-scanner",
+    description: "The ultimate Domain Intelligence Dashboard. Visualize network topology, uncover hidden subdomains, analyze security posture, detecting WAFs, and explore historical changes with the Wayback Machine—all in one interactive map.",
+    shortDescription: "Visual domain recon with network graph",
+    categoryId: "domain-tools",
+    tier: 1,
+    icon: "Network",
+    keywords: ["domain map", "network topology", "subdomain scanner", "dns visualization", "cybersecurity tool", "OSINT", "reconnaissance", "whois lookup", "wayback machine", "sitemap visualizer"],
+    featured: true,
+    instructions: [
+      "Enter a target domain (e.g., example.com).",
+      "Click 'Analyze' to start the reconnaissance scan.",
+      "Watch the network graph build in real-time.",
+      "Click nodes to view detailed information.",
+      "Drag nodes to reorganize the visualization.",
+      "Use tabs to explore subdomains, vulnerabilities, and more.",
+      "Export results as JSON, CSV, or PDF report."
+    ]
+  },
 ];
 
 // Helper Functions

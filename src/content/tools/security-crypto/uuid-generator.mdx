@@ -1,0 +1,27 @@
+---
+name: "UUID / GUID Generator"
+description: "Generate Version 4 UUIDs (Universally Unique Identifiers) instantly. Bulk generation supported."
+shortDescription: "Generate UUIDs"
+categoryId: "security-crypto"
+tier: 1
+icon: "Fingerprint"
+keywords: ["uuid generator", "guid generator", "v4 uuid", "unique id", "bulk uuid"]
+instructions: [
+  "Set the quantity of UUIDs you need.",
+  "Click 'Generate' to create the IDs.",
+  "Click 'Copy All' to paste them into your database or code.",
+  "Refresh to generate a new batch."
+]
+---
+import UuidGenerator from '../../../../components/tools/security-crypto/UuidGenerator';
+
+<UuidGenerator client:load />
+
+## UUID vs GUID
+They are essentially the same thing. **UUID** stands for Universally Unique Identifier, while **GUID** stands for Globally Unique Identifier (microsoft's terminology).
+
+### Version 4
+This tool generates **Version 4** UUIDs, which are purely random.
+Format: `xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx`
+- The `4` indicates version 4.
+- The `y` is one of `8`, `9`, `A`, or `B`.

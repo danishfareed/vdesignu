@@ -1,0 +1,20 @@
+---
+name: "IP to Binary Converter"
+description: "Convert IPv4 addresses to their binary representation and vice versa."
+shortDescription: "IP <-> Binary"
+categoryId: "math-network"
+tier: 1
+icon: "Binary"
+keywords: ["ip to binary", "binary to ip", "ipv4 converter", "network mask", "binary notation"]
+instructions: [
+  "Type an IP address (e.g., 192.168.1.1) to see binary.",
+  "Or type binary (dots optional) to see the IP.",
+  "Copy the result."
+]
+---
+import IpConverter from '../../../../components/tools/math-network/IpConverter';
+
+<IpConverter client:load />
+
+## Understanding IP Binary
+Each IPv4 address consists of 4 octets, where each octet is a number from 0-255 represented by 8 bits. This tool helps network engineers visualize the bitwise structure of IP addresses for subnetting and masking tasks.

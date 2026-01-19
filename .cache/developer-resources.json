@@ -27,7 +27,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "1.1.1.1",
@@ -203,7 +203,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Ably",
@@ -219,7 +219,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Abstract API",
@@ -321,7 +321,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Activity Pub",
@@ -482,6 +482,18 @@
     ]
   },
   {
+    "title": "AIHunt.dev",
+    "url": "https://aihunt.dev/",
+    "description": "Find the best developer AI tools for your next project.",
+    "tags": [
+      "other-resources"
+    ],
+    "categories": [],
+    "sources": [
+      "freestuff.dev"
+    ]
+  },
+  {
     "title": "aikido.dev",
     "url": "https://aikido.dev/",
     "description": "All-in-one appsec platform covering SCA, SAST, CSPM, DAST, Secrets, IaC, Malware, Container scanning, EOL,... Free plan includes two users, scanning of 10 repos, 1 cloud, 2 containers & 1 domain.",
@@ -495,7 +507,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "AirBrake",
@@ -526,7 +538,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Aiven",
@@ -566,7 +578,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "All Contributors",
@@ -695,7 +707,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "AndroidFileHost",
@@ -843,7 +855,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Apify",
@@ -921,7 +933,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "App Icon Generator",
@@ -1060,7 +1072,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "appveyor.com",
@@ -1092,7 +1104,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Aptabase",
@@ -1166,7 +1178,7 @@
     "sources": [
       "free-for.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.279Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.070Z"
   },
   {
     "title": "ArtStation",
@@ -1194,7 +1206,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Aserto",
@@ -1308,7 +1320,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Authgear",
@@ -1823,7 +1835,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "backblaze.com",
@@ -2036,7 +2048,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Bearer",
@@ -2064,7 +2076,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Beekeeper Studio",
@@ -2227,7 +2239,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Bird Eats Bug",
@@ -2269,7 +2281,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Bitbucket Pipeline",
@@ -2371,7 +2383,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Block Protocol",
@@ -2488,7 +2500,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "BookStack",
@@ -2641,7 +2653,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Brevo",
@@ -2682,7 +2694,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "BrowserCat",
@@ -2773,7 +2785,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "buddy.works",
@@ -2790,7 +2802,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "BudiBase",
@@ -2807,7 +2819,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "BugBug",
@@ -2823,7 +2835,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "bugfender.com",
@@ -3000,7 +3012,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "C2 Object Storage",
@@ -3160,7 +3172,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Canopy",
@@ -3188,7 +3200,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Canva",
@@ -3243,7 +3255,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "cardstock",
@@ -3307,7 +3319,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Census",
@@ -3348,7 +3360,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Chakra UI",
@@ -3465,7 +3477,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Checkout",
@@ -3505,7 +3517,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Circum Icons",
@@ -3546,7 +3558,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Cisco Networking Academy, Skills for All",
@@ -3620,7 +3632,7 @@
     "sources": [
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Claw.cloud",
@@ -3662,7 +3674,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "clevebrush.com",
@@ -3753,7 +3765,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Clockwork Micro",
@@ -3830,7 +3842,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Cloudcraft",
@@ -3934,7 +3946,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Cloudmersive",
@@ -4052,7 +4064,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "cocalc.com",
@@ -4216,7 +4228,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "CodeBuild",
@@ -4373,7 +4385,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "CodeKeep",
@@ -4390,7 +4402,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "codemagic.io",
@@ -4404,7 +4416,7 @@
     "sources": [
       "free-for.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.279Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.070Z"
   },
   {
     "title": "CodeMyUI",
@@ -4447,7 +4459,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "CodePipeline",
@@ -4475,7 +4487,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "CodeProject",
@@ -4504,7 +4516,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "CoderMirror",
@@ -4535,7 +4547,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "CodeToImage",
@@ -4615,7 +4627,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "CodiLink",
@@ -4816,7 +4828,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "colorr.me",
@@ -4976,7 +4988,7 @@
     "sources": [
       "free-for.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.279Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.070Z"
   },
   {
     "title": "Composio",
@@ -5092,7 +5104,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "ContentBot.ai",
@@ -5208,7 +5220,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "copr.fedorainfracloud.org",
@@ -5430,7 +5442,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Cronhooks",
@@ -5961,7 +5973,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "D1",
@@ -6002,7 +6014,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "dafont",
@@ -6030,7 +6042,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Dapi",
@@ -6124,7 +6136,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Data Miner",
@@ -6154,7 +6166,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Dataimporter.io",
@@ -6418,7 +6430,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "deepscan.io",
@@ -6472,7 +6484,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Delta Chat",
@@ -6503,7 +6515,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "deployhq.com",
@@ -6534,7 +6546,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Descope",
@@ -6550,7 +6562,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "deSEC",
@@ -6643,7 +6655,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "DevDocs",
@@ -6660,7 +6672,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "developers.google.com",
@@ -6793,7 +6805,7 @@
       "free-for.dev",
       "web-dev-resources"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "DhiWise",
@@ -6822,7 +6834,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Diawi",
@@ -6862,7 +6874,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Digital Ocean App platform",
@@ -7316,7 +7328,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Dotenv",
@@ -7333,7 +7345,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "downtimemonkey.com",
@@ -7362,7 +7374,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "DrawKit",
@@ -7392,7 +7404,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Dropbox",
@@ -7457,7 +7469,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Duckly",
@@ -7475,7 +7487,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "duo.com",
@@ -7541,7 +7553,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Dynv6.com",
@@ -7695,7 +7707,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Eclipse Che",
@@ -7712,7 +7724,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "economize.cloud",
@@ -7963,7 +7975,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "EncryptedList",
@@ -8006,7 +8018,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "enjoycss",
@@ -8097,7 +8109,7 @@
       "free-for.dev",
       "web-dev-resources"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "ETLR",
@@ -8138,7 +8150,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "eversql.com",
@@ -8192,7 +8204,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "exceptionless",
@@ -8221,7 +8233,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Exercism",
@@ -8237,7 +8249,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Exif Editor",
@@ -8340,7 +8352,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "FastCron",
@@ -8417,7 +8429,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "feedback.fish",
@@ -8510,7 +8522,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Figside",
@@ -8538,7 +8550,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "filebase.com",
@@ -8554,7 +8566,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "filess.io",
@@ -8570,7 +8582,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "FileZilla",
@@ -8794,7 +8806,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Flaviocopes ebook",
@@ -8930,7 +8942,7 @@
     "sources": [
       "free-for.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.279Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.070Z"
   },
   {
     "title": "Flutter Shape Maker",
@@ -8970,7 +8982,7 @@
       "free-for.dev",
       "web-dev-resources"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.279Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.070Z"
   },
   {
     "title": "Focalboard",
@@ -9039,7 +9051,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Font of web",
@@ -9116,7 +9128,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Fonts Arena",
@@ -9233,7 +9245,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "FormatJSONOnline.com",
@@ -9471,7 +9483,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "FraudLabs Pro",
@@ -9485,7 +9497,7 @@
     "sources": [
       "free-for.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.279Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.070Z"
   },
   {
     "title": "Freddy Feedback",
@@ -9551,7 +9563,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Free MySQL Hosting",
@@ -9584,7 +9596,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Free Professional Resume Templates & Editor",
@@ -9636,7 +9648,7 @@
     "sources": [
       "web-dev-resources"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "FreeCodeCamp",
@@ -9653,7 +9665,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "freeCodeCamp News",
@@ -9815,7 +9827,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Freeplane",
@@ -10188,7 +10200,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "getpantry.cloud",
@@ -10230,7 +10242,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "GetUpdraft",
@@ -10345,7 +10357,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "GitDailies",
@@ -10434,7 +10446,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Github Action",
@@ -10490,7 +10502,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Github Pages",
@@ -10568,7 +10580,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "GitLive",
@@ -10650,7 +10662,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Glacier",
@@ -10762,7 +10774,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "GoFile.io",
@@ -10876,7 +10888,7 @@
     "sources": [
       "free-for.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.278Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.061Z"
   },
   {
     "title": "Google Colab",
@@ -10904,7 +10916,7 @@
       "free-for.dev",
       "web-dev-resources"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.279Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Google Forms",
@@ -10945,7 +10957,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "goreportcard.com",
@@ -10976,7 +10988,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Grafana Cloud",
@@ -11262,7 +11274,7 @@
       "free-for.dev",
       "web-dev-resources"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Hamachi",
@@ -11329,7 +11341,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Hashover",
@@ -11523,7 +11535,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Hetzner",
@@ -11563,7 +11575,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "HeySpace",
@@ -11728,7 +11740,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "hostedscan.com",
@@ -11769,7 +11781,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "houndci.com",
@@ -11989,7 +12001,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "HTTP Status Codes",
@@ -12081,7 +12093,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Huly",
@@ -12133,7 +12145,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "hypercolor.dev",
@@ -12197,7 +12209,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "icedrive.net",
@@ -12298,7 +12310,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Iconsax",
@@ -12466,7 +12478,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Imagga",
@@ -12496,7 +12508,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Imgbot",
@@ -12588,7 +12600,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "ImprovMX",
@@ -12604,7 +12616,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Inboxes App",
@@ -12681,7 +12693,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "InfluxDB",
@@ -12725,7 +12737,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "inspectlet.com",
@@ -12753,7 +12765,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "InstallOnAir",
@@ -12794,7 +12806,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Integrately",
@@ -12944,7 +12956,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "IP Geolocation API",
@@ -12997,7 +13009,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "ipaddress.sh",
@@ -13038,7 +13050,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "ipbase.com",
@@ -13067,7 +13079,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "IPLocate",
@@ -13179,7 +13191,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "jamf.com",
@@ -13301,7 +13313,7 @@
     "sources": [
       "web-dev-resources"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "JavaScript Tutorial",
@@ -13332,7 +13344,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "JavaScript30",
@@ -13484,7 +13496,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "JS to Markdown",
@@ -13513,7 +13525,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "JSFiddle",
@@ -13529,7 +13541,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "JsLinux",
@@ -13570,7 +13582,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "JSON sort",
@@ -13657,7 +13669,7 @@
       "free-for.dev",
       "web-dev-resources"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "JSONPlaceholder",
@@ -13706,6 +13718,18 @@
     "categories": [],
     "sources": [
       "freestuff.dev"
+    ]
+  },
+  {
+    "title": "JustBlogged",
+    "url": "https://justblogged.com/",
+    "description": "Free blogging platform with custom domain support, and fast global performance.",
+    "tags": [],
+    "categories": [
+      "Dev Blogging Sites"
+    ],
+    "sources": [
+      "free-for.dev"
     ]
   },
   {
@@ -13965,7 +13989,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Kinsta Static Site Hosting",
@@ -13981,7 +14005,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Kitemaker.co",
@@ -14022,7 +14046,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Kody Tools",
@@ -14089,7 +14113,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "kraken.io",
@@ -14218,7 +14242,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "lagrange",
@@ -14247,7 +14271,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "LambdaTest",
@@ -14546,7 +14570,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Liam ERD",
@@ -14679,7 +14703,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Liner.ai",
@@ -14829,7 +14853,7 @@
     "sources": [
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Load Balancer",
@@ -15116,7 +15140,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "logintc.com",
@@ -15145,7 +15169,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "LogRocket.com",
@@ -15162,7 +15186,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Logseq",
@@ -15215,7 +15239,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "logzab.com",
@@ -15282,7 +15306,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "LoremFlickr.com",
@@ -15334,7 +15358,7 @@
       "free-for.dev",
       "web-dev-resources"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Loveable.dev",
@@ -15388,7 +15412,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Lucide",
@@ -15539,7 +15563,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Maildroppa",
@@ -15579,7 +15603,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "MailerSend.com",
@@ -15595,7 +15619,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "mailinator.com",
@@ -15634,7 +15658,7 @@
       "free-for.dev",
       "web-dev-resources"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Mailtrap.io",
@@ -15650,7 +15674,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Make",
@@ -15959,7 +15983,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Mediaworkbench.ai",
@@ -15986,7 +16010,7 @@
       "free-for.dev",
       "web-dev-resources"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Meet Cafecito",
@@ -16016,7 +16040,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Meeting",
@@ -16058,7 +16082,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "MemCachier",
@@ -16123,7 +16147,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Metalama",
@@ -16228,7 +16252,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Microsoft 365 Developer Program",
@@ -16269,7 +16293,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Microsoft IoT Hub",
@@ -16438,7 +16462,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "MIT OpenCourseWare",
@@ -16479,7 +16503,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Mixu's Node book",
@@ -16546,7 +16570,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Mobile Patterns",
@@ -16601,7 +16625,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "mockaroo",
@@ -16618,7 +16642,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Mockfly",
@@ -16634,7 +16658,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Mocki",
@@ -16675,7 +16699,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Mockoon",
@@ -16773,7 +16797,7 @@
     "sources": [
       "free-for.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.279Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.070Z"
   },
   {
     "title": "MojoAuth",
@@ -16790,7 +16814,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Mongodb",
@@ -17054,7 +17078,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Neon",
@@ -17071,7 +17095,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "netdata.cloud",
@@ -17087,7 +17111,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Netlify",
@@ -17106,7 +17130,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Netmaker",
@@ -17213,7 +17237,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "nhost.io",
@@ -17234,7 +17258,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Nile",
@@ -17427,7 +17451,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "NostrGit",
@@ -17534,7 +17558,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "novoresume",
@@ -17562,7 +17586,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Novus",
@@ -17906,7 +17930,7 @@
       "free-for.dev",
       "web-dev-resources"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "OneSignal",
@@ -17920,7 +17944,7 @@
     "sources": [
       "free-for.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.279Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.070Z"
   },
   {
     "title": "OneUptime",
@@ -18915,7 +18939,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "PhantomJsCloud",
@@ -18943,7 +18967,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Phase Two",
@@ -18972,7 +18996,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "PhotoStock",
@@ -19136,7 +19160,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Pixabay",
@@ -19153,7 +19177,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Pixela",
@@ -19264,7 +19288,7 @@
       "free-for.dev",
       "web-dev-resources"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "PLAYCODE.IO",
@@ -19587,7 +19611,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Postmark",
@@ -20022,7 +20046,7 @@
     "sources": [
       "free-for.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.279Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.070Z"
   },
   {
     "title": "Pullflow",
@@ -20062,7 +20086,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "pulumi",
@@ -20155,7 +20179,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "pusher.com",
@@ -20172,7 +20196,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "PuTTY",
@@ -20211,7 +20235,7 @@
       "free-for.dev",
       "web-dev-resources"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Python Cheat Sheet",
@@ -20276,7 +20300,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "pyup.io",
@@ -20329,7 +20353,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Qonversion",
@@ -20530,7 +20554,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Raindrop.io",
@@ -20556,7 +20580,7 @@
     "sources": [
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "RandomKeygen",
@@ -20951,7 +20975,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "regex101",
@@ -20966,7 +20990,7 @@
       "free-for.dev",
       "web-dev-resources"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "RegexOne",
@@ -21126,7 +21150,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "RemSupp",
@@ -21167,7 +21191,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Rendi",
@@ -21232,7 +21256,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "RepoFlow",
@@ -21308,7 +21332,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "RequestBin.com",
@@ -21336,7 +21360,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "resizeappicon.com",
@@ -21380,7 +21404,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "restdb.io",
@@ -21396,7 +21420,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Resume Now",
@@ -21463,7 +21487,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "RevenueCat",
@@ -21564,7 +21588,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Robo3T",
@@ -21775,7 +21799,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "SaaSHub",
@@ -21816,7 +21840,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "savannah.gnu.org",
@@ -21856,7 +21880,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.283Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Scaler Blogs",
@@ -22117,7 +22141,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "ScrumFast",
@@ -22196,7 +22220,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "SeekLogo",
@@ -22317,7 +22341,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "SEO Cheat Sheet",
@@ -22399,7 +22423,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Serv00.com",
@@ -22417,7 +22441,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "serveo",
@@ -22624,7 +22648,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Sheety",
@@ -22753,7 +22777,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Simple Observability",
@@ -22897,7 +22921,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "SiteDots",
@@ -22986,7 +23010,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "skyvia.com",
@@ -23145,7 +23169,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Smashing Magazine",
@@ -23198,7 +23222,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Snipit",
@@ -23372,7 +23396,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "SOOS",
@@ -23413,7 +23437,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Sourcegraph",
@@ -23509,7 +23533,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "SQLite Viewer Web App",
@@ -23539,7 +23563,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.281Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "Squash Labs",
@@ -23604,7 +23628,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "SSR (Server-side Rendering) Checker",
@@ -23647,7 +23671,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Stack on a budget",
@@ -23687,7 +23711,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "StackBy",
@@ -23815,7 +23839,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "StaticBackend",
@@ -23882,7 +23906,7 @@
     "sources": [
       "free-for.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.279Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.070Z"
   },
   {
     "title": "statuscake.com",
@@ -24095,7 +24119,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Subscriptions",
@@ -24161,7 +24185,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Supabase",
@@ -24268,7 +24292,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Supportivekoala",
@@ -24298,7 +24322,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "surge.sh",
@@ -24314,7 +24338,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "SurveyMonkey.com",
@@ -24391,7 +24415,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Svix",
@@ -24457,7 +24481,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.282Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.072Z"
   },
   {
     "title": "Swetrix Analytics",
@@ -24598,7 +24622,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "taiga.io",
@@ -24663,7 +24687,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "talky.io",
@@ -24691,7 +24715,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Tara AI",
@@ -24810,7 +24834,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Teaminal",
@@ -24862,7 +24886,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Techy",
@@ -25133,6 +25157,18 @@
     ]
   },
   {
+    "title": "thanks.dev",
+    "url": "https://thanks.dev/",
+    "description": "We're passionate about making open source sustainable. Scan your dependancy tree to better understand which open source projects need funding the most. Maintainers can also register their projects to become eligible for funding.",
+    "tags": [
+      "open-source"
+    ],
+    "categories": [],
+    "sources": [
+      "freestuff.dev"
+    ]
+  },
+  {
     "title": "The 2hO Network",
     "url": "https://2ho.ca/",
     "description": "A totally transparent, always-on, mesh-based, secure remote network that keeps you and your devices connected wherever you are",
@@ -25210,7 +25246,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Themeselection",
@@ -25225,7 +25261,7 @@
       "free-for.dev",
       "web-dev-resources"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.280Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.071Z"
   },
   {
     "title": "TheseMetrics",
@@ -25386,7 +25422,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Tinkercad",
@@ -25427,7 +25463,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "TinyLetter",
@@ -25839,7 +25875,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Trinket",
@@ -26066,7 +26102,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "TypeScript Playground",
@@ -26121,7 +26157,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "UI Bakery",
@@ -26139,7 +26175,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "UI Snippets",
@@ -26216,7 +26252,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Undesign",
@@ -26245,7 +26281,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "unDraw",
@@ -26364,7 +26400,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.284Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Unwonted",
@@ -26435,7 +26471,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.285Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Uptime Kuma",
@@ -26463,7 +26499,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.285Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "uptimetoolbox.com",
@@ -26600,7 +26636,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.285Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "UUID Generator",
@@ -26799,7 +26835,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.285Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Vercel Cron",
@@ -26863,7 +26899,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.285Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Versoly",
@@ -27026,7 +27062,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.285Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Visual Studio Code for the Web",
@@ -27168,7 +27204,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.285Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Vuepress",
@@ -27199,7 +27235,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.285Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "W3Schools Spaces",
@@ -27313,7 +27349,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.285Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Wdrfree SVG",
@@ -27368,7 +27404,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.285Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Web design lessons | Webflow University",
@@ -27535,7 +27571,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.285Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "webhookrelay.com",
@@ -27699,7 +27735,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.285Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "WhatPulse",
@@ -27777,7 +27813,7 @@
       "web-dev-resources",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.285Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Whitespace",
@@ -28277,7 +28313,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.285Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Yodiz",
@@ -28394,7 +28430,7 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.285Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   },
   {
     "title": "Zenable",
@@ -28654,6 +28690,6 @@
       "free-for.dev",
       "freestuff.dev"
     ],
-    "lastUpdatedAt": "2026-01-17T23:15:42.285Z"
+    "lastUpdatedAt": "2026-01-19T01:22:07.073Z"
   }
 ]

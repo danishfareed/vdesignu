@@ -1,0 +1,27 @@
+---
+name: "URL Encoder / Decoder"
+description: "Encode special characters in URLs to valid percent-encoded format, or decode them back to readable text."
+shortDescription: "URL Encode/Decode"
+categoryId: "security-crypto"
+tier: 1
+icon: "Globe"
+keywords: ["url encoder", "percent encoding", "decode url", "uri component"]
+instructions: [
+  "Select the 'URL Encoder' tab.",
+  "Enter a URL with special characters.",
+  "Click 'Encode' to convert spaces to %20, etc.",
+  "Click 'Decode' to revert to the original string."
+]
+---
+import UrlEntityEncoder from '../../../../components/tools/security-crypto/UrlEntityEncoder';
+
+<UrlEntityEncoder client:load />
+
+## URL Encoding Explained
+URLs can only contain a limited set of characters (ASCII alphanumeric). Special characters like spaces, question marks, and ampersands must be **encoded** so they don't break the URL structure.
+
+- **Space** -> `%20`
+- **/** -> `%2F`
+- **?** -> `%3F`
+
+This tool uses the JavaScript `encodeURIComponent` function for reliable standard compliance.

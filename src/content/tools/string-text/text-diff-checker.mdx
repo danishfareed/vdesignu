@@ -1,0 +1,23 @@
+---
+name: "Text Diff Checker"
+description: "Compare two text blocks to find the differences. Highlights additions and removals."
+shortDescription: "Diff Checker"
+categoryId: "string-text"
+tier: 1
+icon: "Diff"
+keywords: ["diff checker", "text compare", "difference finder", "text changes"]
+instructions: [
+  "Paste Original Text on the left.",
+  "Paste Modified Text on the right.",
+  "Click Compare.",
+  "See added (Green) and removed (Red) text."
+]
+---
+import TextDiff from '../../../../components/tools/string/TextDiff';
+
+<TextDiff client:load />
+
+## Use Cases
+- **Code Review**: Quickly compare two snippets of code.
+- **Content Editing**: See what changes an editor made to your draft.
+- **Config Comparison**: Check differences between two configuration files.

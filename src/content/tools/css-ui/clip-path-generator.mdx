@@ -1,0 +1,30 @@
+---
+name: "Clip Path Generator"
+description: "Create complex shapes and masks using the CSS clip-path property. Choose from presets like triangles, hexagons, and more."
+shortDescription: "Generate CSS Clip Paths"
+categoryId: "css-ui"
+tier: 1
+icon: "Scissors"
+keywords: ["clip path", "css shapes", "polygon generator", "masking", "css clip"]
+featured: true
+instructions: [
+  "Select a shape from the preset library (e.g., Triangle, Hexagon).",
+  "Preview how the shape masks the element.",
+  "Edit the CSS value manually if you need specific coordinates.",
+  "Copy the 'clip-path' rule to your project."
+]
+---
+import ClipPathGenerator from '../../../../components/tools/css-ui/ClipPathGenerator';
+
+<ClipPathGenerator client:load />
+
+## Shaping the Web
+Web design doesn't have to be just boxes and rectangles. The `clip-path` property allows you to mask elements into custom shapes such as circles, ellipses, and polygons.
+
+### How it Works
+The `clip-path` property defines a specific region of an element that should remain visible. Everything outside this region is "clipped" or hidden.
+
+### Common Uses
+1.  **Creative Headers**: Angled or curved dividers between screen sections.
+2.  **Avatars**: Hexagonal or star-shaped profile pictures.
+3.  **Interactive Galleries**: Revealing images on hover with animated clip-paths.

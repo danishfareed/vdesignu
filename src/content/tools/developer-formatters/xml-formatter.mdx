@@ -1,0 +1,27 @@
+---
+name: "XML Formatter"
+description: "Format and beautify XML code. Visualizes XML hierarchy with indentation logic. Supports minification."
+shortDescription: "Format XML Data"
+categoryId: "developer-formatters"
+tier: 1
+icon: "Code"
+keywords: ["xml formatter", "xml beautifier", "format xml", "xml minifier", "pretty print xml"]
+instructions: [
+  "Paste your raw XML code into the input area.",
+  "Click 'Format' to indent and organize the tags.",
+  "Click 'Minify' to remove unnecessary whitespace.",
+  "Copy the result for your sitemap or config file."
+]
+---
+import XmlFormatter from '../../../../components/tools/developer-formatters/XmlFormatter';
+
+<XmlFormatter client:load />
+
+## Why use an XML Formatter?
+XML files can become large and unwieldy, making it difficult to spot errors or understand the data structure. A formatter adds:
+
+- **Indentation**: Visually separates parent and child elements.
+- **Line Breaks**: Put each tag on its own line for readability.
+- **Error Detection**: Quickly tells you if your XML is malformed (e.g., missing closing tags).
+
+This tool is perfect for working with **Sitemaps**, **RSS Feeds**, **SOAP APIs**, and configuration files like `pom.xml` or `web.config`.

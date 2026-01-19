@@ -6,6 +6,7 @@
 import Layout from '../../layouts/Layout.astro';
 import CategoryCard from '../../components/tools/CategoryCard.astro';
 import ToolCard from '../../components/tools/ToolCard.astro';
+import SearchBar from '../../components/tools/SearchBar';
 import { toolCategories, getFeaturedTools, tools } from '../../data/tools-data';
 
 const featuredTools = getFeaturedTools();
@@ -35,6 +36,10 @@ const totalTools = tools.length;
         Professional-grade tools for schema markup, meta tags, sitemaps, analytics tracking, and more. 
         <span class="text-[var(--accent-red)] font-bold">No signup required.</span>
       </p>
+
+      <div class="max-w-2xl mx-auto mb-16">
+        <SearchBar client:load />
+      </div>
       
       <!-- Quick stats -->
       <div class="flex flex-wrap justify-center gap-8 md:gap-16">

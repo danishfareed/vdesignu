@@ -1,0 +1,177 @@
+---
+name: "Visual Domain Intelligence Scanner"
+description: "Map domain infrastructure, discover subdomains, detect vulnerabilities, and visualize network topology with our free interactive OSINT dashboard."
+shortDescription: "Visual domain recon with network graph"
+categoryId: "domain-tools"
+tier: 1
+icon: "Network"
+keywords: ["domain map", "network topology", "subdomain scanner", "dns visualization", "cybersecurity tool", "OSINT", "reconnaissance", "whois lookup", "wayback machine", "sitemap visualizer"]
+---
+
+import { Brain, Globe, Shield, Search, History, Lock, Server, Zap, Share2, Activity, Database, Eye } from 'lucide-react';
+
+<div className="space-y-12">
+
+  {/* Hero Section */}
+  <div className="relative bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-3xl p-8 md:p-12 overflow-hidden group">
+    <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity text-[var(--accent-red)]">
+      <Brain className="w-64 h-64" />
+    </div>
+    <div className="relative z-10">
+      <h2 className="text-4xl md:text-5xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-6 flex flex-col gap-2">
+        <span className="flex items-center gap-3 text-[var(--accent-red)]">
+          <Zap className="w-8 h-8 md:w-10 md:h-10" />
+          Unleash
+        </span>
+        Visual Intelligence
+      </h2>
+      <p className="text-xl font-medium text-[var(--text-secondary)] leading-relaxed max-w-3xl">
+        The **Visual Domain Intelligence Scanner** by **VDESIGNU** is a cutting-edge OSINT tool designed for cybersecurity professionals. It transforms raw domain data into a **living network map**, revealing hidden structures that spreadsheets miss.
+      </p>
+    </div>
+  </div>
+
+  {/* Key Features Grid */}
+  <div>
+    <h3 className="text-3xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-8 flex items-center gap-3">
+      <Activity className="w-8 h-8 text-[var(--accent-red)]" />
+      Core Capabilities
+    </h3>
+    <div className="grid md:grid-cols-2 gap-6">
+      
+      <div className="bg-[var(--bg-card)] p-6 rounded-2xl border border-[var(--border-subtle)] hover:border-[var(--accent-red)] transition-all group">
+        <div className="w-12 h-12 bg-[var(--accent-red)]/10 text-[var(--accent-red)] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+          <Share2 className="w-6 h-6" />
+        </div>
+        <h4 className="text-xl font-black italic uppercase tracking-tight text-[var(--text-primary)] mb-2">Interactive Topology</h4>
+        <p className="text-base text-[var(--text-secondary)] font-medium">
+          Visualize infrastructure with our Structured Tree Graph. Zoom, pan, and dragging nodes to explore relationships between domains and IPs.
+        </p>
+      </div>
+
+      <div className="bg-[var(--bg-card)] p-6 rounded-2xl border border-[var(--border-subtle)] hover:border-[var(--accent-red)] transition-all group">
+        <div className="w-12 h-12 bg-[var(--accent-red)]/10 text-[var(--accent-red)] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+          <Globe className="w-6 h-6" />
+        </div>
+        <h4 className="text-xl font-black italic uppercase tracking-tight text-[var(--text-primary)] mb-2">Global Server Map</h4>
+        <p className="text-base text-[var(--text-secondary)] font-medium">
+          Pinpoint physical server locations with our 3D interactive world map. Identify hosting providers and geographical distribution instantly.
+        </p>
+      </div>
+
+      <div className="bg-[var(--bg-card)] p-6 rounded-2xl border border-[var(--border-subtle)] hover:border-[var(--accent-red)] transition-all group">
+        <div className="w-12 h-12 bg-[var(--accent-red)]/10 text-[var(--accent-red)] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+          <Search className="w-6 h-6" />
+        </div>
+        <h4 className="text-xl font-black italic uppercase tracking-tight text-[var(--text-primary)] mb-2">Deep Enumeration</h4>
+        <p className="text-base text-[var(--text-secondary)] font-medium">
+          Multi-layered scanning using CRT.sh logs, DNS brute-forcing, and archival data to uncover hidden and forgotten subdomains.
+        </p>
+      </div>
+
+      <div className="bg-[var(--bg-card)] p-6 rounded-2xl border border-[var(--border-subtle)] hover:border-[var(--accent-red)] transition-all group">
+        <div className="w-12 h-12 bg-[var(--accent-red)]/10 text-[var(--accent-red)] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+          <History className="w-6 h-6" />
+        </div>
+        <h4 className="text-xl font-black italic uppercase tracking-tight text-[var(--text-primary)] mb-2">Time Travel</h4>
+        <p className="text-base text-[var(--text-secondary)] font-medium">
+          Native **Wayback Machine** integration allows you to view historical snapshots and detect ghost files from the past.
+        </p>
+      </div>
+
+       <div className="bg-[var(--bg-card)] p-6 rounded-2xl border border-[var(--border-subtle)] hover:border-[var(--accent-red)] transition-all group md:col-span-2">
+        <div className="w-12 h-12 bg-[var(--accent-red)]/10 text-[var(--accent-red)] rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+          <Shield className="w-6 h-6" />
+        </div>
+        <h4 className="text-xl font-black italic uppercase tracking-tight text-[var(--text-primary)] mb-2">Proactive Security Scan</h4>
+        <p className="text-base text-[var(--text-secondary)] font-medium">
+          Automatic detection of vulnerable JS libraries, exposed `.git` directories, missing SPF/DMARC records, and open directory listings.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {/* Data Sources Table */}
+  <div className="overflow-hidden rounded-2xl border border-[var(--border-subtle)]">
+    <div className="bg-[var(--bg-primary)] p-4 border-b border-[var(--border-subtle)] flex items-center gap-2">
+      <Database className="w-5 h-5 text-[var(--accent-red)]" />
+      <span className="font-bold text-[var(--text-primary)] uppercase tracking-wider text-sm">Valid Intelligence Sources</span>
+    </div>
+    <div className="divide-y divide-[var(--border-subtle)] bg-[var(--bg-card)]">
+      {[
+        { name: 'DNS Records', source: 'Google Public DNS', icon: Activity },
+        { name: 'Subdomains', source: 'Certificate Transparency (CRT.sh)', icon: Search },
+        { name: 'Archives', source: 'Internet Archive (Wayback Machine)', icon: History },
+        { name: 'Geolocation', source: 'IPAPI Intelligence', icon: Globe },
+        { name: 'Security', source: 'OWASP / CVE Databases', icon: Lock },
+      ].map((item) => (
+        <div className="p-4 flex items-center justify-between hover:bg-[var(--bg-secondary)] transition-colors">
+          <div className="flex items-center gap-3">
+            <item.icon className="w-4 h-4 text-[var(--text-muted)]" />
+            <span className="font-bold text-[var(--text-primary)] text-sm">{item.name}</span>
+          </div>
+          <span className="text-xs font-mono text-[var(--text-secondary)] bg-[var(--bg-primary)] px-2 py-1 rounded">
+            {item.source}
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {/* FAQ Section */}
+  <div className="pt-12 border-t border-[var(--border-subtle)]">
+    <h3 className="text-4xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-12 text-center">
+      Common Questions
+    </h3>
+    
+    <div className="grid md:grid-cols-2 gap-6">
+      <div className="bg-[var(--bg-card)] p-8 rounded-[2rem] border border-[var(--border-subtle)] hover:border-[var(--accent-red)] transition-all group relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--accent-red)]/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150"></div>
+        <div className="relative z-10">
+          <div className="flex items-center gap-3 mb-4">
+             <Shield className="w-6 h-6 text-[var(--accent-red)]" />
+             <h4 className="text-xl font-black italic uppercase tracking-tight text-[var(--text-primary)]">Is this tool legal?</h4>
+          </div>
+          <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
+            **Yes.** VDESIGNU tools perform passive reconnaissance using only public data (DNS, Archives, CT Logs). We do not perform active exploitation or hacking.
+          </p>
+        </div>
+      </div>
+
+      <div className="bg-[var(--bg-card)] p-8 rounded-[2rem] border border-[var(--border-subtle)] hover:border-[var(--accent-red)] transition-all group relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--accent-red)]/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150"></div>
+        <div className="relative z-10">
+           <div className="flex items-center gap-3 mb-4">
+             <Activity className="w-6 h-6 text-[var(--accent-red)]" />
+             <h4 className="text-xl font-black italic uppercase tracking-tight text-[var(--text-primary)]">Why are IPs "Pending"?</h4>
+          </div>
+          <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
+            Resolving hundreds of subdomains takes time. We batch-process DNS requests to avoid browser lag and API rate limits. Give it a moment to populate.
+          </p>
+        </div>
+      </div>
+
+       <div className="bg-[var(--bg-card)] p-8 rounded-[2rem] border border-[var(--border-subtle)] hover:border-[var(--accent-red)] transition-all group relative overflow-hidden md:col-span-2">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--accent-red)]/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150"></div>
+        <div className="relative z-10">
+           <div className="flex items-center gap-3 mb-4">
+             <Database className="w-6 h-6 text-[var(--accent-red)]" />
+             <h4 className="text-xl font-black italic uppercase tracking-tight text-[var(--text-primary)]">Can I export reports?</h4>
+          </div>
+          <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
+            **Absolutely.** Professional reporting is built-in. Use the export controls in the dashboard to generate JSON or CSV reports for your compliance needs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Disclaimer */}
+  <div className="bg-red-500/5 border border-red-500/20 rounded-xl p-6 flex gap-4">
+    <Shield className="w-6 h-6 text-red-500 flex-shrink-0" />
+    <p className="text-xs text-red-500/80 leading-relaxed font-mono">
+      <strong>DISCLAIMER:</strong> This tool is provided by VDESIGNU for educational and defensive diagnostic purposes only. We are not responsible for misuse. Always obtain permission before scanning infrastructure you do not own.
+    </p>
+  </div>
+
+</div>

@@ -1,0 +1,27 @@
+---
+name: "YAML Validator & Formatter"
+description: "Validate YAML syntax and convert between YAML and JSON formats instantly."
+shortDescription: "Format & Convert YAML"
+categoryId: "developer-formatters"
+tier: 1
+icon: "FileJson"
+keywords: ["yaml formatter", "yaml to json", "json to yaml", "yaml validator", "config converter"]
+instructions: [
+  "Select the mode: 'YAML -> JSON' or 'JSON -> YAML'.",
+  "Paste your code into the input box.",
+  "Click 'Convert' to process the data.",
+  "Copy the result for your configuration files."
+]
+---
+import YamlFormatter from '../../../../components/tools/developer-formatters/YamlFormatter';
+
+<YamlFormatter client:load />
+
+## YAML vs JSON
+**YAML** is designed to be human-readable and is widely used for configuration files (Docker, Kubernetes, Home Assistant).
+**JSON** is stricter and better for machine-to-machine data exchange (APIs, Database storage).
+
+### Key Differences
+- **Comments**: YAML supports comments (`#`), JSON does not.
+- **Syntax**: YAML uses indentation (whitespace), JSON uses braces `{}`.
+- **Strictness**: YAML is more lenient with quotes, while JSON requires double quotes for all keys.

@@ -1,0 +1,26 @@
+---
+name: "SHA-256 Hash Generator"
+description: "Generate secure SHA-256 hashes. The industry standard for data security and blockchain technologies."
+shortDescription: "Generate SHA-256"
+categoryId: "security-crypto"
+tier: 1
+icon: "ShieldCheck"
+keywords: ["sha256 generator", "secure hash", "crypto hash", "bitcoin hash"]
+instructions: [
+  "Type your sensitive data or text.",
+  "Get the unique 64-character SHA-256 signature.",
+  "This is a one-way function; it cannot be reversed.",
+  "Copy the hash for your records."
+]
+---
+import HashGenerator from '../../../../components/tools/security-crypto/HashGenerator';
+
+<HashGenerator client:load defaultAlgo="SHA256" />
+
+## About SHA-256
+**SHA-256** (Secure Hash Algorithm 256-bit) is a member of the SHA-2 family designed by the NSA. It is widely considered **secure**.
+
+### Use Cases
+- **Password Storage**: Often used with a "salt" to store user passwords.
+- **Digital Signatures**: Verifying authenticity of documents.
+- **Blockchain**: Bitcoin uses SHA-256 for proof-of-work.

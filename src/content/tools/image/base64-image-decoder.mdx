@@ -1,0 +1,26 @@
+---
+name: "Base64 Image Decoder"
+description: "Decode Base64 strings back into images. Preview and download the original file instantly."
+shortDescription: "Base64 to Image"
+categoryId: "image-tools"
+tier: 1
+icon: "Image"
+keywords: ["base64 to image", "decode image", "base64 converter", "view base64", "image decoder"]
+instructions: [
+  "Paste the Base64 string into the text box.",
+  "The tool will automatically attempt to render the image.",
+  "Check the preview and image dimensions.",
+  "Click 'Save Image' to download."
+]
+---
+import Base64ImageDecoder from '../../../../components/tools/image/Base64ImageDecoder';
+
+<Base64ImageDecoder client:load />
+
+## Use Cases
+- **Debugging APIs**: Visualize image data returned from JSON APIs.
+- **Extracting Embedded Images**: Save images found in CSS files or data URIs.
+- **broken image repair**: Verify if a base64 string is valid.
+
+## Supported Formats
+Works with any standard image MIME type including PNG, JPG, GIF, WebP, and SVG.

@@ -1,0 +1,20 @@
+---
+name: "Epoch Timestamp Converter"
+description: "Convert Unix Epoch timestamps to human-readable dates and vice versa. Supports local and UTC time."
+shortDescription: "Unix Epoch Converter"
+categoryId: "math-network"
+tier: 1
+icon: "Clock"
+keywords: ["epoch converter", "unix timestamp", "date to epoch", "epoch to date", "time converter"]
+instructions: [
+  "Enter a timestamp to see the human-readable date.",
+  "Or select a date to get the epoch timestamp.",
+  "Copy the result instantly."
+]
+---
+import EpochConverter from '../../../../components/tools/math-network/EpochConverter';
+
+<EpochConverter client:load />
+
+## What is a Unix Timestamp?
+It is the number of seconds that have elapsed since **January 1, 1970 (UTC)**. It is widely used in computing to track time regardless of timezones.

@@ -1,0 +1,26 @@
+---
+name: "SVG to PNG Converter"
+description: "Convert Scalable Vector Graphics (SVG) code or files into high-resolution PNG images. Transparent background preserved."
+shortDescription: "SVG to PNG"
+categoryId: "image-tools"
+tier: 1
+icon: "Image"
+keywords: ["svg to png", "convert svg", "rasterize svg", "svg converter", "vector to png"]
+instructions: [
+  "Paste your SVG code or upload an .svg file.",
+  "Check the live preview to ensure it renders correctly.",
+  "Set the desired output width (height is auto-calculated).",
+  "Click 'Download PNG' to save the image."
+]
+---
+import SvgToPngConverter from '../../../../components/tools/image/SvgToPngConverter';
+
+<SvgToPngConverter client:load />
+
+## Why convert SVG to PNG?
+While SVGs are perfect for the web due to infinite scalability, sometimes you need a raster format like PNG for:
+- **Social Media**: Uploading to platforms that don't support SVG.
+- **Favicons**: Legacy browser support.
+- **Email Signatures**: Ensuring consistent rendering across email clients.
+
+This tool runs entirely in your browser. Your images are never uploaded to a server being 100% private.
