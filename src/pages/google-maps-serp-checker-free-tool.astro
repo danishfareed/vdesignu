@@ -1,0 +1,40 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/georanker/Hero.astro";
+import ComparisonTable from "../components/georanker/ComparisonTable.astro";
+import FeaturesGrid from "../components/georanker/FeaturesGrid.astro";
+import TechStack from "../components/georanker/TechStack.astro";
+import InstallationGuide from "../components/georanker/InstallationGuide.astro";
+import FAQ from "../components/georanker/FAQ.astro";
+import ReportPreview from "../components/georanker/ReportPreview.astro";
+
+const seoTitle =
+    "GeoRanker - The World's First Open-Source Grid Tracker | vdesignu";
+const seoDescription =
+    "Stop paying for credits. GeoRanker is an enterprise-grade, open-source Google Maps SERP rank checker. Unlimited scans, smart city grids, and local data privacy.";
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+    <main class="overflow-x-hidden">
+        <!-- Hero Section -->
+        <Hero />
+
+        <!-- Comparison Table -->
+        <ComparisonTable />
+
+        <!-- Report Preview -->
+        <ReportPreview />
+
+        <!-- Key Features Grid -->
+        <FeaturesGrid />
+
+        <!-- Tech Stack -->
+        <TechStack />
+
+        <!-- Installation Guide -->
+        <InstallationGuide />
+
+        <!-- FAQ Accordion -->
+        <FAQ />
+    </main>
+</Layout>

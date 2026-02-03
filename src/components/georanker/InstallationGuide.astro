@@ -1,0 +1,180 @@
+---
+
+---
+
+<section
+    id="installation"
+    class="py-24 bg-[var(--bg-secondary)] border-t border-[var(--border-subtle)] relative overflow-hidden"
+>
+    <!-- Background Elements -->
+    <div class="absolute inset-0 grid-pattern opacity-5"></div>
+    <div
+        class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[100px]"
+    >
+    </div>
+
+    <div class="max-w-4xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-16">
+            <h2
+                class="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-4"
+            >
+                Deploy Anywhere
+            </h2>
+            <p class="text-[var(--text-secondary)] text-lg max-w-2xl mx-auto">
+                Works purely on <span class="text-[var(--accent-red)] font-bold"
+                    >Windows, Mac, and Linux</span
+                >. Full cross-platform support with one codebase.
+            </p>
+        </div>
+
+        <!-- Terminal Window -->
+        <div
+            class="rounded-xl overflow-hidden shadow-2xl border border-[var(--border-subtle)] bg-[#1e1e1e]"
+            x-data="{ tab: 'mac' }"
+        >
+            <!-- Window Controls & Tabs -->
+            <div
+                class="flex flex-col md:flex-row md:items-center justify-between px-4 py-3 bg-[#2d2d2d] border-b border-[#3e3e3e] gap-4"
+            >
+                <div class="flex space-x-2 shrink-0">
+                    <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                    <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                    <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                </div>
+
+                <!-- Tab Buttons -->
+                <div
+                    class="flex space-x-1 bg-black/20 p-1 rounded-lg overflow-x-auto w-full md:w-auto"
+                >
+                    <button
+                        class="px-4 py-1 text-xs font-bold rounded-md transition-colors tab-btn whitespace-nowrap active"
+                        data-target="mac"
+                    >
+                        Option A: One-Line Installer (Mac/Linux)
+                    </button>
+                    <button
+                        class="px-4 py-1 text-xs font-bold rounded-md text-gray-400 hover:text-white transition-colors tab-btn whitespace-nowrap"
+                        data-target="manual"
+                    >
+                        Option B: Manual / Universal (Windows)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div
+                class="p-8 font-mono text-sm md:text-base relative min-h-[200px]"
+            >
+                <!-- Mac/Linux Tab -->
+                <div
+                    id="mac"
+                    class="tab-content transition-opacity duration-300"
+                >
+                    <div class="flex gap-4 text-gray-400 mb-4 select-none">
+                        <span>$</span>
+                        <span class="text-green-400"
+                            ># One-line installer for Unix systems</span
+                        >
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="text-gray-500 select-none">$</span>
+                        <code class="text-white break-all">
+                            git clone
+                            https://github.com/danishfareed/Google-Maps-SERP.git
+                            && cd Google-Maps-SERP && bash install.sh
+                        </code>
+                    </div>
+                </div>
+
+                <!-- Manual Tab -->
+                <div
+                    id="manual"
+                    class="tab-content hidden transition-opacity duration-300"
+                >
+                    <div class="flex gap-4 text-gray-400 mb-4 select-none">
+                        <span>$</span>
+                        <span class="text-orange-400"
+                            ># Standard Node.js Setup (Any OS)</span
+                        >
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex gap-4">
+                            <span class="text-gray-500 select-none">$</span>
+                            <code class="text-white"
+                                >git clone
+                                https://github.com/danishfareed/Google-Maps-SERP.git</code
+                            >
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-gray-500 select-none">$</span>
+                            <code class="text-white">npm install</code>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-gray-500 select-none">$</span>
+                            <code class="text-white">npx prisma db push</code>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-gray-500 select-none">$</span>
+                            <code class="text-white">npm run dev</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="text-center mt-8 text-[var(--text-muted)] text-sm">
+            Requires <a
+                href="https://nodejs.org/"
+                target="_blank"
+                class="underline hover:text-white">Node.js 18+</a
+            > installed on your machine.
+        </p>
+    </div>
+</section>
+
+<script>
+    const buttons = document.querySelectorAll(
+        ".tab-btn",
+    ) as NodeListOf<HTMLElement>;
+    const contents = document.querySelectorAll(
+        ".tab-content",
+    ) as NodeListOf<HTMLElement>;
+
+    buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const target = btn.dataset.target;
+
+            // Update buttons
+            buttons.forEach((b) => {
+                if (b === btn) {
+                    b.classList.add("bg-[var(--accent-red)]", "text-white");
+                    b.classList.remove("text-gray-400", "hover:text-white");
+                } else {
+                    b.classList.remove("bg-[var(--accent-red)]", "text-white");
+                    b.classList.add("text-gray-400", "hover:text-white");
+                }
+            });
+
+            // Update content
+            contents.forEach((c) => {
+                if (c.id === target) {
+                    c.classList.remove("hidden");
+                    c.classList.add("block");
+                } else {
+                    c.classList.add("hidden");
+                    c.classList.remove("block");
+                }
+            });
+        });
+    });
+
+    // Set initial state
+    (document.querySelector('[data-target="mac"]') as HTMLElement).click();
+</script>
+
+<style>
+    .tab-btn.active {
+        background-color: var(--accent-red);
+        color: white;
+    }
+</style>

@@ -1,0 +1,131 @@
+---
+const faqs = [
+    {
+        question: "How is GeoRanker different from other tools?",
+        answer: "Most tools use arbitrary square grids that waste credits on empty land. GeoRanker uses 'Smart City Grids' that map specific neighborhoods and zip codes. Plus, it's open-source and self-hosted, meaning you own the data and strictly control the privacy.",
+    },
+    {
+        question: "Is it really free? What's the catch?",
+        answer: "Yes, it is 100% free and open-source under the MIT License. There is no catch. You host it on your own machine (or server), so there are no monthly subscription fees. We built this to democratize local SEO tools.",
+    },
+    {
+        question: "Do I need a Google Maps API Key?",
+        answer: "No! GeoRanker uses advanced headless browser automation (Playwright) to emulate real user searches. It does NOT require a paid Google Maps API key, saving you potentially thousands of dollars in API usage fees.",
+    },
+    {
+        question: "Do I need proxies to use this?",
+        answer: "For light usage (checking a few keywords once a week), you typically don't need proxies. However, for heavy agency-level scraping (hundreds of keywords daily), we highly recommend adding rotating residential proxies in the Settings tab to prevent Google from temporarily blocking your IP.",
+    },
+    {
+        question: "How do I install it?",
+        answer: "We provide a simple one-line installer for Mac and Linux users. For Windows users, we recommend using WSL2 (Windows Subsystem for Linux) or simply cloning the repo and running 'npm install' if you have Node.js set up.",
+    },
+    {
+        question: "Does it work on Windows?",
+        answer: "Yes! GeoRanker works on ANY platform—Windows, Mac, or Linux—no matter what. Since it's built on standard Node.js, you can run it natively on any machine. We even include specific PowerShell instructions for Windows users.",
+    },
+    {
+        question: "What is the tech stack?",
+        answer: "GeoRanker is built with a modern, robust stack: Next.js 14 for the frontend/backend, SQLite (via Prisma) for the database, and Playwright for the browser automation engine. It's designed to be lightweight and fast.",
+    },
+    {
+        question: "Can I export the reports?",
+        answer: "Yes, you can currently export your scan data to CSV and JSON formats for use in other reporting tools. We are actively working on a PDF report generator for white-label agency use.",
+    },
+    {
+        question: "I found a bug. How can I contribute?",
+        answer: "We love contributors! The project is hosted on GitHub. Please feel free to open an Issue for bugs/feature requests, or submit a Pull Request if you've added some cool functionality yourself.",
+    },
+];
+
+const schema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+        },
+    })),
+};
+---
+
+<section
+    class="py-24 bg-[var(--bg-primary)] border-t border-[var(--border-subtle)]"
+>
+    <div class="max-w-3xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2
+                class="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-4"
+            >
+                Frequently Asked <span class="text-[var(--accent-red)]"
+                    >Questions</span
+                >
+            </h2>
+            <p class="text-[var(--text-secondary)]">
+                Everything you need to know about the platform.
+            </p>
+        </div>
+
+        <div class="space-y-4">
+            {
+                faqs.map((faq, index) => (
+                    <details class="group border border-[var(--border-subtle)] rounded-xl bg-[var(--bg-secondary)] overflow-hidden transition-all duration-300 open:border-[var(--accent-red)]">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer select-none">
+                            <h3 class="text-lg font-bold text-[var(--text-primary)] pr-8 text-left">
+                                {faq.question}
+                            </h3>
+                            <div class="w-8 h-8 rounded-full border border-[var(--border-subtle)] flex items-center justify-center shrink-0 group-open:bg-[var(--accent-red)] group-open:border-[var(--accent-red)] group-open:rotate-180 transition-all duration-300">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="w-4 h-4 text-[var(--text-muted)] group-open:text-white transition-colors"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M19 9l-7 7-7-7"
+                                    />
+                                </svg>
+                            </div>
+                        </summary>
+                        <div class="p-6 pt-0 text-[var(--text-secondary)] leading-relaxed animate-accordion text-left">
+                            {faq.answer}
+                        </div>
+                    </details>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<!-- JSON-LD Schema for SEO -->
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+<style>
+    details > summary {
+        list-style: none;
+    }
+    details > summary::-webkit-details-marker {
+        display: none;
+    }
+    details[open] summary ~ * {
+        animation: sweep 0.3s ease-in-out;
+    }
+
+    @keyframes sweep {
+        0% {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>

@@ -27,6 +27,7 @@ export interface Tool {
   keywords: string[];
   featured?: boolean;
   instructions?: string[];
+  link?: string;
 }
 
 // Categories Definition
@@ -119,7 +120,7 @@ export const toolCategories: ToolCategory[] = [
     description: "Free tools for local search optimization. Check local rankings, generate review links, and create LocalBusiness schema markup.",
     icon: "MapPin",
     tier: 1,
-    toolCount: 3
+    toolCount: 4
   },
   {
     id: "developer-formatters",
@@ -2246,6 +2247,26 @@ export const tools: Tool[] = [
       "Add your full address and pinpoint the geo-coordinates.",
       "Set your operating hours using the visual scheduler.",
       "Copy the generated JSON-LD script to your website's <head> tag."
+    ]
+  },
+  {
+    id: "georanker",
+    name: "GeoRanker (Local Rank Tracker)",
+    slug: "georanker",
+    description: "The world's first enterprise-grade, open-source grid tracker. Stop paying for credits and start owning your data. Unlimited scans, smart city grids, and local privacy.",
+    shortDescription: "Open-source Google Maps grid tracker",
+    categoryId: "local-seo",
+    tier: 1,
+    icon: "Map",
+    keywords: ["geo ranker", "local rank tracker", "google maps grid", "serp checker"],
+    featured: true,
+    link: "/google-maps-serp-checker-free-tool",
+    instructions: [
+      "Select your city and target keywords.",
+      "Set the grid size (up to 13x13).",
+      "Run the scan to visualize rankings.",
+      "Analyze competitor share of voice.",
+      "Export data for reporting."
     ]
   },
   // ==========================================

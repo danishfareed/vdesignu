@@ -1,0 +1,208 @@
+---
+const competitors = [
+    {
+        name: "GeoRanker",
+        free: true,
+        credits: "UNLIMITED",
+        grid: "13x13+",
+        privacy: "Local",
+        icon: "🟢",
+    },
+    {
+        name: "Local Falcon",
+        free: false,
+        credits: "$0.05 / scan",
+        grid: "Limited",
+        privacy: "Shared",
+        icon: "🔴",
+    },
+    {
+        name: "BrightLocal",
+        free: false,
+        credits: "Monthly Limit",
+        grid: "Limited",
+        privacy: "Shared",
+        icon: "🔴",
+    },
+    {
+        name: "Whitespark",
+        free: false,
+        credits: "Package Based",
+        grid: "Limited",
+        privacy: "Shared",
+        icon: "🔴",
+    },
+    {
+        name: "Places Scout",
+        free: false,
+        credits: "Expensive",
+        grid: "Limited",
+        privacy: "Shared",
+        icon: "🔴",
+    },
+    {
+        name: "GMB Everywhere",
+        free: false,
+        credits: "limited",
+        grid: "Limited",
+        privacy: "Shared",
+        icon: "🔴",
+    },
+    {
+        name: "Surfer Local",
+        free: false,
+        credits: "Monthly Limit",
+        grid: "Limited",
+        privacy: "Shared",
+        icon: "🔴",
+    },
+    {
+        name: "Grid My Business",
+        free: false,
+        credits: "Monthly Limit",
+        grid: "Limited",
+        privacy: "Shared",
+        icon: "🔴",
+    },
+    {
+        name: "Nightwatch",
+        free: false,
+        credits: "Package Based",
+        grid: "Limited",
+        privacy: "Shared",
+        icon: "🔴",
+    },
+    {
+        name: "Semrush",
+        free: false,
+        credits: "Expensive Add-on",
+        grid: "Limited",
+        privacy: "Shared",
+        icon: "🔴",
+    },
+    {
+        name: "Moz Local",
+        free: false,
+        credits: "Expensive Add-on",
+        grid: "Limited",
+        privacy: "Shared",
+        icon: "🔴",
+    },
+];
+---
+
+<section class="py-24 bg-[var(--bg-secondary)] relative overflow-hidden">
+    <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-red/5 rounded-full blur-[100px]"
+    >
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-16">
+            <h2
+                class="text-3xl md:text-5xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-4"
+            >
+                The Unfair Advantage
+            </h2>
+            <p class="text-[var(--text-secondary)] text-lg mb-2">
+                See why agencies are switching to open-source.
+            </p>
+            <p
+                class="text-[var(--text-muted)] text-xs uppercase tracking-widest"
+            >
+                * Comparing Grid Scanning & Mapping capabilities only
+            </p>
+        </div>
+
+        <!-- Scrollable container for many columns -->
+        <div
+            class="overflow-x-auto rounded-2xl border border-[var(--border-subtle)] shadow-2xl bg-[var(--bg-primary)]/80 backdrop-blur-md"
+        >
+            <table class="w-full text-left border-collapse min-w-[1000px]">
+                <thead>
+                    <tr
+                        class="border-b border-[var(--border-subtle)] bg-[var(--bg-card)]"
+                    >
+                        <th
+                            class="p-6 text-sm font-black uppercase tracking-[0.2em] text-[var(--text-muted)] sticky left-0 bg-[var(--bg-card)] z-10 border-r border-[var(--border-subtle)] dropshadow-xl"
+                            >Platform</th
+                        >
+                        <th
+                            class="p-6 text-sm font-black uppercase tracking-[0.2em] text-[var(--text-muted)]"
+                            >Cost Structure</th
+                        >
+                        <th
+                            class="p-6 text-sm font-black uppercase tracking-[0.2em] text-[var(--text-muted)]"
+                            >Scan Credits</th
+                        >
+                        <th
+                            class="p-6 text-sm font-black uppercase tracking-[0.2em] text-[var(--text-muted)]"
+                            >Grid Size</th
+                        >
+                        <th
+                            class="p-6 text-sm font-black uppercase tracking-[0.2em] text-[var(--text-muted)]"
+                            >Privacy</th
+                        >
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-[var(--border-subtle)]">
+                    <!-- GeoRanker Row -->
+                    <tr
+                        class="group bg-brand-red/5 hover:bg-brand-red/10 transition-colors relative z-10"
+                    >
+                        <td
+                            class="p-6 font-black text-xl text-[var(--accent-red)] sticky left-0 bg-[var(--bg-card)] border-r border-[var(--border-subtle)] group-hover:bg-[var(--bg-card)] transition-colors flex items-center gap-2"
+                        >
+                            🟢 GeoRanker
+                            <span
+                                class="px-2 py-0.5 rounded text-[10px] bg-[var(--accent-red)] text-white font-mono"
+                                >YOU</span
+                            >
+                        </td>
+                        <td
+                            class="p-6 font-black text-xl text-[var(--text-primary)]"
+                            >$0.00 / mo</td
+                        >
+                        <td
+                            class="p-6 font-black text-xl text-[var(--text-primary)]"
+                            >UNLIMITED</td
+                        >
+                        <td
+                            class="p-6 font-black text-xl text-[var(--text-primary)]"
+                            >13x13+</td
+                        >
+                        <td
+                            class="p-6 font-black text-xl text-[var(--text-primary)]"
+                            >Local (Your Data)</td
+                        >
+                    </tr>
+
+                    <!-- Competitors -->
+                    {
+                        competitors.slice(1).map((comp) => (
+                            <tr class="group hover:bg-[var(--bg-card)] transition-colors">
+                                <td class="p-6 font-bold text-[var(--text-secondary)] sticky left-0 bg-[var(--bg-primary)] border-r border-[var(--border-subtle)] group-hover:bg-[var(--bg-card)] transition-colors whitespace-nowrap">
+                                    {comp.icon} {comp.name}
+                                </td>
+                                <td class="p-6 text-[var(--text-muted)] font-mono text-sm">
+                                    {comp.free
+                                        ? "$0.00"
+                                        : "$$$ Monthly / Pay-per-scan"}
+                                </td>
+                                <td class="p-6 text-[var(--text-muted)] font-mono text-sm">
+                                    {comp.credits}
+                                </td>
+                                <td class="p-6 text-[var(--text-muted)] font-mono text-sm">
+                                    {comp.grid}
+                                </td>
+                                <td class="p-6 text-[var(--text-muted)] font-mono text-sm">
+                                    {comp.privacy}
+                                </td>
+                            </tr>
+                        ))
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
