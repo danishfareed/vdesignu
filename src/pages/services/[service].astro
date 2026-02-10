@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { services, industries, cities } from "../../config/site-config";
-import servicesContent from "../../data/services-content.json";
+import { getEntry } from "astro:content";
 
 export function getStaticPaths() {
     return services.map((service) => ({
@@ -12,13 +12,19 @@ export function getStaticPaths() {
 
 const { service } = Astro.params;
 const { service: serviceProp } = Astro.props;
-const content = servicesContent[service as keyof typeof servicesContent];
 
-const title = `Mastering ${serviceProp.name} | vdesignu Strategic Education`;
-const description = `The definitive guide to ${serviceProp.name.toLowerCase()} for enterprise and mid-market leaders. Insights, strategies, and ROI optimization.`;
+const entry = await getEntry("services", service);
+
+if (!entry) {
+    throw new Error(`Service content not found for ${service}`);
+}
+
+const { Content } = await entry.render();
+const { title, metaDescription, heroDescription, metrics, roadmap } =
+    entry.data;
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={metaDescription}>
     <!-- Hero -->
     <section
         class="pt-40 pb-24 bg-[var(--bg-primary)] overflow-hidden relative"
@@ -43,74 +49,85 @@ const description = `The definitive guide to ${serviceProp.name.toLowerCase()} f
             <p
                 class="text-2xl text-[var(--text-secondary)] font-medium max-w-3xl leading-relaxed mb-12"
             >
-                A comprehensive framework for scaling your digital presence.
-                Engineered for leaders who demand measurable outcomes from their {
-                    serviceProp.name.toLowerCase()
-                } investment.
+                {heroDescription}
             </p>
+
+            <!-- Metrics Injection -->
+            <div
+                class="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-[var(--border-subtle)] pt-8"
+            >
+                <div>
+                    <div
+                        class="text-4xl font-black italic text-[var(--text-primary)]"
+                    >
+                        {metrics.primary.value}
+                    </div>
+                    <div
+                        class="text-xs font-bold uppercase text-[var(--text-muted)] tracking-widest"
+                    >
+                        {metrics.primary.label}
+                    </div>
+                </div>
+                <div>
+                    <div
+                        class="text-4xl font-black italic text-[var(--text-primary)]"
+                    >
+                        {metrics.secondary.value}
+                    </div>
+                    <div
+                        class="text-xs font-bold uppercase text-[var(--text-muted)] tracking-widest"
+                    >
+                        {metrics.secondary.label}
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Master Content (Word Count) -->
+    <!-- Master Content (Markdown Render) -->
     <section
         class="py-24 bg-[var(--bg-secondary)] border-y border-[var(--border-subtle)]"
     >
         <div class="max-w-4xl mx-auto px-6">
-            <h2
-                class="text-4xl font-black italic uppercase tracking-tighter mb-8"
-            >
-                The <span class="text-[var(--accent-red)]">vdesignu</span> Approach
-            </h2>
             <div
-                class="prose prose-xl dark:prose-invert text-[var(--text-secondary)]"
+                class="prose prose-xl dark:prose-invert text-[var(--text-secondary)] prose-headings:font-black prose-headings:italic prose-headings:uppercase prose-strong:text-[var(--text-primary)]"
             >
-                <p class="lead font-bold text-[var(--text-primary)]">
-                    Our {serviceProp.name.toLowerCase()} strategy is rooted in "ROI-First
-                    Engineering". We move beyond vanity metrics—likes, generic traffic,
-                    and "clean design"—to focus on the data that matters: conversions,
-                    pipeline velocity, and customer acquisition cost (CAC).
-                </p>
-
-                <h3
-                    class="text-2xl font-black uppercase italic mt-12 mb-6 text-[var(--text-primary)]"
-                >
-                    Phase 1: Intelligence & Discovery
-                </h3>
-                <p>
-                    Before a single line of code is written or a keyword is
-                    selected, we perform deep market and competitor analysis. We
-                    identify the "White Space" in your industry where
-                    high-intent customers are searching but your competitors are
-                    silent.
-                </p>
-
-                <h3
-                    class="text-2xl font-black uppercase italic mt-12 mb-6 text-[var(--text-primary)]"
-                >
-                    Phase 2: Technical Hardening
-                </h3>
-                <p>
-                    Performance is a ranking factor. Our systems are built on
-                    Astro and optimized for sub-second LCP (Largest Contentful
-                    Paint). This reduces bounce rates and ensures your {
-                        serviceProp.name.toLowerCase()
-                    } has the strongest possible foundation.
-                </p>
-
-                <h3
-                    class="text-2xl font-black uppercase italic mt-12 mb-6 text-[var(--text-primary)]"
-                >
-                    Phase 3: Intent-Matched Content
-                </h3>
-                <p>
-                    We don't publish filler. Every piece of content is
-                    engineered to answer a specific user intent—Commercial,
-                    Informational, or Transactional. This ensures we are
-                    capturing users at every stage of the funnel.
-                </p>
+                <Content />
             </div>
         </div>
     </section>
+
+    <!-- Roadmap Injection -->
+    {
+        roadmap && (
+            <section class="py-24 bg-[var(--bg-primary)]">
+                <div class="max-w-7xl mx-auto px-6">
+                    <h2 class="text-4xl font-black italic uppercase tracking-tighter mb-12">
+                        The{" "}
+                        <span class="text-[var(--accent-red)]">
+                            Engineering
+                        </span>{" "}
+                        Roadmap
+                    </h2>
+                    <div class="grid md:grid-cols-5 gap-4">
+                        {roadmap.map((step) => (
+                            <div class="p-6 bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-2xl hover:border-[var(--accent-red)] transition-colors group">
+                                <div class="text-5xl font-black italic text-[var(--border-subtle)] group-hover:text-[var(--accent-red)] transition-colors mb-4">
+                                    {step.step}
+                                </div>
+                                <h3 class="text-sm font-black uppercase mb-2">
+                                    {step.title}
+                                </h3>
+                                <p class="text-xs text-[var(--text-muted)] leading-relaxed">
+                                    {step.desc}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+        )
+    }
 
     <!-- Global Reach (Mesh Linking) -->
     <section class="py-24 bg-[var(--bg-primary)]">
