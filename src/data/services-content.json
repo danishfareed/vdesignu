@@ -3,6 +3,16 @@
     "title": "Search Engine Optimisation (SEO)",
     "metaDescription": "Rank higher on Google and find more customers with expert SEO. We help B2B and B2C companies in the Gulf grow their search presence.",
     "heroDescription": "Want more leads from Google? Our SEO systems help your company rank for the most important search terms. We use technical strategies to put your brand in front of buyers at the right time. Simple, effective, and built for B2B and B2C growth.",
+    "metrics": {
+      "primary": {
+        "value": "300%",
+        "label": "Organic Traffic Growth"
+      },
+      "secondary": {
+        "value": "0.4s",
+        "label": "Page Load Time (LCP)"
+      }
+    },
     "sections": {
       "overview": {
         "title": "SEO for Real Business Growth",
@@ -10,10 +20,22 @@
       },
       "whatWeOffer": {
         "items": [
-          { "title": "Keyword Strategy", "description": "Finding the specific words your B2B and B2C buyers use to search for your products." },
-          { "title": "Technical SEO", "description": "Making your website fast, mobile-friendly, and easy for search engines to crawl." },
-          { "title": "Local Authority", "description": "Helping you win in specific cities like Dubai, Riyadh, or global hubs like Chicago." },
-          { "title": "Content That Converts", "description": "Writing landing pages and articles that turn visitors into leads and customers." }
+          {
+            "title": "Keyword Strategy",
+            "description": "Finding the specific words your B2B and B2C buyers use to search for your products."
+          },
+          {
+            "title": "Technical SEO",
+            "description": "Making your website fast, mobile-friendly, and easy for search engines to crawl."
+          },
+          {
+            "title": "Local Authority",
+            "description": "Helping you win in specific cities like Dubai, Riyadh, or global hubs like Chicago."
+          },
+          {
+            "title": "Content That Converts",
+            "description": "Writing landing pages and articles that turn visitors into leads and customers."
+          }
         ]
       },
       "marketRelevance": {
@@ -35,14 +57,30 @@
       }
     },
     "faqs": [
-      { "question": "How long does it take to see results?", "answer": "SEO is a medium-to-long-term strategy. Most clients see significant growth in 3 to 6 months." },
-      { "question": "Do you handle both B2B and B2C?", "answer": "Yes, we specialize in high-intent SEO for both complex B2B sales cycles and fast-moving B2C markets." }
+      {
+        "question": "How long does it take to see results?",
+        "answer": "SEO is a medium-to-long-term strategy. Most clients see significant growth in 3 to 6 months."
+      },
+      {
+        "question": "Do you handle both B2B and B2C?",
+        "answer": "Yes, we specialize in high-intent SEO for both complex B2B sales cycles and fast-moving B2C markets."
+      }
     ]
   },
   "ai-seo": {
     "title": "AI SEO / GEO (Search for AI)",
     "metaDescription": "Optimizing for AI search tools like ChatGPT, Claude, and Perplexity. Ensure your B2B or B2C brand is the answer.",
     "heroDescription": "Artificial Intelligence is changing how people find information. If a customer asks ChatGPT or Perplexity about your services, does your brand appear in the answer? Our AI SEO (Generative Engine Optimization) ensures you are the primary source for AI-generated recommendations.",
+    "metrics": {
+      "primary": {
+        "value": "10x",
+        "label": "AI Visibility"
+      },
+      "secondary": {
+        "value": "Top 1",
+        "label": "Rank in AI Answers"
+      }
+    },
     "sections": {
       "overview": {
         "title": "Winning in the Age of AI Search",
@@ -50,10 +88,22 @@
       },
       "whatWeOffer": {
         "items": [
-          { "title": "AI Model Optimization", "description": "Ensuring your data is structured for easy consumption by AI crawlers." },
-          { "title": "Citation Engineering", "description": "Securing mentions in the trusted databases and news sources AI tools rely on." },
-          { "title": "Semantic Content Design", "description": "Writing content that specifically answers the complex questions AI users ask." },
-          { "title": "Enterprise Schema", "description": "Using advanced technical tags to provide verified data directly to AI engines." }
+          {
+            "title": "AI Model Optimization",
+            "description": "Ensuring your data is structured for easy consumption by AI crawlers."
+          },
+          {
+            "title": "Citation Engineering",
+            "description": "Securing mentions in the trusted databases and news sources AI tools rely on."
+          },
+          {
+            "title": "Semantic Content Design",
+            "description": "Writing content that specifically answers the complex questions AI users ask."
+          },
+          {
+            "title": "Enterprise Schema",
+            "description": "Using advanced technical tags to provide verified data directly to AI engines."
+          }
         ]
       },
       "futureProof": {
@@ -75,14 +125,30 @@
       }
     },
     "faqs": [
-      { "question": "What is GEO?", "answer": "Generative Engine Optimization is the process of making your brand visible in AI search tools like ChatGPT." },
-      { "question": "Does this work for small businesses?", "answer": "Absolutely. Small B2B and B2C brands can use GEO to compete with larger rivals by becoming niche authorities in AI search." }
+      {
+        "question": "What is GEO?",
+        "answer": "Generative Engine Optimization is the process of making your brand visible in AI search tools like ChatGPT."
+      },
+      {
+        "question": "Does this work for small businesses?",
+        "answer": "Absolutely. Small B2B and B2C brands can use GEO to compete with larger rivals by becoming niche authorities in AI search."
+      }
     ]
   },
   "crm-systems": {
     "title": "Omnichannel CRM Systems",
     "metaDescription": "Smart CRM systems for B2B and B2C. Integrated WhatsApp, Email, and SMS automation to grow your revenue.",
     "heroDescription": "Stop losing leads to slow follow-ups. We build CRM systems that connect with your customers on WhatsApp, Email, and SMS instantly. Whether you are managing long B2B contracts or fast B2C sales, our automation turns prospects into customers automatically.",
+    "metrics": {
+      "primary": {
+        "value": "40%",
+        "label": "Efficiency Increase"
+      },
+      "secondary": {
+        "value": "0%",
+        "label": "Lead Leakage"
+      }
+    },
     "sections": {
       "overview": {
         "title": "Automated Revenue Engines",
@@ -90,10 +156,22 @@
       },
       "whatWeOffer": {
         "items": [
-          { "title": "WhatsApp API Integration", "description": "Official automation for the world's most popular messaging channel." },
-          { "title": "Nurturing Workflows", "description": "Automated email and SMS sequences tailored for B2B and B2C cycles." },
-          { "title": "Lead Scoring Systems", "description": "Automatically identifying your most valuable prospects so you focus on what matters." },
-          { "title": "Unified Dashboards", "description": "See every interaction from every channel in one secure, easy-to-use place." }
+          {
+            "title": "WhatsApp API Integration",
+            "description": "Official automation for the world's most popular messaging channel."
+          },
+          {
+            "title": "Nurturing Workflows",
+            "description": "Automated email and SMS sequences tailored for B2B and B2C cycles."
+          },
+          {
+            "title": "Lead Scoring Systems",
+            "description": "Automatically identifying your most valuable prospects so you focus on what matters."
+          },
+          {
+            "title": "Unified Dashboards",
+            "description": "See every interaction from every channel in one secure, easy-to-use place."
+          }
         ]
       },
       "crmDepth": {
@@ -115,17 +193,42 @@
       }
     },
     "faqs": [
-      { "question": "How long does CRM implementation take?", "answer": "Most CRM implementations take 4-8 weeks depending on complexity. We handle data migration, channel integration, and team training to ensure a smooth transition." },
-      { "question": "Can you integrate WhatsApp Business API?", "answer": "Yes, we are official WhatsApp Business API partners. We handle the entire setup, verification, and integration process for your business." },
-      { "question": "Do you support both B2B and B2C workflows?", "answer": "Absolutely. Our CRM systems are designed to handle long B2B sales cycles with lead scoring and nurturing, as well as high-velocity B2C transactions with instant automation." },
-      { "question": "Which CRM platforms do you work with?", "answer": "We work with leading platforms and can also build custom CRM solutions tailored to your specific business needs in the Gulf region." },
-      { "question": "Is the CRM ZATCA compliant for Saudi Arabia?", "answer": "Yes, all our CRM integrations for KSA businesses meet ZATCA requirements for invoicing and financial compliance." }
+      {
+        "question": "How long does CRM implementation take?",
+        "answer": "Most CRM implementations take 4-8 weeks depending on complexity. We handle data migration, channel integration, and team training to ensure a smooth transition."
+      },
+      {
+        "question": "Can you integrate WhatsApp Business API?",
+        "answer": "Yes, we are official WhatsApp Business API partners. We handle the entire setup, verification, and integration process for your business."
+      },
+      {
+        "question": "Do you support both B2B and B2C workflows?",
+        "answer": "Absolutely. Our CRM systems are designed to handle long B2B sales cycles with lead scoring and nurturing, as well as high-velocity B2C transactions with instant automation."
+      },
+      {
+        "question": "Which CRM platforms do you work with?",
+        "answer": "We work with leading platforms and can also build custom CRM solutions tailored to your specific business needs in the Gulf region."
+      },
+      {
+        "question": "Is the CRM ZATCA compliant for Saudi Arabia?",
+        "answer": "Yes, all our CRM integrations for KSA businesses meet ZATCA requirements for invoicing and financial compliance."
+      }
     ]
   },
   "website-development": {
     "title": "Website Development",
     "metaDescription": "High-performance website development for B2B and B2C. Fast, secure, and built to convert visitors into customers.",
     "heroDescription": "Your website is the face of your business. We build high-speed, secure websites that work as hard as you do. From professional B2B corporate hubs to high-converting B2C platforms, we engineer websites that don't just look good—they perform.",
+    "metrics": {
+      "primary": {
+        "value": "100",
+        "label": "Core Web Vitals"
+      },
+      "secondary": {
+        "value": "0.5s",
+        "label": "First Paint"
+      }
+    },
     "sections": {
       "overview": {
         "title": "Engineering High-Performance Webs",
@@ -133,10 +236,22 @@
       },
       "whatWeOffer": {
         "items": [
-          { "title": "Sub-Second Loading", "description": "Optimized code and global CDN hosting for lightning-fast speeds." },
-          { "title": "B2B & B2C UX Design", "description": "User experiences designed to guide visitors toward your specific goals." },
-          { "title": "Scalable Infrastructure", "description": "Sites built on cloud tech that can handle any amount of traffic." },
-          { "title": "Custom CMS Integration", "description": "Update your site easily with a management system built for your needs." }
+          {
+            "title": "Sub-Second Loading",
+            "description": "Optimized code and global CDN hosting for lightning-fast speeds."
+          },
+          {
+            "title": "B2B & B2C UX Design",
+            "description": "User experiences designed to guide visitors toward your specific goals."
+          },
+          {
+            "title": "Scalable Infrastructure",
+            "description": "Sites built on cloud tech that can handle any amount of traffic."
+          },
+          {
+            "title": "Custom CMS Integration",
+            "description": "Update your site easily with a management system built for your needs."
+          }
         ]
       },
       "technicalPrecision": {
@@ -158,17 +273,42 @@
       }
     },
     "faqs": [
-      { "question": "How fast will my website load?", "answer": "Our websites typically load in under 1 second. We use modern headless technology, global CDN hosting, and advanced optimization to ensure lightning-fast performance." },
-      { "question": "Do you build both B2B and B2C websites?", "answer": "Yes, we specialize in both. B2B sites focus on lead generation and authority, while B2C sites prioritize conversion and user experience." },
-      { "question": "Can you rebuild our existing website?", "answer": "Absolutely. We can migrate your existing content and improve your site's performance, security, and SEO without losing your current rankings." },
-      { "question": "What CMS do you use?", "answer": "We work with modern headless CMS platforms like Sanity, Contentful, or custom solutions tailored to your workflow and business needs." },
-      { "question": "Do you provide ongoing maintenance?", "answer": "Yes, we offer 24/7 monitoring, security updates, performance optimization, and content updates as part of our maintenance packages." }
+      {
+        "question": "How fast will my website load?",
+        "answer": "Our websites typically load in under 1 second. We use modern headless technology, global CDN hosting, and advanced optimization to ensure lightning-fast performance."
+      },
+      {
+        "question": "Do you build both B2B and B2C websites?",
+        "answer": "Yes, we specialize in both. B2B sites focus on lead generation and authority, while B2C sites prioritize conversion and user experience."
+      },
+      {
+        "question": "Can you rebuild our existing website?",
+        "answer": "Absolutely. We can migrate your existing content and improve your site's performance, security, and SEO without losing your current rankings."
+      },
+      {
+        "question": "What CMS do you use?",
+        "answer": "We work with modern headless CMS platforms like Sanity, Contentful, or custom solutions tailored to your workflow and business needs."
+      },
+      {
+        "question": "Do you provide ongoing maintenance?",
+        "answer": "Yes, we offer 24/7 monitoring, security updates, performance optimization, and content updates as part of our maintenance packages."
+      }
     ]
   },
   "digital-platforms": {
     "title": "Custom Digital Platforms & Portals",
     "metaDescription": "Custom portals and internal tools for B2B operations and B2C client management. Scale your business with custom software.",
     "heroDescription": "Move beyond spreadsheets. We build custom portals for your vendors, clients, and internal teams. Whether you need a B2B bidding platform or a B2C customer portal, we build the software that helps you manage complexity and scale effortlessly.",
+    "metrics": {
+      "primary": {
+        "value": "50%",
+        "label": "Ops Cost Reduction"
+      },
+      "secondary": {
+        "value": "Real-time",
+        "label": "Data Sync"
+      }
+    },
     "sections": {
       "overview": {
         "title": "Digital Operating Systems",
@@ -176,10 +316,22 @@
       },
       "whatWeOffer": {
         "items": [
-          { "title": "B2B Vendor Portals", "description": "Centralize bidding, documents, and communication with your suppliers." },
-          { "title": "Client Dashboards", "description": "Show your customers their data, progress, and accounts in real-time." },
-          { "title": "Internal Ops Tools", "description": "Custom software to automate and track your most complex workflows." },
-          { "title": "API Data Bridges", "description": "Connecting your different software systems to share data automatically." }
+          {
+            "title": "B2B Vendor Portals",
+            "description": "Centralize bidding, documents, and communication with your suppliers."
+          },
+          {
+            "title": "Client Dashboards",
+            "description": "Show your customers their data, progress, and accounts in real-time."
+          },
+          {
+            "title": "Internal Ops Tools",
+            "description": "Custom software to automate and track your most complex workflows."
+          },
+          {
+            "title": "API Data Bridges",
+            "description": "Connecting your different software systems to share data automatically."
+          }
         ]
       },
       "platformPower": {
@@ -192,17 +344,42 @@
       }
     },
     "faqs": [
-      { "question": "What types of platforms do you build?", "answer": "We build vendor portals, client dashboards, internal operations tools, bidding platforms, and custom software solutions tailored to your specific business processes." },
-      { "question": "Can you integrate with our existing systems?", "answer": "Yes, we specialize in API integrations with ERP systems like SAP, Oracle, Microsoft Dynamics, and custom databases to ensure seamless data flow." },
-      { "question": "How long does custom platform development take?", "answer": "Depending on complexity, most platforms take 3-6 months from discovery to deployment. We use agile methodology for faster iterations and feedback." },
-      { "question": "Do you provide training for our team?", "answer": "Absolutely. We provide comprehensive training, documentation, and ongoing support to ensure your team can use the platform effectively." },
-      { "question": "Is the platform scalable as we grow?", "answer": "Yes, we build on cloud infrastructure that scales automatically with your business growth, handling increased users and data without performance issues." }
+      {
+        "question": "What types of platforms do you build?",
+        "answer": "We build vendor portals, client dashboards, internal operations tools, bidding platforms, and custom software solutions tailored to your specific business processes."
+      },
+      {
+        "question": "Can you integrate with our existing systems?",
+        "answer": "Yes, we specialize in API integrations with ERP systems like SAP, Oracle, Microsoft Dynamics, and custom databases to ensure seamless data flow."
+      },
+      {
+        "question": "How long does custom platform development take?",
+        "answer": "Depending on complexity, most platforms take 3-6 months from discovery to deployment. We use agile methodology for faster iterations and feedback."
+      },
+      {
+        "question": "Do you provide training for our team?",
+        "answer": "Absolutely. We provide comprehensive training, documentation, and ongoing support to ensure your team can use the platform effectively."
+      },
+      {
+        "question": "Is the platform scalable as we grow?",
+        "answer": "Yes, we build on cloud infrastructure that scales automatically with your business growth, handling increased users and data without performance issues."
+      }
     ]
   },
   "performance-media": {
     "title": "Performance Media & PPC",
     "metaDescription": "Data-led ads for B2B and B2C. We find the right buyers on Google, LinkedIn, and Meta to grow your revenue.",
     "heroDescription": "Ads only work if they reach the right people. We use advanced data targeting to find your customers on Google, LinkedIn, and social media. From B2B lead generation to B2C sales, we manage your ad spend to ensure maximum ROI and predictable growth.",
+    "metrics": {
+      "primary": {
+        "value": "400%",
+        "label": "Return on Ad Spend"
+      },
+      "secondary": {
+        "value": "-35%",
+        "label": "Cost Per Acquisition"
+      }
+    },
     "sections": {
       "overview": {
         "title": "Smart Ad Engineering",
@@ -210,10 +387,22 @@
       },
       "whatWeOffer": {
         "items": [
-          { "title": "Google Search Ads", "description": "Showing your brand when customers are searching for what you sell." },
-          { "title": "LinkedIn ABM", "description": "Reaching specific companies and decision-makers in the B2B space." },
-          { "title": "Meta Performance", "description": "Targeted B2C ads designed for high conversion and low cost-per-acquisition." },
-          { "title": "Smart Retargeting", "description": "Staying in front of people who have already interacted with your brand." }
+          {
+            "title": "Google Search Ads",
+            "description": "Showing your brand when customers are searching for what you sell."
+          },
+          {
+            "title": "LinkedIn ABM",
+            "description": "Reaching specific companies and decision-makers in the B2B space."
+          },
+          {
+            "title": "Meta Performance",
+            "description": "Targeted B2C ads designed for high conversion and low cost-per-acquisition."
+          },
+          {
+            "title": "Smart Retargeting",
+            "description": "Staying in front of people who have already interacted with your brand."
+          }
         ]
       },
       "adsAudit": {
@@ -226,17 +415,42 @@
       }
     },
     "faqs": [
-      { "question": "What's the minimum ad budget you recommend?", "answer": "For B2B campaigns, we recommend starting with $3,000-5,000/month. For B2C, $2,000-3,000/month allows for meaningful testing and optimization." },
-      { "question": "How do you measure campaign success?", "answer": "We track ROI, cost per acquisition (CPA), conversion rates, and revenue attribution. You'll have access to real-time dashboards showing exactly how your ad spend performs." },
-      { "question": "Do you handle both Google and LinkedIn ads?", "answer": "Yes, we manage Google Search, Display, LinkedIn ABM campaigns, Meta ads, and other platforms based on where your target audience is most active." },
-      { "question": "Can you target specific companies in B2B?", "answer": "Absolutely. We use LinkedIn's Account-Based Marketing (ABM) features to target specific companies, job titles, and decision-makers in your industry." },
-      { "question": "How long before we see results?", "answer": "Most campaigns show initial data within 2-4 weeks. Meaningful optimization and ROI improvement typically occur within 2-3 months of continuous testing." }
+      {
+        "question": "What's the minimum ad budget you recommend?",
+        "answer": "For B2B campaigns, we recommend starting with $3,000-5,000/month. For B2C, $2,000-3,000/month allows for meaningful testing and optimization."
+      },
+      {
+        "question": "How do you measure campaign success?",
+        "answer": "We track ROI, cost per acquisition (CPA), conversion rates, and revenue attribution. You'll have access to real-time dashboards showing exactly how your ad spend performs."
+      },
+      {
+        "question": "Do you handle both Google and LinkedIn ads?",
+        "answer": "Yes, we manage Google Search, Display, LinkedIn ABM campaigns, Meta ads, and other platforms based on where your target audience is most active."
+      },
+      {
+        "question": "Can you target specific companies in B2B?",
+        "answer": "Absolutely. We use LinkedIn's Account-Based Marketing (ABM) features to target specific companies, job titles, and decision-makers in your industry."
+      },
+      {
+        "question": "How long before we see results?",
+        "answer": "Most campaigns show initial data within 2-4 weeks. Meaningful optimization and ROI improvement typically occur within 2-3 months of continuous testing."
+      }
     ]
   },
   "branding-strategy": {
     "title": "Corporate Strategy & Branding",
     "metaDescription": "Professional branding for B2B and B2C leaders. We help you look like the market leader you are.",
     "heroDescription": "A strong brand builds instant trust. We help B2B and B2C companies professionalize their identity and message to stand out as market leaders. From complete visual systems to strategic positioning, we make sure your brand matches your quality.",
+    "metrics": {
+      "primary": {
+        "value": "2x",
+        "label": "Customer Retention"
+      },
+      "secondary": {
+        "value": "100%",
+        "label": "Brand Consistency"
+      }
+    },
     "sections": {
       "overview": {
         "title": "Engineering Visual Authority",
@@ -244,10 +458,22 @@
       },
       "whatWeOffer": {
         "items": [
-          { "title": "Strategic Positioning", "description": "Finding your 'Unfair Advantage' and market-leading narrative." },
-          { "title": "Visual Identity Systems", "description": "Logos, colors, and typography that command respect and trust." },
-          { "title": "Market-Specific Messaging", "description": "Technical and consumer copywriting that speaks to your specific audience." },
-          { "title": "Brand Governance", "description": "Clear guidelines to keep your brand looking perfect across all platforms." }
+          {
+            "title": "Strategic Positioning",
+            "description": "Finding your 'Unfair Advantage' and market-leading narrative."
+          },
+          {
+            "title": "Visual Identity Systems",
+            "description": "Logos, colors, and typography that command respect and trust."
+          },
+          {
+            "title": "Market-Specific Messaging",
+            "description": "Technical and consumer copywriting that speaks to your specific audience."
+          },
+          {
+            "title": "Brand Governance",
+            "description": "Clear guidelines to keep your brand looking perfect across all platforms."
+          }
         ]
       },
       "brandGrowth": {
@@ -269,11 +495,26 @@
       }
     },
     "faqs": [
-      { "question": "Do we need a full rebrand or just a refresh?", "answer": "We start with a brand audit to assess your current identity. Sometimes a refresh is enough; other times a complete rebrand is needed to match your market position." },
-      { "question": "How long does the branding process take?", "answer": "A complete brand identity project typically takes 6-10 weeks, including discovery, strategy, design iterations, and final delivery of all brand assets." },
-      { "question": "What deliverables do we receive?", "answer": "You'll receive logo files, color palettes, typography guidelines, brand messaging framework, visual identity system, and comprehensive brand guidelines." },
-      { "question": "Can you help with Arabic branding for the Gulf market?", "answer": "Yes, we specialize in bilingual branding for the Gulf region, ensuring your brand works seamlessly in both English and Arabic across all touchpoints." },
-      { "question": "Do you handle both B2B and B2C branding?", "answer": "Absolutely. B2B branding focuses on authority and trust, while B2C emphasizes emotional connection and consumer appeal. We tailor our approach to your market." }
+      {
+        "question": "Do we need a full rebrand or just a refresh?",
+        "answer": "We start with a brand audit to assess your current identity. Sometimes a refresh is enough; other times a complete rebrand is needed to match your market position."
+      },
+      {
+        "question": "How long does the branding process take?",
+        "answer": "A complete brand identity project typically takes 6-10 weeks, including discovery, strategy, design iterations, and final delivery of all brand assets."
+      },
+      {
+        "question": "What deliverables do we receive?",
+        "answer": "You'll receive logo files, color palettes, typography guidelines, brand messaging framework, visual identity system, and comprehensive brand guidelines."
+      },
+      {
+        "question": "Can you help with Arabic branding for the Gulf market?",
+        "answer": "Yes, we specialize in bilingual branding for the Gulf region, ensuring your brand works seamlessly in both English and Arabic across all touchpoints."
+      },
+      {
+        "question": "Do you handle both B2B and B2C branding?",
+        "answer": "Absolutely. B2B branding focuses on authority and trust, while B2C emphasizes emotional connection and consumer appeal. We tailor our approach to your market."
+      }
     ]
   }
 }
