@@ -8,6 +8,12 @@
             "luxury-driven",
             "rapidly-evolving"
         ],
+        "landmarks": [
+            "Burj Khalifa",
+            "Museum of the Future",
+            "Dubai Mall",
+            "The Palm"
+        ],
         "economicZones": [
             {
                 "name": "DIFC",
@@ -70,6 +76,12 @@
             "government-backed",
             "transformative"
         ],
+        "landmarks": [
+            "Kingdom Centre",
+            "Al Faisaliah Tower",
+            "Boulevard Riyadh City",
+            "King Abdullah Financial District"
+        ],
         "economicZones": [
             {
                 "name": "KAFD",
@@ -126,6 +138,12 @@
             "infrastructure-heavy",
             "stable"
         ],
+        "landmarks": [
+            "The Corniche",
+            "Souq Waqif",
+            "Pearl Qatar",
+            "Katara Cultural Village"
+        ],
         "economicZones": [
             {
                 "name": "Qatar Financial Centre (QFC)",
@@ -172,6 +190,12 @@
             "tourism-focused",
             "historic"
         ],
+        "landmarks": [
+            "Red Sea Mall",
+            "Al-Balad",
+            "King Fahd Fountain",
+            "Jeddah Corniche"
+        ],
         "economicZones": [
             {
                 "name": "Jeddah Islamic Port",
@@ -217,6 +241,11 @@
             "energy-centric",
             "efficient",
             "technical"
+        ],
+        "landmarks": [
+            "King Abdulaziz Center for World Culture",
+            "Half Moon Bay",
+            "Dammam Corniche"
         ],
         "economicZones": [
             {
@@ -401,6 +430,12 @@
             "stable",
             "capital-driven",
             "strategic"
+        ],
+        "landmarks": [
+            "Sheikh Zayed Grand Mosque",
+            "Emirates Palace",
+            "Louvre Abu Dhabi",
+            "Yas Marina Circuit"
         ],
         "economicZones": [
             {
@@ -588,6 +623,11 @@
         "adjectives": [
             "dynamic",
             "connected"
+        ],
+        "landmarks": [
+            "Central Business District",
+            "City Center",
+            "Tech Hub"
         ],
         "economicZones": [],
         "districts": [

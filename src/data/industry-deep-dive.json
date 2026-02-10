@@ -8,6 +8,13 @@
             "Property Management"
         ],
         "formQuestion": "Which property type are you targeting?",
+        "painPoints": {
+            "default": "Standing out in a saturated market.",
+            "dubai": "Navigating intense off-plan competition and RERA ad compliance.",
+            "riyadh": "Adapting to rapid MOMRAH zoning changes and Vision 2030 localization.",
+            "doha": "Reaching high-net-worth investors in Lusail and The Pearl.",
+            "london": "Competing for prime central property listings against established giants."
+        },
         "techStack": [
             "Salesforce",
             "Property Finder",
@@ -88,6 +95,12 @@
             "Medical Tourism"
         ],
         "formQuestion": "What is your primary patient acquisition channel?",
+        "painPoints": {
+            "default": "Building patient trust in a digital-first world.",
+            "dubai": "Competing with medical tourism giants and DHA ad strictness.",
+            "riyadh": "Meeting MOH strict licensing and localization requirements for digital ads.",
+            "chicago": "Navigating HIPAA compliance while driving aggressive patient acquisition."
+        },
         "techStack": [
             "Epic",
             "Cerner",
@@ -166,6 +179,12 @@
             "Oilfield Services"
         ],
         "formQuestion": "Do you require pre-qualification support?",
+        "painPoints": {
+            "default": "Translating technical capability into digital authority.",
+            "dubai": "Positioning for competitive government tenders and sustainable energy projects.",
+            "riyadh": "Achieving and showcasing strict IKTVA (In-Kingdom Total Value Add) scores.",
+            "dammam": "Demonstrating heavy industrial capacity and safety records to Aramco."
+        },
         "techStack": [
             "SAP",
             "Oracle",
@@ -245,6 +264,12 @@
             "Insurance"
         ],
         "formQuestion": "Are you currently regulated by the Central Bank?",
+        "painPoints": {
+            "default": "Acquiring customers with low CAC in a trust-based sector.",
+            "dubai": "Differentiating in the DIFC/fintech sandbox against global players.",
+            "riyadh": "Compliance with SAMA's evolving open banking and data sovereignty rules.",
+            "manama": "Leveraging Bahrain's fintech bay benefits to scale regionally."
+        },
         "techStack": [
             "Temenos",
             "Mambu",
@@ -309,6 +334,11 @@
             "Consulting"
         ],
         "formQuestion": "What is your primary growth bottleneck?",
+        "painPoints": {
+            "default": "Scaling operations while maintaining quality.",
+            "dubai": "High operational costs and fierce competition.",
+            "riyadh": "Rapid Saudization requirements and market shifts."
+        },
         "techStack": [
             "CRM",
             "ERP",

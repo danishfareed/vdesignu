@@ -82,6 +82,17 @@ const randomAdjective = cityData.adjectives
   ? cityData.adjectives[Math.floor(Math.random() * cityData.adjectives.length)]
   : "leading";
 
+// Randomize "Landmark" for local authenticity
+const randomLandmark = cityData.landmarks
+  ? cityData.landmarks[Math.floor(Math.random() * cityData.landmarks.length)]
+  : "the ${city.name} business district";
+
+// Select "Pain Point" based on city override or default
+const painPoint =
+  industryData.painPoints?.[city.slug] ||
+  industryData.painPoints?.default ||
+  "Scaling operations while maintaining quality.";
+
 // JSON-LD Schema
 const jsonLd = [
   {
@@ -200,7 +211,9 @@ const jsonLd = [
           >
             Engineered for the <strong>{randomAdjective}</strong>
             {city.name} market. We help {industryData.personas[0]}s dominate
-            localized search in zones like
+            localized search near <span
+              class="text-[var(--accent-red)] font-bold">{randomLandmark}</span
+            > and zones like
             <span class="text-[var(--accent-red)]">
               {cityData.economicZones[0]?.name || "Downtown"}</span
             >.
@@ -319,7 +332,7 @@ const jsonLd = [
           Doing business in {city.name} is not like doing business elsewhere. With
           {cityData.marketStats.mobileUsage} mobile usage and a {
             cityData.adjectives[0]
-          } economy,
+          } economy near {randomLandmark},
           {industry.name} companies must adapt to specific local nuances.
         </p>
 
@@ -370,7 +383,9 @@ const jsonLd = [
           </h2>
           <p class="text-lg text-[var(--text-secondary)] mb-10">
             We don't just "make websites". We build {industry.name} growth engines
-            that integrate with:
+            that solve your core challenge: <strong
+              class="text-[var(--text-primary)] italic">"{painPoint}"</strong
+            >. Our systems integrate with:
           </p>
           <div class="flex flex-wrap gap-4 mb-16">
             {
