@@ -30,10 +30,13 @@ const {
 
     <!-- Google Analytics (GA4) -->
     <script
-      async
+      type="text/partytown"
       src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.analytics.ga4Id}`}
     ></script>
-    <script is:inline define:vars={{ gaId: siteConfig.analytics.ga4Id }}>
+    <script
+      type="text/partytown"
+      define:vars={{ gaId: siteConfig.analytics.ga4Id }}
+    >
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
@@ -95,6 +98,53 @@ const {
       as="font"
       type="font/woff2"
       crossorigin
+    />
+
+    <!-- JSON-LD Schema -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: siteConfig.name,
+        url: "https://vdesignu.com",
+        logo: "https://vdesignu.com/logo.png",
+        sameAs: [
+          "https://linkedin.com/company/vdesignu",
+          "https://twitter.com/vdesignu",
+        ],
+        knowsAbout: [
+          "Technical SEO",
+          "Astro Web Development",
+          "Programmatic SEO",
+          "Digital Transformation",
+          "GCC Market Growth",
+        ],
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: "+971-54-717-0855",
+          contactType: "customer service",
+          areaServed: ["AE", "SA", "US", "AU", "QA", "KW", "OM"],
+          availableLanguage: ["en", "ar"],
+        },
+      })}
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical || siteConfig.baseUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, siteConfig.baseUrl)} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonical || siteConfig.baseUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta
+      property="twitter:image"
+      content={new URL(image, siteConfig.baseUrl)}
     />
 
     <title>{title} | {siteConfig.name}</title>

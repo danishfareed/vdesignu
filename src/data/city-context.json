@@ -1,0 +1,603 @@
+{
+    "dubai": {
+        "name": "Dubai",
+        "country": "UAE",
+        "adjectives": [
+            "hyper-competitive",
+            "tech-forward",
+            "luxury-driven",
+            "rapidly-evolving"
+        ],
+        "economicZones": [
+            {
+                "name": "DIFC",
+                "focus": "Finance & Fintech",
+                "benefits": "Common law framework, 100% ownership"
+            },
+            {
+                "name": "DMCC",
+                "focus": "Commodities & Crypto",
+                "benefits": "Global trade gateway, crypto license availability"
+            },
+            {
+                "name": "Dubai Internet City",
+                "focus": "Tech & SaaS",
+                "benefits": "Regional HQ for Google, Microsoft, Oracle"
+            },
+            {
+                "name": "Jebel Ali Free Zone (JAFZA)",
+                "focus": "Logistics & Manufacturing",
+                "benefits": "Largest port in the Middle East"
+            }
+        ],
+        "districts": [
+            "Downtown Dubai",
+            "Business Bay",
+            "Dubai Marina",
+            "Palm Jumeirah",
+            "Al Quoz Creative Zone"
+        ],
+        "regulations": [
+            {
+                "agency": "DED",
+                "name": "Department of Economy and Tourism",
+                "impact": "Regulates all mainland business activities and consumer protection."
+            },
+            {
+                "agency": "RERA",
+                "name": "Real Estate Regulatory Agency",
+                "impact": "Strict guidelines on property advertising and developer marketing."
+            },
+            {
+                "agency": "DHA",
+                "name": "Dubai Health Authority",
+                "impact": "Requires stringent approval for all medical advertising and digital content."
+            }
+        ],
+        "marketStats": {
+            "internetPenetration": "99%",
+            "mobileUsage": "Highest in the region",
+            "searchBehavior": "High intent for 'luxury', 'fastest', and 'premium' services."
+        },
+        "culturalNuances": "Business in Dubai moves fast. Decision makers expect sub-second digital responses and high-end visual presentation. Trust is built through 'Authority' and 'Social Proof' rather than just price."
+    },
+    "riyadh": {
+        "name": "Riyadh",
+        "country": "KSA",
+        "adjectives": [
+            "vision-driven",
+            "massive-scale",
+            "government-backed",
+            "transformative"
+        ],
+        "economicZones": [
+            {
+                "name": "KAFD",
+                "focus": "Finance & Business",
+                "benefits": "The new financial heart of the Kingdom"
+            },
+            {
+                "name": "Riyadh Techno Valley",
+                "focus": "R&D and Innovation",
+                "benefits": "University-backed research initiatives"
+            },
+            {
+                "name": "Special Integrated Logistics Zone",
+                "focus": "Logistics",
+                "benefits": "Tax holidays and expedited customs"
+            }
+        ],
+        "districts": [
+            "Olaya",
+            "Malqa",
+            "Diplomatic Quarter",
+            "Al Nakheel"
+        ],
+        "regulations": [
+            {
+                "agency": "MISA",
+                "name": "Ministry of Investment",
+                "impact": "Governs foreign investment licenses (SAGIA) and regional HQ requirements."
+            },
+            {
+                "agency": "ZATCA",
+                "name": "Zakat, Tax and Customs Authority",
+                "impact": "Mandatory e-invoicing integration for all B2B transactions."
+            },
+            {
+                "agency": "SDAIA",
+                "name": "Saudi Data & AI Authority",
+                "impact": "Strict data sovereignty laws requiring local server hosting."
+            }
+        ],
+        "marketStats": {
+            "internetPenetration": "98%",
+            "mobileUsage": "Mobile-first economy",
+            "searchBehavior": "Strong preference for Arabic content and 'Government-Authorized' trust signals."
+        },
+        "culturalNuances": "Relationships and face-to-face trust are paramount, but digital is the new doorway. Content must align with Vision 2030 goals and show respect for local values while demonstrating global capability."
+    },
+    "doha": {
+        "name": "Doha",
+        "country": "Qatar",
+        "adjectives": [
+            "wealth-focused",
+            "sports-centric",
+            "infrastructure-heavy",
+            "stable"
+        ],
+        "economicZones": [
+            {
+                "name": "Qatar Financial Centre (QFC)",
+                "focus": "Business & Finance",
+                "benefits": "Legal environment based on English Common Law"
+            },
+            {
+                "name": "Qatar Science & Technology Park",
+                "focus": "Tech & R&D",
+                "benefits": "Free zone status for technology companies"
+            }
+        ],
+        "districts": [
+            "West Bay",
+            "The Pearl-Qatar",
+            "Lusail City",
+            "Msheireb Downtown"
+        ],
+        "regulations": [
+            {
+                "agency": "MOT",
+                "name": "Ministry of Transport",
+                "impact": "Heavy regulation on logistics and transport sector digitization."
+            },
+            {
+                "agency": "MOPH",
+                "name": "Ministry of Public Health",
+                "impact": "Controls all healthcare marketing and patient data privacy."
+            }
+        ],
+        "marketStats": {
+            "internetPenetration": "99.6%",
+            "mobileUsage": "Extremely high",
+            "searchBehavior": "High value placed on 'Premium' and 'Exclusive' service indicators."
+        },
+        "culturalNuances": "Qatar's market is small but incredibly wealthy. Personalization and privacy are key. Generic marketing fails; exclusive, tailored messaging wins."
+    },
+    "jeddah": {
+        "name": "Jeddah",
+        "country": "KSA",
+        "adjectives": [
+            "commercial",
+            "trend-setting",
+            "tourism-focused",
+            "historic"
+        ],
+        "economicZones": [
+            {
+                "name": "Jeddah Islamic Port",
+                "focus": "Logistics & Trade",
+                "benefits": "Red Sea gateway handling 75% of KSA's imports."
+            },
+            {
+                "name": "KAEC",
+                "focus": "Industrial & Tech",
+                "benefits": "King Abdullah Economic City's modern infrastructure."
+            }
+        ],
+        "districts": [
+            "Al Hamra",
+            "Al Shatie",
+            "Obhur",
+            "Al Tahlia"
+        ],
+        "regulations": [
+            {
+                "agency": "GEA",
+                "name": "General Entertainment Authority",
+                "impact": "Regulates the booming events and tourism sector content."
+            },
+            {
+                "agency": "Saudi Customs",
+                "name": "ZATCA (Customs)",
+                "impact": "Strict import/export digital documentation requirements."
+            }
+        ],
+        "marketStats": {
+            "internetPenetration": "97%",
+            "mobileUsage": "High social commerce",
+            "searchBehavior": "High volume for 'Tourism', 'Events', and 'Logistics' services."
+        },
+        "culturalNuances": "Jeddah is the gateway to Mecca and a tourism hub. Content should balance modern commercial appeal with respect for its role as a pilgrimage transit point."
+    },
+    "dammam": {
+        "name": "Dammam",
+        "country": "KSA",
+        "adjectives": [
+            "industrial",
+            "energy-centric",
+            "efficient",
+            "technical"
+        ],
+        "economicZones": [
+            {
+                "name": "King Salman Energy Park (SPARK)",
+                "focus": "Energy & Industrial",
+                "benefits": "Global center for energy supply chain."
+            },
+            {
+                "name": "Dammam 2nd Industrial City",
+                "focus": "Manufacturing",
+                "benefits": "Heavy industry infrastructure."
+            }
+        ],
+        "districts": [
+            "Al Faisaliyah",
+            "Al Rakah",
+            "Al Shatea"
+        ],
+        "regulations": [
+            {
+                "agency": "Ministry of Energy",
+                "name": "MOE",
+                "impact": "Strict qualification criteria for energy sector suppliers."
+            },
+            {
+                "agency": "Aramco Content",
+                "name": "iktva",
+                "impact": "In-Kingdom Total Value Add program requirements."
+            }
+        ],
+        "marketStats": {
+            "internetPenetration": "96%",
+            "mobileUsage": "B2B focused",
+            "searchBehavior": "Technical, specification-driven queries prevail over generic marketing terms."
+        },
+        "culturalNuances": "This is the industrial heartbeat. Flowery marketing doesn't work. Technical precision, safety records, and 'Approved Vendor' status are the currencies of trust."
+    },
+    "mecca": {
+        "name": "Mecca",
+        "country": "KSA",
+        "adjectives": [
+            "sacred",
+            "service-oriented",
+            "pilgrimage-focused",
+            "historic"
+        ],
+        "economicZones": [
+            {
+                "name": "Holy Sites Service Zone",
+                "focus": "Hajj & Umrah Services",
+                "benefits": "Specialized permits for pilgrimage operations."
+            }
+        ],
+        "districts": [
+            "Al Aziziyah",
+            "Jabal Omar",
+            "Misfalah"
+        ],
+        "regulations": [
+            {
+                "agency": "MOHU",
+                "name": "Ministry of Hajj and Umrah",
+                "impact": "Strictly controls all service providers interacting with pilgrims."
+            }
+        ],
+        "marketStats": {
+            "internetPenetration": "High (Seasonal spikes)",
+            "mobileUsage": "Critical for on-ground services",
+            "searchBehavior": "Hyper-local search for 'near me' services during Hajj season."
+        },
+        "culturalNuances": "Extreme sensitivity required. Commercial messaging must be respectful, service-oriented, and strictly compliant with religious guidelines."
+    },
+    "chicago": {
+        "name": "Chicago",
+        "country": "USA",
+        "adjectives": [
+            "resilient",
+            "diverse",
+            "industrial-hub",
+            "innovation-focused"
+        ],
+        "economicZones": [
+            {
+                "name": "The Loop",
+                "focus": "Global Finance & Legal",
+                "benefits": "World's second largest central business district."
+            },
+            {
+                "name": "Fulton Market",
+                "focus": "Tech & Creative",
+                "benefits": "Home to Google Chicago and vibrant startup scene."
+            },
+            {
+                "name": "Illinois Medical District",
+                "focus": "Bio-health & Life Sciences",
+                "benefits": "Largest urban medical district in the United States."
+            }
+        ],
+        "districts": [
+            "Wicker Park",
+            "Lincoln Park",
+            "River North",
+            "Hyde Park",
+            "Logan Square"
+        ],
+        "regulations": [
+            {
+                "agency": "FTC",
+                "name": "Federal Trade Commission",
+                "impact": "Strict guidelines on digital advertising and consumer privacy (COPPA/CAN-SPAM)."
+            },
+            {
+                "agency": "IDFPR",
+                "name": "Illinois Dept of Financial & Professional Regulation",
+                "impact": "Governs licensing and marketing for professional services in IL."
+            }
+        ],
+        "marketStats": {
+            "internetPenetration": "94%",
+            "mobileUsage": "High",
+            "searchBehavior": "Heavy emphasis on 'Local Near Me', 'Reviews', and 'Transparent Pricing'."
+        },
+        "culturalNuances": "Chicago business is built on 'Midwestern values' mixed with global ambition. Efficiency, directness, and measurable ROI are expected. Trust is earned through case studies and proven US-market experience."
+    },
+    "melbourne": {
+        "name": "Melbourne",
+        "country": "Australia",
+        "adjectives": [
+            "livable",
+            "creative",
+            "education-rich",
+            "sophisticated"
+        ],
+        "economicZones": [
+            {
+                "name": "Melbourne CBD",
+                "focus": "Finance & Corporate",
+                "benefits": "Australia's tech and financial capital."
+            },
+            {
+                "name": "Docklands",
+                "focus": "Digital & Logistics",
+                "benefits": "Modern waterfront business precinct."
+            },
+            {
+                "name": "Monash Technology Precinct",
+                "focus": "STEM & Innovation",
+                "benefits": "Victoria's largest employment hub outside the CBD."
+            }
+        ],
+        "districts": [
+            "Southbank",
+            "Richmond",
+            "Fitzroy",
+            "St Kilda",
+            "Footscray"
+        ],
+        "regulations": [
+            {
+                "agency": "ACCC",
+                "name": "Australian Competition & Consumer Commission",
+                "impact": "Rigid enforcement of Australian Consumer Law in digital marketing."
+            },
+            {
+                "agency": "ACMA",
+                "name": "Australian Communications and Media Authority",
+                "impact": "Regulates telecommunications, broadcasting, and online content."
+            }
+        ],
+        "marketStats": {
+            "internetPenetration": "96%",
+            "mobileUsage": "Extremely High",
+            "searchBehavior": "Strong focus on 'Ethics', 'Sustainability', and 'Brand Narrative'."
+        },
+        "culturalNuances": "Melbourne values a balance of high-end technical capability and creative storytelling. There's a strong preference for agencies that understand the 'Aussie' tone—collaborative, down-to-earth, but intensely professional."
+    },
+    "abu-dhabi": {
+        "name": "Abu Dhabi",
+        "country": "UAE",
+        "adjectives": [
+            "stately",
+            "stable",
+            "capital-driven",
+            "strategic"
+        ],
+        "economicZones": [
+            {
+                "name": "ADGM",
+                "focus": "Financial Services",
+                "benefits": "International Financial Centre with English Common Law."
+            },
+            {
+                "name": "Masdar City",
+                "focus": "Sustainability & Renewables",
+                "benefits": "World-class research and green tech hub."
+            },
+            {
+                "name": "KIZAD",
+                "focus": "Industrial & Logistics",
+                "benefits": "One of the world's largest industrial zones."
+            }
+        ],
+        "districts": [
+            "Saadiyat Island",
+            "Yas Island",
+            "Al Reem Island",
+            "Khalifa City"
+        ],
+        "regulations": [
+            {
+                "agency": "ADCCI",
+                "name": "Abu Dhabi Chamber of Commerce",
+                "impact": "Mandatory certificates for governmental tendering."
+            },
+            {
+                "agency": "TCA",
+                "name": "Tourism and Culture Authority",
+                "impact": "Strict guidelines on cultural heritage representation."
+            }
+        ],
+        "marketStats": {
+            "internetPenetration": "99%",
+            "mobileUsage": "Very High",
+            "searchBehavior": "Preference for 'Official', 'Certified', and 'Long-term' partnership signals."
+        },
+        "culturalNuances": "Abu Dhabi is more formal and conservative than Dubai. Trust is built through patience, formal documentation, and alignment with government strategic visions like 'Abu Dhabi 2030'."
+    },
+    "muscat": {
+        "name": "Muscat",
+        "country": "Oman",
+        "adjectives": [
+            "authentic",
+            "peaceful",
+            "maritime-focused",
+            "growing"
+        ],
+        "economicZones": [
+            {
+                "name": "Knowledge Oasis Muscat (KOM)",
+                "focus": "IT & Tech",
+                "benefits": "Oman's flagship technology park."
+            },
+            {
+                "name": "Sohar Freezone",
+                "focus": "Logistics & Manufacturing",
+                "benefits": "Strategic location outside the Strait of Hormuz."
+            }
+        ],
+        "districts": [
+            "Al Mouj",
+            "Qurum",
+            "Muttrah",
+            "Madinat Al Sultan Qaboos"
+        ],
+        "regulations": [
+            {
+                "agency": "TRA",
+                "name": "Telecommunications Regulatory Authority",
+                "impact": "Governance over all digital communication and VoIP services."
+            },
+            {
+                "agency": "MOCIIP",
+                "name": "Ministry of Commerce, Industry & Investment Promotion",
+                "impact": "Controls e-commerce licensing and foreign ownership laws."
+            }
+        ],
+        "marketStats": {
+            "internetPenetration": "92%",
+            "mobileUsage": "Mobile-first",
+            "searchBehavior": "Local search intent for 'Reliable' and 'Family-Owned' business proxies."
+        },
+        "culturalNuances": "Oman values heritage and hospitality. Digital content should be warm, respectful, and emphasize long-term community value rather than aggressive sales tactics."
+    },
+    "kuwait-city": {
+        "name": "Kuwait City",
+        "country": "Kuwait",
+        "adjectives": [
+            "tradition-rich",
+            "wealthy",
+            "entrepreneurial",
+            "political"
+        ],
+        "economicZones": [
+            {
+                "name": "Shuaiba Industrial Area",
+                "focus": "Petrochemicals",
+                "benefits": "Heart of Kuwait's industrial production."
+            },
+            {
+                "name": "Silk City (Proposed)",
+                "focus": "Innovation & Tourism",
+                "benefits": "Future economic driver for the North."
+            }
+        ],
+        "districts": [
+            "Salmiya",
+            "Sharq",
+            "Shuwaikh",
+            "Hawally"
+        ],
+        "regulations": [
+            {
+                "agency": "CITRA",
+                "name": "Communication and IT Regulatory Authority",
+                "impact": "Sets national standards for data privacy and cybersecurity."
+            },
+            {
+                "agency": "KDIPA",
+                "name": "Kuwait Direct Investment Promotion Authority",
+                "impact": "Facilitates foreign direct investment and business licensing."
+            }
+        ],
+        "marketStats": {
+            "internetPenetration": "99%",
+            "mobileUsage": "Extreme social media saturation",
+            "searchBehavior": "High reliance on 'Influencer' signals and 'Exclusive' club-style marketing."
+        },
+        "culturalNuances": "Kuwait has a vibrant, highly vocal digital audience. Content that sparks conversation and demonstrates 'Kuwaiti Context' performs significantly better than generic GCC exports."
+    },
+    "manama": {
+        "name": "Manama",
+        "country": "Bahrain",
+        "adjectives": [
+            "liberal",
+            "diversified",
+            "finance-hub",
+            "accessible"
+        ],
+        "economicZones": [
+            {
+                "name": "Bahrain Fintech Bay",
+                "focus": "Fintech & Blockchain",
+                "benefits": "Largest fintech hub in the Middle East."
+            },
+            {
+                "name": "Bahrain Logistics Zone",
+                "focus": "Logistics",
+                "benefits": "Fastest transit times in the region to KSA."
+            }
+        ],
+        "districts": [
+            "Juffair",
+            "Seef District",
+            "Amwaj Islands",
+            "Adliya"
+        ],
+        "regulations": [
+            {
+                "agency": "CBB",
+                "name": "Central Bank of Bahrain",
+                "impact": "Pioneering crypto-currency and open banking regulations."
+            },
+            {
+                "agency": "EDB",
+                "name": "Economic Development Board",
+                "impact": "Highly supportive environment for foreign digital startups."
+            }
+        ],
+        "marketStats": {
+            "internetPenetration": "99%",
+            "mobileUsage": "High",
+            "searchBehavior": "Search intent for 'Efficiency' and 'Saudi-Connect' logistics solutions."
+        },
+        "culturalNuances": "Bahrain is often seen as the gateway to Saudi Arabia. It is more open and agile. Digital strategies should emphasize speed, technical innovation, and cross-border capability."
+    },
+    "default": {
+        "name": "Global City",
+        "country": "International",
+        "adjectives": [
+            "dynamic",
+            "connected"
+        ],
+        "economicZones": [],
+        "districts": [
+            "City Center",
+            "Business District"
+        ],
+        "regulations": [],
+        "marketStats": {
+            "internetPenetration": "High"
+        },
+        "culturalNuances": "Standard international business practices apply."
+    }
+}

@@ -1,70 +1,144 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { industries } from "../config/site-config";
+import industryDeepDive from "../data/industry-deep-dive.json";
+
+const displayIndustries = industries.map((ind) => ({
+  ...ind,
+  detail: (industryDeepDive as any)[ind.slug] || industryDeepDive.default,
+}));
 ---
 
-<Layout title="Industries We Serve | vdesignu" description="Expert digital solutions for B2B and B2C sectors across the Gulf region. We help companies in tech, real estate, manufacturing, and more grow their revenue.">
+<Layout
+  title="Global Industry Expertise | vdesignu Strategic Systems"
+  description="Specialized digital transformation and growth engineering for B2B and B2C leaders. We deeply understand the operational challenges of logistics, healthcare, real estate, and finance."
+>
   <!-- Hero -->
-  <section class="pt-40 pb-16 bg-[var(--bg-primary)]">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h1 class="text-5xl md:text-8xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-8 leading-none">
-        Industries<br/><span class="text-red-600">We grow</span>.
+  <section
+    class="pt-40 pb-24 bg-[var(--bg-primary)] border-b border-[var(--border-subtle)]"
+  >
+    <div class="max-w-7xl mx-auto px-6">
+      <h1
+        class="text-6xl md:text-9xl font-black italic uppercase tracking-tighter leading-[0.8] mb-12"
+      >
+        Industries <br />
+        <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--text-primary)] to-[var(--text-muted)]"
+        >
+          We Engineering
+        </span>
       </h1>
-      <p class="text-2xl text-[var(--text-secondary)] max-w-3xl mx-auto leading-relaxed">
-        Deep expertise for B2B and B2C leaders. We don't just speak your language—we understand your customers, your sales cycle, and your growth triggers.
+      <p
+        class="text-2xl text-[var(--text-secondary)] max-w-3xl leading-relaxed font-medium"
+      >
+        We don't build generic websites. We build industry-specific growth
+        engines. Whether you are a developer in Dubai, a hospital in Riyadh, or
+        a logistics firm in Chicago, our systems are engineered for your
+        specific sales cycle.
       </p>
     </div>
   </section>
-  
-  <!-- All Industries -->
+
+  <!-- Content Block: The Enterprise Gap (Word Count) -->
   <section class="py-24 bg-[var(--bg-secondary)]">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {industries.map((industry, i) => (
-          <div class="bg-[var(--bg-card)] p-10 rounded-[2.5rem] border-2 border-[var(--border-subtle)] hover:border-red-500 transition-all group relative overflow-hidden">
-            <div class="absolute top-0 right-0 p-8 text-6xl font-black italic tracking-tighter text-red-600 opacity-5 group-hover:opacity-20 transition-opacity">
-              {String(i + 1).padStart(2, '0')}
-            </div>
-            
-            <h3 class="text-3xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-6 group-hover:text-red-600 transition-colors">
-              {industry.name}
-            </h3>
-            
-            <p class="text-lg text-[var(--text-secondary)] leading-relaxed mb-8 relative z-10">
-              Strategic digital systems built specifically for {industry.name.toLowerCase()} brands seeking to find more customers and grow revenue.
-            </p>
-
-            <div class="flex flex-col gap-4 mb-8 relative z-10">
-               <a href={`/dubai/${industry.slug}/website-development`} class="text-[10px] font-black uppercase tracking-widest text-[var(--accent-red)] hover:translate-x-2 transition-transform inline-flex items-center gap-2">
-                 Dubai Authority &xrarr;
-               </a>
-               <a href={`/riyadh/${industry.slug}/website-development`} class="text-[10px] font-black uppercase tracking-widest text-[var(--accent-yellow)] hover:translate-x-2 transition-transform inline-flex items-center gap-2">
-                 Riyadh Performance &xrarr;
-               </a>
-            </div>
-
-            {industry.keywords && (
-              <div class="flex flex-wrap gap-2 relative z-10">
-                {industry.keywords.map((kw: string) => (
-                  <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 bg-red-50 dark:bg-red-900/10 text-red-600 dark:text-red-400 rounded-full border border-red-100 dark:border-red-900/30">{kw}</span>
-                ))}
-              </div>
-            )}
-          </div>
-        ))}
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-4xl font-black italic uppercase tracking-tighter mb-8">
+        The "One Size" Failure
+      </h2>
+      <div
+        class="prose prose-xl dark:prose-invert text-[var(--text-secondary)]"
+      >
+        <p class="mb-8">
+          The biggest mistake agencies make is treating a Real Estate firm like
+          a Retail shop. In the B2B sector, trust is built on technical
+          authority and local compliance. Our "Industry Pillar" approach ensures
+          that your digital presence reflects the maturity of your physical
+          operations.
+        </p>
+        <p>
+          We bridge the gap between complex backend operations (ERP, CRM, LMS)
+          and the front-facing user experience, ensuring your tech stack is a
+          seamless extension of your business logic.
+        </p>
       </div>
     </div>
   </section>
-  
-  <!-- CTA -->
-  <section class="py-32 bg-[#0a0a0a] text-white text-center border-t border-[var(--border-subtle)]">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-      <h2 class="text-4xl md:text-7xl font-black italic uppercase tracking-tighter mb-8 leading-none">
-        Ready to <span class="text-[var(--accent-red)]">Grow</span> Your<br/> Business<span class="text-[var(--accent-yellow)]">?</span>
+
+  <!-- All Industries Hub -->
+  <section class="py-24 bg-[var(--bg-primary)]">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          displayIndustries.map((industry, i) => (
+            <div class="bg-[var(--bg-card)] p-12 rounded-[3rem] border-2 border-[var(--border-subtle)] hover:border-[var(--accent-red)] transition-all group relative overflow-hidden">
+              <div class="absolute top-0 right-0 p-8 text-7xl font-black italic tracking-tighter text-[var(--accent-red)] opacity-5 group-hover:opacity-10 transition-opacity">
+                {String(i + 1).padStart(2, "0")}
+              </div>
+
+              <h3 class="text-3xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-6 group-hover:text-[var(--accent-red)] transition-colors">
+                {industry.name}
+              </h3>
+
+              <p class="text-base text-[var(--text-secondary)] leading-relaxed mb-8 relative z-10">
+                Transforming {industry.name.toLowerCase()} operations with
+                high-conversion systems for{" "}
+                {industry.detail.subSectors.slice(0, 2).join(" and ")}.
+              </p>
+
+              <div class="flex flex-col gap-4 mb-10 relative z-10">
+                <a
+                  href={`/industries/${industry.slug}`}
+                  class="px-6 py-3 bg-[var(--text-primary)] text-[var(--bg-primary)] font-black italic uppercase tracking-tighter text-center rounded-xl hover:bg-[var(--accent-red)] hover:text-white transition-all"
+                >
+                  Global Pillar &xrarr;
+                </a>
+                <div class="flex gap-2 justify-center">
+                  <a
+                    href={`/dubai/${industry.slug}`}
+                    class="text-[10px] font-black uppercase tracking-widest text-[var(--text-muted)] hover:text-[var(--accent-red)]"
+                  >
+                    Dubai Hub
+                  </a>
+                  <span class="text-[var(--border-subtle)]">|</span>
+                  <a
+                    href={`/riyadh/${industry.slug}`}
+                    class="text-[10px] font-black uppercase tracking-widest text-[var(--text-muted)] hover:text-[var(--accent-red)]"
+                  >
+                    Riyadh Hub
+                  </a>
+                </div>
+              </div>
+
+              {industry.keywords && (
+                <div class="flex flex-wrap gap-2 relative z-10 pt-6 border-t border-[var(--border-subtle)]">
+                  {industry.keywords.slice(0, 3).map((kw: string) => (
+                    <span class="text-[9px] font-black uppercase tracking-[0.2em] px-3 py-1 bg-[var(--bg-secondary)] text-[var(--text-muted)] rounded-full border border-[var(--border-subtle)]">
+                      {kw}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Final Roadmap -->
+  <section class="py-24 bg-[var(--accent-red)] text-white text-center">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2
+        class="text-4xl md:text-8xl font-black italic uppercase tracking-tighter mb-8 leading-none"
+      >
+        Your Sector, <br />
+        <span class="text-[var(--accent-yellow)]">Decoded</span>.
       </h2>
-      <p class="text-2xl text-[var(--text-secondary)] mb-12">If you want to find more customers and close more deals, we have the plan for you.</p>
-      <a href="/contact" class="inline-flex items-center gap-4 px-12 py-6 bg-[var(--accent-red)] text-white font-black italic uppercase tracking-tighter text-2xl rounded-xl hover:bg-white hover:text-black transition-all shadow-xl">
-        Get Free Audit
+      <a
+        href="/contact"
+        class="inline-flex items-center gap-4 px-12 py-6 bg-white text-[var(--accent-red)] font-black italic uppercase tracking-tighter text-2xl rounded-xl hover:bg-black hover:text-white transition-all shadow-xl"
+      >
+        Request Industry Brief
       </a>
     </div>
   </section>

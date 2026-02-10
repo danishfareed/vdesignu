@@ -1,0 +1,176 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { services, industries, cities } from "../../config/site-config";
+import servicesContent from "../../data/services-content.json";
+
+export function getStaticPaths() {
+    return services.map((service) => ({
+        params: { service: service.slug },
+        props: { service },
+    }));
+}
+
+const { service } = Astro.params;
+const { service: serviceProp } = Astro.props;
+const content = servicesContent[service as keyof typeof servicesContent];
+
+const title = `Mastering ${serviceProp.name} | vdesignu Strategic Education`;
+const description = `The definitive guide to ${serviceProp.name.toLowerCase()} for enterprise and mid-market leaders. Insights, strategies, and ROI optimization.`;
+---
+
+<Layout title={title} description={description}>
+    <!-- Hero -->
+    <section
+        class="pt-40 pb-24 bg-[var(--bg-primary)] overflow-hidden relative"
+    >
+        <div class="absolute inset-0 bg-grid-white/[0.02] bg-[size:40px_40px]">
+        </div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <span
+                class="text-xs font-black uppercase tracking-[0.4em] text-[var(--accent-red)] mb-4 block"
+                >Service Pillar Page</span
+            >
+            <h1
+                class="text-6xl md:text-9xl font-black italic uppercase tracking-tighter leading-[0.8] mb-10"
+            >
+                Mastering <br />
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--text-primary)] to-[var(--text-muted)]"
+                >
+                    {serviceProp.name}
+                </span>
+            </h1>
+            <p
+                class="text-2xl text-[var(--text-secondary)] font-medium max-w-3xl leading-relaxed mb-12"
+            >
+                A comprehensive framework for scaling your digital presence.
+                Engineered for leaders who demand measurable outcomes from their {
+                    serviceProp.name.toLowerCase()
+                } investment.
+            </p>
+        </div>
+    </section>
+
+    <!-- Master Content (Word Count) -->
+    <section
+        class="py-24 bg-[var(--bg-secondary)] border-y border-[var(--border-subtle)]"
+    >
+        <div class="max-w-4xl mx-auto px-6">
+            <h2
+                class="text-4xl font-black italic uppercase tracking-tighter mb-8"
+            >
+                The <span class="text-[var(--accent-red)]">vdesignu</span> Approach
+            </h2>
+            <div
+                class="prose prose-xl dark:prose-invert text-[var(--text-secondary)]"
+            >
+                <p class="lead font-bold text-[var(--text-primary)]">
+                    Our {serviceProp.name.toLowerCase()} strategy is rooted in "ROI-First
+                    Engineering". We move beyond vanity metrics—likes, generic traffic,
+                    and "clean design"—to focus on the data that matters: conversions,
+                    pipeline velocity, and customer acquisition cost (CAC).
+                </p>
+
+                <h3
+                    class="text-2xl font-black uppercase italic mt-12 mb-6 text-[var(--text-primary)]"
+                >
+                    Phase 1: Intelligence & Discovery
+                </h3>
+                <p>
+                    Before a single line of code is written or a keyword is
+                    selected, we perform deep market and competitor analysis. We
+                    identify the "White Space" in your industry where
+                    high-intent customers are searching but your competitors are
+                    silent.
+                </p>
+
+                <h3
+                    class="text-2xl font-black uppercase italic mt-12 mb-6 text-[var(--text-primary)]"
+                >
+                    Phase 2: Technical Hardening
+                </h3>
+                <p>
+                    Performance is a ranking factor. Our systems are built on
+                    Astro and optimized for sub-second LCP (Largest Contentful
+                    Paint). This reduces bounce rates and ensures your {
+                        serviceProp.name.toLowerCase()
+                    } has the strongest possible foundation.
+                </p>
+
+                <h3
+                    class="text-2xl font-black uppercase italic mt-12 mb-6 text-[var(--text-primary)]"
+                >
+                    Phase 3: Intent-Matched Content
+                </h3>
+                <p>
+                    We don't publish filler. Every piece of content is
+                    engineered to answer a specific user intent—Commercial,
+                    Informational, or Transactional. This ensures we are
+                    capturing users at every stage of the funnel.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Reach (Mesh Linking) -->
+    <section class="py-24 bg-[var(--bg-primary)]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-20">
+                <div>
+                    <h3
+                        class="text-3xl font-black italic uppercase tracking-tighter mb-8"
+                    >
+                        Localized Hubs
+                    </h3>
+                    <p class="text-[var(--text-secondary)] mb-10">
+                        Access our city-specific {
+                            serviceProp.name.toLowerCase()
+                        } centers across the GCC and beyond.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        {
+                            cities.map((city) => (
+                                <a
+                                    href={`/${city.slug}/${serviceProp.slug}`}
+                                    class="p-5 bg-[var(--bg-secondary)] border border-[var(--border-subtle)] hover:border-[var(--accent-red)] rounded-xl text-left transition-all"
+                                >
+                                    <span class="block text-[10px] font-black uppercase tracking-widest text-[var(--accent-yellow)] mb-1">
+                                        {city.country}
+                                    </span>
+                                    <span class="text-sm font-black uppercase tracking-tight">
+                                        {city.name} Center
+                                    </span>
+                                </a>
+                            ))
+                        }
+                    </div>
+                </div>
+                <div>
+                    <h3
+                        class="text-3xl font-black italic uppercase tracking-tighter mb-8"
+                    >
+                        Industry Specializations
+                    </h3>
+                    <p class="text-[var(--text-secondary)] mb-10">
+                        See how we adapt {serviceProp.name.toLowerCase()} for your
+                        specific sector.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        {
+                            industries.slice(0, 10).map((industry) => (
+                                <a
+                                    href={`/dubai/${industry.slug}/${serviceProp.slug}`}
+                                    class="p-5 bg-[var(--bg-secondary)] border border-[var(--border-subtle)] hover:border-[var(--accent-red)] rounded-xl text-left transition-all"
+                                >
+                                    <span class="text-sm font-black uppercase tracking-tight">
+                                        {industry.name}
+                                    </span>
+                                </a>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>

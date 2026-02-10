@@ -1,0 +1,36 @@
+---
+interface Props {
+    industrySlug?: string;
+    industryName?: string;
+    serviceName?: string;
+    class?: string;
+}
+
+const {
+    industrySlug,
+    industryName = "Business",
+    serviceName = "",
+    class: className,
+} = Astro.props;
+
+const config: Record<string, string> = {
+    "real-estate": "Request Developer Growth Audit",
+    healthcare: "Get Patient Volume Forecast",
+    "oil-gas": "Download Compliance Brief",
+    finance: "Request ROI Modeling",
+    logistics: "Get Efficiency Audit",
+    default: `Get ${industryName} ${serviceName || "Strategy"}`,
+};
+
+const label = config[industrySlug || "default"] || config.default;
+---
+
+<a
+    href="/contact"
+    class:list={[
+        "px-10 py-5 bg-[var(--accent-red)] text-white font-black italic uppercase tracking-widest rounded-xl hover:bg-black transition-all shadow-xl hover:shadow-2xl active:scale-95 text-center",
+        className,
+    ]}
+>
+    {label} &xrarr;
+</a>

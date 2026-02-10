@@ -7,7 +7,7 @@ export const siteConfig = {
   name: "VDESIGNU",
   baseUrl: "https://vdesignu.com",
   analytics: {
-    ga4Id: "G-XXXXXXXXXX", // Placeholder for actual GA4 ID
+    ga4Id: "G-5DH8PQ7GYN",
   },
   sitemap: {
     changefreq: "weekly",

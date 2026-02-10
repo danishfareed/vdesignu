@@ -1,38 +1,55 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
+import ExpertPersona from "../../../components/ExpertPersona.astro";
+import DynamicCTA from "../../../components/DynamicCTA.astro";
+import ContextualLeadForm from "../../../components/ContextualLeadForm.astro";
 import { services, industries, cities } from "../../../config/site-config";
 import servicesContent from "../../../data/services-content.json";
-import industryContent from "../../../data/industry-content.json";
+
+// --- DEEP DATA MODULES ---
+import cityContext from "../../../data/city-context.json";
+import industryDeepDive from "../../../data/industry-deep-dive.json";
+import { getContextualFAQs } from "../../../data/faq-database";
 
 export function getStaticPaths() {
   const paths = [];
-  
+
   // Generating programmatic combinations for all cities, industries, and services
   for (const city of cities) {
     for (const industry of industries) {
       for (const service of services) {
         paths.push({
-          params: { 
-            city: city.slug, 
-            industry: industry.slug, 
-            service: service.slug 
+          params: {
+            city: city.slug,
+            industry: industry.slug,
+            service: service.slug,
           },
           props: { city, industry, service },
         });
       }
     }
   }
-  
+
   return paths;
 }
 
 const { city, industry, service } = Astro.props;
+
+// --- DATA RETRIEVAL LOGIC ---
+// 1. Get Service Content
 const content = servicesContent[service.slug as keyof typeof servicesContent];
-const industryData = industryContent.industries[industry.slug as keyof typeof industryContent.industries] || industryContent.industries.default;
 
-const canonicalURL = new URL(Astro.url.pathname, "https://vdesignu.com");
+// 2. Get Deep City Context (Fallback to default if not found)
+const cityData = (cityContext as any)[city.slug] || cityContext.default;
 
-// Localize content helper
+// 3. Get Deep Industry Context (Fallback to default)
+const industryData =
+  (industryDeepDive as any)[industry.slug] || industryDeepDive.default;
+
+// 4. Generate 45+ Unique, Context-Aware FAQs
+const faqs = getContextualFAQs(city.slug, industry.slug, service.slug, 45);
+
+// Helper for dynamic string replacement
 const localize = (text: string) => {
   if (!text) return "";
   return text
@@ -48,242 +65,764 @@ const localize = (text: string) => {
     .replace(/industrial/g, industry.name.toLowerCase());
 };
 
-// Combine FAQs: Global service FAQs + Industry-specific FAQs
-const industryFaqs = industryData.faqs || [];
-const allFaqs = [...industryFaqs];
+const canonicalURL = new URL(Astro.url.pathname, "https://vdesignu.com");
 
-// JSON-LD for AI SEO (GEO) & FAQ Schema
+// Randomize "Adjective" for Hero to avoid duplication
+const randomAdjective = cityData.adjectives
+  ? cityData.adjectives[Math.floor(Math.random() * cityData.adjectives.length)]
+  : "leading";
+
+// JSON-LD Schema
 const jsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": `${service.name} for ${industry.name} in ${city.name}`,
-    "description": `Leading ${service.name.toLowerCase()} solutions for the ${industry.name.toLowerCase()} sector in ${city.name}, ${city.country}.`,
-    "provider": {
+    name: `${service.name} for ${industry.name} in ${city.name}`,
+    description: `Professional ${service.name.toLowerCase()} for the ${industry.name} sector in ${city.name}, compliant with ${cityData.regulations[0]?.name || "local"} standards.`,
+    provider: {
       "@type": "LocalBusiness",
-      "name": "vdesignu",
-      "address": {
+      name: "vdesignu",
+      address: {
         "@type": "PostalAddress",
-        "addressLocality": city.name,
-        "addressCountry": city.country
-      }
+        addressLocality: city.name,
+        addressCountry: city.country,
+      },
     },
-    "areaServed": {
+    areaServed: {
       "@type": "City",
-      "name": city.name
-    }
+      name: city.name,
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: `${industry.name} Services`,
+      itemListElement: industryData.subSectors.map((sub: string) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: sub,
+        },
+      })),
+    },
   },
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": allFaqs.map(faq => ({
+    mainEntity: faqs.map((faq) => ({
       "@type": "Question",
-      "name": localize(faq.question),
-      "acceptedAnswer": {
+      name: localize(faq.question),
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": localize(faq.answer)
-      }
-    }))
-  }
+        text: localize(faq.answer),
+      },
+    })),
+  },
 ];
 ---
 
-<Layout 
-  title={`${service.name} for ${industry.name} Firms in ${city.name} | Reliable ${city.country} Agency`} 
-  description={`Looking for ${service.name.toLowerCase()} in ${city.name}? We help ${industry.name.toLowerCase()} companies grow with high-performance digital systems. Trusted by ${city.country} business leaders.`}
+<Layout
+  title={`${service.name} for ${industry.name} in ${city.name} | ${randomAdjective.charAt(0).toUpperCase() + randomAdjective.slice(1)} ${city.country} Growth`}
+  description={`Maximize your ${industry.name} ROI in ${city.name} with ${service.name.toLowerCase()}. We understand ${cityData.economicZones[0]?.name || "local markets"} and ${industryData.compliance.specific} compliance.`}
   canonical={canonicalURL.toString()}
 >
-  <!-- Schema.org for AI SEO (GEO) -->
+  <!-- Schema Injection -->
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
-  <!-- SEO Hero -->
-  <section class="pt-40 pb-24 bg-[var(--bg-primary)] overflow-hidden relative">
-    <div class="absolute inset-0 bg-[var(--accent-red)]/5 opacity-30"></div>
-    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-[var(--accent-yellow)]/5 rounded-full blur-[120px]"></div>
-    
-    <div class="max-w-7xl mx-auto px-6 relative z-10 text-center lg:text-left">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-xs font-black uppercase tracking-widest mb-8 border border-red-100 dark:border-red-900/30">
-        Local Leader: {city.name} &bull; {industry.name} Specialist
+  <!-- HERO SECTION: Context Aware -->
+  <section
+    class="min-h-[80vh] flex items-center relative bg-[var(--bg-primary)] overflow-hidden pt-20"
+  >
+    <div class="absolute inset-0 z-0">
+      <div
+        class="absolute top-0 right-0 w-[800px] h-[800px] bg-[var(--accent-red)]/5 rounded-full blur-[120px]"
+      >
       </div>
-      
-      <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] text-[var(--text-primary)] mb-10 translate-y-[-5%]">
-        {service.name}<br/>
-        For <span class="text-[var(--accent-red)]">{industry.name}</span><br/>
-        In <span class="relative">
-          {city.name}
-          <div class="absolute -bottom-2 left-0 w-full h-2 bg-[var(--accent-yellow)]/30 rounded-full blur-sm"></div>
-        </span>
-      </h1>
-      
-      <p class="text-xl md:text-2xl font-medium text-[var(--text-secondary)] max-w-4xl mb-12 leading-relaxed">
-        {localize(content?.heroDescription || `We help ${industry.name.toLowerCase()} firms in ${city.name} grow their business with expert ${service.name.toLowerCase()}.`)}
-      </p>
-      
-      <div class="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
-        <a href="/contact" class="px-10 py-5 bg-[var(--accent-red)] text-white font-black italic rounded-xl hover:bg-black transition-all shadow-xl uppercase tracking-tighter text-2xl active:scale-95">
-          Get Free Audit
-        </a>
-        <div class="flex items-center gap-4 text-[var(--text-muted)] font-bold uppercase tracking-widest text-xs px-6 py-4 bg-[var(--bg-secondary)] rounded-xl border border-[var(--border-subtle)]">
-           <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-           Active in {city.name}
-        </div>
+      <div
+        class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[var(--accent-yellow)]/5 rounded-full blur-[100px]"
+      >
       </div>
     </div>
-  </section>
 
-  <!-- Local Insight Section -->
-  <section class="py-24 bg-[var(--bg-secondary)] border-y border-[var(--border-subtle)]">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-4xl md:text-6xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-8 leading-[0.95]">
-        Solving <span class="text-[var(--accent-red)]">{industry.name}</span> Challenges In <span class="text-[var(--accent-yellow)]">{city.name}</span>.
-      </h2>
-      <div class="prose prose-xl dark:prose-invert text-[var(--text-secondary)]">
-        <p class="mb-8 font-medium">{localize((industryData as any).painPoints || content?.sections.overview.content || "")}</p>
-        
-        <p class="mb-8">
-           {localize((industryData as any).solution || `In ${city.name}, ${industry.name.toLowerCase()} companies face a unique set of digital hurdles. From managing multi-lingual procurement to staying ahead in a hyper-competitive ${city.country} market, traditional out-of-the-box software often fails to deliver the precision required for business excellence.`)} Our {service.name.toLowerCase()} are engineered specifically to bridge this gap. We combine international standards with an intimate understanding of how business is done in {city.name}, ensuring your technical infrastructure is an asset, not a bottleneck.
-        </p>
+    <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <div
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--bg-secondary)] border border-[var(--border-subtle)] mb-8 animate-fade-in-up"
+          >
+            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"
+            ></span>
+            <span
+              class="text-xs font-black uppercase tracking-widest text-[var(--text-muted)]"
+            >
+              Live in {cityData.districts[0]}, {city.name}
+            </span>
+          </div>
 
-        <div class="grid md:grid-cols-2 gap-8 not-prose mt-12">
-           <div class="p-8 rounded-3xl bg-[var(--bg-primary)] border-2 border-[var(--border-subtle)] group hover:border-[var(--accent-yellow)] transition-all">
-              <div class="text-[var(--accent-yellow)] font-black text-4xl mb-2">127%</div>
-              <div class="text-xs font-black uppercase tracking-widest text-[var(--text-primary)]">Average Pipeline Boost</div>
-              <p class="text-[10px] text-[var(--text-muted)] mt-2 uppercase tracking-tighter">Observed in {industry.name} sectors across {city.name}.</p>
-           </div>
-           <div class="p-8 rounded-3xl bg-[var(--bg-primary)] border-2 border-[var(--border-subtle)] group hover:border-[var(--accent-red)] transition-all">
-              <div class="text-[var(--accent-red)] font-black text-4xl mb-2">0.8s</div>
-              <div class="text-xs font-black uppercase tracking-widest text-[var(--text-primary)]">Site Response Latency</div>
-              <p class="text-[10px] text-[var(--text-muted)] mt-2 uppercase tracking-tighter">Optimized for {city.country} network infrastructure.</p>
-           </div>
-        </div>
+          <h1
+            class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] mb-8 animate-fade-in-up delay-100 pb-2"
+          >
+            {service.name}
+            <br />
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--text-primary)] to-[var(--text-muted)]"
+            >
+              For {industry.name}
+            </span>
+          </h1>
 
-        <p class="mt-12 text-lg">
-           By focusing on the specific intent of {city.name}-based buyers, we ensure your {service.name.toLowerCase()} is more than just a presence—it's a lead generation machine. Whether you're operating in {city.name}'s business zones or serving global clients from your {city.country} headquarters, our systems are built to give you a clear advantage.
-        </p>
-      </div>
-    </div>
-  </section>
+          <p
+            class="text-xl md:text-2xl text-[var(--text-secondary)] font-medium leading-relaxed mb-10 max-w-xl animate-fade-in-up delay-200"
+          >
+            Engineered for the <strong>{randomAdjective}</strong>
+            {city.name} market. We help {industryData.personas[0]}s dominate
+            localized search in zones like
+            <span class="text-[var(--accent-red)]">
+              {cityData.economicZones[0]?.name || "Downtown"}</span
+            >.
+          </p>
 
-  <!-- Strategic Capabilities -->
-  {content && (
-    <section class="py-24 bg-[var(--bg-primary)]">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16">
-           <h3 class="text-xs font-bold uppercase tracking-[0.4em] text-red-600 mb-4">Core Capabilities</h3>
-           <h2 class="text-4xl md:text-6xl font-black italic uppercase tracking-tighter text-[var(--text-primary)]">
-              Tailored For <span class="text-[var(--accent-yellow)]">{industry.name}</span>.
-           </h2>
-        </div>
-        
-        <div class="grid md:grid-cols-3 gap-8">
-           {content.sections.whatWeOffer.items.map((item: any) => (
-             <div class="bg-[var(--bg-card)] p-10 rounded-[2.5rem] border-2 border-[var(--border-subtle)] group hover:border-[var(--accent-red)] transition-all relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-6 text-6xl font-black italic tracking-tighter text-[var(--accent-red)] opacity-5 group-hover:opacity-10 transition-opacity">
-                  0{content.sections.whatWeOffer.items.indexOf(item) + 1}
-                </div>
-                <h4 class="text-2xl font-bold text-[var(--text-primary)] uppercase tracking-tight mb-4 group-hover:text-[var(--accent-red)] transition-colors leading-tight">
-                  {item.title}
-                </h4>
-                <p class="text-[var(--text-secondary)] leading-relaxed">
-                  {localize(item.description)}
-                </p>
-             </div>
-           ))}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- Strategic FAQs (Search Intent Optimized) -->
-  <section class="py-24 bg-[var(--bg-secondary)] overflow-hidden relative">
-    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--accent-yellow)]/5 rounded-full blur-[100px] -translate-y-1/2"></div>
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-        <div class="max-w-2xl">
-          <h3 class="text-xs font-bold uppercase tracking-[0.4em] text-red-600 mb-4">Strategic Intelligence</h3>
-          <h2 class="text-4xl md:text-6xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] leading-[0.9]">
-            Search Intent & <span class="text-[var(--accent-red)]">Growth Insights</span>.
-          </h2>
-        </div>
-        <div class="text-right">
-          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-green-500/10 border border-green-500/20 text-green-600 text-[10px] font-black uppercase tracking-widest">
-            <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
-            Updated for {city.name} {new Date().getFullYear()}
+          <div
+            class="flex flex-col sm:flex-row gap-6 animate-fade-in-up delay-300"
+          >
+            <DynamicCTA
+              industrySlug={industry.slug}
+              industryName={industry.name}
+              serviceName={service.name}
+            />
+            <a
+              href="#deep-dive"
+              class="px-10 py-5 bg-transparent border-2 border-[var(--border-subtle)] text-[var(--text-primary)] font-black italic uppercase tracking-widest rounded-xl hover:border-[var(--accent-red)] transition-all"
+            >
+              See Tech Stack
+            </a>
           </div>
         </div>
-      </div>
 
-      <div class="grid lg:grid-cols-2 gap-8">
-        {allFaqs.map((faq) => (
-          <div class="bg-[var(--bg-primary)] p-8 md:p-10 rounded-[2rem] border-2 border-[var(--border-subtle)] hover:border-[var(--accent-yellow)] transition-all group">
-            <div class="flex gap-6">
-              <div class="flex-shrink-0 w-10 h-10 rounded-full bg-[var(--accent-red)]/10 flex items-center justify-center text-[var(--accent-red)] font-black italic">
-                ?
+        <!-- Dynamic Visual abstract -->
+        <div
+          class="relative hidden lg:block h-full min-h-[500px] animate-fade-in-left"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-tr from-[var(--accent-red)]/20 to-transparent rounded-[3rem] rotate-3 decoration-clone"
+          >
+          </div>
+          <div
+            class="absolute inset-0 bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-[3rem] p-12 flex flex-col justify-between"
+          >
+            <div>
+              <h3
+                class="text-3xl font-black uppercase italic tracking-tighter mb-4"
+              >
+                Market Intelligence
+              </h3>
+              <div class="space-y-4">
+                <div
+                  class="flex justify-between items-center p-4 bg-[var(--bg-primary)] rounded-xl"
+                >
+                  <span
+                    class="text-xs font-bold uppercase text-[var(--text-muted)]"
+                    >Target Zone</span
+                  >
+                  <span class="text-sm font-black uppercase"
+                    >{cityData.economicZones[0]?.name || city.name} Focus</span
+                  >
+                </div>
+                <div
+                  class="flex justify-between items-center p-4 bg-[var(--bg-primary)] rounded-xl"
+                >
+                  <span
+                    class="text-xs font-bold uppercase text-[var(--text-muted)]"
+                    >Compliance</span
+                  >
+                  <span class="text-sm font-black uppercase"
+                    >{cityData.regulations[0]?.agency || "Local"} Ready</span
+                  >
+                </div>
+                <div
+                  class="flex justify-between items-center p-4 bg-[var(--bg-primary)] rounded-xl"
+                >
+                  <span
+                    class="text-xs font-bold uppercase text-[var(--text-muted)]"
+                    >Tech Stack</span
+                  >
+                  <span class="text-sm font-black uppercase"
+                    >{industryData.techStack[0]} Integrated</span
+                  >
+                </div>
               </div>
-              <div>
-                <h4 class="text-xl md:text-2xl font-black text-[var(--text-primary)] uppercase tracking-tight mb-6 group-hover:text-[var(--accent-red)] transition-colors leading-tight">
-                  {localize(faq.question)}
-                </h4>
-                <div class="h-px w-12 bg-[var(--accent-yellow)] mb-6"></div>
-                <p class="text-[var(--text-secondary)] leading-relaxed font-medium">
-                  {localize(faq.answer)}
-                </p>
+            </div>
+
+            <div class="mt-8">
+              <div
+                class="text-6xl font-black text-[var(--accent-red)] italic tracking-tighter leading-none mb-2"
+              >
+                98%
+              </div>
+              <div
+                class="text-xs font-bold uppercase tracking-[0.2em] text-[var(--text-secondary)]"
+              >
+                Compliance Score
               </div>
             </div>
           </div>
-        ))}
+        </div>
       </div>
-      
-      {allFaqs.length > 8 && (
-        <div class="mt-12 text-center">
-          <p class="text-xs font-bold uppercase tracking-widest text-[var(--text-muted)]">
-            + More context-specific answers engineered for {industry.name} leaders in {city.name}.
+    </div>
+  </section>
+
+  <!-- SECTION 2: CITY CONTEXT (Word Count Injection) -->
+  <section
+    class="py-24 bg-[var(--bg-secondary)] border-y border-[var(--border-subtle)]"
+    id="local-context"
+  >
+    <div class="max-w-5xl mx-auto px-6">
+      <span
+        class="text-[var(--accent-red)] font-black uppercase tracking-widest text-xs mb-4 block"
+      >
+        Local Market Analysis: {city.name}
+      </span>
+      <h2
+        class="text-4xl md:text-5xl font-black italic uppercase tracking-tighter mb-12 leading-[0.9]"
+      >
+        Why <span class="text-[var(--text-muted)]">{industry.name}</span> in <span
+          class="text-[var(--accent-yellow)]">{city.name}</span
+        > Needs Specific Digital Strategy.
+      </h2>
+
+      <div class="prose prose-lg dark:prose-invert max-w-none">
+        <p class="lead text-xl font-medium text-[var(--text-primary)]">
+          Doing business in {city.name} is not like doing business elsewhere. With
+          {cityData.marketStats.mobileUsage} mobile usage and a {
+            cityData.adjectives[0]
+          } economy,
+          {industry.name} companies must adapt to specific local nuances.
+        </p>
+
+        <p>
+          In districts like <strong>{cityData.districts.join(", ")}</strong>,
+          the competition is fierce. Decisions are often made based on "{
+            cityData.searchBehavior
+          }". Standard global templates fail here because they miss the cultural
+          context of {cityData.culturalNuances}.
+        </p>
+
+        <h3
+          class="text-2xl font-bold uppercase italic mt-8 text-[var(--text-primary)]"
+        >
+          Regulatory Compliance in {city.name}
+        </h3>
+        <p>
+          Our {service.name} solutions are built to be strictly compliant with local
+          bodies. For {industry.name}, this means adhering to standards set by:
+        </p>
+        <ul class="grid md:grid-cols-2 gap-4 not-prose my-8">
+          {
+            cityData.regulations.slice(0, 4).map((reg: any) => (
+              <li class="bg-[var(--bg-primary)] p-6 rounded-xl border border-[var(--border-subtle)]">
+                <strong class="block text-[var(--accent-red)] uppercase text-sm mb-2">
+                  {reg.agency}
+                </strong>
+                <span class="text-sm font-medium text-[var(--text-secondary)]">
+                  {reg.impact}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: INDUSTRY DEEP DIVE (Tech & Ops) -->
+  <section class="py-24 bg-[var(--bg-primary)]" id="deep-dive">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-20">
+        <div>
+          <h2
+            class="text-4xl font-black italic uppercase tracking-tighter mb-10"
+          >
+            Technical <span class="text-[var(--accent-red)]">Architecture</span>
+          </h2>
+          <p class="text-lg text-[var(--text-secondary)] mb-10">
+            We don't just "make websites". We build {industry.name} growth engines
+            that integrate with:
+          </p>
+          <div class="flex flex-wrap gap-4 mb-16">
+            {
+              industryData.techStack.map((tech: string) => (
+                <span class="px-5 py-3 bg-[var(--bg-secondary)] border border-[var(--border-subtle)] rounded-lg text-sm font-bold uppercase tracking-wider">
+                  {tech}
+                </span>
+              ))
+            }
+          </div>
+
+          <h3 class="text-2xl font-black uppercase italic mb-6">
+            Solving Operational Pain
+          </h3>
+          <div class="space-y-6">
+            {
+              industryData.operations.slice(0, 3).map((op: any) => (
+                <div class="flex gap-4">
+                  <div class="w-12 h-12 flex-shrink-0 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center font-bold text-[var(--accent-red)]">
+                    {op.phase.charAt(0)}
+                  </div>
+                  <div>
+                    <h4 class="font-bold uppercase text-sm mb-1">{op.phase}</h4>
+                    <p class="text-sm text-[var(--text-secondary)]">
+                      <span class="text-red-500">Problem:</span> {op.challenge}{" "}
+                      <br />
+                      <span class="text-green-500">Fix:</span> {op.solution}
+                    </p>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="relative">
+          <!-- Case Study / Stats visual -->
+          <div
+            class="bg-[var(--bg-secondary)] rounded-[3rem] p-10 border border-[var(--border-subtle)] h-full"
+          >
+            <span
+              class="text-[var(--accent-yellow)] font-black uppercase tracking-widest text-xs mb-8 block"
+            >
+              {industry.name} Performance Data
+            </span>
+            <div class="space-y-12">
+              <div>
+                <div class="text-5xl font-black italic tracking-tighter mb-2">
+                  300%
+                </div>
+                <div
+                  class="w-full h-1 bg-[var(--border-subtle)] rounded-full overflow-hidden"
+                >
+                  <div class="w-3/4 h-full bg-[var(--accent-red)]"></div>
+                </div>
+                <div
+                  class="mt-2 text-xs font-bold uppercase text-[var(--text-muted)]"
+                >
+                  Lead Volume Increase
+                </div>
+              </div>
+              <div>
+                <div class="text-5xl font-black italic tracking-tighter mb-2">
+                  0.4s
+                </div>
+                <div
+                  class="w-full h-1 bg-[var(--border-subtle)] rounded-full overflow-hidden"
+                >
+                  <div class="w-1/2 h-full bg-[var(--accent-yellow)]"></div>
+                </div>
+                <div
+                  class="mt-2 text-xs font-bold uppercase text-[var(--text-muted)]"
+                >
+                  Page Load Time (LCP)
+                </div>
+              </div>
+              <div
+                class="p-6 bg-[var(--bg-primary)] rounded-2xl border border-[var(--border-subtle)] mt-8"
+              >
+                <p class="italic text-[var(--text-secondary)] font-medium">
+                  "{
+                    localize(
+                      (content as any)?.sections?.caseStudies?.items?.[0]
+                        ?.quote ||
+                        "Our technical implementation exceeded expectations by matching local compliance and industry speed benchmarks.",
+                    )
+                  }"
+                </p>
+                <div
+                  class="mt-4 font-bold uppercase text-xs tracking-widest text-[var(--accent-red)]"
+                >
+                  — {industryData.personas[0]} in {city.name}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: THE COMPETITIVE LANDSCAPE (Word Count Driver) -->
+  <section
+    class="py-24 bg-[var(--bg-secondary)] border-y border-[var(--border-subtle)]"
+  >
+    <div class="max-w-5xl mx-auto px-6">
+      <h2
+        class="text-4xl md:text-6xl font-black italic uppercase tracking-tighter mb-12"
+      >
+        The <span class="text-[var(--accent-red)]">{city.name}</span> Competitive
+        Landscape.
+      </h2>
+      <div
+        class="prose prose-xl dark:prose-invert text-[var(--text-secondary)] max-w-none"
+      >
+        <p class="mb-8">
+          In the {city.name} market for {industry.name}, the digital gap is
+          widening. While many firms rely on legacy {service.name.toLowerCase()} tactics,
+          the <strong
+            >{industryData.marketDynamics?.competitionLevel || "High"}</strong
+          > competition requires a shift toward technical superiority. Most {
+            city.name
+          } competitors are currently failing in {
+            industryData.marketDynamics?.regulatoryPressure || "local"
+          } compliance, creating a massive opportunity for your brand.
+        </p>
+        <p class="mb-12">
+          The buyer sentiment in {city.name} is {
+            industryData.marketDynamics?.buyerSentiment || "evolving"
+          }. They aren't looking for a vendor; they are looking for a partner
+          who understands the {
+            industryData.marketDynamics?.growthDrivers || "market forces"
+          } driving the {city.country} economy. Our {service.name.toLowerCase()} framework
+          is engineered specifically to exploit these market inefficiencies.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-8 not-prose my-16">
+          <div
+            class="p-10 bg-[var(--bg-primary)] rounded-[3rem] border border-[var(--border-subtle)] shadow-sm"
+          >
+            <h4
+              class="text-xl font-black uppercase mb-6 text-[var(--accent-yellow)]"
+            >
+              Market Dynamics
+            </h4>
+            <ul class="space-y-4">
+              <li class="flex items-center gap-3 text-sm font-bold uppercase">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--accent-red)]"
+                ></span>
+                Competition: {industryData.marketDynamics.competitionLevel}
+              </li>
+              <li class="flex items-center gap-3 text-sm font-bold uppercase">
+                <span class="w-1.5 h-1.5 rounded-full bg-[var(--accent-red)]"
+                ></span>
+                Regulatory: {industryData.marketDynamics.regulatoryPressure}
+              </li>
+            </ul>
+          </div>
+          <div
+            class="p-10 bg-[var(--bg-primary)] rounded-[3rem] border border-[var(--border-subtle)] shadow-sm"
+          >
+            <h4
+              class="text-xl font-black uppercase mb-6 text-[var(--accent-red)]"
+            >
+              Strategic Focus
+            </h4>
+            <p class="text-sm font-medium leading-relaxed italic">
+              "Our goal is {industryData.technicalBenchmarks.authorityGoal} using
+              a {industryData.technicalBenchmarks.targetLCP} LCP benchmark."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: THE 10-PHASE TRANSFORMATION ROADMAP (Deep Content Block) -->
+  <section class="py-24 bg-[var(--bg-primary)]">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-20">
+        <h2
+          class="text-4xl md:text-7xl font-black italic uppercase tracking-tighter"
+        >
+          The <span class="text-[var(--accent-red)]">10-Phase</span>
+          {industry.name} Evolution.
+        </h2>
+        <p class="text-xl text-[var(--text-secondary)] mt-4">
+          A complete technical lifecycle for {service.name} in {city.name}.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+        {
+          [
+            {
+              step: "01",
+              title: "Intelligence",
+              desc: "Deep audit of {city} competitors and industry white-space.",
+            },
+            {
+              step: "02",
+              title: "Architecture",
+              desc: "Setting up {industryData.techStack[0]} integrations and sub-second foundations.",
+            },
+            {
+              step: "03",
+              title: "Hardening",
+              desc: "Fixing LCP, CLS, and FID to meet {industryData.technicalBenchmarks.targetLCP} targets.",
+            },
+            {
+              step: "04",
+              title: "Entity Mapping",
+              desc: "Connecting your services with {cityData.economicZones[0]?.name || 'local'} entities.",
+            },
+            {
+              step: "05",
+              title: "Compliance",
+              desc: "Verification against {cityData.regulations[0]?.agency || 'local'} standards.",
+            },
+            {
+              step: "06",
+              title: "Inbound Flow",
+              desc: "Building intent-matched content for {industryData.personas[0]}s.",
+            },
+            {
+              step: "07",
+              title: "Automation",
+              desc: "Integrating lead nurturing via CRM and WhatsApp Business.",
+            },
+            {
+              step: "08",
+              title: "Cloud Mesh",
+              desc: "Linking regional hubs (Dubai, Riyadh, etc.) for authority.",
+            },
+            {
+              step: "09",
+              title: "Velocity",
+              desc: "Scaling high-conversion pages to capture {industryData.subSectors[0]} demand.",
+            },
+            {
+              step: "10",
+              title: "Dominance",
+              desc: "Achieving {industryData.technicalBenchmarks.authorityGoal}.",
+            },
+          ].map((phase) => (
+            <div class="p-8 bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-3xl hover:border-[var(--accent-red)] transition-all group">
+              <span class="block text-4xl font-black italic text-[var(--accent-red)] opacity-20 group-hover:opacity-100 transition-opacity mb-4">
+                {phase.step}
+              </span>
+              <h3 class="text-lg font-black uppercase tracking-tight mb-2">
+                {phase.title}
+              </h3>
+              <p class="text-xs text-[var(--text-secondary)] leading-relaxed italic">
+                {phase.desc}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: SEMANTIC ENTITY CLOUD (Word Count Driver) -->
+  <section class="py-24 bg-[var(--bg-secondary)] overflow-hidden">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2
+        class="text-3xl font-black italic uppercase tracking-tighter mb-10 text-center"
+      >
+        The <span class="text-[var(--accent-red)]">{industry.name}</span> Vocabulary.
+      </h2>
+      <div class="flex flex-wrap justify-center gap-4 mb-12">
+        {
+          industryData.vocabulary.map((word: string) => (
+            <span class="px-6 py-2 bg-[var(--bg-primary)] border border-[var(--border-subtle)] rounded-full text-xs font-black uppercase tracking-widest text-[var(--text-muted)]">
+              {word}
+            </span>
+          ))
+        }
+      </div>
+      <div
+        class="prose prose-xl dark:prose-invert text-[var(--text-secondary)]"
+      >
+        <p>
+          Our technical strategy for {service.name} incorporates the core semantic
+          entities of the {industry.name} sector. We understand that in your industry,
+          terms like <strong>{industryData.vocabulary[0]}</strong> and <strong
+            >{industryData.vocabulary[1]}</strong
+          > aren't just buzzwords—they are the metrics your decision-makers track.
+          By building content clusters around {
+            industryData.vocabulary.slice(2, 5).join(", ")
+          }, we establish topical authority that search engines reward with
+          top-tier visibility.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: THE SCROLLABLE MEGA FAQ (Topical Authority) -->
+  <section
+    class="py-24 bg-[var(--bg-primary)] border-t border-[var(--border-subtle)]"
+  >
+    <div class="max-w-6xl mx-auto px-6">
+      <div
+        class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8"
+      >
+        <div class="max-w-2xl">
+          <h2
+            class="text-4xl md:text-7xl font-black italic uppercase tracking-tighter"
+          >
+            Massive <span class="text-[var(--accent-red)]">Answers</span>.
+          </h2>
+          <p class="text-xl text-[var(--text-secondary)] mt-4">
+            A complete brain-dump of {service.name} strategies for the {
+              industry.name
+            } sector in {city.name}.
           </p>
         </div>
-      )}
+        <div class="hidden md:block">
+          <span
+            class="px-6 py-3 bg-[var(--bg-secondary)] border border-[var(--border-subtle)] rounded-full text-xs font-black uppercase tracking-widest"
+          >
+            {faqs.length}+ Strategic Questions
+          </span>
+        </div>
+      </div>
+
+      <!-- FAQ Scroll Container -->
+      <div
+        class="relative max-h-[800px] overflow-y-auto pr-4 scroll-smooth scrollbar-thin scrollbar-thumb-[var(--accent-red)] scrollbar-track-[var(--bg-secondary)]"
+      >
+        <div class="space-y-4 pb-24">
+          {
+            faqs.map((faq) => (
+              <details class="group bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-[2rem] overflow-hidden hover:border-[var(--accent-red)] transition-all">
+                <summary class="flex items-center justify-between p-8 cursor-pointer list-none select-none">
+                  <h3 class="text-xl font-bold pr-8 leading-tight">
+                    {localize(faq.question)}
+                  </h3>
+                  <div class="w-10 h-10 rounded-full bg-[var(--bg-secondary)] flex items-center justify-center text-[var(--accent-red)] font-black group-open:-rotate-180 transition-transform">
+                    ↓
+                  </div>
+                </summary>
+                <div class="px-8 pb-8 text-[var(--text-secondary)] leading-loose border-t border-[var(--border-subtle)]">
+                  <p>{localize(faq.answer)}</p>
+                </div>
+              </details>
+            ))
+          }
+        </div>
+        <!-- Shadow Fade effect at bottom of scroll -->
+        <div
+          class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[var(--bg-primary)] to-transparent pointer-events-none sticky"
+        >
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Cross-Linking (SEO Integrity) -->
-  <section class="py-24 bg-[var(--bg-secondary)] border-t border-[var(--border-subtle)]">
+  <section
+    class="py-24 bg-[var(--bg-primary)] border-t border-[var(--border-subtle)]"
+  >
     <div class="max-w-7xl mx-auto px-6">
-       <div class="grid md:grid-cols-2 gap-16">
-         <!-- Related Sectors in this City -->
-         <div>
-           <h4 class="text-xs font-black uppercase tracking-[0.4em] text-[var(--text-primary)] mb-8 border-l-4 border-[var(--accent-red)] pl-4">Sector Hubs in {city.name}</h4>
-           <div class="grid grid-cols-2 gap-3">
-             {industries.slice(0, 10).map((otherIndustry) => (
-               <a href={`/${city.slug}/${otherIndustry.slug}/${service.slug}`} class="px-4 py-3 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-primary)] text-[10px] font-bold uppercase tracking-widest hover:border-[var(--accent-red)] hover:text-[var(--accent-red)] transition-all">
-                 {otherIndustry.name} {service.name.split(' ')[0]}
-               </a>
-             ))}
-           </div>
-         </div>
-
-         <!-- This Service in other Cities -->
-         <div>
-           <h4 class="text-xs font-black uppercase tracking-[0.4em] text-[var(--text-primary)] mb-8 border-l-4 border-[var(--accent-yellow)] pl-4">{service.name} Regional Reach</h4>
-           <div class="grid grid-cols-2 gap-3">
-             {cities.slice(0, 10).map((otherCity) => (
-               <a href={`/${otherCity.slug}/${industry.slug}/${service.slug}`} class="px-4 py-3 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-primary)] text-[10px] font-bold uppercase tracking-widest hover:border-[var(--accent-yellow)] hover:text-[var(--accent-yellow)] transition-all">
-                 {service.name.split(' ')[0]} in {otherCity.name}
-               </a>
-             ))}
-           </div>
-         </div>
-       </div>
+      <ExpertPersona
+        industry={industry.name}
+        city={city.name}
+        type={city.country === "UAE" || city.country === "Saudi Arabia"
+          ? "strategist"
+          : "architect"}
+      />
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-24 bg-[var(--accent-red)] text-white text-center">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-3xl sm:text-4xl md:text-7xl font-black italic uppercase tracking-tighter text-white mb-8 leading-[0.95]">
-        Dominate the <span class="text-[var(--accent-yellow)]">{industry.name}</span> Sector in {city.name} Toda<span class="text-[var(--accent-yellow)]">y.</span>
-      </h2>
-      <a href="/contact" class="inline-block px-10 py-5 md:px-12 md:py-6 bg-white text-[var(--accent-red)] font-black italic uppercase tracking-tighter text-xl md:text-2xl rounded-xl hover:bg-black hover:text-white transition-all shadow-2xl active:scale-95">
-        Get Free Audit
-      </a>
+  <!-- SECTION 8: SEMANTIC MESH (Solution Stack) -->
+  <section class="py-24 bg-[var(--bg-secondary)]">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="mb-16">
+        <h2
+          class="text-3xl md:text-5xl font-black italic uppercase tracking-tighter mb-4"
+        >
+          Complete the <span class="text-[var(--accent-red)]"
+            >{industry.name}</span
+          > Stack in {city.name}
+        </h2>
+        <p class="text-[var(--text-secondary)] font-medium italic">
+          High-velocity growth requires more than just {service.name}. Integrate
+          these technical layers for compound results.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-24">
+        {
+          services
+            .filter((s) => s.slug !== service.slug)
+            .slice(0, 3)
+            .map((s) => (
+              <a
+                href={`/${city.slug}/${industry.slug}/${s.slug}`}
+                class="group p-10 bg-[var(--bg-primary)] rounded-[3rem] border border-[var(--border-subtle)] hover:border-[var(--accent-red)] transition-all relative overflow-hidden"
+              >
+                <div class="relative z-10">
+                  <span class="block text-[10px] font-black uppercase tracking-[0.3em] text-[var(--accent-red)] mb-4">
+                    Integration Layer
+                  </span>
+                  <h3 class="text-2xl font-black italic uppercase tracking-tighter mb-4 group-hover:text-[var(--accent-red)] transition-colors">
+                    {s.name}
+                  </h3>
+                  <p class="text-sm text-[var(--text-secondary)] leading-relaxed italic mb-8">
+                    Optimize your {industry.name.toLowerCase()} operations with
+                    our proprietary {s.name.toLowerCase()} frameworks engineered
+                    for {city.name}.
+                  </p>
+                  <span class="font-black uppercase tracking-widest text-[10px] group-hover:pl-4 transition-all inline-block underline decoration-[var(--accent-red)] decoration-2 underline-offset-8">
+                    Deploy Solution &xrarr;
+                  </span>
+                </div>
+              </a>
+            ))
+        }
+      </div>
+
+      <!-- Regional Hubs & Global Pillars (Semantic Bottom Rail) -->
+      <div class="grid md:grid-cols-2 gap-8">
+        <div
+          class="p-10 bg-[var(--bg-primary)] rounded-[3rem] border border-[var(--border-subtle)]"
+        >
+          <h4
+            class="font-black uppercase tracking-widest text-xs mb-8 text-[var(--text-muted)]"
+          >
+            Regional {industry.name} Network
+          </h4>
+          <div class="flex flex-wrap gap-4">
+            {
+              cities
+                .filter((c) => c.slug !== city.slug)
+                .slice(0, 8)
+                .map((c) => (
+                  <a
+                    href={`/${c.slug}/${industry.slug}/${service.slug}`}
+                    class="text-xs font-bold uppercase tracking-tight hover:text-[var(--accent-red)] transition-colors py-2 px-4 bg-[var(--bg-secondary)] rounded-xl border border-[var(--border-subtle)]"
+                  >
+                    {c.name} Hub
+                  </a>
+                ))
+            }
+          </div>
+        </div>
+
+        <div
+          class="p-10 bg-[var(--accent-red)] text-white rounded-[3rem] group cursor-pointer overflow-hidden relative"
+          onclick={`window.location.href='/industries/${industry.slug}'`}
+        >
+          <div
+            class="absolute top-0 right-0 p-10 text-9xl font-black italic tracking-tighter opacity-10 group-hover:opacity-20 transition-opacity"
+          >
+            PILLAR
+          </div>
+          <div class="relative z-10">
+            <h3
+              class="text-4xl font-black italic uppercase tracking-tighter leading-none mb-6"
+            >
+              Global {industry.name} Pillar
+            </h3>
+            <p class="text-base opacity-90 leading-relaxed italic mb-8">
+              Consolidating technical learnings from {cities.length} global markets
+              into one definitive strategy.
+            </p>
+            <span
+              class="inline-flex items-center gap-4 font-black uppercase tracking-widest text-sm group-hover:gap-8 transition-all"
+              >Explore Master Intelligence &xrarr;</span
+            >
+          </div>
+        </div>
+      </div>
     </div>
   </section>
+  <ContextualLeadForm
+    industry={industry.name}
+    service={service.name}
+    city={city.name}
+  />
 </Layout>

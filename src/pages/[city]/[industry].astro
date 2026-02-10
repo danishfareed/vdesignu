@@ -1,0 +1,389 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { services, industries, cities } from "../../config/site-config";
+import cityContext from "../../data/city-context.json";
+import industryDeepDive from "../../data/industry-deep-dive.json";
+import { getContextualFAQs } from "../../data/faq-database";
+import ExpertPersona from "../../components/ExpertPersona.astro";
+import ContextualLeadForm from "../../components/ContextualLeadForm.astro";
+
+export function getStaticPaths() {
+    const paths = [];
+
+    for (const city of cities) {
+        for (const industry of industries) {
+            paths.push({
+                params: {
+                    city: city.slug,
+                    industry: industry.slug,
+                },
+                props: { city, industry },
+            });
+        }
+    }
+
+    return paths;
+}
+
+const { city, industry } = Astro.props;
+
+// Deep Context
+const cityData = (cityContext as any)[city.slug] || cityContext.default;
+const industryData =
+    (industryDeepDive as any)[industry.slug] || industryDeepDive.default;
+const faqs = getContextualFAQs(city.slug, industry.slug, "", 35);
+
+const localize = (text: string) => {
+    if (!text) return "";
+    return text
+        .replace(/{city}/g, city.name)
+        .replace(/{industry}/g, industry.name)
+        .replace(/Gulf region/g, city.name)
+        .replace(/UAE/g, city.country)
+        .replace(/Dubai/g, city.name);
+};
+
+const title = `${industry.name} Experts in ${city.name} | Ultra-Deep Digital Transformation`;
+const description = `We architect high-performance digital ecosystems for ${industry.name} leaders in ${city.name}. Specialist strategies for ${industryData.subSectors[0]} and ${industryData.subSectors[1]} compliant with ${cityData.regulations[0]?.name}.`;
+---
+
+<Layout title={title} description={description}>
+    <!-- Hero -->
+    <section
+        class="pt-40 pb-24 bg-[var(--bg-primary)] relative overflow-hidden"
+    >
+        <div
+            class="absolute inset-0 bg-gradient-to-tr from-[var(--accent-red)]/10 to-transparent"
+        >
+        </div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <span
+                class="text-xs font-black uppercase tracking-widest text-[var(--accent-red)] mb-4 block"
+            >
+                Strategic Industry Hub: {city.name}
+            </span>
+            <h1
+                class="text-6xl md:text-9xl font-black italic uppercase tracking-tighter leading-[0.8] mb-10"
+            >
+                {industry.name}
+                <br />
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--text-primary)] to-[var(--text-muted)]"
+                >
+                    Dominance in {city.name}
+                </span>
+            </h1>
+            <p
+                class="text-2xl text-[var(--text-secondary)] font-medium max-w-3xl leading-relaxed mb-12"
+            >
+                Specialized digital engineering for {industry.name} workflows in the
+                <strong>{cityData.adjectives[0]}</strong>
+                {city.name} market.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 2: COMPETITIVE LANDSCAPE (Word Count Driver) -->
+    <section
+        class="py-24 bg-[var(--bg-secondary)] border-y border-[var(--border-subtle)]"
+    >
+        <div class="max-w-5xl mx-auto px-6">
+            <h2
+                class="text-4xl md:text-6xl font-black italic uppercase tracking-tighter mb-12"
+            >
+                The <span class="text-[var(--accent-red)]">{city.name}</span> Competitive
+                Edge.
+            </h2>
+            <div
+                class="prose prose-xl dark:prose-invert text-[var(--text-secondary)] max-w-none"
+            >
+                <p class="mb-10 text-2xl font-medium leading-relaxed">
+                    To dominate the {industry.name} sector in {city.name},
+                    brands must move beyond surface-level marketing. With {
+                        cityData.marketStats.internetPenetration
+                    } internet penetration and a market behavior driven by "{
+                        cityData.searchBehavior
+                    }", the technical barrier to entry has never been higher.
+                    Most {city.name} competitors fail to account for the {
+                        cityData.culturalNuances
+                    } that dictate local {industry.name} procurement.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-12 not-prose my-16">
+                    <div
+                        class="p-10 bg-[var(--bg-primary)] rounded-[3rem] border border-[var(--border-subtle)] shadow-xl"
+                    >
+                        <h4
+                            class="text-[var(--accent-red)] font-black uppercase text-xs mb-6 tracking-[0.3em]"
+                        >
+                            Sector Intelligence
+                        </h4>
+                        <p
+                            class="text-sm font-medium leading-loose italic mb-8"
+                        >
+                            "Our {industry.name} framework in {city.name} resolves
+                            the '{industryData.operations[0].challenge}' through
+                            native '{industryData.operations[0].solution}'
+                            injection."
+                        </p>
+                        <div class="space-y-4">
+                            {
+                                industryData.subSectors
+                                    .slice(0, 3)
+                                    .map((sub) => (
+                                        <div class="flex items-center gap-3 text-xs font-black uppercase opacity-60">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-[var(--accent-red)]" />
+                                            {sub} Specialized
+                                        </div>
+                                    ))
+                            }
+                        </div>
+                    </div>
+                    <div
+                        class="p-10 bg-[var(--bg-primary)] rounded-[3rem] border border-[var(--border-subtle)] shadow-xl"
+                    >
+                        <h4
+                            class="text-[var(--accent-yellow)] font-black uppercase text-xs mb-6 tracking-[0.3em]"
+                        >
+                            Compliance Audit
+                        </h4>
+                        <ul class="space-y-4">
+                            {
+                                cityData.regulations
+                                    .slice(0, 3)
+                                    .map((reg: any) => (
+                                        <li class="text-xs font-medium leading-relaxed">
+                                            <strong>{reg.agency}:</strong>{" "}
+                                            {reg.impact}
+                                        </li>
+                                    ))
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: 10-PHASE INDUSTRY ROADMAP (Word Count Driver) -->
+    <section class="py-24 bg-[var(--bg-primary)]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2
+                    class="text-4xl md:text-7xl font-black italic uppercase tracking-tighter"
+                >
+                    The <span class="text-[var(--accent-red)]">10-Phase</span>
+                    {industry.name} Lifecycle.
+                </h2>
+                <p class="text-xl text-[var(--text-secondary)] mt-4">
+                    A technical blueprint for {industry.name} dominance in {
+                        city.name
+                    }.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                {
+                    [
+                        {
+                            step: "01",
+                            title: "Intelligence",
+                            desc: "Audit of {city} {industry} specific search intent.",
+                        },
+                        {
+                            step: "02",
+                            title: "Architecture",
+                            desc: "Setting up {industryData.techStack[0]} data pipes.",
+                        },
+                        {
+                            step: "03",
+                            title: "Compliance",
+                            desc: "Hardening against {cityData.regulations[0]?.agency} mandates.",
+                        },
+                        {
+                            step: "04",
+                            title: "Local Mesh",
+                            desc: "Linking to {cityData.economicZones[0]?.name || 'local'} hubs.",
+                        },
+                        {
+                            step: "05",
+                            title: "Trust Flow",
+                            desc: "Building {industryData.compliance.specific} proof points.",
+                        },
+                        {
+                            step: "06",
+                            title: "Engagement",
+                            desc: "Connecting with {industryData.personas[0]} personas.",
+                        },
+                        {
+                            step: "07",
+                            title: "Automation",
+                            desc: "Streamlining {industryData.operations[0].phase} workflows.",
+                        },
+                        {
+                            step: "08",
+                            title: "Authority",
+                            desc: "Scaling across {industryData.subSectors.join(', ')}.",
+                        },
+                        {
+                            step: "09",
+                            title: "Performance",
+                            desc: "Hitting {industryData.technicalBenchmarks.targetLCP} benchmarks.",
+                        },
+                        {
+                            step: "10",
+                            title: "Dominance",
+                            desc: "Achieving {industryData.technicalBenchmarks.authorityGoal}.",
+                        },
+                    ].map((phase) => (
+                        <div class="p-8 bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-3xl hover:border-[var(--accent-red)] transition-all group">
+                            <span class="block text-4xl font-black italic text-[var(--accent-red)] opacity-20 group-hover:opacity-100 transition-opacity mb-4">
+                                {phase.step}
+                            </span>
+                            <h3 class="text-lg font-black uppercase tracking-tight mb-2">
+                                {phase.title}
+                            </h3>
+                            <p class="text-xs text-[var(--text-secondary)] leading-relaxed italic">
+                                {phase.desc}
+                            </p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: SEMANTIC VOCABULARY (Word Count Driver) -->
+    <section
+        class="py-24 bg-[var(--bg-secondary)] border-y border-[var(--border-subtle)]"
+    >
+        <div class="max-w-4xl mx-auto px-6">
+            <h2
+                class="text-center text-3xl font-black italic uppercase tracking-tighter mb-10"
+            >
+                The {industry.name} Semantic Cloud
+            </h2>
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                {
+                    industryData.vocabulary.map((word: string) => (
+                        <span class="px-5 py-2 bg-[var(--bg-primary)] border border-[var(--border-subtle)] rounded-full text-[10px] font-black uppercase tracking-widest text-[var(--text-muted)]">
+                            {word}
+                        </span>
+                    ))
+                }
+            </div>
+            <div
+                class="prose prose-xl dark:prose-invert text-[var(--text-secondary)] text-center"
+            >
+                <p>
+                    Our strategy for {industry.name} in {city.name} is built on <strong
+                        >Topical Authority</strong
+                    >. By mastering the semantic entities of <strong
+                        >{
+                            industryData.vocabulary.slice(0, 4).join(", ")
+                        }</strong
+                    >, we build a content mesh that resonates with both
+                    algorithms and {city.name}-based decision makers.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: MEGA FAQ (Depth Driver) -->
+    <section
+        class="py-24 bg-[var(--bg-primary)] border-t border-[var(--border-subtle)]"
+    >
+        <div class="max-w-5xl mx-auto px-6">
+            <div
+                class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8"
+            >
+                <div class="max-w-2xl">
+                    <h2
+                        class="text-4xl md:text-7xl font-black italic uppercase tracking-tighter"
+                    >
+                        Knowledge <span class="text-[var(--accent-red)]"
+                            >Stack</span
+                        >.
+                    </h2>
+                    <p class="text-xl text-[var(--text-secondary)] mt-4 italic">
+                        The comprehensive briefing for {city.name}
+                        {industry.name} leadership.
+                    </p>
+                </div>
+            </div>
+
+            <div
+                class="relative max-h-[800px] overflow-y-auto pr-4 scrollbar-thin scrollbar-thumb-[var(--accent-red)] scrollbar-track-[var(--bg-secondary)]"
+            >
+                <div class="space-y-4 pb-24">
+                    {
+                        faqs.map((faq) => (
+                            <details class="group bg-[var(--bg-card)] border border-[var(--border-subtle)] rounded-[2rem] overflow-hidden hover:border-[var(--accent-red)] transition-all">
+                                <summary class="flex items-center justify-between p-8 cursor-pointer list-none select-none">
+                                    <h3 class="text-xl font-bold pr-8 leading-tight">
+                                        {localize(faq.question)}
+                                    </h3>
+                                    <div class="text-[var(--accent-red)] font-black group-open:-rotate-180 transition-transform">
+                                        ↓
+                                    </div>
+                                </summary>
+                                <div class="px-8 pb-8 text-[var(--text-secondary)] leading-loose border-t border-[var(--border-subtle)]">
+                                    <p>{localize(faq.answer)}</p>
+                                </div>
+                            </details>
+                        ))
+                    }
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[var(--bg-primary)] to-transparent pointer-events-none sticky"
+                >
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: REGIONAL HIGH-VELOCITY MESH -->
+    <section
+        class="py-24 bg-[var(--bg-secondary)] border-t border-[var(--border-subtle)]"
+    >
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2
+                class="text-3xl font-black italic uppercase tracking-tighter mb-12"
+            >
+                Regional {industry.name} Network Hubs
+            </h2>
+            <div class="flex flex-wrap justify-center gap-4 mb-24">
+                {
+                    cities
+                        .filter((c) => c.slug !== city.slug)
+                        .slice(0, 12)
+                        .map((c) => (
+                            <a
+                                href={`/${c.slug}/${industry.slug}`}
+                                class="px-8 py-3 bg-[var(--bg-primary)] border border-[var(--border-subtle)] rounded-full text-xs font-black uppercase tracking-widest hover:border-[var(--accent-red)] transition-all"
+                            >
+                                {c.name} Hub
+                            </a>
+                        ))
+                }
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <ExpertPersona
+                    industry={industry.name}
+                    city={city.name}
+                    type={city.country === "UAE" ||
+                    city.country === "Saudi Arabia"
+                        ? "strategist"
+                        : "architect"}
+                />
+            </div>
+        </div>
+    </section>
+
+    <ContextualLeadForm
+        industry={industry.name}
+        city={city.name}
+        title={`Accelerate Your ${industry.name} Performance`}
+    />
+</Layout>

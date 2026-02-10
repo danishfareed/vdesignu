@@ -1,0 +1,338 @@
+{
+    "real-estate": {
+        "name": "Real Estate",
+        "subSectors": [
+            "Residential Sales",
+            "Commercial Leasing",
+            "Off-Plan Projects",
+            "Property Management"
+        ],
+        "techStack": [
+            "Salesforce",
+            "Property Finder",
+            "Bayut",
+            "Masterkey",
+            "HubSpot",
+            "Virtual Tour VR"
+        ],
+        "compliance": {
+            "generic": "Data Privacy (GDPR/Local)",
+            "specific": "RERA (Dubai) marketing permits, Escrow account transparency"
+        },
+        "operations": [
+            {
+                "phase": "Lead Gen",
+                "challenge": "High CPC on Google Ads",
+                "solution": "Organic SEO for long-tail community keywords"
+            },
+            {
+                "phase": "Nurturing",
+                "challenge": "Fast lead decay",
+                "solution": "Automated WhatsApp flows (under 5 min response)"
+            },
+            {
+                "phase": "Closing",
+                "challenge": "Trust & Verification",
+                "solution": "Digital transaction rooms and verified agent profiles"
+            }
+        ],
+        "personas": [
+            "High Net Worth Investor",
+            "First-Time Home Buyer",
+            "Commercial Tenant",
+            "Landlord"
+        ],
+        "vocabulary": [
+            "ROI",
+            "Capital Appreciation",
+            "Rental Yield",
+            "Freehold",
+            "Leasehold",
+            "Service Charges",
+            "SPA",
+            "Oqood"
+        ],
+        "strategicPillars": [
+            {
+                "title": "Hyper-Local SEO Dominance",
+                "description": "In markets like {city}, real estate visibility is won at the neighborhood level. We optimize for 'community intent'—targeting specific towers, sub-communities, and secondary market keywords that competitors overlook."
+            },
+            {
+                "title": "Lead-to-Deal Automation",
+                "description": "The real estate sales cycle is short. Our systems integrate WhatsApp Business API and custom CRMs (like Property Finder) to ensure leads are engaged within 60 seconds of inquiry."
+            },
+            {
+                "title": "Visual Authority & VR Integration",
+                "description": "Luxury buyers in {city} expect immersive experiences. We integrate high-speed property tours and 3D architectural renders directly into the web architecture for sub-second loading."
+            }
+        ],
+        "marketDynamics": {
+            "competitionLevel": "Extreme (Neighborhood specific)",
+            "buyerSentiment": "High-intent but highly discerning",
+            "regulatoryPressure": "Medium (Requires strict RERA/Local compliance)",
+            "growthDrivers": "Infrastructure projects, foreign direct investment, and demographic shifts."
+        },
+        "technicalBenchmarks": {
+            "targetLCP": "Under 1.2s",
+            "conversionGoal": "3-5% for qualified inquiries",
+            "authorityGoal": "Top 3 map pack ranking for district-specific keywords"
+        }
+    },
+    "healthcare": {
+        "name": "Healthcare",
+        "subSectors": [
+            "Hospitals",
+            "Specialized Clinics",
+            "Telehealth",
+            "Medical Tourism"
+        ],
+        "techStack": [
+            "Epic",
+            "Cerner",
+            "Practo",
+            "Okadoc",
+            "Telehealth Video API",
+            "HMS"
+        ],
+        "compliance": {
+            "generic": "HIPAA / GDPR",
+            "specific": "MOH advertising approval, Patient data sovereignty (SDAIA in KSA)"
+        },
+        "operations": [
+            {
+                "phase": "Patient Acquisition",
+                "challenge": "Trust barrier",
+                "solution": "Authority-driven content (doctor profiles, procedure guides)"
+            },
+            {
+                "phase": "Booking",
+                "challenge": "No-shows",
+                "solution": "SMS/WhatsApp reminders and pre-payment options"
+            },
+            {
+                "phase": "Post-Care",
+                "challenge": "Retention",
+                "solution": "Automated wellness check-ins and review generation"
+            }
+        ],
+        "personas": [
+            "Patient (Acute)",
+            "Patient (Chronic)",
+            "Medical Tourist",
+            "Referring Doctor"
+        ],
+        "vocabulary": [
+            "Patient Journey",
+            "Teleconsultation",
+            "JCI Accreditation",
+            "Minimally Invasive",
+            "Holistic Care",
+            "Evidence-Based"
+        ],
+        "strategicPillars": [
+            {
+                "title": "Patient-Centric Authority",
+                "description": "Healthcare SEO is about 'E-E-A-T'. We build deep medical procedure libraries and doctor profile pages that establish clinical trust before the first appointment."
+            },
+            {
+                "title": "HIPAA & Data Sovereignty",
+                "description": "We architect systems that prioritize patient privacy, ensuring all lead captures and telehealth portals are compliant with local health authority standards."
+            },
+            {
+                "title": "Localized Medical Reach",
+                "description": "Targeting patients in {city} requires understanding local search behavior for specialized treatments like 'Best Cardiologist near me' or specific clinic locations."
+            }
+        ],
+        "marketDynamics": {
+            "competitionLevel": "High (Procedure specific)",
+            "buyerSentiment": "Trust-driven and cautious",
+            "regulatoryPressure": "High (Strict MOH/DHA advertising controls)",
+            "growthDrivers": "Aging population, medical tourism, and digital health adoption."
+        },
+        "technicalBenchmarks": {
+            "targetLCP": "Under 1.0s",
+            "conversionGoal": "10-15% for appointment bookings",
+            "authorityGoal": "Page 1 for treatment-specific informational queries"
+        }
+    },
+    "oil-gas": {
+        "name": "Oil & Gas",
+        "subSectors": [
+            "Upstream (Exploration)",
+            "Midstream (Transport)",
+            "Downstream (Refining)",
+            "Oilfield Services"
+        ],
+        "techStack": [
+            "SAP",
+            "Oracle",
+            "SCADA Systems",
+            "IoT Sensors",
+            "Digital Twin"
+        ],
+        "compliance": {
+            "generic": "ISO 9001/14001",
+            "specific": "HSE (Health Safety Environment) standards, Local Content (In-Country Value)"
+        },
+        "operations": [
+            {
+                "phase": "Tendering",
+                "challenge": "Complex bidding",
+                "solution": "Digital tender management portals"
+            },
+            {
+                "phase": "Operations",
+                "challenge": "Asset downtime",
+                "solution": "Predictive maintenance dashboards"
+            },
+            {
+                "phase": "Safety",
+                "challenge": "Incident reporting",
+                "solution": "Real-time mobile safety apps"
+            }
+        ],
+        "personas": [
+            "Procurement Officer",
+            "Operations Director",
+            "HSE Manager",
+            "Field Engineer"
+        ],
+        "vocabulary": [
+            "Upstream",
+            "Downstream",
+            "HSE",
+            "Procurement",
+            "Turnkey",
+            "EPC",
+            "Asset Integrity",
+            "Decarbonization"
+        ],
+        "strategicPillars": [
+            {
+                "title": "B2B Technical Authority",
+                "description": "In the {city} energy sector, procurement is driven by technical specifications. We create high-density technical pages that rank for specialized industrial queries."
+            },
+            {
+                "title": "Supply Chain Transparency",
+                "description": "Integrating real-time asset tracking and portal-driven client reporting to demonstrate operational excellence in the Gulf energy market."
+            },
+            {
+                "title": "Compliance & HSE Visibility",
+                "description": "Making safety records and international certifications the centerpiece of the digital experience to pass strict pre-qualification audits."
+            }
+        ],
+        "marketDynamics": {
+            "competitionLevel": "Moderate (Vendor specific)",
+            "buyerSentiment": "Spec-driven and efficient",
+            "regulatoryPressure": "Extreme (Aramco/Ministry/HSE controls)",
+            "growthDrivers": "Vision 2030, energy transition, and local content (IKTVA) mandates."
+        },
+        "technicalBenchmarks": {
+            "targetLCP": "Under 1.5s",
+            "conversionGoal": "2-4% for vendor inquiries",
+            "authorityGoal": "Pre-qualified status for major regional tenders"
+        }
+    },
+    "finance": {
+        "name": "Finance & Fintech",
+        "subSectors": [
+            "Retail Banking",
+            "Investment Firms",
+            "Fintech Startups",
+            "Insurance"
+        ],
+        "techStack": [
+            "Temenos",
+            "Mambu",
+            "Stripe",
+            "Checkout.com",
+            "Salesforce Financial Cloud"
+        ],
+        "compliance": {
+            "generic": "KYC / AML",
+            "specific": "Central Bank regulations, Sandbox testing, Data localization"
+        },
+        "operations": [
+            {
+                "phase": "Onboarding",
+                "challenge": "High friction",
+                "solution": "eKYC and biometric digital onboarding"
+            },
+            {
+                "phase": "Engagement",
+                "challenge": "Low touchpoint",
+                "solution": "Personalized AI financial insights app"
+            },
+            {
+                "phase": "Security",
+                "challenge": "Fraud",
+                "solution": "Real-time AI transaction monitoring"
+            }
+        ],
+        "personas": [
+            "Retail Customer",
+            "HNI Investor",
+            "SME Owner",
+            "Compliance Officer"
+        ],
+        "vocabulary": [
+            "Fintech",
+            "Blockchain",
+            "Open Banking",
+            "KYC",
+            "AML",
+            "Liquidity",
+            "Asset Management",
+            "Robo-Advisor"
+        ],
+        "marketDynamics": {
+            "competitionLevel": "High (Fintech vs Banks)",
+            "buyerSentiment": "Security-focused and digital-first",
+            "regulatoryPressure": "Extreme (Central Bank/Compliance)",
+            "growthDrivers": "Digital adoption, cashless payments, and open banking."
+        },
+        "technicalBenchmarks": {
+            "targetLCP": "Under 1.0s",
+            "conversionGoal": "5-8% for account openings",
+            "authorityGoal": "Top 3 for financial advisory keywords"
+        }
+    },
+    "default": {
+        "name": "General Business",
+        "subSectors": [
+            "Service",
+            "Product",
+            "Consulting"
+        ],
+        "techStack": [
+            "CRM",
+            "ERP",
+            "Website"
+        ],
+        "compliance": {
+            "generic": "Local Laws",
+            "specific": "Sector specific"
+        },
+        "operations": [],
+        "personas": [
+            "Customer",
+            "Manager"
+        ],
+        "vocabulary": [
+            "Growth",
+            "Efficiency",
+            "ROI"
+        ],
+        "marketDynamics": {
+            "competitionLevel": "Moderate",
+            "buyerSentiment": "Value-driven",
+            "regulatoryPressure": "Standard",
+            "growthDrivers": "Economic diversification and digitalization."
+        },
+        "technicalBenchmarks": {
+            "targetLCP": "Under 2.0s",
+            "conversionGoal": "2-3%",
+            "authorityGoal": "Page 1 ranking"
+        }
+    }
+}
