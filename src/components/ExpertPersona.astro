@@ -1,8 +1,10 @@
 ---
+import { getPersona } from "../config/personas";
+
 interface Props {
     industry?: string;
     city?: string;
-    type?: "architect" | "strategist" | "engineer";
+    type?: "architect" | "strategist";
 }
 
 const {
@@ -11,23 +13,8 @@ const {
     type = "architect",
 } = Astro.props;
 
-const personae = {
-    architect: {
-        name: "Danish Fareed",
-        role: "Senior SEO Architect",
-        bio: `Strategy lead for ${industry} growth in ${city}. Specializing in multi-market programmatic systems and technical SEO hardening.`,
-        stats: ["12+ Years Exp.", "500M+ Revenue Driven"],
-    },
-    strategist: {
-        name: "Sarah Al-Rashed",
-        role: "Growth Strategist (GCC)",
-        bio: `Expert in ${city} market dynamics and ${industry} consumer behavior. Engineering hyper-local conversion funnels for the Gulf region.`,
-        stats: ["Top 1% GCC Strategist", "Vision 2030 Consultant"],
-    },
-};
-
-const persona =
-    type === "strategist" ? personae.strategist : personae.architect;
+// @ts-ignore
+const persona = getPersona(type, city, industry);
 ---
 
 <div

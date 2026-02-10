@@ -7,6 +7,7 @@
             "Off-Plan Projects",
             "Property Management"
         ],
+        "formQuestion": "Which property type are you targeting?",
         "techStack": [
             "Salesforce",
             "Property Finder",
@@ -86,6 +87,7 @@
             "Telehealth",
             "Medical Tourism"
         ],
+        "formQuestion": "What is your primary patient acquisition channel?",
         "techStack": [
             "Epic",
             "Cerner",
@@ -163,6 +165,7 @@
             "Downstream (Refining)",
             "Oilfield Services"
         ],
+        "formQuestion": "Do you require pre-qualification support?",
         "techStack": [
             "SAP",
             "Oracle",
@@ -241,6 +244,7 @@
             "Fintech Startups",
             "Insurance"
         ],
+        "formQuestion": "Are you currently regulated by the Central Bank?",
         "techStack": [
             "Temenos",
             "Mambu",
@@ -304,6 +308,7 @@
             "Product",
             "Consulting"
         ],
+        "formQuestion": "What is your primary growth bottleneck?",
         "techStack": [
             "CRM",
             "ERP",
@@ -313,7 +318,23 @@
             "generic": "Local Laws",
             "specific": "Sector specific"
         },
-        "operations": [],
+        "operations": [
+            {
+                "phase": "Acquisition",
+                "challenge": "Rising ad costs",
+                "solution": "Organic search dominance"
+            },
+            {
+                "phase": "Conversion",
+                "challenge": "Low lead quality",
+                "solution": "Intent-based filtering"
+            },
+            {
+                "phase": "Retention",
+                "challenge": "Customer churn",
+                "solution": "Automated engagement loops"
+            }
+        ],
         "personas": [
             "Customer",
             "Manager"

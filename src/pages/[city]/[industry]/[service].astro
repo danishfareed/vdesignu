@@ -7,9 +7,11 @@ import { services, industries, cities } from "../../../config/site-config";
 import servicesContent from "../../../data/services-content.json";
 
 // --- DEEP DATA MODULES ---
+// --- DEEP DATA MODULES ---
 import cityContext from "../../../data/city-context.json";
 import industryDeepDive from "../../../data/industry-deep-dive.json";
 import { getContextualFAQs } from "../../../data/faq-database";
+import { getPersona } from "../../../config/personas";
 
 export function getStaticPaths() {
   const paths = [];
@@ -48,6 +50,13 @@ const industryData =
 
 // 4. Generate 45+ Unique, Context-Aware FAQs
 const faqs = getContextualFAQs(city.slug, industry.slug, service.slug, 45);
+
+// 5. Get Expert Persona for Schema
+const expertType =
+  city.country === "UAE" || city.country === "Saudi Arabia"
+    ? "strategist"
+    : "architect";
+const expertMap = getPersona(expertType, city.name, industry.name);
 
 // Helper for dynamic string replacement
 const localize = (text: string) => {
@@ -88,9 +97,20 @@ const jsonLd = [
         addressCountry: city.country,
       },
     },
+    // Phase 9 Hardening: EEAT Signals
+    creator: {
+      "@type": "Person",
+      name: expertMap.name,
+      jobTitle: expertMap.role,
+      knowsAbout: industryData.vocabulary,
+    },
     areaServed: {
       "@type": "City",
       name: city.name,
+      containsPlace: cityData.districts?.map((d: string) => ({
+        "@type": "Place",
+        name: d,
+      })),
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -102,6 +122,11 @@ const jsonLd = [
           name: sub,
         },
       })),
+    },
+    knowsAbout: [industry.name, service.name, ...industryData.vocabulary],
+    audience: {
+      "@type": "BusinessAudience",
+      audienceType: industryData.personas,
     },
   },
   {
@@ -820,9 +845,12 @@ const jsonLd = [
       </div>
     </div>
   </section>
-  <ContextualLeadForm
-    industry={industry.name}
-    service={service.name}
-    city={city.name}
-  />
+  <section class="py-24 bg-[var(--bg-secondary)]" id="form-section">
+    <ContextualLeadForm
+      industry={industry.name}
+      service={service.name}
+      city={city.name}
+      question={industryData.formQuestion}
+    />
+  </section>
 </Layout>
