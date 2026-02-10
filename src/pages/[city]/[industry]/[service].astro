@@ -4,6 +4,7 @@ import ExpertPersona from "../../../components/ExpertPersona.astro";
 import DynamicCTA from "../../../components/DynamicCTA.astro";
 import ContextualLeadForm from "../../../components/ContextualLeadForm.astro";
 import { services, industries, cities } from "../../../config/site-config";
+import SolutionStack from "../../../components/SolutionStack.astro";
 import servicesContent from "../../../data/services-content.json";
 
 // --- DEEP DATA MODULES ---
@@ -743,114 +744,74 @@ const jsonLd = [
   </section>
 
   <!-- SECTION 8: SEMANTIC MESH (Solution Stack) -->
-  <section class="py-24 bg-[var(--bg-secondary)]">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="mb-16">
-        <h2
-          class="text-3xl md:text-5xl font-black italic uppercase tracking-tighter mb-4"
-        >
-          Complete the <span class="text-[var(--accent-red)]"
-            >{industry.name}</span
-          > Stack in {city.name}
-        </h2>
-        <p class="text-[var(--text-secondary)] font-medium italic">
-          High-velocity growth requires more than just {service.name}. Integrate
-          these technical layers for compound results.
-        </p>
-      </div>
+  <SolutionStack
+    currentService={service.slug}
+    city={city.name}
+    citySlug={city.slug}
+    industry={industry.name}
+    industrySlug={industry.slug}
+  />
 
-      <div class="grid md:grid-cols-3 gap-8 mb-24">
+  <!-- Regional Hubs & Global Pillars (Semantic Bottom Rail) -->
+  <div class="grid md:grid-cols-2 gap-8">
+    <div
+      class="p-10 bg-[var(--bg-primary)] rounded-[3rem] border border-[var(--border-subtle)]"
+    >
+      <h4
+        class="font-black uppercase tracking-widest text-xs mb-8 text-[var(--text-muted)]"
+      >
+        Regional {industry.name} Network
+      </h4>
+      <div class="flex flex-wrap gap-4">
         {
-          services
-            .filter((s) => s.slug !== service.slug)
-            .slice(0, 3)
-            .map((s) => (
+          cities
+            .filter((c) => c.slug !== city.slug)
+            .slice(0, 8)
+            .map((c) => (
               <a
-                href={`/${city.slug}/${industry.slug}/${s.slug}`}
-                class="group p-10 bg-[var(--bg-primary)] rounded-[3rem] border border-[var(--border-subtle)] hover:border-[var(--accent-red)] transition-all relative overflow-hidden"
+                href={`/${c.slug}/${industry.slug}/${service.slug}`}
+                class="text-xs font-bold uppercase tracking-tight hover:text-[var(--accent-red)] transition-colors py-2 px-4 bg-[var(--bg-secondary)] rounded-xl border border-[var(--border-subtle)]"
               >
-                <div class="relative z-10">
-                  <span class="block text-[10px] font-black uppercase tracking-[0.3em] text-[var(--accent-red)] mb-4">
-                    Integration Layer
-                  </span>
-                  <h3 class="text-2xl font-black italic uppercase tracking-tighter mb-4 group-hover:text-[var(--accent-red)] transition-colors">
-                    {s.name}
-                  </h3>
-                  <p class="text-sm text-[var(--text-secondary)] leading-relaxed italic mb-8">
-                    Optimize your {industry.name.toLowerCase()} operations with
-                    our proprietary {s.name.toLowerCase()} frameworks engineered
-                    for {city.name}.
-                  </p>
-                  <span class="font-black uppercase tracking-widest text-[10px] group-hover:pl-4 transition-all inline-block underline decoration-[var(--accent-red)] decoration-2 underline-offset-8">
-                    Deploy Solution &xrarr;
-                  </span>
-                </div>
+                {c.name} Hub
               </a>
             ))
         }
       </div>
+    </div>
 
-      <!-- Regional Hubs & Global Pillars (Semantic Bottom Rail) -->
-      <div class="grid md:grid-cols-2 gap-8">
-        <div
-          class="p-10 bg-[var(--bg-primary)] rounded-[3rem] border border-[var(--border-subtle)]"
+    <div
+      class="p-10 bg-[var(--accent-red)] text-white rounded-[3rem] group cursor-pointer overflow-hidden relative"
+      onclick={`window.location.href='/industries/${industry.slug}'`}
+    >
+      <div
+        class="absolute top-0 right-0 p-10 text-9xl font-black italic tracking-tighter opacity-10 group-hover:opacity-20 transition-opacity"
+      >
+        PILLAR
+      </div>
+      <div class="relative z-10">
+        <h3
+          class="text-4xl font-black italic uppercase tracking-tighter leading-none mb-6"
         >
-          <h4
-            class="font-black uppercase tracking-widest text-xs mb-8 text-[var(--text-muted)]"
-          >
-            Regional {industry.name} Network
-          </h4>
-          <div class="flex flex-wrap gap-4">
-            {
-              cities
-                .filter((c) => c.slug !== city.slug)
-                .slice(0, 8)
-                .map((c) => (
-                  <a
-                    href={`/${c.slug}/${industry.slug}/${service.slug}`}
-                    class="text-xs font-bold uppercase tracking-tight hover:text-[var(--accent-red)] transition-colors py-2 px-4 bg-[var(--bg-secondary)] rounded-xl border border-[var(--border-subtle)]"
-                  >
-                    {c.name} Hub
-                  </a>
-                ))
-            }
-          </div>
-        </div>
-
-        <div
-          class="p-10 bg-[var(--accent-red)] text-white rounded-[3rem] group cursor-pointer overflow-hidden relative"
-          onclick={`window.location.href='/industries/${industry.slug}'`}
+          Global {industry.name} Pillar
+        </h3>
+        <p class="text-base opacity-90 leading-relaxed italic mb-8">
+          Consolidating technical learnings from {cities.length} global markets into
+          one definitive strategy.
+        </p>
+        <span
+          class="inline-flex items-center gap-4 font-black uppercase tracking-widest text-sm group-hover:gap-8 transition-all"
+          >Explore Master Intelligence &xrarr;</span
         >
-          <div
-            class="absolute top-0 right-0 p-10 text-9xl font-black italic tracking-tighter opacity-10 group-hover:opacity-20 transition-opacity"
-          >
-            PILLAR
-          </div>
-          <div class="relative z-10">
-            <h3
-              class="text-4xl font-black italic uppercase tracking-tighter leading-none mb-6"
-            >
-              Global {industry.name} Pillar
-            </h3>
-            <p class="text-base opacity-90 leading-relaxed italic mb-8">
-              Consolidating technical learnings from {cities.length} global markets
-              into one definitive strategy.
-            </p>
-            <span
-              class="inline-flex items-center gap-4 font-black uppercase tracking-widest text-sm group-hover:gap-8 transition-all"
-              >Explore Master Intelligence &xrarr;</span
-            >
-          </div>
-        </div>
       </div>
     </div>
-  </section>
-  <section class="py-24 bg-[var(--bg-secondary)]" id="form-section">
-    <ContextualLeadForm
-      industry={industry.name}
-      service={service.name}
-      city={city.name}
-      question={industryData.formQuestion}
-    />
-  </section>
+  </div>
 </Layout>
+
+<section class="py-24 bg-[var(--bg-secondary)]" id="form-section">
+  <ContextualLeadForm
+    industry={industry.name}
+    service={service.name}
+    city={city.name}
+    question={industryData.formQuestion}
+  />
+</section>

@@ -1,0 +1,128 @@
+---
+interface Props {
+    currentService: string;
+    city: string; // e.g., "Dubai", "Riyadh"
+    citySlug: string; // e.g., "dubai", "riyadh"
+    industry: string; // e.g., "Real Estate", "Healthcare"
+    industrySlug: string; // e.g., "real-estate", "healthcare"
+}
+
+const { currentService, city, citySlug, industry, industrySlug } = Astro.props;
+
+// Define the Strategic Stack
+const stack = [
+    {
+        phase: "01. Foundation",
+        description: "Digital Infrastructure",
+        services: [
+            "branding-strategy",
+            "website-development",
+            "digital-platforms",
+        ],
+        primarySlug: "website-development",
+        icon: "🏗️",
+    },
+    {
+        phase: "02. Growth",
+        description: "Traffic & Authority",
+        services: ["seo", "ai-seo", "performance-media"],
+        primarySlug: "seo",
+        icon: "🚀",
+    },
+    {
+        phase: "03. Scale",
+        description: "retention & Automation",
+        services: ["crm-systems"],
+        primarySlug: "crm-systems",
+        icon: "⚙️",
+    },
+];
+
+// Find current phase
+const currentPhaseIndex = stack.findIndex((s) =>
+    s.services.includes(currentService),
+);
+---
+
+<section
+    class="py-24 bg-[var(--bg-secondary)] border-y border-[var(--border-subtle)] relative overflow-hidden"
+>
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="text-center mb-16">
+            <h2
+                class="text-4xl md:text-6xl font-black italic uppercase tracking-tighter mb-6"
+            >
+                The {industry} Growth <span class="text-[var(--accent-red)]"
+                    >Stack</span
+                >.
+            </h2>
+            <p
+                class="text-xl text-[var(--text-secondary)] font-medium max-w-3xl mx-auto"
+            >
+                Complete your digital transformation in {city}. You are
+                currently viewing the <span
+                    class="text-[var(--text-primary)] font-bold"
+                    >{stack[currentPhaseIndex]?.description}</span
+                > phase.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            {
+                stack.map((phase, index) => {
+                    const isCurrent = index === currentPhaseIndex;
+                    const isPast = index < currentPhaseIndex;
+                    const isFuture = index > currentPhaseIndex;
+
+                    // Determine the target URL
+                    // If it's the current phase, we stay here.
+                    // If it's another phase, we link to its primary service for this city/industry.
+                    const href = isCurrent
+                        ? "#"
+                        : `/${citySlug}/${industrySlug}/${phase.primarySlug}`;
+
+                    return (
+                        <a
+                            href={isCurrent ? undefined : href}
+                            class={`relative p-8 rounded-[2.5rem] border-2 transition-all duration-300 group ${
+                                isCurrent
+                                    ? "bg-[var(--bg-primary)] border-[var(--accent-red)] shadow-2xl scale-105"
+                                    : "bg-[var(--bg-card)] border-transparent hover:border-[var(--border-subtle)] opacity-60 hover:opacity-100 grayscale hover:grayscale-0"
+                            }`}
+                        >
+                            {isCurrent && (
+                                <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-[var(--accent-red)] text-white text-[10px] font-black uppercase tracking-widest rounded-full whitespace-nowrap shadow-lg">
+                                    You Are Here
+                                </div>
+                            )}
+
+                            <div class="flex flex-col items-center text-center">
+                                <div class="text-4xl mb-6">{phase.icon}</div>
+                                <h3 class="text-lg font-black uppercase tracking-tight mb-2">
+                                    {phase.phase}
+                                </h3>
+                                <p class="text-xs font-bold text-[var(--accent-red)] uppercase tracking-widest mb-4">
+                                    {phase.description}
+                                </p>
+                                <div class="text-sm text-[var(--text-secondary)] leading-relaxed">
+                                    {index === 0 &&
+                                        `Build a high-performance ${industry} platform compliant with ${city} regulations.`}
+                                    {index === 1 &&
+                                        `Drive high-intent ${industry} traffic from ${city} using AI-driven SEO.`}
+                                    {index === 2 &&
+                                        `Automate lead nurturing and close deals with a custom ${industry} CRM.`}
+                                </div>
+
+                                {!isCurrent && (
+                                    <div class="mt-8 text-xs font-black uppercase tracking-widest text-[var(--text-primary)] border-b border-[var(--accent-red)] pb-1 group-hover:text-[var(--accent-red)] transition-colors">
+                                        View Solution &rarr;
+                                    </div>
+                                )}
+                            </div>
+                        </a>
+                    );
+                })
+            }
+        </div>
+    </div>
+</section>
