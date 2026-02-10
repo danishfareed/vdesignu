@@ -1,0 +1,80 @@
+---
+const faqs = [
+    {
+        question: "Why choose vdesignu over a traditional agency?",
+        answer: "Traditional agencies sell 'hours' and 'campaigns'. We sell engineered growth systems. Our approach is technical first—we build high-performance infrastructure (sub-second websites, automated CRMs, AI-ready schema) that compounds in value over time. We don't just run ads; we build assets that you own.",
+    },
+    {
+        question: "Do you work with B2B or B2C companies?",
+        answer: "We specialize in both, but with distinct strategies. For B2B industrial leaders (Oil & Gas, Manufacturing), we focus on account-based marketing and long-cycle lead nurturing. For B2C brands (Retail, Healthcare), we focus on high-velocity localized SEO and instant conversion automation.",
+    },
+    {
+        question: "What is your pricing model?",
+        answer: "We operate on a 'Performance Infrastructure' model. We have fixed-cost packages for asset building (Websites, CRM setup) and retained partnerships for growth (SEO, Paid Media). We do not charge hidden fees or markups on your ad spend—you pay the platforms directly.",
+    },
+    {
+        question: "How quickly can we launch?",
+        answer: "Our 'Sprint 0' protocol gets us live in days, not months. We can deploy landing pages and ad campaigns within 72 hours while we build out your long-term organic infrastructure. Speed is a competitive advantage in the Gulf market, and our systems are built for velocity.",
+    },
+    {
+        question: "Are your services compliant with local regulations?",
+        answer: "Yes. We have deep expertise in GCC compliance, including MOH restrictions for healthcare, RERA advertising rules for real estate, and ZATCA integration for Saudi e-commerce. We ensure your digital growth is legally secure.",
+    },
+];
+
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+        },
+    })),
+};
+---
+
+<section
+    class="py-24 bg-[var(--bg-secondary)] border-t border-[var(--border-subtle)]"
+    id="faq"
+>
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <span
+                class="text-[var(--accent-red)] font-black uppercase tracking-widest text-xs mb-4 block"
+            >
+                Common Queries
+            </span>
+            <h2
+                class="text-4xl md:text-6xl font-black italic uppercase tracking-tighter"
+            >
+                Strategic <span class="text-[var(--text-muted)]">Clarity.</span>
+            </h2>
+        </div>
+
+        <div class="space-y-4">
+            {
+                faqs.map((faq, index) => (
+                    <details class="group bg-[var(--bg-primary)] border border-[var(--border-subtle)] rounded-2xl overflow-hidden hover:border-[var(--accent-red)] transition-all">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer list-none select-none">
+                            <h3 class="text-lg font-bold pr-8 leading-tight">
+                                {faq.question}
+                            </h3>
+                            <div class="w-8 h-8 rounded-full bg-[var(--bg-secondary)] flex items-center justify-center text-[var(--accent-red)] font-black group-open:-rotate-180 transition-transform">
+                                ↓
+                            </div>
+                        </summary>
+                        <div class="px-6 pb-6 text-[var(--text-secondary)] leading-relaxed border-t border-[var(--border-subtle)] pt-4">
+                            <p>{faq.answer}</p>
+                        </div>
+                    </details>
+                ))
+            }
+        </div>
+    </div>
+
+    <!-- Schema Injection -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+</section>

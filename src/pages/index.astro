@@ -5,13 +5,17 @@ import Results from "../components/home/Results.astro";
 import ServicesGrid from "../components/home/ServicesGrid.astro";
 import Story from "../components/home/Story.astro";
 import Process from "../components/home/Process.astro";
+import FAQ from "../components/home/FAQ.astro";
 import ContactSection from "../components/home/ContactSection.astro";
 import content from "../data/site-content.json";
 
 const { homepage } = content;
 ---
 
-<Layout title="B2B & B2C Digital Growth Partner" description={homepage.metaDescription}>
+<Layout
+  title="B2B & B2C Digital Growth Partner"
+  description={homepage.metaDescription}
+>
   <!-- Hero Section -->
   <Hero />
 
@@ -23,10 +27,13 @@ const { homepage } = content;
 
   <!-- Story Section - Authority & Why Us -->
   <Story />
-  
+
+  <!-- FAQ Section -->
+  <FAQ />
+
   <!-- Process Section -->
   <Process />
-  
+
   <!-- Contact Section -->
   <ContactSection />
 </Layout>
