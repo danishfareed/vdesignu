@@ -2,6 +2,8 @@
 import Layout from "../../layouts/Layout.astro";
 import { services, industries, cities } from "../../config/site-config";
 import { getEntry } from "astro:content";
+import TableOfContents from "../../components/pillar/TableOfContents.astro";
+import Callout from "../../components/pillar/Callout.astro";
 
 export function getStaticPaths() {
     return services.map((service) => ({
@@ -19,7 +21,7 @@ if (!entry) {
     throw new Error(`Service content not found for ${service}`);
 }
 
-const { Content } = await entry.render();
+const { Content, headings } = await entry.render();
 const { title, metaDescription, heroDescription, metrics, roadmap } =
     entry.data;
 ---
@@ -86,13 +88,159 @@ const { title, metaDescription, heroDescription, metrics, roadmap } =
 
     <!-- Master Content (Markdown Render) -->
     <section
-        class="py-24 bg-[var(--bg-secondary)] border-y border-[var(--border-subtle)]"
+        class="py-24 bg-[var(--bg-secondary)] border-y border-[var(--border-subtle)] relative"
     >
-        <div class="max-w-4xl mx-auto px-6">
-            <div
-                class="prose prose-xl dark:prose-invert text-[var(--text-secondary)] prose-headings:font-black prose-headings:italic prose-headings:uppercase prose-strong:text-[var(--text-primary)]"
-            >
-                <Content />
+        <div class="max-w-[1400px] mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-12">
+                <!-- COL 1: Sticky TOC (2 cols) -->
+                <aside class="hidden lg:block lg:col-span-3">
+                    <div class="sticky top-32">
+                        <TableOfContents headings={headings} />
+                    </div>
+                </aside>
+
+                <!-- COL 2: Main Content (6 cols) -->
+                <main class="lg:col-span-6 min-w-0">
+                    <div
+                        class="prose prose-lg dark:prose-invert max-w-none
+                        prose-headings:font-black prose-headings:italic prose-headings:uppercase
+                        prose-h1:text-5xl prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-6 prose-h2:border-b prose-h2:border-[var(--border-subtle)] prose-h2:pb-4
+                        prose-p:text-[var(--text-secondary)] prose-p:leading-loose prose-p:mb-6
+                        prose-li:text-[var(--text-secondary)]
+                        prose-strong:text-[var(--text-primary)] prose-strong:font-bold
+                        prose-code:text-[var(--accent-red)] prose-code:bg-[var(--bg-primary)] prose-code:px-1 prose-code:py-0.5 prose-code:rounded
+                        prose-blockquote:border-l-4 prose-blockquote:border-[var(--accent-red)] prose-blockquote:bg-[var(--bg-primary)] prose-blockquote:p-6 prose-blockquote:rounded-r-xl prose-blockquote:italic"
+                    >
+                        <Content components={{ Callout }} />
+                    </div>
+                </main>
+
+                <!-- COL 3: Sticky Sidebar (3 cols) -->
+                <aside class="hidden lg:block lg:col-span-3">
+                    <div class="sticky top-32 space-y-8">
+                        <!-- Key Metrics Card -->
+                        <div
+                            class="p-6 bg-[var(--bg-primary)] rounded-2xl border border-[var(--border-subtle)] shadow-xl relative overflow-hidden group"
+                        >
+                            <div
+                                class="absolute top-0 right-0 p-4 opacity-10 group-hover:rotate-12 transition-transform"
+                            >
+                                <svg
+                                    class="w-12 h-12"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                    ><path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                                    ></path></svg
+                                >
+                            </div>
+                            <h3
+                                class="text-xs font-black uppercase tracking-widest text-[var(--text-muted)] mb-6"
+                            >
+                                Exec Summary
+                            </h3>
+                            <div class="space-y-6">
+                                <div>
+                                    <div
+                                        class="text-3xl font-black italic text-[var(--accent-red)]"
+                                    >
+                                        {metrics.primary.value}
+                                    </div>
+                                    <div
+                                        class="text-xs font-bold uppercase text-[var(--text-secondary)]"
+                                    >
+                                        {metrics.primary.label}
+                                    </div>
+                                </div>
+                                <div>
+                                    <div
+                                        class="text-3xl font-black italic text-[var(--accent-yellow)]"
+                                    >
+                                        {metrics.secondary.value}
+                                    </div>
+                                    <div
+                                        class="text-xs font-bold uppercase text-[var(--text-secondary)]"
+                                    >
+                                        {metrics.secondary.label}
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="mt-8 pt-6 border-t border-[var(--border-subtle)]"
+                            >
+                                <a
+                                    href="#contact"
+                                    class="flex items-center justify-center w-full py-4 bg-[var(--text-primary)] text-[var(--bg-primary)] font-black uppercase tracking-widest text-xs rounded-xl hover:bg-[var(--accent-red)] transition-colors"
+                                >
+                                    Book Strategy Call
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Sub-Services Map -->
+                        <div
+                            class="p-6 bg-[var(--bg-primary)] rounded-2xl border border-[var(--border-subtle)]"
+                        >
+                            <h3
+                                class="text-xs font-black uppercase tracking-widest text-[var(--text-muted)] mb-6"
+                            >
+                                Expert Sub-Services
+                            </h3>
+                            <div class="space-y-3">
+                                {
+                                    [
+                                        "Omnichannel Comms",
+                                        "Data Unification",
+                                        "WhatsApp Business",
+                                        "Workflows",
+                                        "Lead Management",
+                                        "Campaigns",
+                                        "Live Chats",
+                                    ].map((sub) => (
+                                        <div class="flex items-center gap-3 text-xs font-bold uppercase text-[var(--text-secondary)]">
+                                            <div class="w-1.5 h-1.5 rounded-full bg-[var(--accent-red)]" />
+                                            {sub}
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                        </div>
+
+                        <!-- Author/Expert Card -->
+                        <div
+                            class="p-6 bg-[var(--bg-primary)] rounded-2xl border border-[var(--border-subtle)]"
+                        >
+                            <div class="flex items-center gap-4 mb-4">
+                                <div
+                                    class="w-12 h-12 bg-[var(--bg-secondary)] rounded-full flex items-center justify-center font-black italic border border-[var(--border-subtle)]"
+                                >
+                                    VD
+                                </div>
+                                <div>
+                                    <div class="font-bold text-sm">
+                                        vdesignu Engineering
+                                    </div>
+                                    <div
+                                        class="text-xs text-[var(--text-muted)]"
+                                    >
+                                        Verified Industry Expert
+                                    </div>
+                                </div>
+                            </div>
+                            <p
+                                class="text-xs text-[var(--text-secondary)] italic leading-relaxed"
+                            >
+                                "This guide is engineered for enterprise leaders
+                                who need technical truth, not marketing fluff.
+                                We solve for complexity."
+                            </p>
+                        </div>
+                    </div>
+                </aside>
             </div>
         </div>
     </section>

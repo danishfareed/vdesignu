@@ -2269,6 +2269,26 @@ export const tools: Tool[] = [
       "Export data for reporting."
     ]
   },
+  {
+    id: "search-location-changer",
+    name: "Search Location Changer (Chrome Extension)",
+    slug: "google-search-location-changer-chrome-extension",
+    description: "Instantly change your Google search location to see localized results from any country without proxies or VPNs.",
+    shortDescription: "Change Google search location",
+    categoryId: "local-seo",
+    tier: 1,
+    icon: "Globe2",
+    keywords: ["chrome extension", "search location", "local seo", "change location", "google regions"],
+    featured: true,
+    link: "/tools/google-search-location-changer-chrome-extension",
+    instructions: [
+      "Install the Chrome extension.",
+      "Click the extension icon in the toolbar.",
+      "Select a country (and language/region if supported).",
+      "Perform a Google search.",
+      "View location-modified results in a new tab."
+    ]
+  },
   // ==========================================
   // CATEGORY 8: IMAGE TOOLS (NEW)
   // ==========================================

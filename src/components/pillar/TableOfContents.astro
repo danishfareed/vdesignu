@@ -1,0 +1,29 @@
+---
+const { headings } = Astro.props;
+---
+
+<nav
+    class="hidden lg:block sticky top-32 max-h-[calc(100vh-8rem)] overflow-y-auto pr-4 scrollbar-thin scrollbar-thumb-[var(--border-subtle)]"
+>
+    <div
+        class="text-xs font-black uppercase tracking-widest text-[var(--accent-red)] mb-6"
+    >
+        On This Page
+    </div>
+    <ul class="space-y-3 text-sm">
+        {
+            headings.map((heading: any) => (
+                <li
+                    class={`pl-3 border-l-2 ${heading.depth === 2 ? "border-[var(--border-subtle)]" : "border-transparent ml-2"}`}
+                >
+                    <a
+                        href={`#${heading.slug}`}
+                        class="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors block leading-tight"
+                    >
+                        {heading.text}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</nav>

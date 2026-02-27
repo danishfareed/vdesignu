@@ -1,0 +1,46 @@
+---
+interface Props {
+    type?: "info" | "warning" | "tip" | "danger";
+    title?: string;
+}
+
+const { type = "info", title } = Astro.props;
+
+const styles = {
+    info: "bg-[var(--bg-secondary)] border-[var(--border-subtle)] text-[var(--text-primary)]",
+    warning: "bg-yellow-500/10 border-yellow-500/50 text-yellow-500",
+    tip: "bg-[var(--accent-red)]/5 border-[var(--accent-red)]/50 text-[var(--text-primary)]",
+    danger: "bg-red-500/10 border-red-500/50 text-red-500",
+};
+
+const iconStyles = {
+    info: "text-[var(--text-muted)]",
+    warning: "text-yellow-500",
+    tip: "text-[var(--accent-red)]",
+    danger: "text-red-500",
+};
+---
+
+<div
+    class={`p-6 my-8 rounded-2xl border ${styles[type]} relative overflow-hidden group`}
+>
+    <div class="relative z-10">
+        {
+            title && (
+                <div
+                    class={`text-sm font-black uppercase tracking-widest mb-2 flex items-center gap-2 ${iconStyles[type]}`}
+                >
+                    {type === "tip" && "💡 Pro Tip"}
+                    {type === "warning" && "⚠️ Caution"}
+                    {type === "danger" && "🛑 Critical"}
+                    {type === "info" && "ℹ️ Note"}
+                    {!["tip", "warning", "danger", "info"].includes(type) &&
+                        title}
+                </div>
+            )
+        }
+        <div class="prose prose-sm dark:prose-invert max-w-none">
+            <slot />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,707 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/georanker/Hero.astro"; // We can reuse or adapt for this page
+import ComparisonTable from "../../components/georanker/ComparisonTable.astro"; // We can repurpose or omit
+import FeaturesGrid from "../../components/georanker/FeaturesGrid.astro";
+import TechStack from "../../components/georanker/TechStack.astro";
+import InstallationGuide from "../../components/georanker/InstallationGuide.astro";
+import FAQ from "../../components/georanker/FAQ.astro";
+import ReportPreview from "../../components/georanker/ReportPreview.astro";
+
+// Specific components for search location changer
+// I will create inline components if needed, or build custom ones for this extension later.
+
+const seoTitle = "Search Location Changer (Chrome Extension) | vdesignu";
+const seoDescription =
+    "Instantly change your Google search location to see localized results from any country without proxies or VPNs. 100% Free and Open-Source.";
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+    <main class="overflow-x-hidden bg-[var(--bg-primary)]">
+        <!-- Hero Section -->
+        <section class="relative pt-40 pb-24 overflow-hidden">
+            <div
+                class="absolute top-0 right-0 w-[800px] h-[800px] bg-[var(--accent-red)]/5 rounded-full blur-[150px]"
+            >
+            </div>
+            <div
+                class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-red-600/5 rounded-full blur-[150px]"
+            >
+            </div>
+
+            <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--accent-red)]/10 text-[var(--accent-red)] text-xs font-black uppercase tracking-[0.3em] mb-10 border border-[var(--accent-red)]/20"
+                >
+                    <span
+                        class="w-2 h-2 rounded-full bg-[var(--accent-red)] animate-pulse"
+                    ></span>
+                    Chrome Extension
+                </div>
+
+                <h1
+                    class="text-5xl md:text-7xl lg:text-8xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-8 leading-[0.85]"
+                >
+                    See Google Search <br />
+                    Results From <span class="text-[var(--accent-red)]"
+                        >Any <br />Country</span
+                    >
+                </h1>
+
+                <p
+                    class="text-xl md:text-2xl text-[var(--text-secondary)] leading-relaxed max-w-3xl mx-auto mb-16 font-medium"
+                >
+                    Instantly change your search location and analyze
+                    region-specific SERPs—without proxies, VPNs, or changing
+                    your real IP.
+                </p>
+
+                <div
+                    class="flex flex-col sm:flex-row items-center justify-center gap-6"
+                >
+                    <a
+                        href="https://chromewebstore.google.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="px-10 py-5 bg-[var(--accent-red)] text-white font-black italic uppercase tracking-tighter text-xl rounded-xl hover:bg-black transition-all shadow-2xl active:scale-95 shadow-red-600/20 flex items-center gap-3 group"
+                    >
+                        <span>Install on Chrome</span>
+                        <svg
+                            class="w-6 h-6 group-hover:translate-x-1 transition-transform"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+
+                    <a
+                        href="https://github.com/danishfareed/search-location-changer"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="px-10 py-5 bg-[var(--bg-secondary)] border-2 border-[var(--border-subtle)] text-[var(--text-primary)] font-black italic uppercase tracking-tighter text-xl rounded-xl hover:border-[var(--text-primary)] transition-all active:scale-95 flex items-center gap-3 group"
+                    >
+                        <svg
+                            class="w-6 h-6"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"
+                            ></path>
+                        </svg>
+                        <span>View on GitHub</span>
+                    </a>
+                </div>
+                <p class="mt-6 text-sm text-[var(--text-muted)] font-medium">
+                    100% free, open-source, and community-driven.
+                </p>
+
+                <!-- App Image Preview -->
+                <div class="mt-24 relative max-w-5xl mx-auto perspective-1000">
+                    <div
+                        class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[var(--bg-primary)] to-transparent z-10 pointer-events-none"
+                    >
+                    </div>
+                    <div
+                        class="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-secondary)] shadow-2xl overflow-hidden transform-gpu hover:rotate-x-0 transition-transform duration-700 ease-out"
+                        style="transform: rotateX(5deg) scale(0.95); box-shadow: 0 50px 100px -20px rgba(220, 38, 38, 0.15);"
+                    >
+                        <!-- Will replace this src with true image from public/images/search-location-changer -->
+                        <img
+                            src="/images/search-location-changer/search-location-changer1.jpg"
+                            id="hero-image"
+                            alt="Search Location Changer Interface"
+                            class="w-full h-auto object-cover"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Tutorial Section -->
+        <section
+            class="py-24 bg-[var(--bg-primary)] border-t border-[var(--border-subtle)] relative overflow-hidden"
+        >
+            <div class="max-w-5xl mx-auto px-6 relative z-10">
+                <div class="text-center mb-16">
+                    <h2
+                        class="text-4xl md:text-5xl lg:text-6xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-6 leading-[0.9]"
+                    >
+                        See It in <span class="text-[var(--accent-red)]"
+                            >Action</span
+                        >
+                    </h2>
+                    <p
+                        class="text-xl text-[var(--text-secondary)] leading-relaxed max-w-2xl mx-auto font-medium"
+                    >
+                        Watch how easy it is to change your search location and
+                        analyze international search results in seconds.
+                    </p>
+                </div>
+
+                <div
+                    class="relative w-full rounded-3xl overflow-hidden border-2 border-[var(--border-subtle)] shadow-2xl bg-black aspect-video group"
+                >
+                    <iframe
+                        class="absolute inset-0 w-full h-full"
+                        src="https://www.youtube.com/embed/p6OZy-hrRkE?si=B5A1yA0pP5-B7k1U&rel=0&autoplay=0"
+                        title="Search Location Changer Tutorial"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- What it does Section -->
+        <section
+            class="py-24 bg-[var(--bg-secondary)] border-t border-[var(--border-subtle)] relative overflow-hidden"
+        >
+            <div
+                class="absolute top-1/2 left-0 w-[500px] h-[500px] bg-[var(--accent-red)]/5 rounded-full blur-[120px] -translate-y-1/2 -translate-x-1/2"
+            >
+            </div>
+
+            <div class="max-w-7xl mx-auto px-6 relative z-10">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2
+                            class="text-4xl md:text-5xl lg:text-6xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-8 leading-[0.9]"
+                        >
+                            Analyze <span class="text-[var(--accent-red)]"
+                                >International</span
+                            > SERPs with Ease
+                        </h2>
+                        <p
+                            class="text-xl text-[var(--text-secondary)] leading-relaxed mb-10 font-medium"
+                        >
+                            Search Location Changer changes the Google search
+                            location without changing your real IP or physical
+                            location. Works seamlessly via a Chrome extension
+                            popup. Your default SERP tab remains unchanged—the
+                            extension opens a new tab with results perfectly
+                            tailored to your selected country or region.
+                        </p>
+                        <p
+                            class="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--text-muted)] p-6 border-l-4 border-[var(--accent-red)] bg-[var(--bg-card)]"
+                        >
+                            *Note: This is not a VPN, but a lightweight,
+                            purpose-built search-location-changer designed for
+                            accuracy.
+                        </p>
+                    </div>
+
+                    <div class="grid gap-6">
+                        <!-- Feature Card 1 -->
+                        <div
+                            class="p-8 rounded-3xl bg-[var(--bg-card)] border-2 border-[var(--border-subtle)] hover:border-[var(--accent-red)] transition-all group"
+                        >
+                            <div
+                                class="w-16 h-16 rounded-2xl bg-[var(--bg-secondary)] border border-[var(--border-subtle)] flex items-center justify-center text-[var(--text-primary)] mb-6 group-hover:text-[var(--accent-red)] group-hover:scale-110 transition-all"
+                            >
+                                <svg
+                                    class="w-8 h-8"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                    ></path>
+                                </svg>
+                            </div>
+                            <h3
+                                class="text-2xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-4"
+                            >
+                                Reliable Localized SERPs
+                            </h3>
+                            <p
+                                class="text-[var(--text-secondary)] font-medium leading-relaxed"
+                            >
+                                Changes the Google search location parameters
+                                without affecting your real IP or physical
+                                location.
+                            </p>
+                        </div>
+
+                        <!-- Feature Card 2 -->
+                        <div
+                            class="p-8 rounded-3xl bg-[var(--bg-card)] border-2 border-[var(--border-subtle)] hover:border-[var(--accent-red)] transition-all group"
+                        >
+                            <div
+                                class="w-16 h-16 rounded-2xl bg-[var(--bg-secondary)] border border-[var(--border-subtle)] flex items-center justify-center text-[var(--text-primary)] mb-6 group-hover:text-[var(--accent-red)] group-hover:scale-110 transition-all"
+                            >
+                                <svg
+                                    class="w-8 h-8"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <h3
+                                class="text-2xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-4"
+                            >
+                                Seamless Experience
+                            </h3>
+                            <p
+                                class="text-[var(--text-secondary)] font-medium leading-relaxed"
+                            >
+                                Works natively via a lightweight Chrome
+                                extension popup, opening results in a
+                                non-disruptive fresh tab.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who It's For & Use Cases -->
+        <section
+            class="py-24 bg-[var(--bg-primary)] border-t border-[var(--border-subtle)]"
+        >
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-20">
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--text-primary)]/5 text-[var(--text-primary)] text-xs font-black uppercase tracking-[0.3em] mb-6 border border-[var(--border-subtle)]"
+                    >
+                        Use Cases
+                    </div>
+                    <h2
+                        class="text-4xl md:text-6xl lg:text-7xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] leading-[0.9]"
+                    >
+                        Built for <span class="text-[var(--accent-red)]"
+                            >Professionals</span
+                        >
+                    </h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+                    {
+                        [
+                            {
+                                title: "Local SEO Specialists",
+                                desc: "Check GBP rankings and map packs from any city without proxies.",
+                            },
+                            {
+                                title: "Multi-location Businesses",
+                                desc: "Monitor 10+ local locations across service areas instantly.",
+                            },
+                            {
+                                title: "Digital Agencies",
+                                desc: "Audit client performance in target markets (restaurants, auto services, home services).",
+                            },
+                            {
+                                title: "SEO Researchers",
+                                desc: "Analyze geo-specific ranking factors and local search signals.",
+                            },
+                            {
+                                title: "Digital Marketers",
+                                desc: "See trending topics and research what ranks in different countries.",
+                            },
+                            {
+                                title: "Curious Users",
+                                desc: "Explore localized search results effortlessly.",
+                            },
+                        ].map((item) => (
+                            <div class="p-8 rounded-3xl bg-[var(--bg-secondary)] border border-[var(--border-subtle)]">
+                                <h3 class="text-xl font-black uppercase tracking-tight text-[var(--text-primary)] mb-4 border-l-4 border-[var(--accent-red)] pl-4">
+                                    {item.title}
+                                </h3>
+                                <p class="text-[var(--text-secondary)] text-lg leading-relaxed">
+                                    {item.desc}
+                                </p>
+                            </div>
+                        ))
+                    }
+                </div>
+
+                <!-- Deep Dive: Local SEO -->
+                <div
+                    class="bg-[var(--accent-red)] text-white rounded-[3rem] p-12 lg:p-20 relative overflow-hidden"
+                >
+                    <div
+                        class="absolute top-0 right-0 w-[600px] h-[600px] bg-black/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"
+                    >
+                    </div>
+
+                    <div
+                        class="relative z-10 grid lg:grid-cols-2 gap-16 items-center"
+                    >
+                        <div>
+                            <h3
+                                class="text-4xl md:text-5xl font-black italic uppercase tracking-tighter mb-8 leading-[0.9]"
+                            >
+                                Perfect for Local SEO: <br />Check Rankings from
+                                Any City
+                            </h3>
+                            <ul class="space-y-6 mb-10">
+                                {
+                                    [
+                                        "Simulate 'service + city' searches from target locations to see your GBP in map packs.",
+                                        "Spot ranking issues from inconsistent citations, stale reviews, or weak social signals.",
+                                        "Monitor multi-location performance across 10+ GBPs without travel or complex setups.",
+                                        "Ideal for agencies optimizing local businesses in competitive markets.",
+                                    ].map((benefit) => (
+                                        <li class="flex items-start gap-4">
+                                            <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 mt-1">
+                                                <svg
+                                                    class="w-4 h-4 text-white"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    viewBox="0 0 24 24"
+                                                >
+                                                    <path
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="3"
+                                                        d="M5 13l4 4L19 7"
+                                                    />
+                                                </svg>
+                                            </div>
+                                            <p class="text-lg font-medium leading-relaxed">
+                                                {benefit}
+                                            </p>
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                            <a
+                                href="https://chromewebstore.google.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="inline-block px-8 py-4 bg-white text-[var(--accent-red)] font-black uppercase tracking-tighter text-lg rounded-xl hover:bg-black hover:text-white transition-all shadow-xl active:scale-95"
+                            >
+                                Test local rankings now →
+                            </a>
+                        </div>
+
+                        <div class="relative">
+                            <!-- Image spot for another image inside the app -->
+                            <div
+                                class="rounded-2xl overflow-hidden border-4 border-white/20 shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500"
+                            >
+                                <img
+                                    src="/images/search-location-changer/search-location-changer2.jpg"
+                                    id="feature-image"
+                                    alt="Local SEO Features"
+                                    class="w-full h-auto object-cover"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How it Works (Steps) -->
+        <section
+            class="py-24 bg-[var(--bg-secondary)] border-t border-[var(--border-subtle)]"
+        >
+            <div class="max-w-7xl mx-auto px-6 text-center">
+                <h2
+                    class="text-4xl md:text-6xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-16 leading-[0.9]"
+                >
+                    How it <span class="text-[var(--accent-red)]">Works</span>
+                </h2>
+
+                <div class="grid md:grid-cols-4 gap-8 relative">
+                    <div
+                        class="hidden md:block absolute top-12 left-[10%] right-[10%] h-0.5 bg-[var(--border-subtle)] -z-10"
+                    >
+                    </div>
+
+                    {
+                        [
+                            {
+                                step: "01",
+                                title: "Install",
+                                desc: "Add the Chrome extension to your browser.",
+                            },
+                            {
+                                step: "02",
+                                title: "Click",
+                                desc: "Open the extension icon in the toolbar.",
+                            },
+                            {
+                                step: "03",
+                                title: "Select",
+                                desc: "Choose a country (and language/region).",
+                            },
+                            {
+                                step: "04",
+                                title: "Search",
+                                desc: "Perform a Google search directly in the popup.",
+                            },
+                        ].map((item, idx) => (
+                            <div class="relative group">
+                                <div class="w-24 h-24 mx-auto bg-[var(--bg-primary)] border-4 border-[var(--border-subtle)] rounded-full flex items-center justify-center mb-6 group-hover:border-[var(--accent-red)] group-hover:bg-[var(--accent-red)] group-hover:text-white transition-all text-2xl font-black italic">
+                                    {item.step}
+                                </div>
+                                <h3 class="text-2xl font-black uppercase tracking-tight text-[var(--text-primary)] mb-3">
+                                    {item.title}
+                                </h3>
+                                <p class="text-[var(--text-secondary)] font-medium px-4">
+                                    {item.desc}
+                                </p>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Open Source & Support Section -->
+        <section
+            class="py-24 bg-[var(--bg-primary)] border-t border-[var(--border-subtle)]"
+        >
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-16">
+                    <!-- Open Source -->
+                    <div
+                        class="p-12 rounded-[3rem] bg-[var(--bg-secondary)] border border-[var(--border-subtle)]"
+                    >
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-[var(--text-primary)] text-[var(--bg-primary)] flex items-center justify-center mb-8"
+                        >
+                            <svg
+                                class="w-8 h-8"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    clip-rule="evenodd"
+                                    d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h3
+                            class="text-3xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-6"
+                        >
+                            Open-Source & Privacy
+                        </h3>
+                        <p
+                            class="text-[var(--text-secondary)] text-lg leading-relaxed mb-6"
+                        >
+                            Search Location Changer is <strong
+                                >100% open-source</strong
+                            >. The code is public, auditable, and developers are
+                            welcome to fork, review, and contribute.
+                        </p>
+                        <p
+                            class="text-[var(--text-secondary)] text-lg leading-relaxed mb-8"
+                        >
+                            We do not collect unnecessary personal data. The
+                            extension only reliably modifies your Google search
+                            location signals for SERPs—and nothing else.
+                        </p>
+                        <a
+                            href="https://github.com/danishfareed/search-location-changer"
+                            target="_blank"
+                            class="text-[var(--accent-red)] font-black uppercase tracking-widest text-sm hover:underline flex items-center gap-2"
+                        >
+                            View Repository on GitHub →
+                        </a>
+                    </div>
+
+                    <!-- Support -->
+                    <div
+                        class="p-12 rounded-[3rem] bg-[var(--bg-secondary)] border border-[var(--border-subtle)]"
+                    >
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-[var(--accent-red)] text-white flex items-center justify-center mb-8"
+                        >
+                            <svg
+                                class="w-8 h-8"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h3
+                            class="text-3xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] mb-6"
+                        >
+                            Support & Feedback
+                        </h3>
+                        <p
+                            class="text-[var(--text-secondary)] text-lg leading-relaxed mb-6"
+                        >
+                            We actively maintain the project through the
+                            open-source community. If you encounter any bugs, or
+                            have ideas for new features, we’d love to hear from
+                            you.
+                        </p>
+                        <div class="space-y-4 mb-8">
+                            <div
+                                class="p-4 rounded-xl bg-[var(--bg-primary)] border border-[var(--border-subtle)]"
+                            >
+                                <h4
+                                    class="font-bold text-[var(--text-primary)] uppercase tracking-tight mb-1"
+                                >
+                                    Have a bug?
+                                </h4>
+                                <p class="text-sm text-[var(--text-muted)]">
+                                    Open an issue on GitHub to let us know.
+                                </p>
+                            </div>
+                        </div>
+                        <a
+                            href="https://github.com/danishfareed/search-location-changer/issues"
+                            target="_blank"
+                            class="text-[var(--accent-red)] font-black uppercase tracking-widest text-sm hover:underline flex items-center gap-2"
+                        >
+                            Report Issues on GitHub →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section
+            class="py-24 bg-[var(--bg-secondary)] border-t border-[var(--border-subtle)]"
+        >
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2
+                        class="text-4xl md:text-6xl font-black italic uppercase tracking-tighter text-[var(--text-primary)] leading-[0.9]"
+                    >
+                        Frequently Asked <span class="text-[var(--accent-red)]"
+                            >Questions</span
+                        >
+                    </h2>
+                </div>
+
+                <div class="space-y-4">
+                    {
+                        [
+                            {
+                                q: "Does this change my real IP or location?",
+                                a: "No. It only safely modifies the search location parameters sent to Google for that specific query. Your real IP and device location stay exactly the same.",
+                            },
+                            {
+                                q: "Does it work for other search engines?",
+                                a: "Currently, it is optimized specifically for Google search results to provide the most accurate region representations.",
+                            },
+                            {
+                                q: "Is it free?",
+                                a: "Yes, it is completely free to use and 100% open-source.",
+                            },
+                            {
+                                q: "Is it safe to use?",
+                                a: "Absolutely. The codebase is transparent and fully auditable on GitHub. We don't track your browsing history or collect personal data.",
+                            },
+                            {
+                                q: "How does it handle languages in multi-language regions?",
+                                a: "You can easily select both the country and the language/region settings within the extension to ensure you get precisely the localized language results you need.",
+                            },
+                        ].map((faq, index) => (
+                            <details class="group border border-[var(--border-subtle)] bg-[var(--bg-primary)] rounded-2xl overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                                <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6 text-[var(--text-primary)] text-lg hover:text-[var(--accent-red)] transition-colors">
+                                    <span>{faq.q}</span>
+                                    <span class="transition group-open:rotate-180">
+                                        <svg
+                                            fill="none"
+                                            height="24"
+                                            stroke="currentColor"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            viewBox="0 0 24 24"
+                                            width="24"
+                                        >
+                                            <polyline points="6 9 12 15 18 9" />
+                                        </svg>
+                                    </span>
+                                </summary>
+                                <p class="text-[var(--text-secondary)] mt-0 p-6 pt-0 leading-relaxed font-medium">
+                                    {faq.a}
+                                </p>
+                            </details>
+                        ))
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section
+            class="py-32 bg-[var(--accent-red)] text-center relative overflow-hidden"
+        >
+            <div
+                class="absolute inset-0 grid-pattern opacity-10 pointer-events-none"
+            >
+            </div>
+            <div class="max-w-4xl mx-auto px-6 relative z-10">
+                <h2
+                    class="text-5xl md:text-7xl font-black italic uppercase tracking-tighter text-white mb-8 leading-[0.9]"
+                >
+                    Start Changing <br /> Your Search Location
+                </h2>
+                <p
+                    class="text-xl md:text-2xl text-white/90 mb-12 max-w-2xl mx-auto font-medium leading-relaxed"
+                >
+                    Analyze international search results for free, with our
+                    open-source tool built specifically for SEOs, researchers,
+                    and content creators.
+                </p>
+
+                <div
+                    class="flex flex-col sm:flex-row items-center justify-center gap-6"
+                >
+                    <a
+                        href="https://chromewebstore.google.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="px-12 py-5 bg-white text-[var(--accent-red)] font-black italic uppercase tracking-tighter text-xl rounded-xl hover:bg-black hover:text-white transition-all shadow-2xl active:scale-95 text-center w-full sm:w-auto"
+                    >
+                        Install on Chrome
+                    </a>
+                    <a
+                        href="https://github.com/danishfareed/search-location-changer"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="px-12 py-5 bg-transparent border-2 border-white/30 text-white font-black italic uppercase tracking-tighter text-xl rounded-xl hover:border-white transition-all active:scale-95 text-center w-full sm:w-auto"
+                    >
+                        Browse Code
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    .grid-pattern {
+        background-size: 40px 40px;
+        background-image:
+            linear-gradient(to right, currentColor 1px, transparent 1px),
+            linear-gradient(to bottom, currentColor 1px, transparent 1px);
+        color: var(--border-subtle);
+    }
+</style>
